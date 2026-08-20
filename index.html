@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dsh 插件商城 · Package Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --font-sans: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      
+      /* Dark theme defaults (pi.dev style) */
+      --bg-base: #09090b;
+      --bg-surface: #121215;
+      --bg-surface-raised: #18181c;
+      --bg-surface-hover: #202026;
+      --bg-code: #050507;
+      
+      --border-subtle: #222227;
+      --border-normal: #2e2e36;
+      --border-active: #3f3f4a;
+      
+      --text-primary: #f4f4f7;
+      --text-secondary: #9d9da8;
+      --text-tertiary: #676775;
+      
+      --accent: #10b981;
+      --accent-hover: #059669;
+      --accent-glow: rgba(16, 185, 129, 0.15);
+      
+      --badge-ext-bg: rgba(59, 130, 246, 0.12);
+      --badge-ext-text: #60a5fa;
+      --badge-skill-bg: rgba(168, 85, 247, 0.12);
+      --badge-skill-text: #c084fc;
+      --badge-theme-bg: rgba(236, 72, 153, 0.12);
+      --badge-theme-text: #f472b6;
+      --badge-prompt-bg: rgba(245, 158, 11, 0.12);
+      --badge-prompt-text: #fbbf24;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+      
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-raised: #f1f5f9;
+      --bg-surface-hover: #e2e8f0;
+      --bg-code: #0f172a;
+      
+      --border-subtle: #e2e8f0;
+      --border-normal: #cbd5e1;
+      --border-active: #94a3b8;
+      
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #94a3b8;
+      
+      --accent: #059669;
+      --accent-hover: #047857;
+      --accent-glow: rgba(5, 150, 105, 0.12);
+      
+      --badge-ext-bg: #eff6ff;
+      --badge-ext-text: #2563eb;
+      --badge-skill-bg: #faf5ff;
+      --badge-skill-text: #9333ea;
+      --badge-theme-bg: #fdf2f8;
+      --badge-theme-text: #db2777;
+      --badge-prompt-bg: #fffbeb;
+      --badge-prompt-text: #d97706;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 14.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-normal);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-active);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Header Nav */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    [data-theme="light"] .site-header {
+      background: rgba(248, 250, 252, 0.88);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    .logo-text {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface-raised);
+      color: var(--accent);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      font-family: var(--font-sans);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      border-color: var(--border-subtle);
+    }
+    .btn-ghost:hover {
+      background: var(--bg-surface-raised);
+      color: var(--text-primary);
+      border-color: var(--border-normal);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 16px var(--accent-glow);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .icon-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-normal);
+      background: var(--bg-surface-raised);
+    }
+
+    /* Main layout */
+    .main-content {
+      flex: 1;
+      padding: 40px 0 80px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      margin-bottom: 48px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .hero-desc code {
+      background: var(--bg-surface-raised);
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      color: var(--accent);
+      border: 1px solid var(--border-subtle);
+      font-weight: 500;
+    }
+
+    .hero-desc a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .hero-desc a:hover {
+      opacity: 0.85;
+    }
+
+    /* Card Panels */
+    .panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .panel-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-count {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      background: var(--bg-surface-raised);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .panel-body {
+      padding: 24px;
+    }
+
+    /* Recently Published Grid */
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .recent-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .recent-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      background: var(--bg-surface-hover);
+    }
+
+    .recent-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .recent-desc {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .recent-meta {
+      font-size: 11.5px;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+    }
+
+    /* Action Bar (Search & Filter) */
+    .action-bar {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    .input-text {
+      width: 100%;
+      height: 40px;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0 14px 0 40px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .input-text:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-glow);
+    }
+
+    .select-wrap {
+      position: relative;
+      min-width: 140px;
+    }
+
+    .select-control {
+      width: 100%;
+      height: 40px;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0 34px 0 14px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      transition: var(--transition);
+    }
+
+    .select-control:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-glow);
+    }
+
+    .select-caret {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Packages Grid */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .package-card {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .package-card:hover {
+      border-color: var(--border-active);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .package-card-preview {
+      height: 36px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .preview-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .preview-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border-normal);
+    }
+
+    .preview-type-tag {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .package-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .package-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .package-name {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    .package-name:hover {
+      color: var(--accent);
+    }
+
+    .package-version {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .package-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .package-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-extension {
+      background: var(--badge-ext-bg);
+      color: var(--badge-ext-text);
+    }
+    .badge-skill {
+      background: var(--badge-skill-bg);
+      color: var(--badge-skill-text);
+    }
+    .badge-theme {
+      background: var(--badge-theme-bg);
+      color: var(--badge-theme-text);
+    }
+    .badge-prompt {
+      background: var(--badge-prompt-bg);
+      color: var(--badge-prompt-text);
+    }
+
+    .package-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .package-link-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .package-link-item:hover {
+      color: var(--text-primary);
+    }
+
+    /* Install command bar */
+    .install-bar {
+      background: var(--bg-code);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px 6px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+    }
+
+    .install-cmd {
+      color: #93c5fd;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 8px;
+    }
+    .install-cmd span.prefix {
+      color: var(--text-tertiary);
+      user-select: none;
+      margin-right: 6px;
+    }
+
+    .copy-btn {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-normal);
+      color: var(--text-primary);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .copy-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .copy-btn.copied {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+
+    .page-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .page-btn:hover:not(:disabled) {
+      background: var(--bg-surface-hover);
+      color: var(--text-primary);
+      border-color: var(--border-normal);
+    }
+    .page-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Empty state */
+    .empty-state {
+      padding: 64px 24px;
+      text-align: center;
+      color: var(--text-secondary);
+      grid-column: 1 / -1;
+    }
+    .empty-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      background: var(--bg-surface);
+      margin-top: auto;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    /* Modal dialog */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-normal);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 680px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(12px) scale(0.98);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-backdrop.open .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .modal-body h4 {
+      color: var(--text-primary);
+      font-size: 15px;
+      margin: 18px 0 8px;
+    }
+    .modal-body h4:first-child {
+      margin-top: 0;
+    }
+
+    .modal-body ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    .modal-body li {
+      margin-bottom: 4px;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      background: var(--bg-surface-raised);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .recent-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .action-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .search-input-wrap {
+        grid-column: 1 / -1;
+      }
+      .action-buttons {
+        grid-column: 1 / -1;
+        justify-content: flex-end;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 1.85rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .recent-grid {
+        grid-template-columns: 1fr;
+      }
+      .action-bar {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Nav -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand-group">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span>dsh</span>
+              <span class="logo-badge">商城</span>
+            </div>
+          </a>
+
+          <nav class="nav-links">
+            <a href="#" class="nav-link active">插件商场</a>
+            <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" class="nav-link">Wiki 文档</a>
+            <a href="javascript:void(0)" onclick="openPublishModal()" class="nav-link">发布规范</a>
+          </nav>
+        </div>
+
+        <div class="nav-actions">
+          <button id="themeToggleBtn" class="icon-btn" title="切换明暗主题" aria-label="Toggle theme">
+            <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg id="sunIcon" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <button class="btn btn-ghost" onclick="openPublishModal()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            发布插件
+          </button>
+
+          <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" class="icon-btn" title="GitHub Wiki 索引">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Hero -->
+      <section class="hero-section">
+        <h1 class="hero-title">dsh 插件商城</h1>
+        <p class="hero-desc">
+          探索通过 GitHub <code>topic:dsh-plugin</code> 标签自动收录的扩展、技能、提示词模板及主题。使用 <code>dsh install &lt;owner/repo&gt;</code> 极速安装，或查阅 <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank">GitHub Wiki 完整索引</a>。
+        </p>
+      </section>
+
+      <!-- Recently Published -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            最近发布
+          </h2>
+          <span class="panel-count">精选上新</span>
+        </div>
+        <div class="panel-body">
+          <div class="recent-grid" id="recentGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- All Packages -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            所有插件
+          </h2>
+          <span class="panel-count" id="packageStatsCount">正在加载...</span>
+        </div>
+
+        <div class="panel-body">
+          <!-- Action Bar: Search & Filter -->
+          <div class="action-bar">
+            <div class="search-input-wrap">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="search" id="searchInput" class="input-text" placeholder="搜索插件名称、描述或标签…" autocomplete="off">
+            </div>
+
+            <div class="select-wrap">
+              <select id="typeFilter" class="select-control">
+                <option value="">全部类型</option>
+                <option value="extension">扩展 (Extension)</option>
+                <option value="skill">技能 (Skill)</option>
+                <option value="theme">主题 (Theme)</option>
+                <option value="prompt">提示词 (Prompt)</option>
+              </select>
+              <svg class="select-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+
+            <div class="select-wrap">
+              <select id="sortFilter" class="select-control">
+                <option value="downloads">最多下载</option>
+                <option value="recent">最近更新</option>
+                <option value="name">插件名称 (A-Z)</option>
+              </select>
+              <svg class="select-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+
+            <div class="action-buttons">
+              <button id="resetBtn" class="btn btn-ghost" style="height:40px;">重置</button>
+            </div>
+          </div>
+
+          <!-- Packages Grid -->
+          <div class="packages-grid" id="packagesGrid">
+            <!-- Rendered by JS -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination" id="pagination">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <span>© 2026 dsh Ecosystem. 遵循 Apache-2.0 开源许可.</span>
+        </div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">关于 dsh</a>
+          <a href="#" class="footer-link">插件规范</a>
+          <a href="#" class="footer-link">MCP 协议</a>
+          <a href="#" class="footer-link">官方社区</a>
+          <a href="#" class="footer-link">状态监控</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Package Detail Modal -->
+  <div class="modal-backdrop" id="detailModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <h3 id="modalPkgName" style="font-size:1.3rem; font-weight:700; color:var(--text-primary);"></h3>
+            <span id="modalPkgBadge" class="badge"></span>
+          </div>
+          <span id="modalPkgMeta" style="font-size:12.5px; color:var(--text-secondary); font-family:var(--font-mono);"></span>
+        </div>
+        <button class="icon-btn" onclick="closeDetailModal()">✕</button>
+      </div>
+
+      <div class="modal-body" id="modalPkgBody">
+        <!-- Injected by JS -->
+      </div>
+
+      <div class="modal-footer">
+        <div class="install-bar" style="flex:1;">
+          <code class="install-cmd" id="modalInstallCmd"><span class="prefix">$</span> dsh install <span id="modalCmdTarget"></span></code>
+          <button class="copy-btn" id="modalCopyBtn">复制命令</button>
+        </div>
+        <button class="btn btn-ghost" onclick="closeDetailModal()">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publish Info Modal -->
+  <div class="modal-backdrop" id="publishModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size:1.25rem; font-weight:700;">发布与收录 dsh 插件</h3>
+        <button class="icon-btn" onclick="closePublishModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <h4>📦 自动发现机制</h4>
+        <p>dsh 采用基于 <b>GitHub Topics</b> 的开放收录标准。无需人工提交 PR 或注册账号，只需为公开仓库打上标签：</p>
+        
+        <div style="background:var(--bg-code); padding:12px; border-radius:6px; margin:12px 0; font-family:var(--font-mono); font-size:13px; color:#34d399;">
+          GitHub Topic: <b>dsh-plugin</b>
+        </div>
+
+        <h4>🏷️ 细分类型标签（可选）</h4>
+        <ul>
+          <li><code>dsh-skill</code>: Agent 智能体技能与工具集</li>
+          <li><code>dsh-mcp</code>: Model Context Protocol (MCP) 服务</li>
+          <li><code>dsh-theme</code>: 终端配色与高亮主题</li>
+          <li><code>dsh-prompt</code>: 结构化 Prompt 预设模板</li>
+        </ul>
+
+        <h4>⏱️ 同步周期</h4>
+        <p style="margin-top:6px;">GitHub Actions 自动化机器人每 1 小时全网扫描并同步更新本商城与 <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" style="color:var(--accent); text-decoration:underline;">GitHub Wiki</a>。</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closePublishModal()">了解完毕</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Dynamic Plugins Dataset from topic:dsh-plugin ---
+    let pluginsData = [];
+    const EXCLUDED_REPOS = [
+      'deepseek-ai/deepseek-harness',
+      'deepseek-harness'
+    ];
+
+    let currentPage = 1;
+    const pageSize = 9;
+    let filteredList = [];
+
+    // --- DOM Elements ---
+    const recentGrid = document.getElementById("recentGrid");
+    const packagesGrid = document.getElementById("packagesGrid");
+    const paginationEl = document.getElementById("pagination");
+    const searchInput = document.getElementById("searchInput");
+    const typeFilter = document.getElementById("typeFilter");
+    const sortFilter = document.getElementById("sortFilter");
+    const resetBtn = document.getElementById("resetBtn");
+    const packageStatsCount = document.getElementById("packageStatsCount");
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const moonIcon = document.getElementById("moonIcon");
+    const sunIcon = document.getElementById("sunIcon");
+
+    // Modal Elements
+    const detailModal = document.getElementById("detailModal");
+    const publishModal = document.getElementById("publishModal");
+    const modalPkgName = document.getElementById("modalPkgName");
+    const modalPkgBadge = document.getElementById("modalPkgBadge");
+    const modalPkgMeta = document.getElementById("modalPkgMeta");
+    const modalPkgBody = document.getElementById("modalPkgBody");
+    const modalCmdTarget = document.getElementById("modalCmdTarget");
+    const modalCopyBtn = document.getElementById("modalCopyBtn");
+
+    // Format stars / numbers
+    function formatNumber(num) {
+      if (num >= 1000) {
+        return (num / 1000).toFixed(1) + "k";
+      }
+      return (num || 0).toLocaleString();
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return "近期";
+      try {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString("zh-CN", { year: "numeric", month: "short", day: "numeric" });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    // Type badge label & class helper
+    function getTypeBadge(type) {
+      const map = {
+        extension: { label: "extension 扩展", class: "badge-extension" },
+        skill: { label: "skill 技能", class: "badge-skill" },
+        mcp: { label: "mcp 协议", class: "badge-mcp" },
+        theme: { label: "theme 主题", class: "badge-theme" },
+        prompt: { label: "prompt 提示词", class: "badge-prompt" }
+      };
+      return map[type] || { label: type || "extension", class: "badge-extension" };
+    }
+
+    // --- Render Recently Published ---
+    function renderRecent() {
+      const recent = [...pluginsData]
+        .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0))
+        .slice(0, 4);
+
+      if (recent.length === 0) {
+        recentGrid.innerHTML = `<div style="grid-column:1/-1; color:var(--text-tertiary);">加载中...</div>`;
+        return;
+      }
+
+      recentGrid.innerHTML = recent.map(pkg => `
+        <div class="recent-card" onclick="openDetailModal('${pkg.id}')">
+          <div>
+            <div class="recent-title">
+              <span>${pkg.name}</span>
+              <span class="badge ${getTypeBadge(pkg.type).class}" style="font-size:10px; padding:1px 6px;">${pkg.type}</span>
+            </div>
+            <p class="recent-desc">${pkg.description || "暂无描述"}</p>
+          </div>
+          <div class="recent-meta">
+            <span>@${pkg.author}</span>
+            <span>⭐ ${formatNumber(pkg.stars)}</span>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // --- Filter & Sort Logic ---
+    function applyFilters() {
+      const q = searchInput.value.trim().toLowerCase();
+      const type = typeFilter.value;
+      const sort = sortFilter.value;
+
+      filteredList = pluginsData.filter(pkg => {
+        const matchType = !type || pkg.type === type;
+        const matchSearch = !q || 
+          (pkg.name && pkg.name.toLowerCase().includes(q)) ||
+          (pkg.fullName && pkg.fullName.toLowerCase().includes(q)) ||
+          (pkg.description && pkg.description.toLowerCase().includes(q)) ||
+          (pkg.author && pkg.author.toLowerCase().includes(q)) ||
+          (pkg.tags && pkg.tags.some(t => t.toLowerCase().includes(q)));
+        return matchType && matchSearch;
+      });
+
+      // Sort
+      if (sort === "downloads" || sort === "stars") {
+        filteredList.sort((a, b) => (b.stars || 0) - (a.stars || 0));
+      } else if (sort === "recent") {
+        filteredList.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+      } else if (sort === "name") {
+        filteredList.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      currentPage = 1;
+      renderPackages();
+    }
+
+    // --- Render Packages Grid ---
+    function renderPackages() {
+      const total = filteredList.length;
+      const totalPages = Math.ceil(total / pageSize) || 1;
+      
+      const startIdx = (currentPage - 1) * pageSize;
+      const endIdx = Math.min(startIdx + pageSize, total);
+      const currentItems = filteredList.slice(startIdx, endIdx);
+
+      if (total === 0) {
+        packageStatsCount.textContent = "0 / 0 个插件";
+      } else {
+        packageStatsCount.textContent = `${startIdx + 1}-${endIdx} / ${total} 个插件`;
+      }
+
+      if (total === 0) {
+        packagesGrid.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <h3>未找到符合条件的插件</h3>
+            <p style="margin-top: 6px;">请尝试调整关键词或重置筛选条件</p>
+          </div>
+        `;
+        paginationEl.innerHTML = "";
+        return;
+      }
+
+      packagesGrid.innerHTML = currentItems.map(pkg => {
+        const badgeInfo = getTypeBadge(pkg.type);
+        const installCmd = pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`;
+
+        return `
+          <article class="package-card" data-id="${pkg.id}">
+            <div class="package-card-preview">
+              <div class="preview-dots">
+                <span class="preview-dot"></span>
+                <span class="preview-dot"></span>
+                <span class="preview-dot"></span>
+              </div>
+              <span class="preview-type-tag">${pkg.type}</span>
+            </div>
+
+            <div class="package-card-body">
+              <div class="package-title-row">
+                <h3 class="package-name" onclick="openDetailModal('${pkg.id}')">${pkg.name}</h3>
+                <span class="package-version">⭐ ${formatNumber(pkg.stars)}</span>
+              </div>
+
+              <p class="package-desc">${pkg.description || "暂无描述"}</p>
+
+              <div class="package-meta">
+                <span class="meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                  ${pkg.author}
+                </span>
+
+                <span class="meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  ${formatDate(pkg.updatedAt)}
+                </span>
+
+                <span class="badge ${badgeInfo.class}">${badgeInfo.label}</span>
+              </div>
+
+              <div class="package-links">
+                <a href="${pkg.repoUrl}" target="_blank" rel="noopener" class="package-link-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                  </svg>
+                  GitHub 仓库
+                </a>
+                <a href="javascript:void(0)" onclick="openDetailModal('${pkg.id}')" class="package-link-item" style="margin-left:auto; color:var(--accent);">
+                  查看详情 →
+                </a>
+              </div>
+
+              <div class="install-bar">
+                <code class="install-cmd"><span class="prefix">$</span> ${installCmd}</code>
+                <button class="copy-btn" onclick="copyCommand('${installCmd}', this)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>复制</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      if (totalPages <= 1) {
+        paginationEl.innerHTML = "";
+        return;
+      }
+
+      let html = `
+        <button class="page-btn" ${currentPage === 1 ? "disabled" : ""} onclick="changePage(${currentPage - 1})">
+          ‹
+        </button>
+      `;
+
+      for (let i = 1; i <= totalPages; i++) {
+        html += `
+          <button class="page-btn ${i === currentPage ? "active" : ""}" onclick="changePage(${i})">
+            ${i}
+          </button>
+        `;
+      }
+
+      html += `
+        <button class="page-btn" ${currentPage === totalPages ? "disabled" : ""} onclick="changePage(${currentPage + 1})">
+          ›
+        </button>
+      `;
+
+      paginationEl.innerHTML = html;
+    }
+
+    function changePage(page) {
+      const totalPages = Math.ceil(filteredList.length / pageSize) || 1;
+      if (page < 1 || page > totalPages) return;
+      currentPage = page;
+      renderPackages();
+      document.querySelector(".panel:nth-of-type(2)").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // --- Clipboard Helper ---
+    function copyCommand(text, btnElement) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btnElement.innerHTML;
+        btnElement.classList.add("copied");
+        btnElement.innerHTML = `
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>已复制</span>
+        `;
+        setTimeout(() => {
+          btnElement.classList.remove("copied");
+          btnElement.innerHTML = originalText;
+        }, 1800);
+      }).catch(err => {
+        console.error("Copy failed", err);
+      });
+    }
+
+    // --- Modals Logic ---
+    function openDetailModal(pkgId) {
+      const pkg = pluginsData.find(p => p.id === pkgId);
+      if (!pkg) return;
+
+      const badgeInfo = getTypeBadge(pkg.type);
+      modalPkgName.textContent = pkg.name;
+      modalPkgBadge.className = `badge ${badgeInfo.class}`;
+      modalPkgBadge.textContent = badgeInfo.label;
+      modalPkgMeta.textContent = `仓库: ${pkg.fullName || pkg.name} · ⭐ ${formatNumber(pkg.stars)} Stars · License: ${pkg.license || "开源"}`;
+
+      modalCmdTarget.textContent = pkg.fullName || pkg.name;
+      modalCopyBtn.onclick = function() {
+        copyCommand(pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`, this);
+      };
+
+      modalPkgBody.innerHTML = `
+        <h4>📖 功能概述</h4>
+        <p>${pkg.description || "暂无详细描述"}</p>
+        
+        <h4>🏷️ Topic 标签</h4>
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+          <span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); color:var(--accent);">#dsh-plugin</span>
+          ${(pkg.tags || []).map(t => `<span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); color:var(--text-secondary);">#${t}</span>`).join("")}
+        </div>
+
+        <h4>🔗 开源索引</h4>
+        <p style="margin-top:6px;">
+          <a href="${pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline;">GitHub 仓库主页</a> · 
+          <a href="${pkg.readmeUrl || pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline;">查看 Raw README.md</a>
+        </p>
+      `;
+
+      detailModal.classList.add("open");
+    }
+
+    function closeDetailModal() {
+      detailModal.classList.remove("open");
+    }
+
+    function openPublishModal() {
+      publishModal.classList.add("open");
+    }
+    function closePublishModal() {
+      publishModal.classList.remove("open");
+    }
+
+    // Close modal when clicking outside
+    [detailModal, publishModal].forEach(modal => {
+      modal.addEventListener("click", e => {
+        if (e.target === modal) {
+          modal.classList.remove("open");
+        }
+      });
+    });
+
+    // --- Theme Switcher ---
+    function initTheme() {
+      const saved = localStorage.getItem("dsh_theme") || "dark";
+      setTheme(saved);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("dsh_theme", theme);
+      if (theme === "dark") {
+        moonIcon.style.display = "block";
+        sunIcon.style.display = "none";
+      } else {
+        moonIcon.style.display = "none";
+        sunIcon.style.display = "block";
+      }
+    }
+
+    themeToggleBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+
+    // --- Data Fetching & App Init ---
+    async function loadPlugins() {
+      // 1. Try local data/plugins.json
+      try {
+        const res = await fetch('./data/plugins.json');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.plugins && json.plugins.length > 0) {
+            pluginsData = json.plugins;
+            renderRecent();
+            applyFilters();
+            return;
+          }
+        }
+      } catch (err) {
+        console.warn("fetch ./data/plugins.json skipped, falling back to GitHub API", err);
+      }
+
+      // 2. Fallback to GitHub Search API
+      try {
+        const res = await fetch('https://api.github.com/search/repositories?q=topic:dsh-plugin+is:public&sort=stars&order=desc&per_page=100');
+        if (res.ok) {
+          const data = await res.json();
+          const items = (data.items || []).filter(repo => {
+            const fullName = (repo.full_name || '').toLowerCase();
+            const repoName = (repo.name || '').toLowerCase();
+            return !EXCLUDED_REPOS.some(ex => fullName === ex.toLowerCase() || repoName === ex.toLowerCase());
+          });
+
+          pluginsData = items.map(repo => {
+            const topics = repo.topics || [];
+            let type = 'extension';
+            const lowerTopics = topics.map(t => t.toLowerCase());
+            if (lowerTopics.includes('dsh-skill') || lowerTopics.includes('skill')) type = 'skill';
+            else if (lowerTopics.includes('dsh-mcp') || lowerTopics.includes('mcp')) type = 'mcp';
+            else if (lowerTopics.includes('dsh-theme') || lowerTopics.includes('theme')) type = 'theme';
+            else if (lowerTopics.includes('dsh-prompt') || lowerTopics.includes('prompt')) type = 'prompt';
+
+            return {
+              id: repo.name,
+              name: repo.name,
+              fullName: repo.full_name,
+              description: repo.description || '暂无描述',
+              author: repo.owner ? repo.owner.login : 'unknown',
+              repoUrl: repo.html_url,
+              stars: repo.stargazers_count || 0,
+              forks: repo.forks_count || 0,
+              license: repo.license ? repo.license.spdx_id || repo.license.name : 'Unknown',
+              updatedAt: repo.updated_at,
+              tags: topics.filter(t => t.toLowerCase() !== 'dsh-plugin'),
+              type: type,
+              installCmd: `dsh install ${repo.full_name}`,
+              readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`
+            };
+          });
+
+          renderRecent();
+          applyFilters();
+          return;
+        }
+      } catch (err) {
+        console.error("GitHub API search error", err);
+      }
+
+      // 3. Fallback to minimal data
+      pluginsData = [
+        {
+          id: "dsh-mcp-adapter",
+          name: "dsh-mcp-adapter",
+          fullName: "dsh-contrib/dsh-mcp-adapter",
+          type: "mcp",
+          author: "dsh-contrib",
+          stars: 1280,
+          description: "Model Context Protocol (MCP) 原生适配扩展",
+          repoUrl: "https://github.com",
+          tags: ["mcp"],
+          installCmd: "dsh install dsh-contrib/dsh-mcp-adapter",
+          updatedAt: new Date().toISOString()
+        }
+      ];
+      renderRecent();
+      applyFilters();
+    }
+
+    // --- Event Listeners ---
+    let searchDebounce;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(applyFilters, 150);
+    });
+
+    typeFilter.addEventListener("change", applyFilters);
+    sortFilter.addEventListener("change", applyFilters);
+    
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      typeFilter.value = "";
+      sortFilter.value = "downloads";
+      applyFilters();
+    });
+
+    // ESC key to close modals
+    window.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        closeDetailModal();
+        closePublishModal();
+      }
+    });
+
+    // Initialization
+    initTheme();
+    loadPlugins();
+  </script>
+</body>
+</html>
