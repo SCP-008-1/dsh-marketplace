@@ -1,6 +1,7 @@
 {
-  "updatedAt": "2026-08-20T12:12:07.242Z",
+  "updatedAt": "2026-08-20T12:22:36.099Z",
   "total": 99,
+  "npmCount": 46,
   "plugins": [
     {
       "id": "open-design",
@@ -11,11 +12,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/263625318?v=4",
       "authorUrl": "https://github.com/nexu-io",
       "repoUrl": "https://github.com/nexu-io/open-design",
-      "stars": 89567,
+      "stars": 89574,
       "forks": 10328,
       "openIssues": 795,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-20T12:11:21Z",
+      "updatedAt": "2026-08-20T12:21:54Z",
       "createdAt": "2026-04-28T04:25:20Z",
       "defaultBranch": "main",
       "tags": [
@@ -40,7 +41,11 @@
         "vibe-coding"
       ],
       "type": "extension",
-      "installCmd": "dsh install nexu-io/open-design",
+      "hasNpm": true,
+      "npmName": "open-design",
+      "npmUrl": "https://www.npmjs.com/package/open-design",
+      "version": "0.19.2",
+      "installCmd": "npm i open-design",
       "readmeUrl": "https://raw.githubusercontent.com/nexu-io/open-design/main/README.md"
     },
     {
@@ -52,11 +57,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/1134738?v=4",
       "authorUrl": "https://github.com/amruthpillai",
       "repoUrl": "https://github.com/amruthpillai/reactive-resume",
-      "stars": 41269,
+      "stars": 41270,
       "forks": 4636,
       "openIssues": 108,
       "license": "MIT",
-      "updatedAt": "2026-08-20T11:54:45Z",
+      "updatedAt": "2026-08-20T12:17:33Z",
       "createdAt": "2020-03-25T14:08:22Z",
       "defaultBranch": "main",
       "tags": [
@@ -71,7 +76,11 @@
         "typescript"
       ],
       "type": "extension",
-      "installCmd": "dsh install amruthpillai/reactive-resume",
+      "hasNpm": true,
+      "npmName": "reactive-resume",
+      "npmUrl": "https://www.npmjs.com/package/reactive-resume",
+      "version": "2.6.3",
+      "installCmd": "npm i reactive-resume",
       "readmeUrl": "https://raw.githubusercontent.com/amruthpillai/reactive-resume/main/README.md"
     },
     {
@@ -83,11 +92,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/18465053?v=4",
       "authorUrl": "https://github.com/esengine",
       "repoUrl": "https://github.com/esengine/DeepSeek-Reasonix",
-      "stars": 34916,
+      "stars": 34915,
       "forks": 2317,
       "openIssues": 1475,
       "license": "MIT",
-      "updatedAt": "2026-08-20T12:12:16Z",
+      "updatedAt": "2026-08-20T12:19:41Z",
       "createdAt": "2026-04-21T08:27:02Z",
       "defaultBranch": "main-v2",
       "tags": [
@@ -110,7 +119,11 @@
         "typescript"
       ],
       "type": "extension",
-      "installCmd": "dsh install esengine/DeepSeek-Reasonix",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:esengine/DeepSeek-Reasonix",
       "readmeUrl": "https://raw.githubusercontent.com/esengine/DeepSeek-Reasonix/main-v2/README.md"
     },
     {
@@ -122,11 +135,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/67365215?v=4",
       "authorUrl": "https://github.com/volcengine",
       "repoUrl": "https://github.com/volcengine/OpenViking",
-      "stars": 30757,
-      "forks": 2374,
+      "stars": 30761,
+      "forks": 2375,
       "openIssues": 473,
       "license": "AGPL-3.0",
-      "updatedAt": "2026-08-20T12:10:20Z",
+      "updatedAt": "2026-08-20T12:19:30Z",
       "createdAt": "2026-01-05T07:11:17Z",
       "defaultBranch": "main",
       "tags": [
@@ -137,7 +150,11 @@
         "self-evolving"
       ],
       "type": "extension",
-      "installCmd": "dsh install volcengine/OpenViking",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:volcengine/OpenViking",
       "readmeUrl": "https://raw.githubusercontent.com/volcengine/OpenViking/main/README.md"
     },
     {
@@ -149,11 +166,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/85022018?v=4",
       "authorUrl": "https://github.com/titanwings",
       "repoUrl": "https://github.com/titanwings/colleague-skill",
-      "stars": 23616,
+      "stars": 23617,
       "forks": 2094,
       "openIssues": 37,
       "license": "MIT",
-      "updatedAt": "2026-08-20T11:58:36Z",
+      "updatedAt": "2026-08-20T12:19:57Z",
       "createdAt": "2026-03-30T05:22:23Z",
       "defaultBranch": "dot-skill",
       "tags": [
@@ -176,7 +193,11 @@
         "skill-generator"
       ],
       "type": "extension",
-      "installCmd": "dsh install titanwings/colleague-skill",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:titanwings/colleague-skill",
       "readmeUrl": "https://raw.githubusercontent.com/titanwings/colleague-skill/dot-skill/README.md"
     },
     {
@@ -210,7 +231,11 @@
         "safari-extension"
       ],
       "type": "extension",
-      "installCmd": "dsh install Nagi-ovo/voyager",
+      "hasNpm": true,
+      "npmName": "voyager",
+      "npmUrl": "https://www.npmjs.com/package/voyager",
+      "version": "0.4.13",
+      "installCmd": "npm i voyager",
       "readmeUrl": "https://raw.githubusercontent.com/Nagi-ovo/voyager/main/README.md"
     },
     {
@@ -222,11 +247,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/286827603?v=4",
       "authorUrl": "https://github.com/anywhere-labs",
       "repoUrl": "https://github.com/anywhere-labs/deepseek-harness-desktop",
-      "stars": 16136,
+      "stars": 16149,
       "forks": 763,
-      "openIssues": 197,
+      "openIssues": 198,
       "license": "MIT",
-      "updatedAt": "2026-08-20T12:12:04Z",
+      "updatedAt": "2026-08-20T12:22:02Z",
       "createdAt": "2026-08-13T16:30:50Z",
       "defaultBranch": "master",
       "tags": [
@@ -239,7 +264,11 @@
         "dsh-plugin-desktop"
       ],
       "type": "extension",
-      "installCmd": "dsh install anywhere-labs/deepseek-harness-desktop",
+      "hasNpm": true,
+      "npmName": "deepseek-harness-desktop",
+      "npmUrl": "https://www.npmjs.com/package/deepseek-harness-desktop",
+      "version": "0.4.1",
+      "installCmd": "npm i deepseek-harness-desktop",
       "readmeUrl": "https://raw.githubusercontent.com/anywhere-labs/deepseek-harness-desktop/master/README.md"
     },
     {
@@ -251,11 +280,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/53142663?v=4",
       "authorUrl": "https://github.com/tt-a1i",
       "repoUrl": "https://github.com/tt-a1i/archify",
-      "stars": 14659,
+      "stars": 14661,
       "forks": 1056,
-      "openIssues": 21,
+      "openIssues": 20,
       "license": "MIT",
-      "updatedAt": "2026-08-20T12:07:23Z",
+      "updatedAt": "2026-08-20T12:19:54Z",
       "createdAt": "2026-04-15T05:27:37Z",
       "defaultBranch": "main",
       "tags": [
@@ -280,7 +309,11 @@
         "text-to-diagram"
       ],
       "type": "extension",
-      "installCmd": "dsh install tt-a1i/archify",
+      "hasNpm": true,
+      "npmName": "archify",
+      "npmUrl": "https://www.npmjs.com/package/archify",
+      "version": "0.0.4",
+      "installCmd": "npm i archify",
       "readmeUrl": "https://raw.githubusercontent.com/tt-a1i/archify/main/README.md"
     },
     {
@@ -292,11 +325,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/271878417?v=4",
       "authorUrl": "https://github.com/walkinglabs",
       "repoUrl": "https://github.com/walkinglabs/learn-harness-engineering",
-      "stars": 13005,
+      "stars": 13008,
       "forks": 1338,
       "openIssues": 7,
       "license": "MIT",
-      "updatedAt": "2026-08-20T12:07:02Z",
+      "updatedAt": "2026-08-20T12:17:52Z",
       "createdAt": "2026-03-29T12:28:19Z",
       "defaultBranch": "main",
       "tags": [
@@ -313,7 +346,11 @@
         "llm"
       ],
       "type": "extension",
-      "installCmd": "dsh install walkinglabs/learn-harness-engineering",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0",
+      "installCmd": "npm i github:walkinglabs/learn-harness-engineering",
       "readmeUrl": "https://raw.githubusercontent.com/walkinglabs/learn-harness-engineering/main/README.md"
     },
     {
@@ -325,11 +362,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/229275294?v=4",
       "authorUrl": "https://github.com/EverMind-AI",
       "repoUrl": "https://github.com/EverMind-AI/EverOS",
-      "stars": 12239,
-      "forks": 898,
+      "stars": 12240,
+      "forks": 897,
       "openIssues": 73,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-20T11:52:12Z",
+      "updatedAt": "2026-08-20T12:16:24Z",
       "createdAt": "2025-10-28T15:09:32Z",
       "defaultBranch": "main",
       "tags": [
@@ -351,7 +388,11 @@
         "skills"
       ],
       "type": "mcp",
-      "installCmd": "dsh install EverMind-AI/EverOS",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:EverMind-AI/EverOS",
       "readmeUrl": "https://raw.githubusercontent.com/EverMind-AI/EverOS/main/README.md"
     },
     {
@@ -363,11 +404,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/43960064?v=4",
       "authorUrl": "https://github.com/freestylefly",
       "repoUrl": "https://github.com/freestylefly/awesome-gpt-image-2",
-      "stars": 11426,
+      "stars": 11427,
       "forks": 1303,
       "openIssues": 10,
       "license": "MIT",
-      "updatedAt": "2026-08-20T12:08:18Z",
+      "updatedAt": "2026-08-20T12:14:16Z",
       "createdAt": "2026-04-25T09:19:13Z",
       "defaultBranch": "main",
       "tags": [
@@ -382,7 +423,11 @@
         "workflow-automation"
       ],
       "type": "extension",
-      "installCmd": "dsh install freestylefly/awesome-gpt-image-2",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.0.0",
+      "installCmd": "npm i github:freestylefly/awesome-gpt-image-2",
       "readmeUrl": "https://raw.githubusercontent.com/freestylefly/awesome-gpt-image-2/main/README.md"
     },
     {
@@ -395,7 +440,7 @@
       "authorUrl": "https://github.com/MemTensor",
       "repoUrl": "https://github.com/MemTensor/MemOS",
       "stars": 10836,
-      "forks": 999,
+      "forks": 998,
       "openIssues": 75,
       "license": "Apache-2.0",
       "updatedAt": "2026-08-20T12:10:50Z",
@@ -423,7 +468,11 @@
         "token-savings"
       ],
       "type": "mcp",
-      "installCmd": "dsh install MemTensor/MemOS",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:MemTensor/MemOS",
       "readmeUrl": "https://raw.githubusercontent.com/MemTensor/MemOS/main/README.md"
     },
     {
@@ -435,11 +484,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/316603077?v=4",
       "authorUrl": "https://github.com/awesome-dsh-plugin",
       "repoUrl": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
-      "stars": 10467,
-      "forks": 1549,
+      "stars": 10471,
+      "forks": 1550,
       "openIssues": 222,
       "license": "CC0-1.0",
-      "updatedAt": "2026-08-20T12:12:11Z",
+      "updatedAt": "2026-08-20T12:22:01Z",
       "createdAt": "2026-08-13T13:55:31Z",
       "defaultBranch": "main",
       "tags": [
@@ -449,7 +498,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install awesome-dsh-plugin/awesome-dsh-plugin",
+      "hasNpm": true,
+      "npmName": "awesome-dsh-plugin",
+      "npmUrl": "https://www.npmjs.com/package/awesome-dsh-plugin",
+      "version": "0.1.0",
+      "installCmd": "npm i awesome-dsh-plugin",
       "readmeUrl": "https://raw.githubusercontent.com/awesome-dsh-plugin/awesome-dsh-plugin/main/README.md"
     },
     {
@@ -487,7 +540,11 @@
         "tool-use"
       ],
       "type": "mcp",
-      "installCmd": "dsh install YaoApp/yao",
+      "hasNpm": true,
+      "npmName": "yao",
+      "npmUrl": "https://www.npmjs.com/package/yao",
+      "version": "0.0.1",
+      "installCmd": "npm i yao",
       "readmeUrl": "https://raw.githubusercontent.com/YaoApp/yao/main/README.md"
     },
     {
@@ -500,7 +557,7 @@
       "authorUrl": "https://github.com/Q00",
       "repoUrl": "https://github.com/Q00/ouroboros",
       "stars": 5587,
-      "forks": 559,
+      "forks": 558,
       "openIssues": 59,
       "license": "MIT",
       "updatedAt": "2026-08-20T11:32:14Z",
@@ -527,7 +584,11 @@
         "opencode"
       ],
       "type": "mcp",
-      "installCmd": "dsh install Q00/ouroboros",
+      "hasNpm": true,
+      "npmName": "ouroboros",
+      "npmUrl": "https://www.npmjs.com/package/ouroboros",
+      "version": "3.4.0",
+      "installCmd": "npm i ouroboros",
       "readmeUrl": "https://raw.githubusercontent.com/Q00/ouroboros/main/README.md"
     },
     {
@@ -568,7 +629,11 @@
         "vibedesign"
       ],
       "type": "skill",
-      "installCmd": "dsh install ZSeven-W/openpencil",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:ZSeven-W/openpencil",
       "readmeUrl": "https://raw.githubusercontent.com/ZSeven-W/openpencil/main/README.md"
     },
     {
@@ -580,11 +645,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/46916148?v=4",
       "authorUrl": "https://github.com/zhu1090093659",
       "repoUrl": "https://github.com/zhu1090093659/dsh-web-ui",
-      "stars": 5078,
+      "stars": 5084,
       "forks": 308,
-      "openIssues": 51,
+      "openIssues": 50,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-20T12:11:07Z",
+      "updatedAt": "2026-08-20T12:19:39Z",
       "createdAt": "2026-08-12T05:15:20Z",
       "defaultBranch": "dev",
       "tags": [
@@ -593,7 +658,11 @@
         "web-ui"
       ],
       "type": "extension",
-      "installCmd": "dsh install zhu1090093659/dsh-web-ui",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.1",
+      "installCmd": "npm i github:zhu1090093659/dsh-web-ui",
       "readmeUrl": "https://raw.githubusercontent.com/zhu1090093659/dsh-web-ui/dev/README.md"
     },
     {
@@ -631,7 +700,11 @@
         "visual-editor"
       ],
       "type": "extension",
-      "installCmd": "dsh install Devin-AXIS/iPolloWork",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.18.0",
+      "installCmd": "npm i github:Devin-AXIS/iPolloWork",
       "readmeUrl": "https://raw.githubusercontent.com/Devin-AXIS/iPolloWork/main/README.md"
     },
     {
@@ -668,7 +741,11 @@
         "vercel"
       ],
       "type": "extension",
-      "installCmd": "dsh install crafter-station/petdex",
+      "hasNpm": true,
+      "npmName": "petdex",
+      "npmUrl": "https://www.npmjs.com/package/petdex",
+      "version": "1.2.2",
+      "installCmd": "npm i petdex",
       "readmeUrl": "https://raw.githubusercontent.com/crafter-station/petdex/main/README.md"
     },
     {
@@ -693,7 +770,11 @@
         "llm-agent"
       ],
       "type": "extension",
-      "installCmd": "dsh install xiaobright/dsh-anchored-standard",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0",
+      "installCmd": "npm i github:xiaobright/dsh-anchored-standard",
       "readmeUrl": "https://raw.githubusercontent.com/xiaobright/dsh-anchored-standard/main/README.md"
     },
     {
@@ -728,7 +809,11 @@
         "virtual-filesystem"
       ],
       "type": "extension",
-      "installCmd": "dsh install strukto-ai/mirage",
+      "hasNpm": true,
+      "npmName": "mirage",
+      "npmUrl": "https://www.npmjs.com/package/mirage",
+      "version": "0.0.7",
+      "installCmd": "npm i mirage",
       "readmeUrl": "https://raw.githubusercontent.com/strukto-ai/mirage/main/README.md"
     },
     {
@@ -740,11 +825,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/83945823?v=4",
       "authorUrl": "https://github.com/liustack",
       "repoUrl": "https://github.com/liustack/modlens",
-      "stars": 3362,
+      "stars": 3365,
       "forks": 90,
       "openIssues": 2,
       "license": "MIT",
-      "updatedAt": "2026-08-20T11:59:12Z",
+      "updatedAt": "2026-08-20T12:19:03Z",
       "createdAt": "2026-02-22T07:12:00Z",
       "defaultBranch": "main",
       "tags": [
@@ -769,7 +854,11 @@
         "vision-transformer"
       ],
       "type": "extension",
-      "installCmd": "dsh install liustack/modlens",
+      "hasNpm": true,
+      "npmName": "@liustack/modlens",
+      "npmUrl": "https://www.npmjs.com/package/@liustack/modlens",
+      "version": "3.22.0",
+      "installCmd": "npm i @liustack/modlens",
       "readmeUrl": "https://raw.githubusercontent.com/liustack/modlens/main/README.md"
     },
     {
@@ -799,7 +888,11 @@
         "zcode"
       ],
       "type": "extension",
-      "installCmd": "dsh install edison7009/EchoBird",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "5.6.5",
+      "installCmd": "npm i github:edison7009/EchoBird",
       "readmeUrl": "https://raw.githubusercontent.com/edison7009/EchoBird/main/README.md"
     },
     {
@@ -811,11 +904,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/307182956?v=4",
       "authorUrl": "https://github.com/Tiger3807861189",
       "repoUrl": "https://github.com/Tiger3807861189/J-Space-Cognition-Suite-V3.6",
-      "stars": 2981,
+      "stars": 2984,
       "forks": 201,
       "openIssues": 38,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-20T11:38:17Z",
+      "updatedAt": "2026-08-20T12:16:59Z",
       "createdAt": "2026-07-22T00:34:24Z",
       "defaultBranch": "main",
       "tags": [
@@ -839,7 +932,11 @@
         "tailwindcss"
       ],
       "type": "extension",
-      "installCmd": "dsh install Tiger3807861189/J-Space-Cognition-Suite-V3.6",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Tiger3807861189/J-Space-Cognition-Suite-V3.6",
       "readmeUrl": "https://raw.githubusercontent.com/Tiger3807861189/J-Space-Cognition-Suite-V3.6/main/README.md"
     },
     {
@@ -880,7 +977,11 @@
         "zhihu"
       ],
       "type": "extension",
-      "installCmd": "dsh install whiteguo233/OpenBiliClaw",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:whiteguo233/OpenBiliClaw",
       "readmeUrl": "https://raw.githubusercontent.com/whiteguo233/OpenBiliClaw/main/README.md"
     },
     {
@@ -892,11 +993,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/251585801?v=4",
       "authorUrl": "https://github.com/foryourhealth111-pixel",
       "repoUrl": "https://github.com/foryourhealth111-pixel/Vibe-Skills",
-      "stars": 2922,
+      "stars": 2923,
       "forks": 235,
       "openIssues": 35,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-20T10:25:57Z",
+      "updatedAt": "2026-08-20T12:12:24Z",
       "createdAt": "2026-02-22T13:51:44Z",
       "defaultBranch": "main",
       "tags": [
@@ -921,7 +1022,11 @@
         "workflow-automation"
       ],
       "type": "extension",
-      "installCmd": "dsh install foryourhealth111-pixel/Vibe-Skills",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:foryourhealth111-pixel/Vibe-Skills",
       "readmeUrl": "https://raw.githubusercontent.com/foryourhealth111-pixel/Vibe-Skills/main/README.md"
     },
     {
@@ -945,7 +1050,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install imsai-sh/zhuzhiliao",
+      "hasNpm": true,
+      "npmName": "zhuzhiliao",
+      "npmUrl": "https://www.npmjs.com/package/zhuzhiliao",
+      "version": "0.5.0",
+      "installCmd": "npm i zhuzhiliao",
       "readmeUrl": "https://raw.githubusercontent.com/imsai-sh/zhuzhiliao/main/README.md"
     },
     {
@@ -972,7 +1081,11 @@
         "sidebar"
       ],
       "type": "extension",
-      "installCmd": "dsh install omdsh-dev/DSH-better-sidebar",
+      "hasNpm": true,
+      "npmName": "dsh-better-sidebar",
+      "npmUrl": "https://www.npmjs.com/package/dsh-better-sidebar",
+      "version": "0.14.0",
+      "installCmd": "npm i dsh-better-sidebar",
       "readmeUrl": "https://raw.githubusercontent.com/omdsh-dev/DSH-better-sidebar/main/README.md"
     },
     {
@@ -1002,7 +1115,11 @@
         "skills"
       ],
       "type": "extension",
-      "installCmd": "dsh install chuspeeism/dashi-taskboard",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.1.2",
+      "installCmd": "npm i github:chuspeeism/dashi-taskboard",
       "readmeUrl": "https://raw.githubusercontent.com/chuspeeism/dashi-taskboard/main/README.md"
     },
     {
@@ -1014,11 +1131,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/268149062?v=4",
       "authorUrl": "https://github.com/ccch1mneyyy",
       "repoUrl": "https://github.com/ccch1mneyyy/dsh-TUI",
-      "stars": 2153,
+      "stars": 2156,
       "forks": 92,
       "openIssues": 58,
       "license": "MIT",
-      "updatedAt": "2026-08-20T12:12:16Z",
+      "updatedAt": "2026-08-20T12:21:53Z",
       "createdAt": "2026-08-13T12:49:31Z",
       "defaultBranch": "main",
       "tags": [
@@ -1032,7 +1149,11 @@
         "tui"
       ],
       "type": "extension",
-      "installCmd": "dsh install ccch1mneyyy/dsh-TUI",
+      "hasNpm": true,
+      "npmName": "@deepseek-harness-tui/dsh-tui",
+      "npmUrl": "https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui",
+      "version": "0.8.6",
+      "installCmd": "npm i @deepseek-harness-tui/dsh-tui",
       "readmeUrl": "https://raw.githubusercontent.com/ccch1mneyyy/dsh-TUI/main/README.md"
     },
     {
@@ -1046,7 +1167,7 @@
       "repoUrl": "https://github.com/GCWing/BitFun",
       "stars": 1800,
       "forks": 197,
-      "openIssues": 103,
+      "openIssues": 102,
       "license": "MIT",
       "updatedAt": "2026-08-20T09:03:09Z",
       "createdAt": "2026-02-02T09:52:10Z",
@@ -1066,7 +1187,11 @@
         "vibe-coding"
       ],
       "type": "extension",
-      "installCmd": "dsh install GCWing/BitFun",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.2.18",
+      "installCmd": "npm i github:GCWing/BitFun",
       "readmeUrl": "https://raw.githubusercontent.com/GCWing/BitFun/main/README.md"
     },
     {
@@ -1089,14 +1214,18 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install Small-tailqwq/dsh-deep-whale",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Small-tailqwq/dsh-deep-whale",
       "readmeUrl": "https://raw.githubusercontent.com/Small-tailqwq/dsh-deep-whale/main/README.md"
     },
     {
       "id": "last30days-skill-cn",
       "name": "last30days-skill-cn",
       "fullName": "Jesseovo/last30days-skill-cn",
-      "description": "last30days-cn 是一个 AI Agent 技能（Skill），能够自动搜索中国互联网 8 大主流平台最近 30 天的内容，综合分析后生成有据可查的研究报告。",
+      "description": "last30days-cn 是一个 AI Agent 技能（Skill），能够自动搜索中国互联网 8 大主流平台最近 30 天的内容，综合分析后���成有据可查的研究报告。",
       "author": "Jesseovo",
       "authorAvatar": "https://avatars.githubusercontent.com/u/153301783?v=4",
       "authorUrl": "https://github.com/Jesseovo",
@@ -1118,7 +1247,11 @@
         "web-search"
       ],
       "type": "extension",
-      "installCmd": "dsh install Jesseovo/last30days-skill-cn",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Jesseovo/last30days-skill-cn",
       "readmeUrl": "https://raw.githubusercontent.com/Jesseovo/last30days-skill-cn/main/README.md"
     },
     {
@@ -1156,7 +1289,11 @@
         "vox"
       ],
       "type": "extension",
-      "installCmd": "dsh install Alisa0808/vox-director",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.0.0",
+      "installCmd": "npm i github:Alisa0808/vox-director",
       "readmeUrl": "https://raw.githubusercontent.com/Alisa0808/vox-director/main/README.md"
     },
     {
@@ -1197,7 +1334,11 @@
         "test-quality"
       ],
       "type": "extension",
-      "installCmd": "dsh install hyhmrright/brooks-lint",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.5.0",
+      "installCmd": "npm i github:hyhmrright/brooks-lint",
       "readmeUrl": "https://raw.githubusercontent.com/hyhmrright/brooks-lint/main/README.md"
     },
     {
@@ -1221,7 +1362,11 @@
         "marketplace"
       ],
       "type": "extension",
-      "installCmd": "dsh install dsh-market/dsh-market",
+      "hasNpm": true,
+      "npmName": "dshmarket",
+      "npmUrl": "https://www.npmjs.com/package/dshmarket",
+      "version": "1.16.0",
+      "installCmd": "npm i dshmarket",
       "readmeUrl": "https://raw.githubusercontent.com/dsh-market/dsh-market/main/README.md"
     },
     {
@@ -1248,7 +1393,11 @@
         "plugin-registry"
       ],
       "type": "extension",
-      "installCmd": "dsh install AdamPlatin123/awesome-dsh-plugins",
+      "hasNpm": true,
+      "npmName": "awesome-dsh-plugins",
+      "npmUrl": "https://www.npmjs.com/package/awesome-dsh-plugins",
+      "version": "0.0.1",
+      "installCmd": "npm i awesome-dsh-plugins",
       "readmeUrl": "https://raw.githubusercontent.com/AdamPlatin123/awesome-dsh-plugins/main/README.md"
     },
     {
@@ -1260,11 +1409,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/18461506?v=4",
       "authorUrl": "https://github.com/Tencent",
       "repoUrl": "https://github.com/Tencent/BrowserSkill",
-      "stars": 1212,
+      "stars": 1213,
       "forks": 99,
       "openIssues": 29,
       "license": "MIT",
-      "updatedAt": "2026-08-20T11:23:02Z",
+      "updatedAt": "2026-08-20T12:13:41Z",
       "createdAt": "2026-06-22T07:24:40Z",
       "defaultBranch": "main",
       "tags": [
@@ -1272,7 +1421,11 @@
         "browser-use"
       ],
       "type": "extension",
-      "installCmd": "dsh install Tencent/BrowserSkill",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Tencent/BrowserSkill",
       "readmeUrl": "https://raw.githubusercontent.com/Tencent/BrowserSkill/main/README.md"
     },
     {
@@ -1293,7 +1446,11 @@
       "defaultBranch": "main",
       "tags": [],
       "type": "extension",
-      "installCmd": "dsh install mem9-ai/mem9",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:mem9-ai/mem9",
       "readmeUrl": "https://raw.githubusercontent.com/mem9-ai/mem9/main/README.md"
     },
     {
@@ -1327,7 +1484,11 @@
         "typescript"
       ],
       "type": "mcp",
-      "installCmd": "dsh install alvinunreal/openpets",
+      "hasNpm": true,
+      "npmName": "openpets",
+      "npmUrl": "https://www.npmjs.com/package/openpets",
+      "version": "1.0.13",
+      "installCmd": "npm i openpets",
       "readmeUrl": "https://raw.githubusercontent.com/alvinunreal/openpets/main/README.md"
     },
     {
@@ -1354,7 +1515,11 @@
         "swift"
       ],
       "type": "extension",
-      "installCmd": "dsh install paean-ai/deeptide",
+      "hasNpm": true,
+      "npmName": "deeptide",
+      "npmUrl": "https://www.npmjs.com/package/deeptide",
+      "version": "0.11.8",
+      "installCmd": "npm i deeptide",
       "readmeUrl": "https://raw.githubusercontent.com/paean-ai/deeptide/main/README.md"
     },
     {
@@ -1366,11 +1531,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/270256433?v=4",
       "authorUrl": "https://github.com/agentrq",
       "repoUrl": "https://github.com/agentrq/agentrq",
-      "stars": 1083,
+      "stars": 1084,
       "forks": 79,
       "openIssues": 16,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-20T06:48:52Z",
+      "updatedAt": "2026-08-20T12:15:27Z",
       "createdAt": "2026-03-24T08:35:45Z",
       "defaultBranch": "main",
       "tags": [
@@ -1394,7 +1559,11 @@
         "todo"
       ],
       "type": "mcp",
-      "installCmd": "dsh install agentrq/agentrq",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:agentrq/agentrq",
       "readmeUrl": "https://raw.githubusercontent.com/agentrq/agentrq/main/README.md"
     },
     {
@@ -1432,7 +1601,11 @@
         "spec-kit"
       ],
       "type": "extension",
-      "installCmd": "dsh install GanyuanRan/Aegis",
+      "hasNpm": true,
+      "npmName": "aegis",
+      "npmUrl": "https://www.npmjs.com/package/aegis",
+      "version": "0.1.0",
+      "installCmd": "npm i aegis",
       "readmeUrl": "https://raw.githubusercontent.com/GanyuanRan/Aegis/main/README.md"
     },
     {
@@ -1467,7 +1640,11 @@
         "vision-language-model"
       ],
       "type": "extension",
-      "installCmd": "dsh install Anionex/agent-vision-toolkit",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Anionex/agent-vision-toolkit",
       "readmeUrl": "https://raw.githubusercontent.com/Anionex/agent-vision-toolkit/main/README.md"
     },
     {
@@ -1483,7 +1660,7 @@
       "forks": 134,
       "openIssues": 5,
       "license": "MIT",
-      "updatedAt": "2026-08-20T09:10:13Z",
+      "updatedAt": "2026-08-20T12:19:05Z",
       "createdAt": "2025-05-23T08:31:26Z",
       "defaultBranch": "main",
       "tags": [
@@ -1504,7 +1681,11 @@
         "web"
       ],
       "type": "mcp",
-      "installCmd": "dsh install TencentCloudBase/CloudBase-AI-Toolkit",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.7.3",
+      "installCmd": "npm i github:TencentCloudBase/CloudBase-AI-Toolkit",
       "readmeUrl": "https://raw.githubusercontent.com/TencentCloudBase/CloudBase-AI-Toolkit/main/README.md"
     },
     {
@@ -1532,7 +1713,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install Tiger3807861189/DeepSeek-V4-J-Space-Capability-Realization-Report",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Tiger3807861189/DeepSeek-V4-J-Space-Capability-Realization-Report",
       "readmeUrl": "https://raw.githubusercontent.com/Tiger3807861189/DeepSeek-V4-J-Space-Capability-Realization-Report/main/README.md"
     },
     {
@@ -1557,7 +1742,11 @@
         "upload-pictures"
       ],
       "type": "extension",
-      "installCmd": "dsh install PicGo/PicGo-Core",
+      "hasNpm": true,
+      "npmName": "picgo",
+      "npmUrl": "https://www.npmjs.com/package/picgo",
+      "version": "3.0.1",
+      "installCmd": "npm i picgo",
       "readmeUrl": "https://raw.githubusercontent.com/PicGo/PicGo-Core/dev/README.md"
     },
     {
@@ -1569,11 +1758,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/4326215?v=4",
       "authorUrl": "https://github.com/Anil-matcha",
       "repoUrl": "https://github.com/Anil-matcha/awesome-dsh-plugin",
-      "stars": 963,
+      "stars": 964,
       "forks": 227,
       "openIssues": 7,
       "license": "Unknown",
-      "updatedAt": "2026-08-20T11:21:56Z",
+      "updatedAt": "2026-08-20T12:19:20Z",
       "createdAt": "2023-05-06T17:27:54Z",
       "defaultBranch": "main",
       "tags": [
@@ -1598,7 +1787,11 @@
         "web-ui"
       ],
       "type": "extension",
-      "installCmd": "dsh install Anil-matcha/awesome-dsh-plugin",
+      "hasNpm": true,
+      "npmName": "awesome-dsh-plugin",
+      "npmUrl": "https://www.npmjs.com/package/awesome-dsh-plugin",
+      "version": "0.1.0",
+      "installCmd": "npm i awesome-dsh-plugin",
       "readmeUrl": "https://raw.githubusercontent.com/Anil-matcha/awesome-dsh-plugin/main/README.md"
     },
     {
@@ -1639,7 +1832,11 @@
         "qa-automation"
       ],
       "type": "mcp",
-      "installCmd": "dsh install vostride/agent-qa",
+      "hasNpm": true,
+      "npmName": "agent-qa",
+      "npmUrl": "https://www.npmjs.com/package/agent-qa",
+      "version": "0.1.21",
+      "installCmd": "npm i agent-qa",
       "readmeUrl": "https://raw.githubusercontent.com/vostride/agent-qa/main/README.md"
     },
     {
@@ -1671,7 +1868,11 @@
         "skills"
       ],
       "type": "extension",
-      "installCmd": "dsh install mindscale-noah/MindMemOS",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:mindscale-noah/MindMemOS",
       "readmeUrl": "https://raw.githubusercontent.com/mindscale-noah/MindMemOS/main/README.md"
     },
     {
@@ -1712,7 +1913,11 @@
         "vibe-coding"
       ],
       "type": "extension",
-      "installCmd": "dsh install freestylefly/wesight",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.0.4",
+      "installCmd": "npm i github:freestylefly/wesight",
       "readmeUrl": "https://raw.githubusercontent.com/freestylefly/wesight/main/README.md"
     },
     {
@@ -1752,7 +1957,11 @@
         "workflow"
       ],
       "type": "extension",
-      "installCmd": "dsh install tong-io/tongflow",
+      "hasNpm": true,
+      "npmName": "tongflow",
+      "npmUrl": "https://www.npmjs.com/package/tongflow",
+      "version": "0.2.0",
+      "installCmd": "npm i tongflow",
       "readmeUrl": "https://raw.githubusercontent.com/tong-io/tongflow/main/README.md"
     },
     {
@@ -1778,7 +1987,11 @@
         "vision"
       ],
       "type": "extension",
-      "installCmd": "dsh install ysr666/dsh-vision-router",
+      "hasNpm": true,
+      "npmName": "dsh-vision-router",
+      "npmUrl": "https://www.npmjs.com/package/dsh-vision-router",
+      "version": "1.7.3",
+      "installCmd": "npm i dsh-vision-router",
       "readmeUrl": "https://raw.githubusercontent.com/ysr666/dsh-vision-router/main/README.md"
     },
     {
@@ -1802,7 +2015,11 @@
         "mcp-server"
       ],
       "type": "mcp",
-      "installCmd": "dsh install xyTom/coding-tools-mcp",
+      "hasNpm": true,
+      "npmName": "coding-tools-mcp",
+      "npmUrl": "https://www.npmjs.com/package/coding-tools-mcp",
+      "version": "0.1.0",
+      "installCmd": "npm i coding-tools-mcp",
       "readmeUrl": "https://raw.githubusercontent.com/xyTom/coding-tools-mcp/main/README.md"
     },
     {
@@ -1843,7 +2060,11 @@
         "tui"
       ],
       "type": "mcp",
-      "installCmd": "dsh install MemTensor/memmy-agent",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.0.8",
+      "installCmd": "npm i github:MemTensor/memmy-agent",
       "readmeUrl": "https://raw.githubusercontent.com/MemTensor/memmy-agent/main/README.md"
     },
     {
@@ -1884,7 +2105,11 @@
         "web3-wallet"
       ],
       "type": "extension",
-      "installCmd": "dsh install toby-bridges/api-relay-audit",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "2.4.0",
+      "installCmd": "npm i github:toby-bridges/api-relay-audit",
       "readmeUrl": "https://raw.githubusercontent.com/toby-bridges/api-relay-audit/master/README.md"
     },
     {
@@ -1922,7 +2147,11 @@
         "vision-tools"
       ],
       "type": "extension",
-      "installCmd": "dsh install Anionex/dsh-vision-toolkit",
+      "hasNpm": true,
+      "npmName": "@anionex/dsh-vision-toolkit",
+      "npmUrl": "https://www.npmjs.com/package/@anionex/dsh-vision-toolkit",
+      "version": "0.1.36",
+      "installCmd": "npm i @anionex/dsh-vision-toolkit",
       "readmeUrl": "https://raw.githubusercontent.com/Anionex/dsh-vision-toolkit/main/README.md"
     },
     {
@@ -1961,7 +2190,11 @@
         "plugins"
       ],
       "type": "mcp",
-      "installCmd": "dsh install 0xsline/awesome-deepseek-harness",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:0xsline/awesome-deepseek-harness",
       "readmeUrl": "https://raw.githubusercontent.com/0xsline/awesome-deepseek-harness/main/README.md"
     },
     {
@@ -1984,7 +2217,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install hellowind777/helloagents",
+      "hasNpm": true,
+      "npmName": "helloagents",
+      "npmUrl": "https://www.npmjs.com/package/helloagents",
+      "version": "4.0.3",
+      "installCmd": "npm i helloagents",
       "readmeUrl": "https://raw.githubusercontent.com/hellowind777/helloagents/main/README.md"
     },
     {
@@ -2011,7 +2248,11 @@
         "tauri"
       ],
       "type": "extension",
-      "installCmd": "dsh install hairyf/deepseek-harness-desktop",
+      "hasNpm": true,
+      "npmName": "deepseek-harness-desktop",
+      "npmUrl": "https://www.npmjs.com/package/deepseek-harness-desktop",
+      "version": "0.4.1",
+      "installCmd": "npm i deepseek-harness-desktop",
       "readmeUrl": "https://raw.githubusercontent.com/hairyf/deepseek-harness-desktop/main/README.md"
     },
     {
@@ -2037,7 +2278,11 @@
         "dsh-agent-teams"
       ],
       "type": "extension",
-      "installCmd": "dsh install NanmiCoder/dsh-agent-teams",
+      "hasNpm": true,
+      "npmName": "@nanmicoder/dsh-agent-teams",
+      "npmUrl": "https://www.npmjs.com/package/@nanmicoder/dsh-agent-teams",
+      "version": "0.1.8",
+      "installCmd": "npm i @nanmicoder/dsh-agent-teams",
       "readmeUrl": "https://raw.githubusercontent.com/NanmiCoder/dsh-agent-teams/main/README.md"
     },
     {
@@ -2064,7 +2309,11 @@
         "working-line"
       ],
       "type": "extension",
-      "installCmd": "dsh install ccch1mneyyy/working-activity",
+      "hasNpm": true,
+      "npmName": "pi-working-activity",
+      "npmUrl": "https://www.npmjs.com/package/pi-working-activity",
+      "version": "1.9.0",
+      "installCmd": "npm i pi-working-activity",
       "readmeUrl": "https://raw.githubusercontent.com/ccch1mneyyy/working-activity/main/README.md"
     },
     {
@@ -2105,7 +2354,11 @@
         "typescript"
       ],
       "type": "extension",
-      "installCmd": "dsh install sandbaseai/sandbase-harness",
+      "hasNpm": true,
+      "npmName": "managed-agents",
+      "npmUrl": "https://www.npmjs.com/package/managed-agents",
+      "version": "0.0.1",
+      "installCmd": "npm i managed-agents",
       "readmeUrl": "https://raw.githubusercontent.com/sandbaseai/sandbase-harness/main/README.md"
     },
     {
@@ -2141,7 +2394,11 @@
         "typescript"
       ],
       "type": "mcp",
-      "installCmd": "dsh install vibeinging/deepseek-harness-desktop-app",
+      "hasNpm": true,
+      "npmName": "dsh-desktop",
+      "npmUrl": "https://www.npmjs.com/package/dsh-desktop",
+      "version": "0.2.0",
+      "installCmd": "npm i dsh-desktop",
       "readmeUrl": "https://raw.githubusercontent.com/vibeinging/deepseek-harness-desktop-app/dev/README.md"
     },
     {
@@ -2168,7 +2425,11 @@
         "dsh-plugins"
       ],
       "type": "extension",
-      "installCmd": "dsh install bowenliang123/dsh-context",
+      "hasNpm": true,
+      "npmName": "dsh-context",
+      "npmUrl": "https://www.npmjs.com/package/dsh-context",
+      "version": "0.18.0",
+      "installCmd": "npm i dsh-context",
       "readmeUrl": "https://raw.githubusercontent.com/bowenliang123/dsh-context/main/README.md"
     },
     {
@@ -2194,7 +2455,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install yejiming/MuseAI",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.9.8",
+      "installCmd": "npm i github:yejiming/MuseAI",
       "readmeUrl": "https://raw.githubusercontent.com/yejiming/MuseAI/main/README.md"
     },
     {
@@ -2227,7 +2492,11 @@
         "tutorial"
       ],
       "type": "extension",
-      "installCmd": "dsh install Electricitysheep/dsh-handbook",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Electricitysheep/dsh-handbook",
       "readmeUrl": "https://raw.githubusercontent.com/Electricitysheep/dsh-handbook/main/README.md"
     },
     {
@@ -2260,7 +2529,11 @@
         "opencode"
       ],
       "type": "extension",
-      "installCmd": "dsh install adoresever/graph-memory",
+      "hasNpm": true,
+      "npmName": "graph-memory",
+      "npmUrl": "https://www.npmjs.com/package/graph-memory",
+      "version": "1.5.8",
+      "installCmd": "npm i graph-memory",
       "readmeUrl": "https://raw.githubusercontent.com/adoresever/graph-memory/main/README.md"
     },
     {
@@ -2276,7 +2549,7 @@
       "forks": 47,
       "openIssues": 11,
       "license": "NOASSERTION",
-      "updatedAt": "2026-08-20T11:46:02Z",
+      "updatedAt": "2026-08-20T12:21:31Z",
       "createdAt": "2026-07-15T13:38:07Z",
       "defaultBranch": "main",
       "tags": [
@@ -2292,7 +2565,11 @@
         "secrets"
       ],
       "type": "mcp",
-      "installCmd": "dsh install superdesigndev/treg",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.11.0",
+      "installCmd": "npm i github:superdesigndev/treg",
       "readmeUrl": "https://raw.githubusercontent.com/superdesigndev/treg/main/README.md"
     },
     {
@@ -2317,7 +2594,11 @@
         "web-ui"
       ],
       "type": "extension",
-      "installCmd": "dsh install Nagi-ovo/dsh-ads",
+      "hasNpm": true,
+      "npmName": "dsh-ads",
+      "npmUrl": "https://www.npmjs.com/package/dsh-ads",
+      "version": "0.0.1",
+      "installCmd": "npm i dsh-ads",
       "readmeUrl": "https://raw.githubusercontent.com/Nagi-ovo/dsh-ads/main/README.md"
     },
     {
@@ -2355,7 +2636,11 @@
         "persistent-memory"
       ],
       "type": "extension",
-      "installCmd": "dsh install mnemon-dev/mnemon",
+      "hasNpm": true,
+      "npmName": "mnemon",
+      "npmUrl": "https://www.npmjs.com/package/mnemon",
+      "version": "1.3.0",
+      "installCmd": "npm i mnemon",
       "readmeUrl": "https://raw.githubusercontent.com/mnemon-dev/mnemon/master/README.md"
     },
     {
@@ -2381,7 +2666,11 @@
         "sandbox-playground"
       ],
       "type": "extension",
-      "installCmd": "dsh install xiaods/k8e",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:xiaods/k8e",
       "readmeUrl": "https://raw.githubusercontent.com/xiaods/k8e/main/README.md"
     },
     {
@@ -2395,7 +2684,7 @@
       "repoUrl": "https://github.com/syncable-dev/memtrace-public",
       "stars": 459,
       "forks": 41,
-      "openIssues": 15,
+      "openIssues": 16,
       "license": "NOASSERTION",
       "updatedAt": "2026-08-19T17:41:38Z",
       "createdAt": "2026-04-11T11:49:55Z",
@@ -2422,7 +2711,11 @@
         "tree-sitter"
       ],
       "type": "mcp",
-      "installCmd": "dsh install syncable-dev/memtrace-public",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:syncable-dev/memtrace-public",
       "readmeUrl": "https://raw.githubusercontent.com/syncable-dev/memtrace-public/main/README.md"
     },
     {
@@ -2436,7 +2729,7 @@
       "repoUrl": "https://github.com/hashgraph-online/hol-guard",
       "stars": 455,
       "forks": 13,
-      "openIssues": 36,
+      "openIssues": 37,
       "license": "Apache-2.0",
       "updatedAt": "2026-08-20T10:15:17Z",
       "createdAt": "2026-03-28T19:02:15Z",
@@ -2463,7 +2756,11 @@
         "supply-chain-security"
       ],
       "type": "mcp",
-      "installCmd": "dsh install hashgraph-online/hol-guard",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:hashgraph-online/hol-guard",
       "readmeUrl": "https://raw.githubusercontent.com/hashgraph-online/hol-guard/main/README.md"
     },
     {
@@ -2486,7 +2783,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install omdsh-dev/dsh-at-file",
+      "hasNpm": true,
+      "npmName": "dsh-at-file",
+      "npmUrl": "https://www.npmjs.com/package/dsh-at-file",
+      "version": "0.6.3",
+      "installCmd": "npm i dsh-at-file",
       "readmeUrl": "https://raw.githubusercontent.com/omdsh-dev/dsh-at-file/main/README.md"
     },
     {
@@ -2520,14 +2821,18 @@
         "ux-design"
       ],
       "type": "extension",
-      "installCmd": "dsh install superdesigndev/superdesign-skill",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.5.1",
+      "installCmd": "npm i github:superdesigndev/superdesign-skill",
       "readmeUrl": "https://raw.githubusercontent.com/superdesigndev/superdesign-skill/main/README.md"
     },
     {
       "id": "AI-Novel-Writer",
       "name": "AI-Novel-Writer",
       "fullName": "EthanYoQ/AI-Novel-Writer",
-      "description": "本地优先 AI 小说创作工作台，提供 Windows/macOS 桌��版与 DeepSeek Harness 插件开发预览，支持角色、大纲、章节蓝图、审稿修稿和本地模型。",
+      "description": "本地优先 AI 小说创作工作台，提供 Windows/macOS 桌面版与 DeepSeek Harness 插件开发预览，支持角色、大纲、章节蓝图、审稿修稿和本地模型。",
       "author": "EthanYoQ",
       "authorAvatar": "https://avatars.githubusercontent.com/u/257484394?v=4",
       "authorUrl": "https://github.com/EthanYoQ",
@@ -2555,7 +2860,11 @@
         "web-novel"
       ],
       "type": "extension",
-      "installCmd": "dsh install EthanYoQ/AI-Novel-Writer",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.8.4",
+      "installCmd": "npm i github:EthanYoQ/AI-Novel-Writer",
       "readmeUrl": "https://raw.githubusercontent.com/EthanYoQ/AI-Novel-Writer/master/README.md"
     },
     {
@@ -2569,7 +2878,7 @@
       "repoUrl": "https://github.com/Ikalus1988/MisakaNet",
       "stars": 414,
       "forks": 157,
-      "openIssues": 31,
+      "openIssues": 32,
       "license": "Apache-2.0",
       "updatedAt": "2026-08-20T09:57:14Z",
       "createdAt": "2026-04-29T15:16:22Z",
@@ -2592,7 +2901,11 @@
         "python"
       ],
       "type": "mcp",
-      "installCmd": "dsh install Ikalus1988/MisakaNet",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Ikalus1988/MisakaNet",
       "readmeUrl": "https://raw.githubusercontent.com/Ikalus1988/MisakaNet/main/README.md"
     },
     {
@@ -2625,7 +2938,11 @@
         "windows"
       ],
       "type": "extension",
-      "installCmd": "dsh install fufankeji/deepseek-harness-studio",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0-rc.8",
+      "installCmd": "npm i github:fufankeji/deepseek-harness-studio",
       "readmeUrl": "https://raw.githubusercontent.com/fufankeji/deepseek-harness-studio/main/README.md"
     },
     {
@@ -2651,7 +2968,11 @@
         "social-simulation"
       ],
       "type": "extension",
-      "installCmd": "dsh install ZJU-LLMs/OpenStory",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:ZJU-LLMs/OpenStory",
       "readmeUrl": "https://raw.githubusercontent.com/ZJU-LLMs/OpenStory/main/README.md"
     },
     {
@@ -2689,7 +3010,11 @@
         "skill"
       ],
       "type": "skill",
-      "installCmd": "dsh install yogsoth-ai/de-anthropocentric-research-engine",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "3.2.2",
+      "installCmd": "npm i github:yogsoth-ai/de-anthropocentric-research-engine",
       "readmeUrl": "https://raw.githubusercontent.com/yogsoth-ai/de-anthropocentric-research-engine/main/README.md"
     },
     {
@@ -2703,7 +3028,7 @@
       "repoUrl": "https://github.com/alibaba/anolisa",
       "stars": 362,
       "forks": 94,
-      "openIssues": 191,
+      "openIssues": 192,
       "license": "Apache-2.0",
       "updatedAt": "2026-08-20T11:57:54Z",
       "createdAt": "2026-03-30T06:33:06Z",
@@ -2727,7 +3052,11 @@
         "token-optimization"
       ],
       "type": "skill",
-      "installCmd": "dsh install alibaba/anolisa",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:alibaba/anolisa",
       "readmeUrl": "https://raw.githubusercontent.com/alibaba/anolisa/main/README.md"
     },
     {
@@ -2767,7 +3096,11 @@
         "static-analysis"
       ],
       "type": "mcp",
-      "installCmd": "dsh install morluto/rea",
+      "hasNpm": true,
+      "npmName": "rea-agents",
+      "npmUrl": "https://www.npmjs.com/package/rea-agents",
+      "version": "3.1.0",
+      "installCmd": "npm i rea-agents",
       "readmeUrl": "https://raw.githubusercontent.com/morluto/rea/main/README.md"
     },
     {
@@ -2796,7 +3129,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install Lum1104/dsh-browser",
+      "hasNpm": true,
+      "npmName": "dsh-browser",
+      "npmUrl": "https://www.npmjs.com/package/dsh-browser",
+      "version": "0.1.0",
+      "installCmd": "npm i dsh-browser",
       "readmeUrl": "https://raw.githubusercontent.com/Lum1104/dsh-browser/main/README.md"
     },
     {
@@ -2822,7 +3159,11 @@
         "remote-control"
       ],
       "type": "extension",
-      "installCmd": "dsh install tingly-dev/tingly-box",
+      "hasNpm": true,
+      "npmName": "tingly-box",
+      "npmUrl": "https://www.npmjs.com/package/tingly-box",
+      "version": "0.260819.0",
+      "installCmd": "npm i tingly-box",
       "readmeUrl": "https://raw.githubusercontent.com/tingly-dev/tingly-box/main/README.md"
     },
     {
@@ -2862,7 +3203,11 @@
         "typescript"
       ],
       "type": "mcp",
-      "installCmd": "dsh install PM-Shawn/Abu-Cowork",
+      "hasNpm": true,
+      "npmName": "abu",
+      "npmUrl": "https://www.npmjs.com/package/abu",
+      "version": "0.4.1",
+      "installCmd": "npm i abu",
       "readmeUrl": "https://raw.githubusercontent.com/PM-Shawn/Abu-Cowork/main/README.md"
     },
     {
@@ -2888,7 +3233,11 @@
         "theme"
       ],
       "type": "theme",
-      "installCmd": "dsh install WYH66666666/DSH-Transparent-UI-Plugin",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.3.0",
+      "installCmd": "npm i github:WYH66666666/DSH-Transparent-UI-Plugin",
       "readmeUrl": "https://raw.githubusercontent.com/WYH66666666/DSH-Transparent-UI-Plugin/main/README.md"
     },
     {
@@ -2903,7 +3252,7 @@
       "stars": 332,
       "forks": 24,
       "openIssues": 0,
-      "license": "Unknown",
+      "license": "MIT",
       "updatedAt": "2026-08-20T03:10:54Z",
       "createdAt": "2026-03-12T15:24:50Z",
       "defaultBranch": "master",
@@ -2917,7 +3266,11 @@
         "performance-tuning"
       ],
       "type": "extension",
-      "installCmd": "dsh install linhay/harmony-next.skills",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.3.35",
+      "installCmd": "npm i github:linhay/harmony-next.skills",
       "readmeUrl": "https://raw.githubusercontent.com/linhay/harmony-next.skills/master/README.md"
     },
     {
@@ -2941,7 +3294,11 @@
         "codex"
       ],
       "type": "extension",
-      "installCmd": "dsh install Minara-AI/minara-skills",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:Minara-AI/minara-skills",
       "readmeUrl": "https://raw.githubusercontent.com/Minara-AI/minara-skills/main/README.md"
     },
     {
@@ -2974,7 +3331,11 @@
         "open-code"
       ],
       "type": "extension",
-      "installCmd": "dsh install text2future/flowix",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.2.1",
+      "installCmd": "npm i github:text2future/flowix",
       "readmeUrl": "https://raw.githubusercontent.com/text2future/flowix/main/README.md"
     },
     {
@@ -3009,7 +3370,11 @@
         "web-viewer"
       ],
       "type": "extension",
-      "installCmd": "dsh install alaliqing/claude-paper",
+      "hasNpm": true,
+      "npmName": "@zlzliqing/claude-paper",
+      "npmUrl": "https://www.npmjs.com/package/@zlzliqing/claude-paper",
+      "version": "1.2.1",
+      "installCmd": "npm i @zlzliqing/claude-paper",
       "readmeUrl": "https://raw.githubusercontent.com/alaliqing/claude-paper/main/README.md"
     },
     {
@@ -3032,8 +3397,48 @@
         "dsh-plugins"
       ],
       "type": "extension",
-      "installCmd": "dsh install nutshellai-tech/mobius",
+      "hasNpm": true,
+      "npmName": "mobius",
+      "npmUrl": "https://www.npmjs.com/package/mobius",
+      "version": "0.1.0",
+      "installCmd": "npm i mobius",
       "readmeUrl": "https://raw.githubusercontent.com/nutshellai-tech/mobius/main/README.md"
+    },
+    {
+      "id": "dsh-pocket",
+      "name": "dsh-pocket",
+      "fullName": "shaobeichen/dsh-pocket",
+      "description": "把 DeepSeek Harness 装进你的口袋：电脑上跑 dsh web，手机扫码即同步访问（局域网 + 公网，实时同屏）",
+      "author": "shaobeichen",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/18715564?v=4",
+      "authorUrl": "https://github.com/shaobeichen",
+      "repoUrl": "https://github.com/shaobeichen/dsh-pocket",
+      "stars": 263,
+      "forks": 21,
+      "openIssues": 7,
+      "license": "GPL-2.0",
+      "updatedAt": "2026-08-20T12:20:48Z",
+      "createdAt": "2026-08-15T09:36:29Z",
+      "defaultBranch": "main",
+      "tags": [
+        "deepseek",
+        "deepseek-harness",
+        "deepseek-harness-plugin",
+        "dsh",
+        "dsh-plugin-market",
+        "dsh-plugins",
+        "mobile",
+        "qr",
+        "remote",
+        "tunnel"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-pocket",
+      "npmUrl": "https://www.npmjs.com/package/dsh-pocket",
+      "version": "1.8.3",
+      "installCmd": "npm i dsh-pocket",
+      "readmeUrl": "https://raw.githubusercontent.com/shaobeichen/dsh-pocket/main/README.md"
     },
     {
       "id": "dsh-genui",
@@ -3055,40 +3460,12 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install omdsh-dev/dsh-genui",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.8.7",
+      "installCmd": "npm i github:omdsh-dev/dsh-genui",
       "readmeUrl": "https://raw.githubusercontent.com/omdsh-dev/dsh-genui/main/README.md"
-    },
-    {
-      "id": "dsh-pocket",
-      "name": "dsh-pocket",
-      "fullName": "shaobeichen/dsh-pocket",
-      "description": "把 DeepSeek Harness 装进你的口袋：电脑上跑 dsh web，手机扫码即同步访问（局域网 + 公网，实时同屏）",
-      "author": "shaobeichen",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/18715564?v=4",
-      "authorUrl": "https://github.com/shaobeichen",
-      "repoUrl": "https://github.com/shaobeichen/dsh-pocket",
-      "stars": 260,
-      "forks": 21,
-      "openIssues": 7,
-      "license": "GPL-2.0",
-      "updatedAt": "2026-08-20T11:44:04Z",
-      "createdAt": "2026-08-15T09:36:29Z",
-      "defaultBranch": "main",
-      "tags": [
-        "deepseek",
-        "deepseek-harness",
-        "deepseek-harness-plugin",
-        "dsh",
-        "dsh-plugin-market",
-        "dsh-plugins",
-        "mobile",
-        "qr",
-        "remote",
-        "tunnel"
-      ],
-      "type": "extension",
-      "installCmd": "dsh install shaobeichen/dsh-pocket",
-      "readmeUrl": "https://raw.githubusercontent.com/shaobeichen/dsh-pocket/main/README.md"
     },
     {
       "id": "easyeda-agent",
@@ -3124,7 +3501,11 @@
         "schematic"
       ],
       "type": "mcp",
-      "installCmd": "dsh install zhoushoujianwork/easyeda-agent",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.25.1",
+      "installCmd": "npm i github:zhoushoujianwork/easyeda-agent",
       "readmeUrl": "https://raw.githubusercontent.com/zhoushoujianwork/easyeda-agent/main/README.md"
     },
     {
@@ -3150,14 +3531,18 @@
         "dsh-plugins"
       ],
       "type": "extension",
-      "installCmd": "dsh install hust-open-atom-club/oh-dsh",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.7",
+      "installCmd": "npm i github:hust-open-atom-club/oh-dsh",
       "readmeUrl": "https://raw.githubusercontent.com/hust-open-atom-club/oh-dsh/main/README.md"
     },
     {
       "id": "awesome-dsh-plugin",
       "name": "awesome-dsh-plugin",
       "fullName": "bruc3van/awesome-dsh-plugin",
-      "description": "用 30 秒为你的 DeepSeek Harness找到合适的插件。 仓库由脚本每天自动抓取，再经人工逐个核实——真插件进目录，蹭热度的进黑名单，每条剔除理由公开可查。并告诉你每个插件适合谁、从哪里开始。",
+      "description": "用 30 秒为你的 DeepSeek Harness找到合适的插件。 仓库由脚本每天自动抓取，再经人工逐个核实��—真插件进目录，蹭热度的进黑名单，每条剔除理由公开可查。并告诉你每个插件适合谁、从哪里开始。",
       "author": "bruc3van",
       "authorAvatar": "https://avatars.githubusercontent.com/u/10140863?v=4",
       "authorUrl": "https://github.com/bruc3van",
@@ -3175,7 +3560,11 @@
         "dsh"
       ],
       "type": "extension",
-      "installCmd": "dsh install bruc3van/awesome-dsh-plugin",
+      "hasNpm": true,
+      "npmName": "awesome-dsh-plugin",
+      "npmUrl": "https://www.npmjs.com/package/awesome-dsh-plugin",
+      "version": "0.1.0",
+      "installCmd": "npm i awesome-dsh-plugin",
       "readmeUrl": "https://raw.githubusercontent.com/bruc3van/awesome-dsh-plugin/main/README.md"
     },
     {
@@ -3201,7 +3590,11 @@
         "pet"
       ],
       "type": "extension",
-      "installCmd": "dsh install vlln/whale-girl",
+      "hasNpm": true,
+      "npmName": "whale-girl",
+      "npmUrl": "https://www.npmjs.com/package/whale-girl",
+      "version": "0.1.0",
+      "installCmd": "npm i whale-girl",
       "readmeUrl": "https://raw.githubusercontent.com/vlln/whale-girl/main/README.md"
     },
     {
@@ -3239,7 +3632,11 @@
         "statistical-analysis"
       ],
       "type": "mcp",
-      "installCmd": "dsh install SepineTam/mcp-for-stata",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:SepineTam/mcp-for-stata",
       "readmeUrl": "https://raw.githubusercontent.com/SepineTam/mcp-for-stata/master/README.md"
     }
   ]

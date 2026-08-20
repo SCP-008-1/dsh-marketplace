@@ -1018,7 +1018,7 @@
       <section class="hero-section">
         <h1 class="hero-title">dsh 插件商城</h1>
         <p class="hero-desc">
-          探索通过 GitHub <code>topic:dsh-plugin</code> 标签自动收录的扩展、技能、提示词模板及主题。使用 <code>dsh install &lt;owner/repo&gt;</code> 极速安装，或查阅 <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank">GitHub Wiki 完整索引</a>。
+          探索通过 GitHub <code>topic:dsh-plugin</code> 自动收录与 NPM 检测的扩展、技能、MCP及主题。使用 <code>npm i &lt;package&gt;</code> 极速安装，或查阅 <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank">GitHub Wiki 完整索引</a>。
         </p>
       </section>
 
@@ -1071,6 +1071,7 @@
                 <option value="">全部类型</option>
                 <option value="extension">扩展 (Extension)</option>
                 <option value="skill">技能 (Skill)</option>
+                <option value="mcp">MCP 协议</option>
                 <option value="theme">主题 (Theme)</option>
                 <option value="prompt">提示词 (Prompt)</option>
               </select>
@@ -1081,7 +1082,7 @@
 
             <div class="select-wrap">
               <select id="sortFilter" class="select-control">
-                <option value="downloads">最多下载</option>
+                <option value="stars">最多 Stars</option>
                 <option value="recent">最近更新</option>
                 <option value="name">插件名称 (A-Z)</option>
               </select>
@@ -1118,11 +1119,10 @@
           <span>© 2026 dsh Ecosystem. 遵循 Apache-2.0 开源许可.</span>
         </div>
         <div class="footer-links">
-          <a href="#" class="footer-link">关于 dsh</a>
-          <a href="#" class="footer-link">插件规范</a>
-          <a href="#" class="footer-link">MCP 协议</a>
-          <a href="#" class="footer-link">官方社区</a>
-          <a href="#" class="footer-link">状态监控</a>
+          <a href="https://github.com/SCP-008-1/dsh-marketplace" target="_blank" class="footer-link">GitHub 仓库</a>
+          <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" class="footer-link">Wiki 文档</a>
+          <a href="https://www.npmjs.com" target="_blank" class="footer-link">NPM Registry</a>
+          <a href="javascript:void(0)" onclick="openPublishModal()" class="footer-link">收录规范</a>
         </div>
       </div>
     </div>
@@ -1148,7 +1148,7 @@
 
       <div class="modal-footer">
         <div class="install-bar" style="flex:1;">
-          <code class="install-cmd" id="modalInstallCmd"><span class="prefix">$</span> dsh install <span id="modalCmdTarget"></span></code>
+          <code class="install-cmd" id="modalInstallCmd"><span class="prefix">$</span> <span id="modalCmdTarget">npm i package</span></code>
           <button class="copy-btn" id="modalCopyBtn">复制命令</button>
         </div>
         <button class="btn btn-ghost" onclick="closeDetailModal()">关闭</button>
@@ -1164,12 +1164,18 @@
         <button class="icon-btn" onclick="closePublishModal()">✕</button>
       </div>
       <div class="modal-body">
-        <h4>📦 自动发现机制</h4>
-        <p>dsh 采用基于 <b>GitHub Topics</b> 的开放收录标准。无需人工提交 PR 或注册账号，只需为公开仓库打上标签：</p>
+        <h4>📦 自动发现与 NPM 检测机制</h4>
+        <p>dsh 采用基于 <b>GitHub Topics</b> + <b>NPM Registry</b> 的自动收录与检测标准：</p>
         
         <div style="background:var(--bg-code); padding:12px; border-radius:6px; margin:12px 0; font-family:var(--font-mono); font-size:13px; color:#34d399;">
           GitHub Topic: <b>dsh-plugin</b>
         </div>
+
+        <h4>📦 安装分发方式</h4>
+        <ul>
+          <li><b>NPM 已发布</b>：商城自动匹配 npm 包，生成 <code>npm i &lt;包名&gt;</code> 命令并附带 npm 官网链接。</li>
+          <li><b>GitHub 直装</b>：未发布到 npm 的仓库，自动生成 <code>npm i github:&lt;owner&gt;/&lt;repo&gt;</code> 命令。</li>
+        </ul>
 
         <h4>🏷️ 细分类型标签（可选）</h4>
         <ul>
@@ -1275,7 +1281,7 @@
           </div>
           <div class="recent-meta">
             <span>@${pkg.author}</span>
-            <span>⭐ ${formatNumber(pkg.stars)}</span>
+            <span>⭐ ${formatNumber(pkg.stars)} ${pkg.hasNpm ? '<span style="color:#ef4444; margin-left:4px;">[npm]</span>' : ''}</span>
           </div>
         </div>
       `).join("");
@@ -1294,12 +1300,13 @@
           (pkg.fullName && pkg.fullName.toLowerCase().includes(q)) ||
           (pkg.description && pkg.description.toLowerCase().includes(q)) ||
           (pkg.author && pkg.author.toLowerCase().includes(q)) ||
+          (pkg.npmName && pkg.npmName.toLowerCase().includes(q)) ||
           (pkg.tags && pkg.tags.some(t => t.toLowerCase().includes(q)));
         return matchType && matchSearch;
       });
 
       // Sort
-      if (sort === "downloads" || sort === "stars") {
+      if (sort === "stars" || sort === "downloads") {
         filteredList.sort((a, b) => (b.stars || 0) - (a.stars || 0));
       } else if (sort === "recent") {
         filteredList.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
@@ -1340,7 +1347,7 @@
 
       packagesGrid.innerHTML = currentItems.map(pkg => {
         const badgeInfo = getTypeBadge(pkg.type);
-        const installCmd = pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`;
+        const installCmd = pkg.installCmd || (pkg.hasNpm ? `npm i ${pkg.npmName || pkg.name}` : `npm i github:${pkg.fullName || pkg.name}`);
 
         return `
           <article class="package-card" data-id="${pkg.id}">
@@ -1350,7 +1357,10 @@
                 <span class="preview-dot"></span>
                 <span class="preview-dot"></span>
               </div>
-              <span class="preview-type-tag">${pkg.type}</span>
+              <div style="display:flex; gap:6px; align-items:center;">
+                ${pkg.hasNpm ? '<span class="badge" style="background:rgba(239, 68, 68, 0.15); color:#f87171; font-size:10.5px;">npm</span>' : '<span class="badge" style="background:rgba(156, 163, 175, 0.15); color:#9ca3af; font-size:10.5px;">github</span>'}
+                <span class="preview-type-tag">${pkg.type}</span>
+              </div>
             </div>
 
             <div class="package-card-body">
@@ -1382,6 +1392,14 @@
               </div>
 
               <div class="package-links">
+                ${pkg.hasNpm && pkg.npmUrl ? `
+                  <a href="${pkg.npmUrl}" target="_blank" rel="noopener" class="package-link-item" style="color:#ef4444;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M0 0v24h24v-24h-24zm19.2 19.2h-2.4v-9.6h-4.8v9.6h-7.2v-14.4h14.4v14.4z"></path>
+                    </svg>
+                    npm 包
+                  </a>
+                ` : ''}
                 <a href="${pkg.repoUrl}" target="_blank" rel="noopener" class="package-link-item">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
@@ -1474,20 +1492,32 @@
       if (!pkg) return;
 
       const badgeInfo = getTypeBadge(pkg.type);
+      const installCmd = pkg.installCmd || (pkg.hasNpm ? `npm i ${pkg.npmName || pkg.name}` : `npm i github:${pkg.fullName || pkg.name}`);
+
       modalPkgName.textContent = pkg.name;
       modalPkgBadge.className = `badge ${badgeInfo.class}`;
       modalPkgBadge.textContent = badgeInfo.label;
-      modalPkgMeta.textContent = `仓库: ${pkg.fullName || pkg.name} · ⭐ ${formatNumber(pkg.stars)} Stars · License: ${pkg.license || "开源"}`;
+      modalPkgMeta.textContent = `仓库: ${pkg.fullName || pkg.name} · ⭐ ${formatNumber(pkg.stars)} Stars · License: ${pkg.license || "开源"} · 状态: ${pkg.hasNpm ? "NPM 已发布" : "GitHub 直装"}`;
 
-      modalCmdTarget.textContent = pkg.fullName || pkg.name;
+      modalCmdTarget.textContent = installCmd;
       modalCopyBtn.onclick = function() {
-        copyCommand(pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`, this);
+        copyCommand(installCmd, this);
       };
 
       modalPkgBody.innerHTML = `
         <h4>📖 功能概述</h4>
         <p>${pkg.description || "暂无详细描述"}</p>
         
+        <h4>📦 安装与发布状态</h4>
+        <p style="margin-top:4px;">
+          ${pkg.hasNpm ? `
+            <span style="color:#10b981; font-weight:600;">✓ 已在 NPM 注册表发布</span>
+            ${pkg.version ? `(当前版本: <code>v${pkg.version}</code>)` : ''}
+          ` : `
+            <span style="color:var(--text-secondary);">未在 NPM 发布，可通过 GitHub 源码直接引用安装</span>
+          `}
+        </p>
+
         <h4>🏷️ Topic 标签</h4>
         <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
           <span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); color:var(--accent);">#dsh-plugin</span>
@@ -1496,6 +1526,7 @@
 
         <h4>🔗 开源索引</h4>
         <p style="margin-top:6px;">
+          ${pkg.hasNpm && pkg.npmUrl ? `<a href="${pkg.npmUrl}" target="_blank" style="color:#ef4444; text-decoration:underline;">NPM 官方包页面</a> · ` : ''}
           <a href="${pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline;">GitHub 仓库主页</a> · 
           <a href="${pkg.readmeUrl || pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline;">查看 Raw README.md</a>
         </p>
@@ -1598,7 +1629,10 @@
               updatedAt: repo.updated_at,
               tags: topics.filter(t => t.toLowerCase() !== 'dsh-plugin'),
               type: type,
-              installCmd: `dsh install ${repo.full_name}`,
+              hasNpm: false,
+              npmName: null,
+              npmUrl: null,
+              installCmd: `npm i github:${repo.full_name}`,
               readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`
             };
           });
@@ -1614,16 +1648,19 @@
       // 3. Fallback to minimal data
       pluginsData = [
         {
-          id: "dsh-mcp-adapter",
-          name: "dsh-mcp-adapter",
-          fullName: "dsh-contrib/dsh-mcp-adapter",
-          type: "mcp",
-          author: "dsh-contrib",
-          stars: 1280,
-          description: "Model Context Protocol (MCP) 原生适配扩展",
-          repoUrl: "https://github.com",
-          tags: ["mcp"],
-          installCmd: "dsh install dsh-contrib/dsh-mcp-adapter",
+          id: "open-design",
+          name: "open-design",
+          fullName: "nexu-io/open-design",
+          type: "extension",
+          author: "nexu-io",
+          stars: 89500,
+          description: "Best DeepSeek Harness Design Plugin",
+          repoUrl: "https://github.com/nexu-io/open-design",
+          hasNpm: true,
+          npmName: "open-design",
+          npmUrl: "https://www.npmjs.com/package/open-design",
+          tags: ["design", "ai"],
+          installCmd: "npm i open-design",
           updatedAt: new Date().toISOString()
         }
       ];
@@ -1644,7 +1681,7 @@
     resetBtn.addEventListener("click", () => {
       searchInput.value = "";
       typeFilter.value = "";
-      sortFilter.value = "downloads";
+      sortFilter.value = "stars";
       applyFilters();
     });
 
