@@ -4,9 +4,10 @@
 - 必须是公开的 GitHub 仓库。
 - 拥有 Topic 标签: `dsh-plugin`。
 
-## 2. 安装分发标准
-- **NPM 优先**：如果仓库已执行 `npm publish`，商城会自动识别其 npm 包名并展示 `npm i <pkg>`。
-- **GitHub 自动降级**：如果尚未发布到 npm，商城会自动生成 `npm i github:<owner>/<repo>` 命令供用户直接安装。
+## 2. 严格的 NPM 真实性校验
+商城会对每个包含 `dsh-plugin` 标签的仓库进行真实性双向校验：
+- **有效 NPM 包**：仓库根目录包含非私有（`private != true`）`package.json`，且对应 NPM 包存在于 `registry.npmjs.org` 并包含与仓库匹配的代码库关联。生成命令：`npm i <npm-name>`。
+- **GitHub 直装包**：未发布至 NPM 或为内部项目（如 monorepo/desktop app），自动降级生成：`npm i github:<owner>/<repo>`。
 
 ## 3. 标签分类标准
 | Topic 标签 | 对应商城类型 | 说明 |
@@ -18,4 +19,4 @@
 | `dsh-prompt` | 💡 Prompt 预设 | 领域专家指令集合 |
 
 ## 4. 自动同步周期
-- GitHub Actions 每 1 小时运行一次自动同步，抓取最新符合条件的仓库、检测 NPM 状态并更新商城与 Wiki。
+- GitHub Actions 每 1 小时运行一次自动同步，抓取最新符合条件的仓库、严格校验 NPM 状态并更新商城与 Wiki。
