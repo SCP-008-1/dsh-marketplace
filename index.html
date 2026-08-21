@@ -1,123 +1,162 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
+<html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dsh 插件商城 · Package Catalog</title>
-  <meta name="description" content="dsh (DeepSeek Harness) 官方插件生态商城，汇聚全球开发者通过 topic:dsh-plugin 发布的扩展、技能、MCP、主题与提示词模板。">
+  <title>dsh 插件商城 · DeepSeek Harness Package Marketplace</title>
+  <meta name="description" content="dsh (DeepSeek Harness) 官方插件生态商城，汇聚全球开发者通过 topic:dsh-plugin 发布的扩展、技能、MCP 服务、主题与提示词预设。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Markdown Renderer for README Preview -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   
   <style>
     :root {
       --font-sans: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'Fira Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       
-      /* Light theme (Default) */
+      /* Light Theme (Ceramic White / Clean Slate) */
       --bg-base: #f8fafc;
-      --bg-surface: #ffffff;
+      --bg-base-grid: rgba(0, 0, 0, 0.035);
+      --bg-surface: rgba(255, 255, 255, 0.95);
       --bg-surface-raised: #f1f5f9;
       --bg-surface-hover: #e2e8f0;
-      --bg-code: #0f172a;
+      --bg-card: #ffffff;
+      --bg-card-hover: #fcfdfe;
+      --bg-code: #090d16;
       --bg-code-text: #e2e8f0;
       
       --border-subtle: #e2e8f0;
       --border-normal: #cbd5e1;
-      --border-active: #94a3b8;
+      --border-hover: #94a3b8;
+      --border-active: #64748b;
+      --card-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
       
       --text-primary: #0f172a;
       --text-secondary: #475569;
       --text-tertiary: #64748b;
+      --text-muted: #94a3b8;
       
       --accent: #10b981;
       --accent-hover: #059669;
-      --accent-glow: rgba(16, 185, 129, 0.18);
-      --accent-light: rgba(16, 185, 129, 0.1);
+      --accent-glow: rgba(16, 185, 129, 0.2);
+      --accent-light: rgba(16, 185, 129, 0.08);
+      --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
       
-      --badge-ext-bg: #eff6ff;
+      /* Badges */
+      --badge-ext-bg: rgba(37, 99, 235, 0.08);
       --badge-ext-text: #2563eb;
-      --badge-ext-border: #bfdbfe;
+      --badge-ext-border: rgba(37, 99, 235, 0.2);
       
-      --badge-skill-bg: #faf5ff;
+      --badge-skill-bg: rgba(147, 51, 234, 0.08);
       --badge-skill-text: #9333ea;
-      --badge-skill-border: #e9d5ff;
+      --badge-skill-border: rgba(147, 51, 234, 0.2);
       
-      --badge-mcp-bg: #f0f9ff;
+      --badge-mcp-bg: rgba(2, 132, 199, 0.08);
       --badge-mcp-text: #0284c7;
-      --badge-mcp-border: #bae6fd;
+      --badge-mcp-border: rgba(2, 132, 199, 0.2);
       
-      --badge-theme-bg: #fdf2f8;
+      --badge-theme-bg: rgba(219, 39, 119, 0.08);
       --badge-theme-text: #db2777;
-      --badge-theme-border: #fbcfe8;
+      --badge-theme-border: rgba(219, 39, 119, 0.2);
       
-      --badge-prompt-bg: #fffbeb;
+      --badge-prompt-bg: rgba(217, 119, 6, 0.08);
       --badge-prompt-text: #d97706;
-      --badge-prompt-border: #fde68a;
+      --badge-prompt-border: rgba(217, 119, 6, 0.2);
 
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 14px;
+      --badge-npm-bg: rgba(16, 185, 129, 0.08);
+      --badge-npm-text: #059669;
+      --badge-npm-border: rgba(16, 185, 129, 0.25);
+
+      --radius-xs: 5px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
       --radius-full: 9999px;
       
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
-      --shadow-lg: 0 14px 34px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 14px 34px -4px rgba(0, 0, 0, 0.08), 0 4px 14px -2px rgba(0, 0, 0, 0.04);
+      --shadow-glow: 0 0 24px var(--accent-glow);
       
-      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="dark"] {
-      /* Dark theme */
-      --bg-base: #09090b;
-      --bg-surface: #121215;
-      --bg-surface-raised: #18181c;
-      --bg-surface-hover: #202026;
+      /* Dark Theme (Obsidian / Carbon Studio) */
+      --bg-base: #08080a;
+      --bg-base-grid: rgba(255, 255, 255, 0.035);
+      --bg-surface: rgba(14, 14, 18, 0.92);
+      --bg-surface-raised: #16161c;
+      --bg-surface-hover: #1e1e26;
+      --bg-card: #0f0f13;
+      --bg-card-hover: #14141a;
       --bg-code: #050507;
       --bg-code-text: #cbd5e1;
       
-      --border-subtle: #222227;
-      --border-normal: #2e2e36;
-      --border-active: #3f3f4a;
+      --border-subtle: #1e1e25;
+      --border-normal: #282832;
+      --border-hover: #3b3b4a;
+      --border-active: #505064;
+      --card-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
       
-      --text-primary: #f4f4f7;
-      --text-secondary: #9d9da8;
-      --text-tertiary: #676775;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      --text-muted: #475569;
       
       --accent: #10b981;
-      --accent-hover: #059669;
+      --accent-hover: #34d399;
       --accent-glow: rgba(16, 185, 129, 0.25);
-      --accent-light: rgba(16, 185, 129, 0.15);
+      --accent-light: rgba(16, 185, 129, 0.12);
+      --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
       
-      --badge-ext-bg: rgba(59, 130, 246, 0.14);
+      --badge-ext-bg: rgba(59, 130, 246, 0.12);
       --badge-ext-text: #60a5fa;
       --badge-ext-border: rgba(59, 130, 246, 0.25);
       
-      --badge-skill-bg: rgba(168, 85, 247, 0.14);
+      --badge-skill-bg: rgba(168, 85, 247, 0.12);
       --badge-skill-text: #c084fc;
       --badge-skill-border: rgba(168, 85, 247, 0.25);
       
-      --badge-mcp-bg: rgba(14, 165, 233, 0.14);
+      --badge-mcp-bg: rgba(14, 165, 233, 0.12);
       --badge-mcp-text: #38bdf8;
       --badge-mcp-border: rgba(14, 165, 233, 0.25);
       
-      --badge-theme-bg: rgba(236, 72, 153, 0.14);
+      --badge-theme-bg: rgba(236, 72, 153, 0.12);
       --badge-theme-text: #f472b6;
       --badge-theme-border: rgba(236, 72, 153, 0.25);
       
-      --badge-prompt-bg: rgba(245, 158, 11, 0.14);
+      --badge-prompt-bg: rgba(245, 158, 11, 0.12);
       --badge-prompt-text: #fbbf24;
       --badge-prompt-border: rgba(245, 158, 11, 0.25);
 
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
-      --shadow-lg: 0 14px 34px rgba(0, 0, 0, 0.7);
+      --badge-npm-bg: rgba(16, 185, 129, 0.12);
+      --badge-npm-text: #34d399;
+      --badge-npm-border: rgba(16, 185, 129, 0.25);
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.6);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.75);
+      --shadow-glow: 0 0 28px rgba(16, 185, 129, 0.25);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #ffffff;
     }
 
     body {
@@ -127,33 +166,47 @@
       font-size: 14.5px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      position: relative;
       transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Ambient Subtle Grid Texture Background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(var(--bg-base-grid) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* Scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: var(--bg-base);
+      background: transparent;
     }
     ::-webkit-scrollbar-thumb {
       background: var(--border-normal);
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: var(--border-active);
+      background: var(--border-hover);
     }
 
     a {
       color: inherit;
       text-decoration: none;
-      transition: var(--transition);
+      transition: var(--transition-fast);
     }
 
     code {
@@ -161,34 +214,32 @@
       font-size: 0.9em;
     }
 
-    /* Container */
     .container {
-      max-width: 1240px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 0 24px;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
-    /* Header Nav */
+    /* Header Nav with Frosted Glass */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border-subtle);
       transition: background 0.25s ease, border-color 0.25s ease;
-    }
-    [data-theme="dark"] .site-header {
-      background: rgba(9, 9, 11, 0.85);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 66px;
+      height: 68px;
     }
 
     .brand-group {
@@ -201,28 +252,50 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 1.25rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      cursor: pointer;
     }
 
     .logo-icon {
-      width: 34px;
-      height: 34px;
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      border-radius: 9px;
+      width: 36px;
+      height: 36px;
+      background: var(--accent-gradient);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
-      box-shadow: 0 2px 10px var(--accent-glow);
+      box-shadow: 0 2px 14px var(--accent-glow);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .logo-icon::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      animation: logoSheen 4s infinite;
+    }
+    @keyframes logoSheen {
+      0%, 75% { left: -100%; }
+      100% { left: 100%; }
     }
 
     .logo-text {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+    }
+    .logo-title {
       font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
     }
 
     .logo-badge {
@@ -232,25 +305,26 @@
       border-radius: var(--radius-full);
       background: var(--accent-light);
       color: var(--accent);
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--accent-glow);
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .nav-link {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13.5px;
+      font-weight: 600;
       color: var(--text-secondary);
-      padding: 6px 14px;
+      padding: 8px 14px;
       border-radius: var(--radius-sm);
-      transition: var(--transition);
+      transition: var(--transition-fast);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
     }
 
     .nav-link:hover {
@@ -260,7 +334,6 @@
 
     .nav-link.active {
       color: var(--accent);
-      font-weight: 600;
       background: var(--accent-light);
     }
 
@@ -270,6 +343,7 @@
       gap: 10px;
     }
 
+    /* Buttons with Bevel / Top Light Reflection */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -281,29 +355,36 @@
       border-radius: var(--radius-sm);
       cursor: pointer;
       border: 1px solid transparent;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       font-family: var(--font-sans);
+      white-space: nowrap;
+      user-select: none;
+      box-shadow: var(--card-highlight);
+    }
+    .btn:active {
+      transform: scale(0.97);
     }
 
     .btn-ghost {
-      background: var(--bg-surface);
+      background: var(--bg-surface-raised);
       color: var(--text-secondary);
       border: 1px solid var(--border-subtle);
     }
     .btn-ghost:hover {
-      background: var(--bg-surface-raised);
+      background: var(--bg-surface-hover);
       color: var(--text-primary);
       border-color: var(--border-normal);
+      transform: translateY(-1px);
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: var(--accent-gradient);
       color: #ffffff;
-      box-shadow: 0 2px 8px var(--accent-glow);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 2px 10px var(--accent-glow), var(--card-highlight);
     }
     .btn-primary:hover {
-      background: var(--accent-hover);
-      box-shadow: 0 4px 14px var(--accent-glow);
+      box-shadow: 0 4px 16px var(--accent-glow), var(--card-highlight);
       transform: translateY(-1px);
     }
 
@@ -315,32 +396,60 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg-surface);
+      background: var(--bg-surface-raised);
       color: var(--text-secondary);
       border: 1px solid var(--border-subtle);
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      position: relative;
+      box-shadow: var(--card-highlight);
     }
     .icon-btn:hover {
       color: var(--text-primary);
       border-color: var(--border-normal);
-      background: var(--bg-surface-raised);
+      background: var(--bg-surface-hover);
+      transform: translateY(-1px);
+    }
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .favorite-count-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #f59e0b;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: var(--radius-full);
+      padding: 1px 5px;
+      min-width: 16px;
+      text-align: center;
+      line-height: 1.2;
+      display: none;
+      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+      animation: popBadge 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes popBadge {
+      0% { transform: scale(0.5); }
+      100% { transform: scale(1); }
     }
 
     /* Main layout */
     .main-content {
       flex: 1;
-      padding: 36px 0 72px;
+      padding: 32px 0 80px;
     }
 
-    /* Hero Section */
+    /* Hero Section with Ambient Glow & Modern Depth */
     .hero-section {
-      margin-bottom: 36px;
-      background: var(--bg-surface);
+      margin-bottom: 32px;
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 36px 40px;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius-xl);
+      padding: 44px 48px;
+      box-shadow: var(--shadow-md), var(--card-highlight);
       position: relative;
       overflow: hidden;
     }
@@ -348,11 +457,23 @@
     .hero-section::before {
       content: "";
       position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+      top: -40%;
+      right: -10%;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, var(--accent-light) 0%, rgba(16, 185, 129, 0.02) 60%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      bottom: -30%;
+      left: 10%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -362,81 +483,144 @@
       z-index: 1;
     }
 
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       background: var(--accent-light);
       color: var(--accent);
       font-size: 12px;
       font-weight: 700;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: var(--radius-full);
-      margin-bottom: 14px;
       border: 1px solid var(--accent-glow);
+    }
+    .hero-tag-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-sync-time {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
     }
 
     .hero-title {
-      font-size: 2.35rem;
+      font-size: 2.65rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
       color: var(--text-primary);
-      line-height: 1.25;
+      line-height: 1.18;
     }
 
-    .hero-title span {
-      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+    .hero-title span.highlight {
+      background: linear-gradient(135deg, #10b981 0%, #059669 40%, #06b6d4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-desc {
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       color: var(--text-secondary);
-      max-width: 820px;
-      line-height: 1.65;
-      margin-bottom: 24px;
+      max-width: 880px;
+      line-height: 1.7;
+      margin-bottom: 30px;
     }
 
     .hero-desc code {
       background: var(--bg-surface-raised);
-      padding: 2px 7px;
-      border-radius: var(--radius-sm);
+      padding: 3px 8px;
+      border-radius: var(--radius-xs);
       color: var(--accent);
       border: 1px solid var(--border-subtle);
       font-weight: 600;
     }
 
-    /* Hero Quick Bar & Stats */
-    .hero-stats-row {
+    /* Hero CLI & Stats */
+    .hero-bottom-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1.55fr 1fr 1fr 1fr;
       gap: 16px;
       align-items: stretch;
     }
 
-    .hero-install-box {
+    .hero-cli-card {
       background: var(--bg-code);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-md);
-      padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .cli-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+
+    .cli-tab {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      cursor: pointer;
+      padding: 3px 9px;
+      border-radius: var(--radius-xs);
+      transition: var(--transition-fast);
+    }
+    .cli-tab:hover {
+      color: #f1f5f9;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .cli-tab.active {
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.16);
+    }
+
+    .cli-code-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      color: var(--bg-code-text);
       font-family: var(--font-mono);
       font-size: 13px;
     }
 
-    .hero-install-cmd {
+    .cli-cmd {
       color: #34d399;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      user-select: all;
     }
-    .hero-install-cmd span.prefix {
+    .cli-cmd span.prefix {
       color: #64748b;
       margin-right: 6px;
       user-select: none;
@@ -445,29 +629,32 @@
     .stat-card {
       background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 12px 18px;
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
       display: flex;
       align-items: center;
       gap: 14px;
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      box-shadow: var(--card-highlight);
     }
     .stat-card:hover {
       border-color: var(--border-normal);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-sm), var(--card-highlight);
     }
 
     .stat-icon-wrap {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--bg-surface);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 20px;
       border: 1px solid var(--border-subtle);
       flex-shrink: 0;
+      box-shadow: var(--card-highlight);
     }
 
     .stat-info {
@@ -476,42 +663,45 @@
     }
 
     .stat-value {
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       font-weight: 800;
       color: var(--text-primary);
-      line-height: 1.2;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
 
     .stat-label {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--text-tertiary);
-      font-weight: 500;
+      font-weight: 600;
+      margin-top: 2px;
     }
 
-    /* Card Panels */
+    /* Panels */
     .panel {
-      background: var(--bg-surface);
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       overflow: hidden;
       margin-bottom: 32px;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), var(--card-highlight);
     }
 
     .panel-header {
-      padding: 18px 24px;
+      padding: 20px 28px;
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
       background: var(--bg-surface);
+      flex-wrap: wrap;
     }
 
     .panel-title {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -530,67 +720,88 @@
     }
 
     .panel-body {
-      padding: 24px;
+      padding: 28px;
     }
 
-    /* Recently Published Grid */
-    .recent-grid {
+    /* Trending Grid */
+    .trending-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
     }
 
-    .recent-card {
+    .trending-card {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 16px;
+      padding: 18px;
       background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       transition: var(--transition);
       cursor: pointer;
       position: relative;
+      box-shadow: var(--card-highlight);
     }
 
-    .recent-card:hover {
+    .trending-card:hover {
       border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      background: var(--bg-surface);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md), 0 0 0 1px var(--accent-glow);
+      background: var(--bg-card-hover);
     }
 
-    .recent-title {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text-primary);
-      margin-bottom: 6px;
+    .trending-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 8px;
+      margin-bottom: 8px;
     }
 
-    .recent-desc {
+    .trending-rank {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 2px 6px;
+      border-radius: var(--radius-xs);
+      border: 1px solid var(--accent-glow);
+    }
+
+    .trending-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .trending-desc {
       font-size: 12.5px;
       color: var(--text-secondary);
-      line-height: 1.45;
-      margin-bottom: 12px;
+      line-height: 1.5;
+      margin-bottom: 14px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
+      flex: 1;
     }
 
-    .recent-meta {
-      font-size: 11.5px;
+    .trending-meta {
+      font-size: 12px;
       color: var(--text-tertiary);
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-family: var(--font-mono);
-      padding-top: 8px;
+      padding-top: 10px;
       border-top: 1px dashed var(--border-subtle);
     }
 
@@ -599,9 +810,9 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
       scrollbar-width: none;
     }
     .filter-pills-bar::-webkit-scrollbar {
@@ -611,8 +822,8 @@
     .filter-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
+      gap: 7px;
+      padding: 8px 16px;
       border-radius: var(--radius-full);
       background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
@@ -620,19 +831,22 @@
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       white-space: nowrap;
+      user-select: none;
+      box-shadow: var(--card-highlight);
     }
 
     .filter-pill:hover {
       background: var(--bg-surface-hover);
       color: var(--text-primary);
       border-color: var(--border-normal);
+      transform: translateY(-1px);
     }
 
     .filter-pill.active {
       background: var(--text-primary);
-      color: var(--bg-surface);
+      color: var(--bg-base);
       border-color: var(--text-primary);
       box-shadow: var(--shadow-sm);
     }
@@ -641,26 +855,75 @@
       font-size: 11px;
       opacity: 0.75;
       font-family: var(--font-mono);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    /* Action Bar (Search & Filter) */
+    /* Active Filter Tags Row */
+    .active-filters-row {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: var(--text-tertiary);
+    }
+    .active-filters-row.show {
+      display: flex;
+    }
+    .active-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--accent-glow);
+    }
+    .active-tag-remove {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .active-tag-remove:hover {
+      opacity: 1;
+    }
+
+    /* Action Bar (Search, Controls & View Toggle) */
     .action-bar {
-      display: grid;
-      grid-template-columns: 1fr auto auto auto;
+      display: flex;
+      align-items: center;
       gap: 12px;
       margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
     .search-input-wrap {
       position: relative;
       display: flex;
       align-items: center;
+      flex: 1;
+      min-width: 280px;
     }
 
     .search-icon {
       position: absolute;
       left: 14px;
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+
+    .search-shortcut-badge {
+      position: absolute;
+      right: 36px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xs);
+      padding: 1px 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
       color: var(--text-tertiary);
       pointer-events: none;
     }
@@ -675,6 +938,8 @@
       padding: 4px;
       display: none;
       border-radius: var(--radius-full);
+      font-size: 12px;
+      line-height: 1;
     }
     .search-clear-btn:hover {
       color: var(--text-primary);
@@ -683,32 +948,33 @@
 
     .input-text {
       width: 100%;
-      height: 42px;
+      height: 44px;
       background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 0 36px 0 40px;
+      padding: 0 70px 0 42px;
       color: var(--text-primary);
       font-family: var(--font-sans);
       font-size: 14px;
       outline: none;
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      box-shadow: var(--card-highlight);
     }
 
     .input-text:focus {
       background: var(--bg-surface);
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-glow);
+      box-shadow: 0 0 0 3px var(--accent-glow), var(--card-highlight);
     }
 
     .select-wrap {
       position: relative;
-      min-width: 150px;
+      min-width: 155px;
     }
 
     .select-control {
       width: 100%;
-      height: 42px;
+      height: 44px;
       background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
@@ -720,13 +986,14 @@
       outline: none;
       cursor: pointer;
       appearance: none;
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      box-shadow: var(--card-highlight);
     }
 
     .select-control:focus {
       background: var(--bg-surface);
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-glow);
+      box-shadow: 0 0 0 3px var(--accent-glow), var(--card-highlight);
     }
 
     .select-caret {
@@ -738,13 +1005,68 @@
       pointer-events: none;
     }
 
-    .action-buttons {
-      display: flex;
+    /* Toggle Switch (NPM Only) */
+    .filter-toggle {
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      height: 44px;
+      padding: 0 14px;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      user-select: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      box-shadow: var(--card-highlight);
+    }
+    .filter-toggle:hover {
+      border-color: var(--border-normal);
+      color: var(--text-primary);
+    }
+    .filter-toggle.active {
+      background: var(--badge-npm-bg);
+      color: var(--badge-npm-text);
+      border-color: var(--badge-npm-border);
     }
 
-    /* Packages Grid */
+    /* View Switcher */
+    .view-switcher {
+      display: inline-flex;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 3px;
+      gap: 2px;
+      box-shadow: var(--card-highlight);
+    }
+
+    .view-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--text-tertiary);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    .view-btn:hover {
+      color: var(--text-primary);
+    }
+    .view-btn.active {
+      background: var(--bg-surface);
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Packages Container: Grid Mode */
     .packages-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -752,46 +1074,58 @@
     }
 
     .package-card {
-      background: var(--bg-surface);
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       display: flex;
       flex-direction: column;
       transition: var(--transition);
       position: relative;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-sm), var(--card-highlight);
     }
 
     .package-card:hover {
-      border-color: var(--border-normal);
+      border-color: var(--border-hover);
       transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 255, 255, 0.05);
     }
 
     .package-card-preview {
-      height: 38px;
+      height: 42px;
       background: var(--bg-surface-raised);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 0 16px;
+      padding: 0 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
+    .preview-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .preview-dots {
       display: flex;
-      gap: 6px;
+      gap: 5px;
     }
     .preview-dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--border-normal);
     }
 
+    .preview-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .package-card-body {
-      padding: 20px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -802,38 +1136,80 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .package-name-wrap {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       min-width: 0;
     }
 
-    .author-avatar {
-      width: 26px;
-      height: 26px;
+    /* Fallback Initial Avatar */
+    .avatar-wrapper {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-surface-raised);
+      overflow: hidden;
       flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-surface-raised);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--accent);
+      user-select: none;
+    }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
     .package-name {
-      font-size: 1.12rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-primary);
       cursor: pointer;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      letter-spacing: -0.015em;
     }
     .package-name:hover {
       color: var(--accent);
+    }
+
+    .package-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .bookmark-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      padding: 4px;
+      border-radius: var(--radius-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+    }
+    .bookmark-btn:hover {
+      color: #f59e0b;
+      background: var(--bg-surface-raised);
+    }
+    .bookmark-btn.bookmarked {
+      color: #f59e0b;
     }
 
     .package-stars {
@@ -845,10 +1221,11 @@
       font-weight: 600;
       color: var(--text-secondary);
       background: var(--bg-surface-raised);
-      padding: 3px 8px;
+      padding: 3px 9px;
       border-radius: var(--radius-full);
       border: 1px solid var(--border-subtle);
       flex-shrink: 0;
+      cursor: default;
     }
     .package-stars svg {
       color: #f59e0b;
@@ -857,7 +1234,7 @@
     .package-desc {
       font-size: 13.5px;
       color: var(--text-secondary);
-      line-height: 1.55;
+      line-height: 1.6;
       margin-bottom: 16px;
       flex: 1;
       display: -webkit-box;
@@ -874,25 +1251,28 @@
     }
 
     .tag-chip {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 500;
       color: var(--text-tertiary);
       background: var(--bg-surface-raised);
-      padding: 2px 8px;
+      padding: 3px 9px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border-subtle);
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      cursor: pointer;
+      box-shadow: var(--card-highlight);
     }
     .tag-chip:hover {
       color: var(--accent);
       border-color: var(--accent);
+      background: var(--accent-light);
     }
 
     .package-meta {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 16px;
       font-size: 12px;
       color: var(--text-tertiary);
       margin-bottom: 16px;
@@ -918,6 +1298,7 @@
       text-transform: uppercase;
       letter-spacing: 0.03em;
       border: 1px solid transparent;
+      white-space: nowrap;
     }
 
     .badge-extension {
@@ -945,6 +1326,20 @@
       color: var(--badge-prompt-text);
       border-color: var(--badge-prompt-border);
     }
+    .badge-npm {
+      background: var(--badge-npm-bg);
+      color: var(--badge-npm-text);
+      border-color: var(--badge-npm-border);
+      text-transform: none;
+      font-size: 10.5px;
+    }
+    .badge-github {
+      background: var(--bg-surface-raised);
+      color: var(--text-secondary);
+      border-color: var(--border-subtle);
+      text-transform: none;
+      font-size: 10.5px;
+    }
 
     .package-links {
       display: flex;
@@ -953,15 +1348,15 @@
       gap: 14px;
       margin-bottom: 14px;
       font-size: 12.5px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-secondary);
     }
 
     .package-link-item {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      transition: var(--transition);
+      gap: 6px;
+      transition: var(--transition-fast);
     }
     .package-link-item:hover {
       color: var(--accent);
@@ -972,12 +1367,13 @@
       background: var(--bg-code);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-sm);
-      padding: 7px 10px 7px 14px;
+      padding: 6px 8px 6px 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-family: var(--font-mono);
       font-size: 12.5px;
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
     }
 
     .install-cmd {
@@ -1000,13 +1396,14 @@
       padding: 4px 10px;
       font-size: 11.5px;
       font-weight: 600;
-      border-radius: 4px;
+      border-radius: var(--radius-xs);
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 5px;
-      transition: var(--transition);
+      transition: var(--transition-fast);
       flex-shrink: 0;
+      user-select: none;
     }
     .copy-btn:hover {
       background: var(--accent);
@@ -1017,67 +1414,151 @@
       border-color: var(--accent);
     }
 
+    /* Packages Container: List Mode */
+    .packages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .package-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 2.2fr 3fr 1.5fr 2fr;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-sm), var(--card-highlight);
+    }
+
+    .package-row:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateX(3px);
+    }
+
+    .package-row-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .package-row-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .package-row-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    .package-row-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Search Match Highlight */
+    mark.highlight-match {
+      background: rgba(16, 185, 129, 0.25);
+      color: var(--accent);
+      font-weight: 700;
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+
     /* Pagination */
+    .pagination-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pagination-info {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+
     .pagination {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 32px;
+      gap: 6px;
     }
 
     .page-btn {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg-surface);
+      background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
       color: var(--text-secondary);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-fast);
+      box-shadow: var(--card-highlight);
     }
     .page-btn:hover:not(:disabled) {
-      background: var(--bg-surface-raised);
+      background: var(--bg-surface-hover);
       color: var(--text-primary);
       border-color: var(--border-normal);
     }
     .page-btn.active {
-      background: var(--accent);
+      background: var(--accent-gradient);
       color: #ffffff;
       border-color: var(--accent);
-      box-shadow: 0 2px 8px var(--accent-glow);
+      box-shadow: 0 2px 10px var(--accent-glow);
     }
     .page-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.35;
       cursor: not-allowed;
     }
 
     /* Empty state */
     .empty-state {
-      padding: 64px 24px;
+      padding: 72px 24px;
       text-align: center;
       color: var(--text-secondary);
       grid-column: 1 / -1;
+      background: var(--bg-surface-raised);
+      border-radius: var(--radius-lg);
+      border: 1px dashed var(--border-normal);
     }
     .empty-icon {
-      font-size: 44px;
-      margin-bottom: 12px;
+      font-size: 48px;
+      margin-bottom: 14px;
       color: var(--text-tertiary);
     }
 
     /* Footer */
     .site-footer {
       border-top: 1px solid var(--border-subtle);
-      padding: 36px 0;
+      padding: 40px 0;
       background: var(--bg-surface);
       margin-top: auto;
       font-size: 13px;
       color: var(--text-tertiary);
+      position: relative;
+      z-index: 1;
     }
 
     .footer-inner {
@@ -1090,25 +1571,26 @@
 
     .footer-links {
       display: flex;
-      gap: 20px;
+      gap: 24px;
     }
     .footer-link:hover {
       color: var(--accent);
     }
 
-    /* Modal dialog */
+    /* Modals with Apple/Linear Grade Frosted Glass */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(8px);
+      background: rgba(8, 8, 12, 0.75);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1000;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.22s ease;
       padding: 20px;
     }
     .modal-backdrop.open {
@@ -1118,101 +1600,260 @@
 
     .modal-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-normal);
+      border-radius: var(--radius-xl);
       width: 100%;
-      max-width: 680px;
-      max-height: 85vh;
+      max-width: 780px;
+      max-height: 88vh;
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow-lg);
-      transform: translateY(12px) scale(0.98);
+      box-shadow: var(--shadow-lg), var(--card-highlight);
+      transform: translateY(16px) scale(0.98);
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
     }
     .modal-backdrop.open .modal-card {
       transform: translateY(0) scale(1);
     }
 
     .modal-header {
-      padding: 22px 24px;
+      padding: 22px 28px;
       border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
+      background: var(--bg-surface);
+    }
+
+    .modal-tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 28px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-surface-raised);
+    }
+
+    .modal-tab-btn {
+      padding: 12px 18px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-secondary);
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .modal-tab-btn:hover {
+      color: var(--text-primary);
+    }
+    .modal-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      background: var(--bg-surface);
     }
 
     .modal-body {
-      padding: 24px;
+      padding: 28px;
       overflow-y: auto;
       color: var(--text-secondary);
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    .modal-body h4 {
+    .modal-section-title {
       color: var(--text-primary);
       font-size: 14.5px;
       font-weight: 700;
-      margin: 20px 0 8px;
+      margin: 22px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.01em;
     }
-    .modal-body h4:first-child {
+    .modal-section-title:first-child {
       margin-top: 0;
     }
 
-    .modal-body ul {
-      padding-left: 20px;
-      margin-bottom: 14px;
+    .meta-grid-table {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
     }
-    .modal-body li {
-      margin-bottom: 6px;
+
+    .meta-grid-cell {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--card-highlight);
+    }
+    .meta-grid-label {
+      font-size: 11.5px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+    .meta-grid-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-top: 2px;
+      font-family: var(--font-mono);
+    }
+
+    /* Markdown preview inside modal */
+    .readme-markdown-box {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-wrap: break-word;
+      box-shadow: var(--card-highlight);
+    }
+    .readme-markdown-box h1, .readme-markdown-box h2, .readme-markdown-box h3 {
+      color: var(--text-primary);
+      margin: 18px 0 8px;
+      font-weight: 700;
+    }
+    .readme-markdown-box h1 { font-size: 1.4rem; }
+    .readme-markdown-box h2 { font-size: 1.2rem; }
+    .readme-markdown-box h3 { font-size: 1.05rem; }
+    .readme-markdown-box p { margin-bottom: 12px; }
+    .readme-markdown-box pre {
+      background: var(--bg-code);
+      color: var(--bg-code-text);
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      margin: 12px 0;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .readme-markdown-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius-sm);
+      margin: 10px 0;
+    }
+    .readme-markdown-box table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+    }
+    .readme-markdown-box th, .readme-markdown-box td {
+      border: 1px solid var(--border-normal);
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .readme-markdown-box th {
+      background: var(--bg-surface);
     }
 
     .modal-footer {
-      padding: 16px 24px;
+      padding: 18px 28px;
       border-top: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       gap: 12px;
       background: var(--bg-surface-raised);
-      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     }
 
-    /* Step guide card */
+    /* Rating Component with Live Hover Stars */
+    .rating-stars {
+      display: inline-flex;
+      gap: 4px;
+    }
+    .rating-stars .star {
+      cursor: pointer;
+      color: var(--border-normal);
+      transition: transform 0.15s ease, color 0.15s ease;
+      font-size: 22px;
+      line-height: 1;
+      user-select: none;
+    }
+    .rating-stars .star:hover {
+      transform: scale(1.25);
+    }
+    .rating-stars .star.filled, .rating-stars .star.hovered {
+      color: #f59e0b;
+    }
+    .rating-stars .star.disabled {
+      cursor: default;
+    }
+   .rating-stars .star.disabled:hover {
+     transform: none;
+   }
+    .cr-badge {display:inline-flex;align-items:center;gap:5px;cursor:pointer;font-size:11.5px;color:var(--text-tertiary);white-space:nowrap;user-select:none;padding:2px 8px;border-radius:var(--radius-full);border:1px solid var(--border-subtle);background:var(--bg-surface-raised);transition:border-color .15s ease,color .15s ease;}
+    .cr-badge:hover {border-color:#f59e0b;color:var(--text-secondary);}
+    .cr-badge .cr-avg {color:#f59e0b;font-weight:600;}
+    .cr-badge .cr-count {color:var(--text-muted);}
+    .cr-rater {display:none;align-items:center;gap:2px;margin-left:4px;}
+    .cr-rater.open {display:inline-flex;}
+    .cr-rater .star {cursor:pointer;color:var(--border-normal);transition:color .15s ease,transform .1s ease;font-size:16px;line-height:1;user-select:none;}
+    .cr-rater .star:hover {transform:scale(1.2);}
+    .cr-rater .star.filled {color:#f59e0b;}
+    .rating-summary {display:flex;align-items:baseline;gap:8px;margin-bottom:14px;}
+    .rating-summary .rs-avg {font-size:32px;font-weight:800;color:var(--text-primary);line-height:1;}
+    .rating-summary .rs-count {font-size:13px;color:var(--text-tertiary);}
+    .rating-dist {display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+    .rating-dist-row {display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-secondary);}
+    .rating-dist-row .rd-label {width:34px;color:var(--text-muted);}
+    .rating-dist-row .rd-bar {flex:1;height:6px;background:var(--bg-surface-hover);border-radius:3px;overflow:hidden;}
+    .rating-dist-row .rd-fill {height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);border-radius:3px;transition:width .4s ease;}
+    .rating-dist-row .rd-pct {width:40px;text-align:right;color:var(--text-muted);}
+    .rating-mine {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:14px;border-top:1px solid var(--border-subtle);}
+    .rating-mine .rm-label {font-size:15px;font-weight:700;color:var(--text-primary);letter-spacing:-0.01em;}
+    .rating-mine .rm-hint {font-size:12.5px;color:var(--text-tertiary);margin-top:2px;}
+    .giscus-placeholder {padding:28px 20px;text-align:center;border:1px dashed var(--border-subtle);border-radius:var(--radius-md);color:var(--text-tertiary);font-size:13px;line-height:1.7;}
+    .giscus-placeholder code {background:var(--bg-surface-raised);padding:1px 6px;border-radius:4px;font-size:12px;color:var(--text-secondary);}
+
+    /* Step guide card in Publish Modal */
     .step-item {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      padding: 12px 14px;
+      gap: 16px;
+      padding: 16px;
       border-radius: var(--radius-md);
       background: var(--bg-surface-raised);
       border: 1px solid var(--border-subtle);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      box-shadow: var(--card-highlight);
     }
     .step-number {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--accent-gradient);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 800;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px var(--accent-glow);
     }
     .step-content {
       font-size: 13.5px;
       color: var(--text-primary);
+      flex: 1;
     }
 
-    /* Floating Toast */
+    /* Toast Notification */
     .toast-container {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 28px;
+      right: 28px;
       z-index: 2000;
       display: flex;
       flex-direction: column;
@@ -1223,15 +1864,15 @@
     .toast {
       background: var(--bg-code);
       color: #ffffff;
-      padding: 10px 18px;
+      padding: 12px 20px;
       border-radius: var(--radius-md);
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 13.5px;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       transform: translateY(20px);
       opacity: 0;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1245,52 +1886,93 @@
       color: #34d399;
     }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero-stats-row {
+    /* Floating Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-normal);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-fast);
+      box-shadow: var(--shadow-md), var(--card-highlight);
+      z-index: 99;
+    }
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .back-to-top:active {
+      transform: scale(0.95);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1080px) {
+      .hero-bottom-grid {
         grid-template-columns: 1fr 1fr;
       }
-      .hero-install-box {
+      .hero-cli-card {
         grid-column: 1 / -1;
       }
-      .recent-grid {
+      .trending-grid {
         grid-template-columns: repeat(2, 1fr);
       }
       .packages-grid {
         grid-template-columns: 1fr;
       }
+      .package-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
     }
 
     @media (max-width: 768px) {
       .action-bar {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: column;
+        align-items: stretch;
       }
-      .search-input-wrap {
-        grid-column: 1 / -1;
-      }
-      .action-buttons {
-        grid-column: 1 / -1;
-        justify-content: flex-end;
+      .select-wrap {
+        width: 100%;
       }
       .nav-links {
         display: none;
       }
       .hero-title {
-        font-size: 1.85rem;
+        font-size: 2.1rem;
       }
       .hero-section {
-        padding: 24px 20px;
+        padding: 28px 20px;
+      }
+      .panel-body {
+        padding: 20px 16px;
+      }
+      .trending-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-card {
+        max-height: 94vh;
+      }
+      .modal-header, .modal-footer, .modal-body {
+        padding: 18px 20px;
       }
     }
 
-    @media (max-width: 540px) {
-      .hero-stats-row {
-        grid-template-columns: 1fr;
-      }
-      .recent-grid {
-        grid-template-columns: 1fr;
-      }
-      .action-bar {
+    @media (max-width: 520px) {
+      .hero-bottom-grid {
         grid-template-columns: 1fr;
       }
       .footer-inner {
@@ -1302,12 +1984,12 @@
 </head>
 <body>
 
-  <!-- Sticky Nav -->
+  <!-- Sticky Top Navigation -->
   <header class="site-header">
     <div class="container">
       <div class="nav-inner">
         <div class="brand-group">
-          <a href="#" class="logo">
+          <a href="#" class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
             <div class="logo-icon">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="4 17 10 11 4 5"></polyline>
@@ -1315,7 +1997,7 @@
               </svg>
             </div>
             <div class="logo-text">
-              <span>dsh</span>
+              <span class="logo-title">dsh</span>
               <span class="logo-badge">商城</span>
             </div>
           </a>
@@ -1328,7 +2010,7 @@
                 <rect x="14" y="14" width="7" height="7"></rect>
                 <rect x="3" y="14" width="7" height="7"></rect>
               </svg>
-              插件商场
+              插件探索
             </a>
             <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" class="nav-link">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1343,19 +2025,24 @@
                 <line x1="12" y1="8" x2="12" y2="12"></line>
                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
               </svg>
-              发布规范
+              收录规范
             </a>
           </nav>
         </div>
 
         <div class="nav-actions">
-          <button id="themeToggleBtn" class="icon-btn" title="切换深色/浅色模式" aria-label="Toggle theme">
-            <!-- Moon icon: shown in light mode to switch to dark -->
-            <svg id="moonIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <button id="favoriteFilterBtn" class="icon-btn" title="查看我的收藏 (快捷筛选)" onclick="toggleFavoriteFilter()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span class="favorite-count-badge" id="favoriteCountBadge">0</span>
+          </button>
+
+          <button id="themeToggleBtn" class="icon-btn" title="切换深色/浅色模式 (Alt+T)" aria-label="Toggle theme">
+            <svg id="moonIcon" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
-            <!-- Sun icon: shown in dark mode to switch to light -->
-            <svg id="sunIcon" style="display:none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg id="sunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="5"></circle>
               <line x1="12" y1="1" x2="12" y2="3"></line>
               <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -1387,31 +2074,45 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Content Container -->
   <main class="main-content">
     <div class="container">
       
-      <!-- Hero -->
+      <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-inner">
-          <div class="hero-tag">
-            <span>✨ DeepSeek Harness 官方插件生态</span>
+          <div class="hero-badge-row">
+            <div class="hero-tag">
+              <span class="hero-tag-pulse"></span>
+              <span>DeepSeek Harness 官方插件生态</span>
+            </div>
+            <span class="hero-sync-time" id="heroSyncTime">⚡ 全网自动实时同步中</span>
           </div>
-          <h1 class="hero-title">发现、安装与探索 <span>dsh 插件</span></h1>
+
+          <h1 class="hero-title">发现、安装与探索 <span class="highlight">dsh 插件生态</span></h1>
           <p class="hero-desc">
-            汇聚全球开发者通过 GitHub <code>topic:dsh-plugin</code> 标签自动收录的扩展、技能、MCP 服务、主题与提示词。使用 CLI 一键安装至您的本地智能体工作流。
+            汇聚全球开发者通过 GitHub <code>topic:dsh-plugin</code> 自动收录的扩展、技能、MCP 协议服务、终端主题与提示词预设。严格双向验证 NPM 真实性，一键安装至您的 AI 智能体工作流。
           </p>
 
-          <div class="hero-stats-row">
-            <div class="hero-install-box">
-              <code class="hero-install-cmd"><span class="prefix">$</span> dsh install &lt;owner/repo&gt;</code>
-              <button class="copy-btn" onclick="copyCommand('dsh install <owner/repo>', this)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                <span>复制模版</span>
-              </button>
+          <!-- CLI & Stats Grid -->
+          <div class="hero-bottom-grid">
+            <div class="hero-cli-card">
+              <div class="cli-tabs">
+                <button class="cli-tab active" onclick="switchCliTab('dsh', this)">dsh CLI</button>
+                <button class="cli-tab" onclick="switchCliTab('npm', this)">npm</button>
+                <button class="cli-tab" onclick="switchCliTab('pnpm', this)">pnpm</button>
+                <button class="cli-tab" onclick="switchCliTab('bun', this)">bun</button>
+              </div>
+              <div class="cli-code-row">
+                <code class="cli-cmd" id="heroCliCmd"><span class="prefix">$</span> dsh install &lt;owner/repo&gt;</code>
+                <button class="copy-btn" id="heroCopyBtn" onclick="copyHeroCmd(this)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>复制</span>
+                </button>
+              </div>
             </div>
 
             <div class="stat-card">
@@ -1423,15 +2124,15 @@
             </div>
 
             <div class="stat-card">
-              <div class="stat-icon-wrap" style="color:#2563eb;">⚡</div>
+              <div class="stat-icon-wrap" style="color:#0284c7;">⚡</div>
               <div class="stat-info">
                 <span class="stat-value" id="statExtSkillCount">0</span>
-                <span class="stat-label">扩展 & 技能</span>
+                <span class="stat-label">扩展 & 技能 & MCP</span>
               </div>
             </div>
 
             <div class="stat-card">
-              <div class="stat-icon-wrap" style="color:#db2777;">⭐</div>
+              <div class="stat-icon-wrap" style="color:#f59e0b;">⭐</div>
               <div class="stat-info">
                 <span class="stat-value" id="statTotalStars">0</span>
                 <span class="stat-label">社区累计 Star</span>
@@ -1441,27 +2142,26 @@
         </div>
       </section>
 
-      <!-- Recently Published -->
+      <!-- Trending / Spotlight Grid -->
       <section class="panel">
         <div class="panel-header">
           <h2 class="panel-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
-            近期更新 · Trending
+            热门精选 · Trending
           </h2>
-          <span class="panel-count">精选上新</span>
+          <span class="panel-count">Top 社区热度</span>
         </div>
         <div class="panel-body">
-          <div class="recent-grid" id="recentGrid">
-            <!-- Rendered by JS -->
+          <div class="trending-grid" id="trendingGrid">
+            <!-- Injected by JS -->
           </div>
         </div>
       </section>
 
-      <!-- All Packages -->
-      <section class="panel">
+      <!-- All Packages Directory -->
+      <section class="panel" id="packagesSection">
         <div class="panel-header">
           <h2 class="panel-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
@@ -1469,7 +2169,7 @@
               <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
               <line x1="12" y1="22.08" x2="12" y2="12"></line>
             </svg>
-            插件仓库检索
+            插件仓库全景检索
           </h2>
           <span class="panel-count" id="packageStatsCount">正在加载...</span>
         </div>
@@ -1501,16 +2201,28 @@
               <span>📝 提示词 (Prompt)</span>
               <span class="pill-count" id="pillCountPrompt">(0)</span>
             </button>
+            <button class="filter-pill" data-type="favorites" onclick="selectCategoryPill('favorites')">
+              <span>⭐ 我的收藏</span>
+              <span class="pill-count" id="pillCountFav">(0)</span>
+            </button>
           </div>
 
-          <!-- Action Bar: Search & Filter -->
+          <!-- Active Search / Tag Filters Indicator -->
+          <div class="active-filters-row" id="activeFiltersRow">
+            <span>当前筛选条件:</span>
+            <div id="activeFilterTags" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+            <button class="btn btn-ghost" style="padding:2px 8px; font-size:11.5px; height:auto;" onclick="resetAllFilters()">清除全部</button>
+          </div>
+
+          <!-- Action Bar: Search, Filters & View Options -->
           <div class="action-bar">
             <div class="search-input-wrap">
               <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <input type="search" id="searchInput" class="input-text" placeholder="搜索插件名称、描述、作者或标签…" autocomplete="off">
+              <input type="search" id="searchInput" class="input-text" placeholder="搜索插件名称、描述、作者或标签… (/)" autocomplete="off">
+              <span class="search-shortcut-badge">/</span>
               <button id="searchClearBtn" class="search-clear-btn" title="清空搜索">✕</button>
             </div>
 
@@ -1522,6 +2234,7 @@
                 <option value="mcp">🔌 MCP 服务</option>
                 <option value="theme">🎨 主题 (Theme)</option>
                 <option value="prompt">📝 提示词 (Prompt)</option>
+                <option value="favorites">⭐ 我的收藏</option>
               </select>
               <svg class="select-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -1532,6 +2245,7 @@
               <select id="sortFilter" class="select-control">
                 <option value="stars">⭐ 最多 Star</option>
                 <option value="recent">⏱️ 最近更新</option>
+                <option value="forks">🍴 最多 Fork</option>
                 <option value="name">🔤 名称排序 (A-Z)</option>
               </select>
               <svg class="select-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1539,19 +2253,44 @@
               </svg>
             </div>
 
-            <div class="action-buttons">
-              <button id="resetBtn" class="btn btn-ghost" style="height:42px;">重置筛选</button>
+            <button id="npmOnlyBtn" class="filter-toggle" onclick="toggleNpmOnly()">
+              <span>📦 仅 NPM 官方包</span>
+            </button>
+
+            <!-- Grid vs List View -->
+            <div class="view-switcher">
+              <button id="viewGridBtn" class="view-btn active" title="网格卡片视图" onclick="setViewMode('grid')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </button>
+              <button id="viewListBtn" class="view-btn" title="紧凑列表视图" onclick="setViewMode('list')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </button>
             </div>
+
+            <button id="resetBtn" class="btn btn-ghost" style="height:44px;">重置筛选</button>
           </div>
 
-          <!-- Packages Grid -->
-          <div class="packages-grid" id="packagesGrid">
-            <!-- Rendered by JS -->
+          <!-- Packages Container -->
+          <div id="packagesContainer" class="packages-grid">
+            <!-- Injected by JS -->
           </div>
 
           <!-- Pagination -->
-          <div class="pagination" id="pagination">
-            <!-- Rendered by JS -->
+          <div class="pagination-wrap">
+            <div class="pagination-info" id="paginationInfo"></div>
+            <div class="pagination" id="pagination"></div>
           </div>
         </div>
       </section>
@@ -1559,12 +2298,13 @@
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
         <div>
           <span>© 2026 dsh Ecosystem. 遵循 Apache-2.0 开源许可.</span>
+          <span style="margin-left: 12px; color: var(--text-muted);">快捷键: <code>/</code> 搜索 · <code>Alt+T</code> 主题 · <code>Alt+V</code> 视图 · <code>Esc</code> 返回</span>
         </div>
         <div class="footer-links">
           <a href="https://github.com/SCP-008-1/dsh-marketplace" target="_blank" class="footer-link">GitHub 源码</a>
@@ -1580,29 +2320,93 @@
   <div class="modal-backdrop" id="detailModal">
     <div class="modal-card">
       <div class="modal-header">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <img id="modalAuthorAvatar" class="author-avatar" style="width:36px; height:36px;" src="" alt="">
-          <div>
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:2px;">
-              <h3 id="modalPkgName" style="font-size:1.25rem; font-weight:700; color:var(--text-primary);"></h3>
+        <div style="display:flex; align-items:center; gap:14px; min-width:0;">
+          <div id="modalAvatarSlot"></div>
+          <div style="min-width:0;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:3px; flex-wrap:wrap;">
+              <h3 id="modalPkgName" style="font-size:1.3rem; font-weight:700; color:var(--text-primary); letter-spacing:-0.015em;"></h3>
               <span id="modalPkgBadge" class="badge"></span>
+              <span id="modalNpmBadge" class="badge"></span>
             </div>
             <span id="modalPkgMeta" style="font-size:12.5px; color:var(--text-secondary); font-family:var(--font-mono);"></span>
           </div>
         </div>
-        <button class="icon-btn" onclick="closeDetailModal()">✕</button>
+        <button class="icon-btn" onclick="closeDetailModal()" title="关闭 (Esc)">✕</button>
       </div>
 
-      <div class="modal-body" id="modalPkgBody">
-        <!-- Injected by JS -->
+      <!-- Modal Tabs -->
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" onclick="switchModalTab('overview', this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+          概览与安装
+        </button>
+        <button class="modal-tab-btn" onclick="switchModalTab('readme', this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          README 文档
+        </button>
+        <button class="modal-tab-btn" onclick="switchModalTab('reviews', this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          评分与反馈
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tab 1: Overview -->
+        <div id="modalTabOverview">
+          <h4 class="modal-section-title">📖 插件简介</h4>
+          <p id="modalDescText" style="background:var(--bg-surface-raised); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle); line-height:1.7; box-shadow:var(--card-highlight);"></p>
+          
+          <h4 class="modal-section-title">📊 仓库元数据</h4>
+          <div class="meta-grid-table" id="modalMetaGrid"></div>
+
+          <h4 class="modal-section-title">🏷️ Topic 标签</h4>
+          <div id="modalTagsContainer" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:18px;"></div>
+
+          <h4 class="modal-section-title">🚀 常用包管理器安装</h4>
+          <div style="display:flex; flex-direction:column; gap:8px;" id="modalInstallOptions"></div>
+        </div>
+
+        <!-- Tab 2: README Preview -->
+        <div id="modalTabReadme" style="display:none;">
+          <div class="readme-markdown-box" id="readmeContent">
+            <div style="text-align:center; padding:32px; color:var(--text-tertiary);">正在加载 README.md 文档...</div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Reviews & Ratings -->
+        <div id="modalTabReviews" style="display:none;">
+          <h4 class="modal-section-title">⭐ 社区评分</h4>
+          <div style="background:var(--bg-surface-raised); padding:18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle); margin-bottom:20px; box-shadow:var(--card-highlight);" id="modalRatingBox">
+            <!-- Injected by JS -->
+          </div>
+
+          <h4 class="modal-section-title">💬 讨论与反馈</h4>
+          <div id="giscusContainer"></div>
+        </div>
       </div>
 
       <div class="modal-footer">
-        <div class="install-bar" style="flex:1;">
-          <code class="install-cmd" id="modalInstallCmd"><span class="prefix">$</span> dsh install <span id="modalCmdTarget"></span></code>
-          <button class="copy-btn" id="modalCopyBtn">复制命令</button>
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <a id="modalGithubLink" href="#" target="_blank" class="btn btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+            GitHub 仓库 ↗
+          </a>
+          <a id="modalNpmLink" href="#" target="_blank" class="btn btn-ghost" style="display:none;">
+            📦 npm 页面 ↗
+          </a>
         </div>
-        <button class="btn btn-ghost" onclick="closeDetailModal()">关闭</button>
+        <button class="btn btn-primary" onclick="closeDetailModal()">完成</button>
       </div>
     </div>
   </div>
@@ -1611,12 +2415,12 @@
   <div class="modal-backdrop" id="publishModal">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 style="font-size:1.25rem; font-weight:700;">发布与收录 dsh 插件</h3>
-        <button class="icon-btn" onclick="closePublishModal()">✕</button>
+        <h3 style="font-size:1.3rem; font-weight:700; letter-spacing:-0.015em;">发布与收录 dsh 插件</h3>
+        <button class="icon-btn" onclick="closePublishModal()" title="关闭 (Esc)">✕</button>
       </div>
       <div class="modal-body">
-        <h4>📦 自动发现机制</h4>
-        <p style="margin-bottom:14px;">dsh 采用基于 <b>GitHub Topics</b> 的开放收录标准。无需人工提交 PR 或注册账号，只需 3 步即可全网收录：</p>
+        <h4 class="modal-section-title">📦 自动发现与严格收录机制</h4>
+        <p style="margin-bottom:16px;">dsh 采用基于 <b>GitHub Topics</b> 的开放收录标准。无需人工提交审核或注册账号，只需 3 步即可被全网收录：</p>
         
         <div class="step-item">
           <div class="step-number">1</div>
@@ -1631,8 +2435,8 @@
           <div class="step-content">
             <b>添加核心 Topic 标签</b>
             <div style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">在仓库主页右侧 "About -> Topics" 中添加：</div>
-            <div style="margin-top:6px;">
-              <span class="badge" style="background:var(--accent-light); color:var(--accent); border-color:var(--accent-glow); font-size:12px; cursor:pointer;" onclick="copyTopic('dsh-plugin')">🏷️ dsh-plugin (点击复制)</span>
+            <div style="margin-top:8px;">
+              <span class="badge" style="background:var(--accent-light); color:var(--accent); border-color:var(--accent-glow); font-size:12px; cursor:pointer;" onclick="copyTopic('dsh-plugin')">🏷️ dsh-plugin (点击快速复制)</span>
             </div>
           </div>
         </div>
@@ -1641,18 +2445,18 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <b>细分类型标签（可选）</b>
-            <div style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">按功能追加分类标签，便于精准筛选：</div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:6px;">
-              <span class="badge badge-skill">dsh-skill</span>
-              <span class="badge badge-mcp">dsh-mcp</span>
-              <span class="badge badge-theme">dsh-theme</span>
-              <span class="badge badge-prompt">dsh-prompt</span>
+            <div style="font-size:12.5px; color:var(--text-secondary); margin-top:2px;">按功能追加分类标签，便于精准筛选与展示：</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+              <span class="badge badge-skill" style="cursor:pointer;" onclick="copyTopic('dsh-skill')">dsh-skill</span>
+              <span class="badge badge-mcp" style="cursor:pointer;" onclick="copyTopic('dsh-mcp')">dsh-mcp</span>
+              <span class="badge badge-theme" style="cursor:pointer;" onclick="copyTopic('dsh-theme')">dsh-theme</span>
+              <span class="badge badge-prompt" style="cursor:pointer;" onclick="copyTopic('dsh-prompt')">dsh-prompt</span>
             </div>
           </div>
         </div>
 
-        <h4>⏱️ 自动化同步</h4>
-        <p>GitHub Actions 机器人每 1 小时自动扫描全网公开仓库，同步索引至本商城与 <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" style="color:var(--accent); text-decoration:underline;">GitHub Wiki</a>。</p>
+        <h4 class="modal-section-title">⏱️ 自动化同步与双向校验</h4>
+        <p>GitHub Actions 机器人每 1 小时自动扫描全网公开仓库，严格双向校验 NPM 注册状态并同步至本商城与 <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" style="color:var(--accent); text-decoration:underline;">GitHub Wiki</a>。</p>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" onclick="closePublishModal()">了解完毕</button>
@@ -1660,40 +2464,161 @@
     </div>
   </div>
 
+  <!-- Floating Back to Top Button -->
+  <button id="backToTop" class="back-to-top" title="返回顶部" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
   <script>
-    // --- Dynamic Plugins Dataset from topic:dsh-plugin ---
-    let pluginsData = [];
-    const EXCLUDED_REPOS = [
-      'deepseek-ai/deepseek-harness',
-      'deepseek-harness'
-    ];
+    // --- Marketplace Config ---
+    // repoId/categoryId 从 https://giscus.app 获取后填入；ratingApi 填 workers/rating 部署后的 Worker 地址
+    const MARKETPLACE_CONFIG = {
+      giscus: {
+        repo: "SCP-008-1/dsh-marketplace",
+        repoId: "",
+        category: "Plugin Reviews",
+        categoryId: ""
+      },
+      ratingApi: "https://dsh-rating.test1-c44.workers.dev"
+    };
 
-    let currentPage = 1;
-    const pageSize = 10;
+    // --- Application State ---
+    let pluginsData = [];
     let filteredList = [];
     let currentSelectedType = "";
+    let currentViewMode = localStorage.getItem("dsh_view_mode") || "grid";
+    let isNpmOnly = false;
+    let selectedHeroRuntime = "dsh";
+    let currentPage = 1;
+    const pageSize = 12;
+
+    // Favorites in localStorage
+    const FAVORITES_KEY = "dsh_favorite_plugins";
+    let favorites = new Set();
+    try {
+      favorites = new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]"));
+    } catch(e) {
+      favorites = new Set();
+    }
+
+    // Ratings in localStorage
+    const RATING_STORAGE_KEY = "dsh_my_ratings";
+    let myRatings = {};
+    try {
+      myRatings = JSON.parse(localStorage.getItem(RATING_STORAGE_KEY) || "{}");
+    } catch(e) {
+      myRatings = {};
+    }
+
+    // Community ratings via Cloudflare Worker (empty ratingApi = local-only mode)
+    const RATING_API = (MARKETPLACE_CONFIG.ratingApi || "").replace(/\/+$/, "");
+    let remoteRatings = {};
+
+    function getVoterId() {
+      try {
+        let v = localStorage.getItem("dsh_voter_id");
+        if (!v) {
+          const buf = new Uint8Array(16);
+          crypto.getRandomValues(buf);
+          v = [...buf].map(b => b.toString(16).padStart(2, "0")).join("");
+          localStorage.setItem("dsh_voter_id", v);
+        }
+        return v;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    async function syncRatings(ids) {
+      if (!RATING_API || !ids || !ids.length) return;
+      const unique = [...new Set(ids)].filter(Boolean);
+      for (let i = 0; i < unique.length; i += 100) {
+        const batch = unique.slice(i, i + 100);
+        try {
+          const res = await fetch(`${RATING_API}/api/ratings?ids=${encodeURIComponent(batch.join(","))}`);
+          if (!res.ok) continue;
+          const data = await res.json();
+          remoteRatings = { ...remoteRatings, ...(data.ratings || {}) };
+        } catch (err) {}
+      }
+      applyFilters();
+    }
+
+    async function postRating(pkgId, stars) {
+      if (!RATING_API) return;
+      try {
+        const res = await fetch(`${RATING_API}/api/rate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id: pkgId, stars, voter: getVoterId() })
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.rating) {
+          remoteRatings[pkgId] = data.rating;
+          applyFilters();
+          const pkg = pluginsData.find(p => p.id === pkgId);
+          if (pkg && detailModal.classList.contains("open")) renderModalRating(pkg);
+        }
+      } catch (err) {}
+    }
+
+    function renderRatingBadge(pkg) {
+      const agg = remoteRatings[pkg.id];
+      if (!agg || !agg.count) return "";
+      const avg = Number(agg.average || 0).toFixed(1);
+      const my = myRatings[pkg.id] || 0;
+      return `
+        <span class="cr-badge" title="社区评分 ${avg} / 5（${agg.count}人打分）" onclick="toggleCardRater('${pkg.id}', event)">
+          ★ <span class="cr-avg">${avg}</span><span class="cr-count">(${agg.count}人打分)</span>
+          <span class="cr-rater" id="crRater-${pkg.id}">
+            ${[1, 2, 3, 4, 5].map(s => `<span class="star ${my >= s ? 'filled' : ''}" onclick="ratePlugin('${pkg.id}', ${s}, event)">★</span>`).join("")}
+          </span>
+        </span>
+      `;
+    }
+
+    function toggleCardRater(pkgId, e) {
+      if (e) e.stopPropagation();
+      const el = document.getElementById(`crRater-${pkgId}`);
+      if (el) el.classList.toggle("open");
+    }
+
+    // README Cache
+    const readmeCache = {};
 
     // --- DOM Elements ---
-    const recentGrid = document.getElementById("recentGrid");
-    const packagesGrid = document.getElementById("packagesGrid");
+    const trendingGrid = document.getElementById("trendingGrid");
+    const packagesContainer = document.getElementById("packagesContainer");
     const paginationEl = document.getElementById("pagination");
+    const paginationInfo = document.getElementById("paginationInfo");
     const searchInput = document.getElementById("searchInput");
     const searchClearBtn = document.getElementById("searchClearBtn");
     const typeFilter = document.getElementById("typeFilter");
     const sortFilter = document.getElementById("sortFilter");
+    const npmOnlyBtn = document.getElementById("npmOnlyBtn");
     const resetBtn = document.getElementById("resetBtn");
     const packageStatsCount = document.getElementById("packageStatsCount");
     const themeToggleBtn = document.getElementById("themeToggleBtn");
     const moonIcon = document.getElementById("moonIcon");
     const sunIcon = document.getElementById("sunIcon");
+    const viewGridBtn = document.getElementById("viewGridBtn");
+    const viewListBtn = document.getElementById("viewListBtn");
+    const backToTopBtn = document.getElementById("backToTop");
+    const favoriteCountBadge = document.getElementById("favoriteCountBadge");
+    const activeFiltersRow = document.getElementById("activeFiltersRow");
+    const activeFilterTags = document.getElementById("activeFilterTags");
 
     // Stats Elements
     const statTotalCount = document.getElementById("statTotalCount");
     const statExtSkillCount = document.getElementById("statExtSkillCount");
     const statTotalStars = document.getElementById("statTotalStars");
+    const heroSyncTime = document.getElementById("heroSyncTime");
 
     // Category Pill Counts
     const pillCountAll = document.getElementById("pillCountAll");
@@ -1702,28 +2627,31 @@
     const pillCountMcp = document.getElementById("pillCountMcp");
     const pillCountTheme = document.getElementById("pillCountTheme");
     const pillCountPrompt = document.getElementById("pillCountPrompt");
+    const pillCountFav = document.getElementById("pillCountFav");
 
     // Modal Elements
     const detailModal = document.getElementById("detailModal");
     const publishModal = document.getElementById("publishModal");
-    const modalAuthorAvatar = document.getElementById("modalAuthorAvatar");
+    const modalAvatarSlot = document.getElementById("modalAvatarSlot");
     const modalPkgName = document.getElementById("modalPkgName");
     const modalPkgBadge = document.getElementById("modalPkgBadge");
+    const modalNpmBadge = document.getElementById("modalNpmBadge");
     const modalPkgMeta = document.getElementById("modalPkgMeta");
-    const modalPkgBody = document.getElementById("modalPkgBody");
-    const modalCmdTarget = document.getElementById("modalCmdTarget");
-    const modalCopyBtn = document.getElementById("modalCopyBtn");
+    const modalDescText = document.getElementById("modalDescText");
+    const modalMetaGrid = document.getElementById("modalMetaGrid");
+    const modalTagsContainer = document.getElementById("modalTagsContainer");
+    const modalInstallOptions = document.getElementById("modalInstallOptions");
+    const modalRatingBox = document.getElementById("modalRatingBox");
+    const modalGithubLink = document.getElementById("modalGithubLink");
+    const modalNpmLink = document.getElementById("modalNpmLink");
+    const readmeContent = document.getElementById("readmeContent");
     const toastContainer = document.getElementById("toastContainer");
 
-    // Format numbers (stars, etc.)
+    // --- Helpers ---
     function formatNumber(num) {
       if (!num) return "0";
-      if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + "M";
-      }
-      if (num >= 1000) {
-        return (num / 1000).toFixed(1) + "k";
-      }
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+      if (num >= 1000) return (num / 1000).toFixed(1) + "k";
       return num.toLocaleString();
     }
 
@@ -1742,19 +2670,48 @@
       }
     }
 
-    // Type badge helper
+    function escapeHtml(str) {
+      if (!str) return "";
+      return str.replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+      });
+    }
+
+    // Highlighting matching search keywords
+    function highlightSearch(text, query) {
+      if (!text) return "";
+      const escaped = escapeHtml(text);
+      if (!query || !query.trim()) return escaped;
+      const q = query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${q})`, "gi");
+      return escaped.replace(regex, `<mark class="highlight-match">$1</mark>`);
+    }
+
+    // Custom initial avatar generator with fallback
+    function renderAvatar(author, avatarUrl, size = 34) {
+      const initial = (author || "D").charAt(0).toUpperCase();
+      const styleSize = `width:${size}px; height:${size}px; font-size:${Math.round(size * 0.42)}px;`;
+      if (!avatarUrl) {
+        return `<div class="avatar-wrapper" style="${styleSize}"><span>${initial}</span></div>`;
+      }
+      return `
+        <div class="avatar-wrapper" style="${styleSize}">
+          <img src="${avatarUrl}" class="avatar-img" alt="${escapeHtml(author)}" onerror="this.outerHTML='<span>${initial}</span>'">
+        </div>
+      `;
+    }
+
     function getTypeBadge(type) {
       const map = {
-        extension: { label: "🧩 Extension 扩展", class: "badge-extension" },
-        skill: { label: "⚡ Skill 技能", class: "badge-skill" },
-        mcp: { label: "🔌 MCP 服务", class: "badge-mcp" },
-        theme: { label: "🎨 Theme 主题", class: "badge-theme" },
-        prompt: { label: "📝 Prompt 提示词", class: "badge-prompt" }
+        extension: { label: "🧩 Extension", class: "badge-extension" },
+        skill: { label: "⚡ Skill", class: "badge-skill" },
+        mcp: { label: "🔌 MCP", class: "badge-mcp" },
+        theme: { label: "🎨 Theme", class: "badge-theme" },
+        prompt: { label: "📝 Prompt", class: "badge-prompt" }
       };
       return map[type] || { label: `📦 ${type || "extension"}`, class: "badge-extension" };
     }
 
-    // Toast Notification
     function showToast(message, icon = "✓") {
       const toast = document.createElement("div");
       toast.className = "toast";
@@ -1771,21 +2728,109 @@
       }, 2400);
     }
 
-    function copyTopic(topic) {
-      copyCommand(topic, null, `已复制标签: ${topic}`);
+    function copyCommand(text, btnElement, toastCustomMsg) {
+      navigator.clipboard.writeText(text).then(() => {
+        if (btnElement) {
+          const originalHTML = btnElement.innerHTML;
+          btnElement.classList.add("copied");
+          btnElement.innerHTML = `
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>已复制</span>
+          `;
+          setTimeout(() => {
+            btnElement.classList.remove("copied");
+            btnElement.innerHTML = originalHTML;
+          }, 1800);
+        }
+        showToast(toastCustomMsg || `已复制命令: ${text}`);
+      }).catch(err => {
+        console.error("Copy failed", err);
+      });
     }
 
-    // Update Header Stats & Category Counts
+    function copyTopic(topic) {
+      copyCommand(topic, null, `已复制 Topic 标签: ${topic}`);
+    }
+
+    // --- Hero Runtime Switcher ---
+    function switchCliTab(runtime, el) {
+      selectedHeroRuntime = runtime;
+      document.querySelectorAll(".cli-tab").forEach(t => t.classList.remove("active"));
+      if (el) el.classList.add("active");
+
+      const cmdMap = {
+        dsh: "dsh install <owner/repo>",
+        npm: "npm i <package-name>",
+        pnpm: "pnpm add <package-name>",
+        bun: "bun add <package-name>"
+      };
+      const heroCliCmd = document.getElementById("heroCliCmd");
+      heroCliCmd.innerHTML = `<span class="prefix">$</span> ${cmdMap[runtime] || cmdMap.dsh}`;
+    }
+
+    function copyHeroCmd(btn) {
+      const cmdMap = {
+        dsh: "dsh install <owner/repo>",
+        npm: "npm i <package-name>",
+        pnpm: "pnpm add <package-name>",
+        bun: "bun add <package-name>"
+      };
+      copyCommand(cmdMap[selectedHeroRuntime] || cmdMap.dsh, btn);
+    }
+
+    // --- Favorites Management ---
+    function toggleFavorite(pkgId, e) {
+      if (e) e.stopPropagation();
+      if (favorites.has(pkgId)) {
+        favorites.delete(pkgId);
+        showToast("已取消收藏", "ℹ");
+      } else {
+        favorites.add(pkgId);
+        showToast("已添加至我的收藏", "⭐");
+      }
+      try {
+        localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+      } catch (e) {}
+
+      updateFavoritesUI();
+      if (currentSelectedType === "favorites") {
+        applyFilters();
+      } else {
+        renderPackages();
+      }
+    }
+
+    function updateFavoritesUI() {
+      const count = favorites.size;
+      pillCountFav.textContent = `(${count})`;
+      if (count > 0) {
+        favoriteCountBadge.style.display = "block";
+        favoriteCountBadge.textContent = count;
+      } else {
+        favoriteCountBadge.style.display = "none";
+      }
+    }
+
+    function toggleFavoriteFilter() {
+      if (currentSelectedType === "favorites") {
+        selectCategoryPill("");
+      } else {
+        selectCategoryPill("favorites");
+      }
+    }
+
+    // --- Stats & Categories Update ---
     function updateStats() {
       const total = pluginsData.length;
       const totalStars = pluginsData.reduce((sum, p) => sum + (p.stars || 0), 0);
-      const extSkillCount = pluginsData.filter(p => p.type === 'extension' || p.type === 'skill').length;
+      const extSkillCount = pluginsData.filter(p => p.type === 'extension' || p.type === 'skill' || p.type === 'mcp').length;
 
       statTotalCount.textContent = total;
       statExtSkillCount.textContent = extSkillCount;
       statTotalStars.textContent = formatNumber(totalStars);
 
-      // Counts per type
       const counts = {
         all: total,
         extension: 0,
@@ -1806,9 +2851,10 @@
       pillCountMcp.textContent = `(${counts.mcp})`;
       pillCountTheme.textContent = `(${counts.theme})`;
       pillCountPrompt.textContent = `(${counts.prompt})`;
+      updateFavoritesUI();
     }
 
-    // Category Pill Selection
+    // --- Category Pill Selection ---
     function selectCategoryPill(type) {
       currentSelectedType = type;
       typeFilter.value = type;
@@ -1822,44 +2868,70 @@
       applyFilters();
     }
 
-    // --- Render Recently Published ---
-    function renderRecent() {
-      const recent = [...pluginsData]
-        .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0))
+    function toggleNpmOnly() {
+      isNpmOnly = !isNpmOnly;
+      if (isNpmOnly) {
+        npmOnlyBtn.classList.add("active");
+      } else {
+        npmOnlyBtn.classList.remove("active");
+      }
+      applyFilters();
+    }
+
+    function setViewMode(mode) {
+      currentViewMode = mode;
+      localStorage.setItem("dsh_view_mode", mode);
+      if (mode === "grid") {
+        viewGridBtn.classList.add("active");
+        viewListBtn.classList.remove("active");
+        packagesContainer.className = "packages-grid";
+      } else {
+        viewListBtn.classList.add("active");
+        viewGridBtn.classList.remove("active");
+        packagesContainer.className = "packages-list";
+      }
+      renderPackages();
+    }
+
+    // --- Trending Render ---
+    function renderTrending() {
+      const trending = [...pluginsData]
+        .sort((a, b) => (b.stars || 0) - (a.stars || 0))
         .slice(0, 4);
 
-      if (recent.length === 0) {
-        recentGrid.innerHTML = `<div style="grid-column:1/-1; color:var(--text-tertiary); text-align:center; padding:24px;">加载中...</div>`;
+      if (trending.length === 0) {
+        trendingGrid.innerHTML = `<div style="grid-column:1/-1; color:var(--text-tertiary); text-align:center; padding:20px;">暂无数据</div>`;
         return;
       }
 
-      recentGrid.innerHTML = recent.map(pkg => `
-        <div class="recent-card" onclick="openDetailModal('${pkg.id}')">
+      trendingGrid.innerHTML = trending.map((pkg, idx) => `
+        <div class="trending-card" onclick="openDetailModal('${pkg.id}')">
           <div>
-            <div class="recent-title">
-              <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${pkg.name}</span>
-              <span class="badge ${getTypeBadge(pkg.type).class}" style="font-size:10px; padding:1px 6px;">${pkg.type}</span>
+            <div class="trending-header">
+              <span class="trending-rank">#0${idx + 1}</span>
+              <span class="badge ${getTypeBadge(pkg.type).class}">${pkg.type}</span>
             </div>
-            <p class="recent-desc">${pkg.description || "暂无描述"}</p>
+            <h3 class="trending-title" title="${escapeHtml(pkg.name)}">${escapeHtml(pkg.name)}</h3>
+            <p class="trending-desc" title="${escapeHtml(pkg.description || '')}">${escapeHtml(pkg.description || "暂无描述")}</p>
           </div>
-          <div class="recent-meta">
-            <span style="display:flex; align-items:center; gap:5px;">
-              ${pkg.authorAvatar ? `<img src="${pkg.authorAvatar}" class="author-avatar" style="width:16px; height:16px;" alt="" onerror="this.style.display='none'">` : ''}
-              @${pkg.author}
+          <div class="trending-meta">
+            <span style="display:flex; align-items:center; gap:6px;">
+              ${renderAvatar(pkg.author, pkg.authorAvatar, 18)}
+              @${escapeHtml(pkg.author)}
             </span>
-            <span>⭐ ${formatNumber(pkg.stars)}</span>
+            <span title="${(pkg.stars || 0).toLocaleString()} Stars">⭐ ${formatNumber(pkg.stars)}</span>
           </div>
         </div>
       `).join("");
     }
 
-    // --- Filter & Sort Logic ---
+    // --- Filtering & Sorting ---
     function applyFilters() {
       const q = searchInput.value.trim().toLowerCase();
       const type = typeFilter.value;
       const sort = sortFilter.value;
 
-      // Sync pills active state if triggered via select
+      // Sync pills
       document.querySelectorAll(".filter-pill").forEach(pill => {
         if (pill.getAttribute("data-type") === type) {
           pill.classList.add("active");
@@ -1868,25 +2940,58 @@
         }
       });
 
-      // Clear search button visibility
       searchClearBtn.style.display = q ? "block" : "none";
 
+      // Update active filters row
+      let activeTagsHtml = [];
+      if (q) {
+        activeTagsHtml.push(`<span class="active-tag-badge">搜索: "${escapeHtml(q)}" <span class="active-tag-remove" onclick="clearSearch()">✕</span></span>`);
+      }
+      if (type) {
+        activeTagsHtml.push(`<span class="active-tag-badge">类型: ${type} <span class="active-tag-remove" onclick="selectCategoryPill('')">✕</span></span>`);
+      }
+      if (isNpmOnly) {
+        activeTagsHtml.push(`<span class="active-tag-badge">仅 NPM 官方包 <span class="active-tag-remove" onclick="toggleNpmOnly()">✕</span></span>`);
+      }
+
+      if (activeTagsHtml.length > 0) {
+        activeFiltersRow.classList.add("show");
+        activeFilterTags.innerHTML = activeTagsHtml.join("");
+      } else {
+        activeFiltersRow.classList.remove("show");
+        activeFilterTags.innerHTML = "";
+      }
+
       filteredList = pluginsData.filter(pkg => {
-        const matchType = !type || pkg.type === type;
+        // Category filter
+        let matchType = true;
+        if (type === "favorites") {
+          matchType = favorites.has(pkg.id);
+        } else if (type) {
+          matchType = pkg.type === type;
+        }
+
+        // NPM Only filter
+        const matchNpm = !isNpmOnly || Boolean(pkg.hasNpm);
+
+        // Search query
         const matchSearch = !q || 
           (pkg.name && pkg.name.toLowerCase().includes(q)) ||
           (pkg.fullName && pkg.fullName.toLowerCase().includes(q)) ||
           (pkg.description && pkg.description.toLowerCase().includes(q)) ||
           (pkg.author && pkg.author.toLowerCase().includes(q)) ||
           (pkg.tags && pkg.tags.some(t => t.toLowerCase().includes(q)));
-        return matchType && matchSearch;
+
+        return matchType && matchNpm && matchSearch;
       });
 
-      // Sort
-      if (sort === "stars" || sort === "downloads") {
+      // Sorting
+      if (sort === "stars") {
         filteredList.sort((a, b) => (b.stars || 0) - (a.stars || 0));
       } else if (sort === "recent") {
         filteredList.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+      } else if (sort === "forks") {
+        filteredList.sort((a, b) => (b.forks || 0) - (a.forks || 0));
       } else if (sort === "name") {
         filteredList.sort((a, b) => a.name.localeCompare(b.name));
       }
@@ -1895,8 +3000,22 @@
       renderPackages();
     }
 
-    // --- Render Packages Grid ---
+    function clearSearch() {
+      searchInput.value = "";
+      applyFilters();
+      searchInput.focus();
+    }
+
+    // Filter by single tag
+    function filterByTag(tag) {
+      searchInput.value = tag;
+      applyFilters();
+      document.getElementById("packagesSection").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // --- Render Packages ---
     function renderPackages() {
+      const q = searchInput.value.trim();
       const total = filteredList.length;
       const totalPages = Math.ceil(total / pageSize) || 1;
       
@@ -1906,74 +3025,109 @@
 
       if (total === 0) {
         packageStatsCount.textContent = "0 / 0 个插件";
+        paginationInfo.textContent = "共 0 条结果";
       } else {
         packageStatsCount.textContent = `${startIdx + 1}-${endIdx} / ${total} 个插件`;
+        paginationInfo.textContent = `显示第 ${startIdx + 1} 至 ${endIdx} 项，共 ${total} 项`;
       }
 
       if (total === 0) {
-        packagesGrid.innerHTML = `
+        packagesContainer.innerHTML = `
           <div class="empty-state">
             <div class="empty-icon">🔍</div>
-            <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary);">未找到符合条件的插件</h3>
-            <p style="margin-top: 6px; font-size:13.5px;">请尝试调整关键词或重置筛选条件</p>
-            <button class="btn btn-ghost" style="margin-top:16px;" onclick="resetAllFilters()">重置所有条件</button>
+            <h3 style="font-size:1.2rem; font-weight:700; color:var(--text-primary);">未找到符合条件的插件</h3>
+            <p style="margin-top: 6px; font-size:13.5px;">请尝试调整搜索关键词、清除分类或取消 NPM 筛选条件</p>
+            <button class="btn btn-ghost" style="margin-top:18px;" onclick="resetAllFilters()">重置所有筛选</button>
           </div>
         `;
         paginationEl.innerHTML = "";
         return;
       }
 
-      packagesGrid.innerHTML = currentItems.map(pkg => {
+      if (currentViewMode === "grid") {
+        renderGridView(currentItems, q);
+      } else {
+        renderListView(currentItems, q);
+      }
+
+      renderPagination(totalPages);
+    }
+
+    function renderGridView(items, query) {
+      packagesContainer.innerHTML = items.map(pkg => {
         const badgeInfo = getTypeBadge(pkg.type);
         const installCmd = pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`;
-        const avatarUrl = pkg.authorAvatar || `https://github.com/${pkg.author}.png?size=64`;
         const visibleTags = (pkg.tags || []).slice(0, 3);
         const extraTagsCount = (pkg.tags || []).length - visibleTags.length;
+        const isBookmarked = favorites.has(pkg.id);
 
         return `
           <article class="package-card" data-id="${pkg.id}">
             <div class="package-card-preview">
-              <div class="preview-dots">
-                <span class="preview-dot"></span>
-                <span class="preview-dot"></span>
-                <span class="preview-dot"></span>
+              <div class="preview-left">
+                <div class="preview-dots">
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                  <span class="preview-dot"></span>
+                </div>
+                <span class="badge ${badgeInfo.class}">${badgeInfo.label}</span>
               </div>
-              <span class="badge ${badgeInfo.class}">${badgeInfo.label}</span>
+              <div class="preview-badges">
+                ${pkg.hasNpm ? `
+                  <a href="${pkg.npmUrl || `https://www.npmjs.com/package/${pkg.npmName || pkg.name}`}" target="_blank" class="badge badge-npm" title="已在 npm 官方注册表发布 (验证通过)">
+                    ✓ npm ${pkg.version ? `v${pkg.version}` : ''}
+                  </a>
+                ` : `
+                  <span class="badge badge-github" title="直接通过 GitHub 源码引用">github</span>
+                `}
+              </div>
             </div>
 
             <div class="package-card-body">
               <div class="package-title-row">
                 <div class="package-name-wrap">
-                  <img src="${avatarUrl}" class="author-avatar" alt="${pkg.author}" onerror="this.src='https://github.com/ghost.png?size=64'">
-                  <h3 class="package-name" onclick="openDetailModal('${pkg.id}')" title="${pkg.name}">${pkg.name}</h3>
+                  ${renderAvatar(pkg.author, pkg.authorAvatar, 32)}
+                  <h3 class="package-name" onclick="openDetailModal('${pkg.id}')" title="${escapeHtml(pkg.name)}">
+                    ${highlightSearch(pkg.name, query)}
+                  </h3>
                 </div>
-                <span class="package-stars" title="GitHub Stars">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  ${formatNumber(pkg.stars)}
-                </span>
+                <div class="package-header-actions">
+                  ${renderRatingBadge(pkg)}
+                  <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" title="${isBookmarked ? '取消收藏' : '加入收藏'}" onclick="toggleFavorite('${pkg.id}', event)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </button>
+                  <span class="package-stars" title="${(pkg.stars || 0).toLocaleString()} 个 GitHub Stars">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    ${formatNumber(pkg.stars)}
+                  </span>
+                </div>
               </div>
 
-              <p class="package-desc" title="${pkg.description || '暂无描述'}">${pkg.description || "暂无描述"}</p>
+              <p class="package-desc" title="${escapeHtml(pkg.description || '暂无描述')}">
+                ${highlightSearch(pkg.description || "暂无描述", query)}
+              </p>
 
               ${visibleTags.length > 0 ? `
                 <div class="package-tags-row">
-                  ${visibleTags.map(t => `<span class="tag-chip">#${t}</span>`).join("")}
-                  ${extraTagsCount > 0 ? `<span class="tag-chip" style="color:var(--text-tertiary);">+${extraTagsCount}</span>` : ""}
+                  ${visibleTags.map(t => `<span class="tag-chip" onclick="filterByTag('${t}')" title="筛选包含 #${t} 的插件">#${t}</span>`).join("")}
+                  ${extraTagsCount > 0 ? `<span class="tag-chip" style="color:var(--text-tertiary);" title="还有 ${extraTagsCount} 个标签">+${extraTagsCount}</span>` : ""}
                 </div>
               ` : ''}
 
               <div class="package-meta">
-                <span class="meta-item">
+                <span class="meta-item" title="开发者">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                   </svg>
-                  ${pkg.author}
+                  ${escapeHtml(pkg.author)}
                 </span>
 
-                <span class="meta-item">
+                <span class="meta-item" title="更新时间: ${pkg.updatedAt || '未知'}">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
@@ -1982,7 +3136,7 @@
                 </span>
 
                 ${pkg.license ? `
-                  <span class="meta-item" style="margin-left:auto;">
+                  <span class="meta-item" style="margin-left:auto;" title="开源许可协议: ${pkg.license}">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                     </svg>
@@ -1999,7 +3153,7 @@
                   GitHub 源码
                 </a>
                 <a href="javascript:void(0)" onclick="openDetailModal('${pkg.id}')" class="package-link-item" style="color:var(--accent);">
-                  查看详情 →
+                  查看详情与文档 →
                 </a>
               </div>
 
@@ -2017,8 +3171,54 @@
           </article>
         `;
       }).join("");
+    }
 
-      renderPagination(totalPages);
+    function renderListView(items, query) {
+      packagesContainer.innerHTML = items.map(pkg => {
+        const badgeInfo = getTypeBadge(pkg.type);
+        const installCmd = pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`;
+        const isBookmarked = favorites.has(pkg.id);
+
+        return `
+          <div class="package-row" data-id="${pkg.id}">
+            <div class="package-row-title">
+              <button class="bookmark-btn ${isBookmarked ? 'bookmarked' : ''}" title="${isBookmarked ? '取消收藏' : '加入收藏'}" onclick="toggleFavorite('${pkg.id}', event)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </button>
+              ${renderAvatar(pkg.author, pkg.authorAvatar, 28)}
+              <div style="min-width:0;">
+                <h3 class="package-name" onclick="openDetailModal('${pkg.id}')" title="${escapeHtml(pkg.name)}">
+                  ${highlightSearch(pkg.name, query)}
+                </h3>
+                <div style="display:flex; gap:6px; margin-top:2px;">
+                  <span class="badge ${badgeInfo.class}">${badgeInfo.label}</span>
+                  ${pkg.hasNpm ? `<span class="badge badge-npm">npm</span>` : ''}
+                  ${renderRatingBadge(pkg)}
+                </div>
+              </div>
+            </div>
+
+            <div class="package-row-desc" title="${escapeHtml(pkg.description || '')}">
+              ${highlightSearch(pkg.description || "暂无描述", query)}
+            </div>
+
+            <div class="package-row-meta">
+              <span title="${(pkg.stars || 0).toLocaleString()} Stars">⭐ ${formatNumber(pkg.stars)}</span>
+              <span>${formatDate(pkg.updatedAt)}</span>
+            </div>
+
+            <div class="package-row-actions">
+              <div class="install-bar" style="max-width: 220px; flex:1;">
+                <code class="install-cmd" style="font-size:11.5px;">${installCmd}</code>
+                <button class="copy-btn" onclick="copyCommand('${installCmd}', this)">复制</button>
+              </div>
+              <button class="btn btn-ghost" style="padding:6px 12px; font-size:12.5px;" onclick="openDetailModal('${pkg.id}')">详情</button>
+            </div>
+          </div>
+        `;
+      }).join("");
     }
 
     function renderPagination(totalPages) {
@@ -2055,73 +3255,268 @@
       if (page < 1 || page > totalPages) return;
       currentPage = page;
       renderPackages();
-      document.querySelector(".panel:nth-of-type(2)").scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("packagesSection").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    // --- Clipboard Helper ---
-    function copyCommand(text, btnElement, toastCustomMsg) {
-      navigator.clipboard.writeText(text).then(() => {
-        if (btnElement) {
-          const originalHTML = btnElement.innerHTML;
-          btnElement.classList.add("copied");
-          btnElement.innerHTML = `
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>已复制</span>
-          `;
-          setTimeout(() => {
-            btnElement.classList.remove("copied");
-            btnElement.innerHTML = originalHTML;
-          }, 1800);
-        }
-        showToast(toastCustomMsg || `已复制命令: ${text}`);
-      }).catch(err => {
-        console.error("Copy failed", err);
-      });
+    // --- Modal Navigation & Details ---
+    let currentOpenPlugin = null;
+
+    function switchModalTab(tab, btn) {
+      document.querySelectorAll(".modal-tab-btn").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+
+      document.getElementById("modalTabOverview").style.display = tab === "overview" ? "block" : "none";
+      document.getElementById("modalTabReadme").style.display = tab === "readme" ? "block" : "none";
+      document.getElementById("modalTabReviews").style.display = tab === "reviews" ? "block" : "none";
+
+      if (tab === "readme" && currentOpenPlugin) {
+        loadReadme(currentOpenPlugin);
+      }
     }
 
-    // --- Modals Logic ---
+    async function loadReadme(pkg) {
+      if (readmeCache[pkg.id]) {
+        readmeContent.innerHTML = readmeCache[pkg.id];
+        return;
+      }
+
+      readmeContent.innerHTML = `<div style="text-align:center; padding:32px; color:var(--text-tertiary);">⏳ 正在拉取 GitHub Raw README.md...</div>`;
+      
+      const rawUrl = pkg.readmeUrl || `https://raw.githubusercontent.com/${pkg.fullName || `${pkg.author}/${pkg.name}`}/${pkg.defaultBranch || 'main'}/README.md`;
+      
+      try {
+        const res = await fetch(rawUrl);
+        if (!res.ok) throw new Error("README not found");
+        const mdText = await res.text();
+        const html = window.marked ? marked.parse(mdText) : `<pre>${escapeHtml(mdText)}</pre>`;
+        readmeCache[pkg.id] = html;
+        readmeContent.innerHTML = html;
+      } catch (err) {
+        readmeContent.innerHTML = `
+          <div style="text-align:center; padding:32px; color:var(--text-secondary);">
+            <p>⚠️ 无法在线预览该项目的 README.md 文件</p>
+            <a href="${pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline; display:inline-block; margin-top:8px;">
+              直接前往 GitHub 仓库阅读完整文档 ↗
+            </a>
+          </div>
+        `;
+      }
+    }
+
     function openDetailModal(pkgId) {
       const pkg = pluginsData.find(p => p.id === pkgId);
       if (!pkg) return;
+      currentOpenPlugin = pkg;
 
       const badgeInfo = getTypeBadge(pkg.type);
-      modalAuthorAvatar.src = pkg.authorAvatar || `https://github.com/${pkg.author}.png?size=64`;
-      modalAuthorAvatar.onerror = () => { modalAuthorAvatar.src = 'https://github.com/ghost.png?size=64'; };
+      modalAvatarSlot.innerHTML = renderAvatar(pkg.author, pkg.authorAvatar, 42);
       modalPkgName.textContent = pkg.name;
       modalPkgBadge.className = `badge ${badgeInfo.class}`;
       modalPkgBadge.textContent = badgeInfo.label;
-      modalPkgMeta.textContent = `仓库: ${pkg.fullName || pkg.name} · ⭐ ${formatNumber(pkg.stars)} Stars · License: ${pkg.license || "开源"}`;
 
-      modalCmdTarget.textContent = pkg.fullName || pkg.name;
-      const installCmd = pkg.installCmd || `dsh install ${pkg.fullName || pkg.name}`;
-      modalCopyBtn.onclick = function() {
-        copyCommand(installCmd, this);
-      };
+      if (pkg.hasNpm) {
+        modalNpmBadge.style.display = "inline-flex";
+        modalNpmBadge.className = "badge badge-npm";
+        modalNpmBadge.textContent = `✓ npm 已验证 ${pkg.version ? `v${pkg.version}` : ''}`;
+        modalNpmLink.style.display = "inline-flex";
+        modalNpmLink.href = pkg.npmUrl || `https://www.npmjs.com/package/${pkg.npmName || pkg.name}`;
+      } else {
+        modalNpmBadge.style.display = "none";
+        modalNpmLink.style.display = "none";
+      }
 
-      modalPkgBody.innerHTML = `
-        <h4>📖 功能概述</h4>
-        <p style="background:var(--bg-surface-raised); padding:14px; border-radius:8px; border:1px solid var(--border-subtle); line-height:1.6;">${pkg.description || "暂无详细描述"}</p>
-        
-        <h4>🏷️ Topic 标签</h4>
-        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
-          <span class="badge" style="background:var(--accent-light); border:1px solid var(--accent-glow); color:var(--accent);">#dsh-plugin</span>
-          ${(pkg.tags || []).map(t => `<span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); color:var(--text-secondary);">#${t}</span>`).join("")}
+      modalPkgMeta.textContent = `仓库: ${pkg.fullName || pkg.name} · ⭐ ${(pkg.stars || 0).toLocaleString()} Stars · License: ${pkg.license || "开源"}`;
+      modalGithubLink.href = pkg.repoUrl;
+      modalDescText.textContent = pkg.description || "暂无详细描述";
+
+      // Meta Table
+      modalMetaGrid.innerHTML = `
+        <div class="meta-grid-cell">
+          <span class="meta-grid-label">项目作者 (Author)</span>
+          <span class="meta-grid-val"><a href="${pkg.authorUrl || `https://github.com/${pkg.author}`}" target="_blank" style="color:var(--accent);">@${pkg.author} ↗</a></span>
         </div>
-
-        <h4>🔗 开源索引与文档</h4>
-        <p style="margin-top:6px; display:flex; gap:16px; flex-wrap:wrap;">
-          <a href="${pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline; font-weight:600;">GitHub 仓库主页 ↗</a>
-          <a href="${pkg.readmeUrl || pkg.repoUrl}" target="_blank" style="color:var(--accent); text-decoration:underline;">查看 Raw README.md ↗</a>
-        </p>
+        <div class="meta-grid-cell">
+          <span class="meta-grid-label">开源协议 (License)</span>
+          <span class="meta-grid-val">${pkg.license || "未注明"}</span>
+        </div>
+        <div class="meta-grid-cell">
+          <span class="meta-grid-label">社区 Stars / Forks</span>
+          <span class="meta-grid-val">⭐ ${(pkg.stars || 0).toLocaleString()} / 🍴 ${(pkg.forks || 0).toLocaleString()}</span>
+        </div>
+        <div class="meta-grid-cell">
+          <span class="meta-grid-label">最后更新时间 (Updated)</span>
+          <span class="meta-grid-val" title="${pkg.updatedAt || ''}">${formatDate(pkg.updatedAt)}</span>
+        </div>
       `;
+
+      // Tags
+      modalTagsContainer.innerHTML = `
+        <span class="badge" style="background:var(--accent-light); border:1px solid var(--accent-glow); color:var(--accent); cursor:pointer;" onclick="filterByTag('dsh-plugin'); closeDetailModal();">#dsh-plugin</span>
+        ${(pkg.tags || []).map(t => `<span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); color:var(--text-secondary); cursor:pointer;" onclick="filterByTag('${t}'); closeDetailModal();">#${t}</span>`).join("")}
+      `;
+
+      // Package manager install options
+      const npmName = pkg.npmName || pkg.name;
+      const target = pkg.hasNpm ? npmName : `github:${pkg.fullName || `${pkg.author}/${pkg.name}`}`;
+      const dshTarget = pkg.fullName || pkg.name;
+
+      modalInstallOptions.innerHTML = `
+        <div class="install-bar">
+          <code class="install-cmd"><span class="prefix">$</span> dsh install ${dshTarget}</code>
+          <button class="copy-btn" onclick="copyCommand('dsh install ${dshTarget}', this)">复制</button>
+        </div>
+        <div class="install-bar">
+          <code class="install-cmd"><span class="prefix">$</span> npm i ${target}</code>
+          <button class="copy-btn" onclick="copyCommand('npm i ${target}', this)">复制</button>
+        </div>
+        <div class="install-bar">
+          <code class="install-cmd"><span class="prefix">$</span> pnpm add ${target}</code>
+          <button class="copy-btn" onclick="copyCommand('pnpm add ${target}', this)">复制</button>
+        </div>
+        <div class="install-bar">
+          <code class="install-cmd"><span class="prefix">$</span> bun add ${target}</code>
+          <button class="copy-btn" onclick="copyCommand('bun add ${target}', this)">复制</button>
+        </div>
+      `;
+
+      // Rating Box
+      renderModalRating(pkg);
+
+      // Giscus discussion for this plugin
+      renderGiscus(pkg);
+
+      // Reset to overview tab
+      switchModalTab('overview', document.querySelector('.modal-tab-btn'));
 
       detailModal.classList.add("open");
     }
 
+    function renderModalRating(pkg) {
+      const my = myRatings[pkg.id];
+      const agg = remoteRatings[pkg.id];
+      let communityHtml = "";
+      if (agg && agg.count) {
+        const dist = Array.isArray(agg.dist) ? agg.dist : [0, 0, 0, 0, 0];
+        const rows = [5, 4, 3, 2, 1].map(n => {
+          const pct = agg.count ? Math.round((dist[n - 1] / agg.count) * 100) : 0;
+          return `
+            <div class="rating-dist-row">
+              <span class="rd-label">${n} 星</span>
+              <div class="rd-bar"><div class="rd-fill" style="width:${pct}%;"></div></div>
+              <span class="rd-pct">${pct}%</span>
+            </div>`;
+        }).join("");
+        communityHtml = `
+          <div class="rating-summary">
+            <span class="rs-avg">${Number(agg.average || 0).toFixed(1)}</span>
+            <span class="rs-count">${agg.count}人打分</span>
+          </div>
+          <div class="rating-dist">${rows}</div>
+        `;
+      }
+      modalRatingBox.innerHTML = `
+        ${communityHtml}
+        <div class="rating-mine">
+          <div>
+            <div class="rm-label">您对该插件的评价</div>
+            <div class="rm-hint">
+              ${my ? `您已评分: ${my} 星 ★` : '悬停预览并在点击后完成记录'}
+            </div>
+          </div>
+          <div class="rating-stars" id="modalStarsWrap" onmouseleave="resetStarHover('${pkg.id}')">
+            ${[1, 2, 3, 4, 5].map(star => `
+              <span class="star ${my >= star ? 'filled' : ''}"
+                    onmouseenter="hoverStar(${star})"
+                    onclick="ratePlugin('${pkg.id}', ${star})">★</span>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function hoverStar(count) {
+      const stars = document.querySelectorAll("#modalStarsWrap .star");
+      stars.forEach((s, idx) => {
+        if (idx < count) {
+          s.classList.add("hovered");
+        } else {
+          s.classList.remove("hovered");
+        }
+      });
+    }
+
+    function resetStarHover(pkgId) {
+      const my = myRatings[pkgId] || 0;
+      const stars = document.querySelectorAll("#modalStarsWrap .star");
+      stars.forEach((s, idx) => {
+        s.classList.remove("hovered");
+        if (idx < my) {
+          s.classList.add("filled");
+        } else {
+          s.classList.remove("filled");
+        }
+      });
+    }
+
+    function ratePlugin(pkgId, stars, e) {
+      if (e) e.stopPropagation();
+      myRatings[pkgId] = stars;
+      try {
+        localStorage.setItem(RATING_STORAGE_KEY, JSON.stringify(myRatings));
+      } catch (err) {}
+
+      showToast(`感谢您的评分: ${stars} 星 ⭐`, "⭐");
+      postRating(pkgId, stars);
+      const pkg = pluginsData.find(p => p.id === pkgId);
+      if (pkg) renderModalRating(pkg);
+      applyFilters();
+    }
+
     function closeDetailModal() {
       detailModal.classList.remove("open");
+    }
+
+    function renderGiscus(pkg) {
+      const box = document.getElementById("giscusContainer");
+      const cfg = MARKETPLACE_CONFIG.giscus;
+      if (!cfg.repoId || !cfg.categoryId) {
+        const issuesUrl = pkg.repoUrl ? `${pkg.repoUrl}/issues` : "#";
+        box.innerHTML = `
+          <div class="giscus-placeholder">
+            💬 讨论区尚未启用：需在 GitHub 开启 Discussions 并配置 <code>MARKETPLACE_CONFIG.giscus</code>（步骤见仓库 README）。<br>
+            暂可通过 <a href="${issuesUrl}" target="_blank" rel="noopener" style="color:var(--accent);">该插件的 GitHub Issues ↗</a> 反馈问题。
+          </div>`;
+        return;
+      }
+      box.innerHTML = "";
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.async = true;
+      s.crossOrigin = "anonymous";
+      [
+        ["data-repo", cfg.repo],
+        ["data-repo-id", cfg.repoId],
+        ["data-category", cfg.category],
+        ["data-category-id", cfg.categoryId],
+        ["data-mapping", "specific"],
+        ["data-term", `plugin: ${pkg.fullName || pkg.name}`],
+        ["data-strict", "0"],
+        ["data-reactions-enabled", "1"],
+        ["data-emit-metadata", "0"],
+        ["data-input-position", "top"],
+        ["data-theme", document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark_dimmed"],
+        ["data-lang", "zh-CN"]
+      ].forEach(([k, v]) => s.setAttribute(k, v));
+      box.appendChild(s);
+    }
+
+    function syncGiscusTheme(theme) {
+      const frame = document.querySelector("iframe.giscus-frame");
+      if (!frame || !frame.contentWindow) return;
+      frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: theme === "light" ? "light" : "dark_dimmed" } } },
+        "https://giscus.app"
+      );
     }
 
     function openPublishModal() {
@@ -2131,7 +3526,7 @@
       publishModal.classList.remove("open");
     }
 
-    // Close modal when clicking outside
+    // Modal click backdrop to close
     [detailModal, publishModal].forEach(modal => {
       modal.addEventListener("click", e => {
         if (e.target === modal) {
@@ -2140,9 +3535,9 @@
       });
     });
 
-    // --- Theme Switcher (Default: light) ---
+    // --- Theme Switcher ---
     function initTheme() {
-      const saved = localStorage.getItem("dsh_theme") || "light";
+      const saved = localStorage.getItem("dsh_theme") || "dark";
       setTheme(saved);
     }
 
@@ -2152,16 +3547,17 @@
       if (theme === "dark") {
         moonIcon.style.display = "none";
         sunIcon.style.display = "block";
-        themeToggleBtn.title = "切换至浅色模式";
+        themeToggleBtn.title = "切换至浅色模式 (Alt+T)";
       } else {
         moonIcon.style.display = "block";
         sunIcon.style.display = "none";
-        themeToggleBtn.title = "切换至深色模式";
+        themeToggleBtn.title = "切换至深色模式 (Alt+T)";
       }
+      syncGiscusTheme(theme);
     }
 
     themeToggleBtn.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || "light";
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
       setTheme(current === "dark" ? "light" : "dark");
     });
 
@@ -2169,11 +3565,25 @@
       searchInput.value = "";
       typeFilter.value = "";
       sortFilter.value = "stars";
+      isNpmOnly = false;
+      npmOnlyBtn.classList.remove("active");
       selectCategoryPill("");
     }
 
-    // --- Data Fetching & App Init ---
+    // --- Data Loading with Shimmer State ---
     async function loadPlugins() {
+      // Shimmer loading
+      packagesContainer.innerHTML = Array(4).fill(0).map(() => `
+        <div class="package-card" style="opacity: 0.5;">
+          <div class="package-card-preview"></div>
+          <div class="package-card-body" style="gap:12px;">
+            <div style="height:20px; background:var(--bg-surface-raised); border-radius:4px; width:40%;"></div>
+            <div style="height:14px; background:var(--bg-surface-raised); border-radius:4px; width:80%;"></div>
+            <div style="height:14px; background:var(--bg-surface-raised); border-radius:4px; width:60%;"></div>
+          </div>
+        </div>
+      `).join("");
+
       // 1. Try local data/plugins.json
       try {
         const res = await fetch('./data/plugins.json');
@@ -2181,25 +3591,28 @@
           const json = await res.json();
           if (json.plugins && json.plugins.length > 0) {
             pluginsData = json.plugins;
+            if (json.updatedAt) {
+              heroSyncTime.textContent = `⚡ 最近全网同步: ${formatDate(json.updatedAt)}`;
+            }
             updateStats();
-            renderRecent();
+            renderTrending();
             applyFilters();
+            syncRatings(pluginsData.map(p => p.id));
             return;
           }
         }
       } catch (err) {
-        console.warn("fetch ./data/plugins.json skipped, falling back to GitHub API", err);
+        console.warn("fetch ./data/plugins.json skipped", err);
       }
 
-      // 2. Fallback to GitHub Search API
+      // 2. Fallback to GitHub API
       try {
         const res = await fetch('https://api.github.com/search/repositories?q=topic:dsh-plugin+is:public&sort=stars&order=desc&per_page=100');
         if (res.ok) {
           const data = await res.json();
           const items = (data.items || []).filter(repo => {
             const fullName = (repo.full_name || '').toLowerCase();
-            const repoName = (repo.name || '').toLowerCase();
-            return !EXCLUDED_REPOS.some(ex => fullName === ex.toLowerCase() || repoName === ex.toLowerCase());
+            return !fullName.includes('deepseek-ai/deepseek-harness');
           });
 
           pluginsData = items.map(repo => {
@@ -2222,50 +3635,32 @@
               repoUrl: repo.html_url,
               stars: repo.stargazers_count || 0,
               forks: repo.forks_count || 0,
-              license: repo.license ? repo.license.spdx_id || repo.license.name : 'Unknown',
+              license: repo.license ? (repo.license.spdx_id || repo.license.name) : 'Unknown',
               updatedAt: repo.updated_at,
               tags: topics.filter(t => t.toLowerCase() !== 'dsh-plugin'),
               type: type,
+              hasNpm: false,
               installCmd: `dsh install ${repo.full_name}`,
               readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`
             };
           });
 
           updateStats();
-          renderRecent();
+          renderTrending();
           applyFilters();
+          syncRatings(pluginsData.map(p => p.id));
           return;
         }
       } catch (err) {
         console.error("GitHub API search error", err);
       }
-
-      // 3. Minimal Fallback Data
-      pluginsData = [
-        {
-          id: "open-design",
-          name: "open-design",
-          fullName: "nexu-io/open-design",
-          description: "🎨 Best DeepSeek Harness Design Plugin. Local-first desktop app & UI generator.",
-          author: "nexu-io",
-          stars: 89567,
-          type: "extension",
-          repoUrl: "https://github.com/nexu-io/open-design",
-          tags: ["ui-generator", "ai-design"],
-          installCmd: "dsh install nexu-io/open-design",
-          updatedAt: new Date().toISOString()
-        }
-      ];
-      updateStats();
-      renderRecent();
-      applyFilters();
     }
 
-    // --- Event Listeners ---
+    // --- Event Listeners & Shortcuts ---
     let searchDebounce;
     searchInput.addEventListener("input", () => {
       clearTimeout(searchDebounce);
-      searchDebounce = setTimeout(applyFilters, 150);
+      searchDebounce = setTimeout(applyFilters, 120);
     });
 
     searchClearBtn.addEventListener("click", () => {
@@ -2281,16 +3676,48 @@
     sortFilter.addEventListener("change", applyFilters);
     resetBtn.addEventListener("click", resetAllFilters);
 
-    // ESC key to close modals
-    window.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        closeDetailModal();
-        closePublishModal();
+    // Scroll listener for Back to Top
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
       }
     });
 
-    // Initialization
+    // Keyboard Shortcuts
+    window.addEventListener("keydown", e => {
+      // ESC to close modals or clear search
+      if (e.key === "Escape") {
+        if (detailModal.classList.contains("open")) {
+          closeDetailModal();
+        } else if (publishModal.classList.contains("open")) {
+          closePublishModal();
+        } else if (searchInput === document.activeElement && searchInput.value) {
+          searchInput.value = "";
+          applyFilters();
+        }
+      }
+      // Slash (/) or Cmd+K / Ctrl+K to search
+      if ((e.key === "/" || ((e.ctrlKey || e.metaKey) && e.key === "k")) && document.activeElement !== searchInput && !detailModal.classList.contains("open") && !publishModal.classList.contains("open")) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      // Alt+T to toggle theme
+      if (e.altKey && (e.key === "t" || e.key === "T")) {
+        e.preventDefault();
+        themeToggleBtn.click();
+      }
+      // Alt+V to toggle view mode
+      if (e.altKey && (e.key === "v" || e.key === "V")) {
+        e.preventDefault();
+        setViewMode(currentViewMode === "grid" ? "list" : "grid");
+      }
+    });
+
+    // Initialize
     initTheme();
+    setViewMode(currentViewMode);
     loadPlugins();
   </script>
 </body>

@@ -40,3 +40,46 @@ node scripts/sync-plugins.js
    - `dsh-mcp` (MCP 协议服务)
    - `dsh-theme` (终端/UI 主题)
    - `dsh-prompt` (Prompt 预设)
+
+---
+
+## 💬 社区评价与评分
+
+### 第一阶段：Giscus 讨论区（零成本）
+
+插件详情弹框的 **「评分与反馈」** 页签内嵌 Giscus，每个插件对应一条独立 GitHub Discussion（`data-mapping="specific"`，term 为 `plugin: <owner>/<repo>`）。
+
+启用步骤：
+1. 本仓库 Settings → 开启 **Discussions**，新建分类（建议名 `Plugin Reviews`）。
+2. 安装 [giscus App](https://github.com/apps/giscus) 并授权本仓库。
+3. 打开 [giscus.app](https://giscus.app) 填入 `SCP-008-1/dsh-marketplace`，复制生成的 `data-repo-id` 与 `data-category-id`。
+4. 填进 `index.html` 顶部：
+
+```js
+const MARKETPLACE_CONFIG = {
+  giscus: {
+    repo: "SCP-008-1/dsh-marketplace",
+    repoId: "R_kgDO……",
+    category: "Plugin Reviews",
+    categoryId: "DIC_kwDO……",
+  },
+  ratingApi: ""
+};
+```
+
+未填写时不会报错，页签内显示配置指引 + 跳转插件仓库 Issues 的入口。深色/浅色主题会自动同步给 giscus。
+
+### 第二阶段：⭐ 评分 API（Cloudflare Workers，免费）
+
+卡片与列表直接显示 `⭐ 4.8 (128人打分)`，点击徽标就地展开五颗星，一键打分（同一浏览器再次打分视为改分）。
+
+```bash
+cd workers/rating && npx wrangler login
+npx wrangler kv namespace create RATINGS   # 把 id 填进 wrangler.toml
+npx wrangler deploy
+```
+
+把返回的 Worker 地址填入 `MARKETPLACE_CONFIG.ratingApi` 即可生效。详见 [`workers/rating/README.md`](workers/rating/README.md)。
+
+未配置 `ratingApi` 时自动降级为 localStorage 本地评分，功能不中断。
+

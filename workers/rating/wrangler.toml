@@ -1,0 +1,17 @@
+name = "dsh-rating"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# 部署前先创建 KV：
+#   npx wrangler kv namespace create RATINGS
+# 然后把返回的 id 填到下面
+[[kv_namespaces]]
+binding = "RATINGS"
+id = "4f013c317ba14ce1a795685a282358a4"
+
+[vars]
+# 生产环境建议改成你的站点域名，多个用逗号分隔
+ALLOWED_ORIGINS = "https://dsh-marketplace.laoba.me"
+
+# SALT 不放在本文件（避免提交到公开仓库）！用下面命令设为加密的 Worker Secret：
+#   npx wrangler secret put SALT
