@@ -1,0 +1,34 @@
+# --- Secrets & Env ---
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Wrangler / Cloudflare
+.wrangler/
+.wrangler.toml.bak
+workers/**/wrangler.toml.local
+workers/**/*.dev.vars
+.dev.vars
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.vscode/
+.idea/
+
+# Deps
+node_modules/
+dist/
+wiki_repo/
+
+# Local tool caches (不入库，防误提交本地改分/测试数据)
+.pi/
+workers/rating/.wrangler/

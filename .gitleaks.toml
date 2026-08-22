@@ -1,0 +1,20 @@
+title = "dsh-marketplace gitleaks config"
+
+# 官方基线规则不动，仅加 allowlist 放行本仓库的占位符/示例
+[allowlist]
+  description = "placeholders and docs"
+  paths = [
+    '''\.gitignore$''',
+    '''README\.md$''',
+    '''workers/rating/README\.md$''',
+  ]
+  # 放行写在文档/注释里的示例占位符
+  regexes = [
+    '''R_kgDO[_\.…]+''',
+    '''DIC_kwDO[_\.…]+''',
+    '''REPLACE_WITH_YOUR_KV_ID''',
+    '''change-me''',
+    '''fill-real-salt-here''',
+  ]
+  # 按 commit 维度忽略需人工确认的误报（示例）
+  # commits = []

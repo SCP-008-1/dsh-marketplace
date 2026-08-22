@@ -22,6 +22,34 @@ const EXCLUDED_REPOS = [
   'deepseek-harness'
 ];
 
+// GitHub Search API 单页 100 条；最多取 MAX_PAGES 页防止静默截断
+const MAX_PAGES = 5;
+
+// 读取上一次生成的数据（用于数量骤降守卫）
+function loadPreviousData(outputPath) {
+  try {
+    return JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
+// 分页拉取全部搜索结果；首页失败返回 null（调用方必须中止而不是写空数据）
+async function fetchAllRepos(searchUrl, headers) {
+  const items = [];
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    const result = await fetchJson(`${searchUrl}&page=${page}`, headers);
+    if (!result || !Array.isArray(result.items)) {
+      if (page === 1) return null;
+      console.warn(`第 ${page} 页拉取失败，仅使用前 ${items.length} 条`);
+      break;
+    }
+    items.push(...result.items);
+    if (result.items.length < 100) break;
+  }
+  return items;
+}
+
 // 请求 JSON 辅助函数
 function fetchJson(url, headers = {}) {
   return new Promise(resolve => {
@@ -77,6 +105,15 @@ async function verifyNpmPackage(repo) {
 
   const cleanName = pkgJson.name.trim();
 
+  // 包名格式校验（npm 命名规则子集）：防止第三方 package.json 构造恶意字符串流入商城页面
+  if (!/^(@[a-zA-Z0-9][a-zA-Z0-9._-]*\/)?[a-zA-Z0-9][a-zA-Z0-9._-]{0,213}$/.test(cleanName)) {
+    return {
+      hasNpm: false,
+      pkgJson,
+      installCmd: `npm i github:${repo.full_name}`
+    };
+  }
+
   // 2. 请求 npm registry 确认存在性与发布版本
   const npmData = await fetchJson(`https://registry.npmjs.org/${encodeURIComponent(cleanName).replace('%40', '@')}`);
   const latestVersion = npmData?.['dist-tags']?.latest;
@@ -121,6 +158,38 @@ async function verifyNpmPackage(repo) {
 }
 
 // 判定插件类型
+function sanitizeVersion(v) {
+  if (v === null || v === undefined) return null;
+  return String(v).replace(/[^\w.+-]/g, '').slice(0, 32) || null;
+}
+
+// 将插件数据内嵌进 index.html（离线/即时渲染）。独立出来支持 --bootstrap-only 复用
+function injectBootstrap(pluginsData) {
+  const indexPath = path.join(__dirname, '..', 'index.html');
+  if (!fs.existsSync(indexPath)) return;
+  try {
+    // 关键：< 必须转义为 \u003c，否则插件描述里的 "</script>" 会破出 <script> 标签造成 XSS；
+    // U+2028/2029 也一并转义以兼容旧解析器
+    const inlineJson = JSON.stringify(pluginsData)
+      .replace(/</g, '\\u003c')
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029');
+    let indexHtml = fs.readFileSync(indexPath, 'utf-8');
+    // 行锚点整行替换：非贪婪 [\s\S]*?\]; 会在描述包含 "];" 时截断数据；\s* 兼容行首缩进
+    if (!/^\s*window\.DSH_BOOTSTRAP_PLUGINS\s*=.*$/m.test(indexHtml) ||
+        !/^\s*window\.DSH_UPDATED_AT\s*=.*$/m.test(indexHtml)) {
+      console.warn('index.html 中未找到 bootstrap 数据锚点，跳过内嵌更新');
+      return;
+    }
+    indexHtml = indexHtml.replace(/^\s*window\.DSH_BOOTSTRAP_PLUGINS\s*=.*$/m, `window.DSH_BOOTSTRAP_PLUGINS = ${inlineJson};`);
+    indexHtml = indexHtml.replace(/^\s*window\.DSH_UPDATED_AT\s*=.*$/m, `window.DSH_UPDATED_AT = ${JSON.stringify(new Date().toISOString())};`);
+    fs.writeFileSync(indexPath, indexHtml, 'utf-8');
+    console.log('index.html 内嵌 bootstrap 数据已同步更新');
+  } catch (e) {
+    console.warn('更新 index.html 内嵌数据失败:', e.message);
+  }
+}
+
 function detectPluginType(topics = []) {
   const lowerTopics = topics.map(t => t.toLowerCase());
   if (lowerTopics.includes('dsh-skill') || lowerTopics.includes('skill')) return 'skill';
@@ -131,13 +200,28 @@ function detectPluginType(topics = []) {
 }
 
 async function main() {
+  // --bootstrap-only：读取现有 data/plugins.json，仅更新 index.html 内嵌数据（不访问网络）
+  if (process.argv.includes('--bootstrap-only')) {
+    const prev = loadPreviousData(path.join(__dirname, '..', 'data', 'plugins.json'));
+    if (!prev || !Array.isArray(prev.plugins) || !prev.plugins.length) {
+      console.error('⛔ --bootstrap-only: data/plugins.json 不存在或为空');
+      process.exit(1);
+    }
+    injectBootstrap(prev.plugins);
+    return;
+  }
+
   const token = process.env.GITHUB_TOKEN || '';
   const searchUrl = 'https://api.github.com/search/repositories?q=topic:dsh-plugin+is:public&sort=stars&order=desc&per_page=100';
   const headers = token ? { 'Authorization': `token ${token}` } : {};
 
   console.log(`[1/5] 正在拉取 GitHub topic:dsh-plugin 仓库...`);
-  const result = await fetchJson(searchUrl, headers);
-  const items = result?.items || [];
+  const items = await fetchAllRepos(searchUrl, headers);
+  // 关键守卫：API 失败/空结果时绝不写文件，防止每小时 cron 清空商城数据
+  if (!items || items.length === 0) {
+    console.error('⛔ GitHub Search API 拉取失败或返回空结果（限流/网络错误）— 中止同步，保留现有 data/plugins.json');
+    process.exit(1);
+  }
   console.log(`共检索到 ${items.length} 个项目`);
 
   console.log(`[2/5] 执行过滤与数据清洗（排除 ${EXCLUDED_REPOS.join(', ')}）...`);
@@ -180,7 +264,7 @@ async function main() {
         hasNpm: npmVerification.hasNpm,
         npmName: npmVerification.npmName || null,
         npmUrl: npmVerification.npmUrl || null,
-        version: npmVerification.version || pkgJson?.version || null,
+        version: sanitizeVersion(npmVerification.version || pkgJson?.version || null),
         installCmd: npmVerification.installCmd,
         readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`
       };
@@ -201,6 +285,13 @@ async function main() {
     fs.mkdirSync(dataDir, { recursive: true });
   }
   const outputPath = path.join(dataDir, 'plugins.json');
+  // 数量骤降守卫：较上次减少超过 50% 视为抓取异常，中止写入
+  const prev = loadPreviousData(outputPath);
+  if (prev && Array.isArray(prev.plugins) && prev.plugins.length >= 20 &&
+      pluginsData.length < Math.floor(prev.plugins.length * 0.5)) {
+    console.error(`⛔ 插件数量骤降 (${prev.plugins.length} -> ${pluginsData.length})，疑似抓取/过滤异常 — 中止写入`);
+    process.exit(1);
+  }
   fs.writeFileSync(outputPath, JSON.stringify({
     updatedAt: new Date().toISOString(),
     total: pluginsData.length,
@@ -208,6 +299,9 @@ async function main() {
     plugins: pluginsData
   }, null, 2), 'utf-8');
   console.log(`已成功生成 ${outputPath}`);
+
+  // 同步更新 index.html 中的内嵌 bootstrap 数据（保证离线与即时可用）
+  injectBootstrap(pluginsData);
 
   // 5. 生成 GitHub Wiki 页面
   console.log(`[5/5] 生成 GitHub Wiki Markdown 文档...`);
@@ -277,12 +371,6 @@ npm i github:<owner>/<repo>
   const sidebarMarkdown = `### 🧩 dsh 插件中心
 * [[首页与概览|Home]]
 * [[发布与收录指南|Publish-Guide]]
-
-### 🏷️ 插件分类
-* [[🧩 核心扩展|Home]]
-* [[⚡ Agent 技能|Home]]
-* [[🔌 MCP 服务端|Home]]
-* [[🎨 个性化主题|Home]]
 `;
   fs.writeFileSync(path.join(wikiDir, '_Sidebar.md'), sidebarMarkdown, 'utf-8');
 

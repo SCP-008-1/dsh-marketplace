@@ -11,7 +11,7 @@ id = "4f013c317ba14ce1a795685a282358a4"
 
 [vars]
 # 生产环境建议改成你的站点域名，多个用逗号分隔
-ALLOWED_ORIGINS = "https://dsh-marketplace.laoba.me"
+ALLOWED_ORIGINS = "https://dsh-marketplace.laoba.me,https://scp-008-1.github.io,http://localhost:8000,http://127.0.0.1:8000,http://localhost:8787,http://127.0.0.1:8787"
 
 # SALT 不放在本文件（避免提交到公开仓库）！用下面命令设为加密的 Worker Secret：
 #   npx wrangler secret put SALT

@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# dsh-marketplace 本地 secret 门禁（零依赖，无需 gitleaks/pre-commit）
+# 拦截 staged 变更中的常见密钥/私钥明文，误报可在 .gitleaks.toml allowlist 放行
+set -euo pipefail
+
+# 允许通过环境变量跳过：SKIP_SECRET_CHECK=1 git commit ...
+if [[ "${SKIP_SECRET_CHECK:-}" == "1" ]]; then
+  exit 0
+fi
+
+# 仅扫 staged 的增量（更快，且不误伤工作区未 add 文件）
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR || true)
+if [[ -z "$STAGED_FILES" ]]; then
+  exit 0
+fi
+
+# 排除无需扫描的目录/二进制
+PATTERNS=(
+  'ghp_[A-Za-z0-9]{36,}'
+  'gho_[A-Za-z0-9]{36,}'
+  'github_pat_[A-Za-z0-9_]{80,}'
+  'AKIA[0-9A-Z]{16}'
+  'AIza[0-9A-Za-z_-]{35}'
+  '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----'
+  'sk-(proj-)?[A-Za-z0-9_-]{20,}'
+  'xox[bpas]-[0-9A-Za-z-]{10,}'
+)
+
+# 文档占位符放行
+ALLOW_RE='REPLACE_WITH|change-me|fill-real-salt|R_kgDO|DIC_kwDO|example|placeholder|\.gitleaks\.toml|\.env\.example'
+
+REGEX=$(IFS='|'; echo "${PATTERNS[*]}")
+FOUND=0
+
+# 使用 git diff --cached -U0 逐文件检查，避免已 .gitignore 但仍 staged 的文件
+DIFF=$(git diff --cached -U0 --no-color || true)
+
+if echo "$DIFF" | grep -vE "$ALLOW_RE" | grep -Eq "$REGEX"; then
+  echo ""
+  echo "⛔  pre-commit 拦截：检测到疑似密钥/私钥明文（见下方匹配行）"
+  echo "   请移除密钥后改用环境变量 / GitHub Secrets，或确认为误报后加入 .gitleaks.toml allowlist"
+  echo "   跳过（仅本地调试）：SKIP_SECRET_CHECK=1 git commit -m '...'"
+  echo "   ---"
+  echo "$DIFF" | grep -vE "$ALLOW_RE" | grep -En "$REGEX" | head -n 40
+  echo "   ---"
+  FOUND=1
+fi
+
+# 额外：阻止 .env / .dev.vars / *.pem 被 staged（即使 .gitignore 已配，也防 -f 强行添加）
+# 注意：.env.example 是占位示例（内容扫描层已放行），不应被文件黑名单误拦
+BLOCKLIST_RE='\.env($|\.)|\.dev\.vars|.*\.pem$|.*\.key$|.*\.p12$|.*\.pfx$|\.wrangler/'
+BLOCKED=$(echo "$STAGED_FILES" | grep -E "$BLOCKLIST_RE" | grep -v '\.env\.example' || true)
+if [ -n "$BLOCKED" ]; then
+  echo ""
+  echo "⛔  pre-commit 拦截：以下文件禁止提交（可能含密钥）："
+  echo "$BLOCKED" | sed 's/^/  - /'
+  echo "   已在 .gitignore 中忽略，请 git restore --staged <file> 移除暂存"
+  FOUND=1
+fi
+
+if [[ $FOUND -eq 1 ]]; then
+  exit 1
+fi
+
+# 若本地装了 gitleaks，额外跑一次（有则更严，无则不阻塞）
+if command -v gitleaks >/dev/null 2>&1; then
+  echo "→ 本地 gitleaks 已安装，执行 staged 增量扫描..."
+  gitleaks protect --staged --config .gitleaks.toml --verbose --redact || {
+    echo "⛔ gitleaks 拦截：请修复后再提交"
+    exit 1
+  }
+fi
+
+exit 0
