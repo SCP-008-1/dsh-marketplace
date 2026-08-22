@@ -2055,7 +2055,7 @@
           <div class="trust-card">
             <div class="trust-card-icon">✓</div>
             <div class="trust-card-title" id="trust4Title">一行命令极简安装</div>
-            <div class="trust-card-desc" id="trust4Desc">无缝集成 <code>dsh plugin add</code> 与 <code>npm i</code>，一键扩展 AI 智能体工作流能力。</div>
+            <div class="trust-card-desc" id="trust4Desc">每个插件均附带经过验证的一行 <code>npm i</code> 命令，开箱即用。</div>
           </div>
         </div>
       </section>
@@ -2097,7 +2097,7 @@
           </div>
         </div>
         <div style="display:flex; align-items:center; gap:10px;">
-          <button id="modalHeaderInstallBtn" class="btn btn-accent" onclick="copyModalDshCommand(this)">
+          <button id="modalHeaderInstallBtn" class="btn btn-accent" onclick="copyModalInstall(this)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
@@ -2397,7 +2397,7 @@ window.DSH_UPDATED_AT = "2026-08-22T09:59:55.691Z";
         trust3Title: "NPM 严格双向校验",
         trust3Desc: "严格验证 NPM 包与 GitHub 仓库真实归属，有效杜绝包名抢注与仿冒风险。",
         trust4Title: "一行命令极简安装",
-        trust4Desc: "无缝集成 <code>dsh plugin add</code> 与 <code>npm i</code>，一键扩展 AI 智能体工作流能力。",
+        trust4Desc: "每个插件均附带经过验证的一行 <code>npm i</code> 命令，开箱即用。",
 
         footerCopyright: "© 2026 dsh 插件生态 · 基于 Apache-2.0 协议开源",
         footerShortcuts: "快捷键：<code>/</code> 搜索 · <code>Alt+L</code> 切换语言 · <code>Alt+T</code> 切换主题 · <code>Alt+V</code> 切换视图 · <code>Esc</code> 关闭",
@@ -2592,7 +2592,7 @@ window.DSH_UPDATED_AT = "2026-08-22T09:59:55.691Z";
         trust3Title: "Package Validated",
         trust3Desc: "Strict NPM validation ensures genuine author-repo matching and prevents typosquatting.",
         trust4Title: "One-Command Install",
-        trust4Desc: "Seamless integration with <code>dsh plugin add</code> and <code>npm i</code> for zero-friction AI agent workflow upgrades.",
+        trust4Desc: "Every listing ships a verified one-line <code>npm i</code> command for zero-friction installation.",
 
         footerCopyright: "© 2026 dsh Ecosystem. Open source under Apache-2.0.",
         footerShortcuts: "Shortcuts: <code>/</code> Search · <code>Alt+L</code> Language · <code>Alt+T</code> Theme · <code>Alt+V</code> View · <code>Esc</code> Close",
@@ -3120,14 +3120,7 @@ window.DSH_UPDATED_AT = "2026-08-22T09:59:55.691Z";
       copyCommand(cmd, btnElement, t('toastCopiedCmd', cmd));
     }
 
-    function copyDshInstall(pkgName, btnElement, e) {
-      if (e) e.stopPropagation();
-      const pkg = pluginsData.find(p => p.name === pkgName || p.id === pkgName);
-      const cmd = pkg ? pkgInstallCmd(pkg) : ('npm i ' + pkgName);
-      copyCommand(cmd, btnElement, t('toastCopiedCmd', cmd));
-    }
-
-    function copyModalDshCommand(btn) {
+    function copyModalInstall(btn) {
       if (!currentOpenPlugin) return;
       const cmd = pkgInstallCmd(currentOpenPlugin);
       copyCommand(cmd, btn, t('toastCopiedCmd', cmd));
@@ -3696,21 +3689,11 @@ window.DSH_UPDATED_AT = "2026-08-22T09:59:55.691Z";
       modalGithubLink.href = pkg.repoUrl;
       modalDescText.textContent = pkg.description || t('noDesc');
 
-      // Quick Install commands
-      const npmTarget = pkg.hasNpm ? (pkg.npmName || pkg.name) : ('github:' + (pkg.fullName || (pkg.author + '/' + pkg.name)));
-      const installCmd1 = pkgInstallCmd(pkg);
-      const installCmd2 = 'dsh plugin add ' + pkg.name;
+      // Quick Install command
+      const installCmd = pkgInstallCmd(pkg);
       modalInstallOptions.innerHTML = '<div class="install-box">' +
-          '<code><span class="prefix">$</span> ' + escapeHtml(installCmd1) + '</code>' +
-          '<button class="btn btn-install" onclick="copyCommand(\'' + jsAttr(installCmd1) + '\', this)">' + t('copyBtn') + '</button>' +
-        '</div>' +
-        '<div class="install-box">' +
-          '<code><span class="prefix">$</span> ' + escapeHtml(installCmd2) + '</code>' +
-          '<button class="btn btn-install" onclick="copyCommand(\'' + jsAttr(installCmd2) + '\', this)">' + t('copyBtn') + '</button>' +
-        '</div>' +
-        '<div class="install-box">' +
-          '<code><span class="prefix">$</span> npm i ' + escapeHtml(npmTarget) + '</code>' +
-          '<button class="btn btn-install" onclick="copyCommand(\'npm i ' + jsAttr(npmTarget) + '\', this)">' + t('copyBtn') + '</button>' +
+          '<code><span class="prefix">$</span> ' + escapeHtml(installCmd) + '</code>' +
+          '<button class="btn btn-install" onclick="copyCommand(\'' + jsAttr(installCmd) + '\', this)">' + t('copyBtn') + '</button>' +
         '</div>';
 
       // Meta Table
