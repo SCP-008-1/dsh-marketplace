@@ -1734,16 +1734,7 @@
       .compat-grid, .meta-grid-table {
         grid-template-columns: 1fr;
       }
-      .package-row {
-        grid-template-columns: 1fr auto;
-      }
-      .package-row-desc {
-        display: none;
-      }
-    }
-</style>
-</head>
-<body>
+      .pac<body>
   <!-- Header Nav -->
   <header class="site-header">
     <div class="container">
@@ -1756,21 +1747,27 @@
               </svg>
             </div>
             <div>
-              <span class="logo-title">dsh marketplace</span>
+              <span class="logo-title" id="brandTitle">dsh 插件商城</span>
               <span class="logo-subtitle">v0.4.2</span>
             </div>
           </div>
 
           <nav class="nav-links">
-            <a href="#packagesSection" class="nav-link">Plugins</a>
-            <a href="#trendingSection" class="nav-link">Trending</a>
-            <a href="javascript:void(0)" onclick="focusScenario('mcp')" class="nav-link">MCP</a>
-            <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" rel="noopener" class="nav-link">Docs ↗</a>
-            <a href="https://github.com/SCP-008-1/dsh-marketplace" target="_blank" rel="noopener" class="nav-link">GitHub ↗</a>
+            <a href="#packagesSection" class="nav-link" id="navLinkPlugins">全部插件</a>
+            <a href="#trendingSection" class="nav-link" id="navLinkTrending">热门推荐</a>
+            <a href="javascript:void(0)" onclick="focusScenario('mcp')" class="nav-link" id="navLinkMcp">MCP 专区</a>
+            <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" rel="noopener" class="nav-link" id="navLinkDocs">文档 Wiki ↗</a>
+            <a href="https://github.com/SCP-008-1/dsh-marketplace" target="_blank" rel="noopener" class="nav-link" id="navLinkGithub">开源仓库 ↗</a>
           </nav>
         </div>
 
         <div class="nav-actions">
+          <!-- Language Toggle Button -->
+          <button id="langToggleBtn" class="toggle-pill" onclick="toggleLanguage()" title="切换语言 / Switch Language (Alt+L)" style="font-weight:600; padding:5px 10px; font-size:12px; height:32px;">
+            <span style="font-size:13px;">🌐</span>
+            <span id="langToggleLabel">中 / EN</span>
+          </button>
+
           <button id="themeToggleBtn" class="icon-btn" title="切换主题 (Alt+T)">
             <svg id="moonIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -1788,7 +1785,7 @@
             </svg>
           </button>
 
-          <button class="icon-btn" onclick="toggleFavoriteTab()" title="我的收藏">
+          <button id="favoriteNavBtn" class="icon-btn" onclick="toggleFavoriteTab()" title="我的收藏">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
@@ -1800,7 +1797,7 @@
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-            Submit Plugin
+            <span id="submitPluginNavText">提交插件</span>
           </button>
         </div>
       </div>
@@ -1814,12 +1811,12 @@
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-badge">
-          <span>⚡ DeepSeek Harness Ecosystem</span>
+          <span id="heroBadgeText">⚡ DeepSeek Harness 插件生态</span>
         </div>
 
-        <h1 class="hero-title">DSH Plugin Marketplace</h1>
-        <p class="hero-subtitle">
-          Find tools, MCP servers, and skills that extend your AI workflow.
+        <h1 class="hero-title" id="heroTitleText">dsh 插件商城</h1>
+        <p class="hero-subtitle" id="heroSubtitleText">
+          发现、探索与安装扩展、MCP 协议服务与智能体技能，赋能你的 AI 终端工作流。
         </p>
 
         <!-- Omnibar Search Control -->
@@ -1833,7 +1830,7 @@
               type="text" 
               id="searchInput" 
               class="omnibar-input" 
-              placeholder="搜索插件、MCP 服务、Skill 技能、主题或作者… (/)" 
+              placeholder="搜索插件、MCP 服务、Skill 技能、主题或作者… (快捷键 /)" 
               autocomplete="off"
             >
             <button id="searchClearBtn" class="omnibar-clear-btn" title="清空">✕</button>
@@ -1844,40 +1841,40 @@
           <div class="omnibar-dropdown" id="omnibarDropdown">
             <div id="recentSearchesWrap" style="display:none;">
               <div class="dropdown-section-title">
-                <span>最近搜索 · Recent</span>
-                <span style="cursor:pointer; font-weight:normal;" onclick="clearRecentSearches()">清空</span>
+                <span id="recentSearchesTitle">最近搜索</span>
+                <span id="recentSearchesClearBtn" style="cursor:pointer; font-weight:normal;" onclick="clearRecentSearches()">清空</span>
               </div>
               <div class="dropdown-chips-row" id="recentSearchesList"></div>
             </div>
 
-            <div class="dropdown-section-title">快速筛选 · Suggestions</div>
+            <div class="dropdown-section-title" id="quickSuggestionsTitle">快速筛选</div>
             <div class="dropdown-chips-row">
-              <span class="dropdown-chip" onclick="applyQuickSearch('mcp')">🔌 MCP Servers</span>
-              <span class="dropdown-chip" onclick="applyQuickSearch('skill')">⚡ Coding Skills</span>
-              <span class="dropdown-chip" onclick="applyQuickSearch('agent')">🤖 AI Agents</span>
-              <span class="dropdown-chip" onclick="applyQuickSearch('theme')">🎨 Themes</span>
-              <span class="dropdown-chip" onclick="applyQuickSearch('verified:true')">✓ Verified Only</span>
+              <span class="dropdown-chip" id="chipMcp" onclick="applyQuickSearch('mcp')">🔌 MCP 协议服务</span>
+              <span class="dropdown-chip" id="chipSkill" onclick="applyQuickSearch('skill')">⚡ 编程与代码技能</span>
+              <span class="dropdown-chip" id="chipAgent" onclick="applyQuickSearch('agent')">🤖 AI 智能体</span>
+              <span class="dropdown-chip" id="chipTheme" onclick="applyQuickSearch('theme')">🎨 终端与 UI 主题</span>
+              <span class="dropdown-chip" id="chipVerified" onclick="applyQuickSearch('verified:true')">✓ 仅看 NPM 认证包</span>
             </div>
 
-            <div class="dropdown-section-title">高级语法 · Syntax Filter</div>
+            <div class="dropdown-section-title" id="syntaxFilterTitle">高级搜索语法</div>
             <div class="dropdown-syntax-row">
-              <span class="dropdown-syntax-item" onclick="applyQuickSearch('author:')">author:xxx</span>
+              <span class="dropdown-syntax-item" onclick="applyQuickSearch('author:')">author:作者名</span>
               <span class="dropdown-syntax-item" onclick="applyQuickSearch('type:mcp')">type:mcp</span>
               <span class="dropdown-syntax-item" onclick="applyQuickSearch('verified:true')">verified:true</span>
-              <span class="dropdown-syntax-item" onclick="applyQuickSearch('tag:ai')">tag:ai</span>
+              <span class="dropdown-syntax-item" onclick="applyQuickSearch('tag:ai')">tag:标签名</span>
             </div>
           </div>
         </div>
 
         <!-- Quick Links Under Hero -->
         <div class="hero-quick-links">
-          <span class="hero-quick-link" onclick="scrollToTrending()">🔥 Trending plugins</span>
+          <span class="hero-quick-link" id="heroTrendingLink" onclick="scrollToTrending()">🔥 热门趋势</span>
           <span>·</span>
-          <span class="hero-quick-link" onclick="focusTier1('popular')">⭐ Top rated</span>
+          <span class="hero-quick-link" id="heroTopRatedLink" onclick="focusTier1('popular')">⭐ 高分好评</span>
           <span>·</span>
-          <span class="hero-quick-link" onclick="focusScenario('all')"><span id="heroTotalCount">99</span> verified packages</span>
+          <span class="hero-quick-link" onclick="focusScenario('all')"><span id="heroTotalCount">99</span><span id="heroVerifiedSuffix"> 个收录插件</span></span>
           <span>·</span>
-          <span class="hero-quick-link" onclick="focusTier1('recent')">⏱️ Recently updated</span>
+          <span class="hero-quick-link" id="heroRecentlyUpdated" onclick="focusTier1('recent')">⏱️ 最近更新</span>
         </div>
       </section>
 
@@ -1889,9 +1886,9 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #f59e0b;">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
               </svg>
-              Trending Plugins
+              <span id="trendingSectionTitle">热门推荐</span>
             </h2>
-            <span class="section-subtitle">Top community stars & fast-growing tools</span>
+            <span class="section-subtitle" id="trendingSubtitle">社区 Star 最多与增长迅速的精选插件</span>
           </div>
         </div>
 
@@ -1910,7 +1907,7 @@
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
               </svg>
-              Explore Plugins
+              <span id="exploreSectionTitle">探索全部插件</span>
             </h2>
             <span class="section-subtitle" id="packageStatsCount">加载中...</span>
           </div>
@@ -1921,64 +1918,64 @@
           <!-- Tier 1: View / Scope Tabs -->
           <div class="tier1-tabs">
             <button class="tier1-tab active" data-tab="all" onclick="selectTier1Tab('all')">
-              <span>All Plugins</span>
+              <span id="tabAllText">全部插件</span>
               <span class="tier1-tab-count" id="tier1CountAll">(0)</span>
             </button>
             <button class="tier1-tab" data-tab="popular" onclick="selectTier1Tab('popular')">
-              <span>🔥 Popular</span>
+              <span id="tabPopularText">🔥 最受关注</span>
             </button>
             <button class="tier1-tab" data-tab="new" onclick="selectTier1Tab('new')">
-              <span>✨ New</span>
+              <span id="tabNewText">✨ 最新发布</span>
             </button>
             <button class="tier1-tab" data-tab="recent" onclick="selectTier1Tab('recent')">
-              <span>⏱️ Recently Updated</span>
+              <span id="tabRecentText">⏱️ 最近更新</span>
             </button>
             <button class="tier1-tab" data-tab="favorites" onclick="selectTier1Tab('favorites')">
-              <span>⭐ Favorites</span>
+              <span id="tabFavoritesText">⭐ 我的收藏</span>
               <span class="tier1-tab-count" id="tier1CountFav">(0)</span>
             </button>
           </div>
 
           <!-- Tier 2: Scenario Chips -->
           <div class="tier2-chips">
-            <button class="scenario-chip active" data-scenario="all" onclick="selectScenario('all')">All Scenarios</button>
-            <button class="scenario-chip" data-scenario="ai" onclick="selectScenario('ai')">🤖 AI & Agents</button>
-            <button class="scenario-chip" data-scenario="coding" onclick="selectScenario('coding')">💻 Coding</button>
-            <button class="scenario-chip" data-scenario="mcp" onclick="selectScenario('mcp')">🔌 MCP Servers</button>
-            <button class="scenario-chip" data-scenario="web" onclick="selectScenario('web')">🌐 Web & APIs</button>
-            <button class="scenario-chip" data-scenario="automation" onclick="selectScenario('automation')">⚡ Automation</button>
-            <button class="scenario-chip" data-scenario="devops" onclick="selectScenario('devops')">🛠️ DevOps</button>
-            <button class="scenario-chip" data-scenario="themes" onclick="selectScenario('themes')">🎨 Themes & UI</button>
-            <button class="scenario-chip" data-scenario="utilities" onclick="selectScenario('utilities')">📦 Utilities</button>
+            <button class="scenario-chip active" data-scenario="all" onclick="selectScenario('all')">全部场景</button>
+            <button class="scenario-chip" data-scenario="ai" onclick="selectScenario('ai')">🤖 AI & 智能体</button>
+            <button class="scenario-chip" data-scenario="coding" onclick="selectScenario('coding')">💻 编程开发</button>
+            <button class="scenario-chip" data-scenario="mcp" onclick="selectScenario('mcp')">🔌 MCP 服务</button>
+            <button class="scenario-chip" data-scenario="web" onclick="selectScenario('web')">🌐 网络与 API</button>
+            <button class="scenario-chip" data-scenario="automation" onclick="selectScenario('automation')">⚡ 流程自动化</button>
+            <button class="scenario-chip" data-scenario="devops" onclick="selectScenario('devops')">🛠️ 运维与 DevOps</button>
+            <button class="scenario-chip" data-scenario="themes" onclick="selectScenario('themes')">🎨 主题与外观</button>
+            <button class="scenario-chip" data-scenario="utilities" onclick="selectScenario('utilities')">📦 通用工具</button>
           </div>
 
           <!-- Secondary Toolbar -->
           <div class="toolbar-row">
             <div class="toolbar-left">
               <select id="typeFilter" class="select-control" onchange="applyFilters()">
-                <option value="">All Types (全部类型)</option>
-                <option value="extension">🧩 Extension (扩展)</option>
-                <option value="skill">⚡ Skill (技能)</option>
-                <option value="mcp">🔌 MCP (协议服务)</option>
-                <option value="theme">🎨 Theme (主题)</option>
-                <option value="prompt">📝 Prompt (提示词)</option>
+                <option value="">全部类型 (All Types)</option>
+                <option value="extension">🧩 核心扩展 (Extension)</option>
+                <option value="skill">⚡ Agent 技能 (Skill)</option>
+                <option value="mcp">🔌 MCP 协议服务 (MCP)</option>
+                <option value="theme">🎨 终端主题 (Theme)</option>
+                <option value="prompt">📝 提示词 (Prompt)</option>
               </select>
 
               <button id="verifiedOnlyBtn" class="toggle-pill" onclick="toggleVerifiedOnly()">
-                <span>✓ Verified Only</span>
+                <span id="verifiedOnlyBtnSpan">✓ 仅看 NPM 认证</span>
               </button>
             </div>
 
             <div class="toolbar-right">
               <select id="sortFilter" class="select-control" onchange="applyFilters()">
-                <option value="stars">⭐ Most Stars</option>
-                <option value="recent">⏱️ Recently Updated</option>
-                <option value="forks">🍴 Most Forks</option>
-                <option value="name">🔤 Name (A-Z)</option>
+                <option value="stars">⭐ 最多 Star</option>
+                <option value="recent">⏱️ 最近更新</option>
+                <option value="forks">🍴 最多 Fork</option>
+                <option value="name">🔤 名称排序 (A-Z)</option>
               </select>
 
               <div class="view-switcher">
-                <button id="viewGridBtn" class="view-btn active" title="Grid View" onclick="setViewMode('grid')">
+                <button id="viewGridBtn" class="view-btn active" title="网格视图 (Alt+V)" onclick="setViewMode('grid')">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="7" height="7"></rect>
                     <rect x="14" y="3" width="7" height="7"></rect>
@@ -1986,7 +1983,7 @@
                     <rect x="3" y="14" width="7" height="7"></rect>
                   </svg>
                 </button>
-                <button id="viewListBtn" class="view-btn" title="List View" onclick="setViewMode('list')">
+                <button id="viewListBtn" class="view-btn" title="列表视图 (Alt+V)" onclick="setViewMode('list')">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="8" y1="6" x2="21" y2="6"></line>
                     <line x1="8" y1="12" x2="21" y2="12"></line>
@@ -1998,16 +1995,16 @@
                 </button>
               </div>
 
-              <button class="btn btn-ghost" style="padding:6px 10px; font-size:12px;" onclick="resetAllFilters()">Reset</button>
+              <button id="resetFiltersBtn" class="btn btn-ghost" style="padding:6px 10px; font-size:12px;" onclick="resetAllFilters()">重置</button>
             </div>
           </div>
         </div>
 
         <!-- Active Filters Indicator -->
         <div class="active-filters-row" id="activeFiltersRow">
-          <span>Active filters:</span>
+          <span id="activeFiltersPrefix">当前筛选：</span>
           <div id="activeFilterTags" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
-          <button class="btn btn-ghost" style="padding:2px 8px; font-size:11px; height:auto;" onclick="resetAllFilters()">Clear All</button>
+          <button id="clearAllFiltersBtn" class="btn btn-ghost" style="padding:2px 8px; font-size:11px; height:auto;" onclick="resetAllFilters()">清空全部</button>
         </div>
 
         <!-- Packages Container -->
@@ -2025,30 +2022,30 @@
       <!-- Trust & Security Section -->
       <section class="trust-section">
         <div class="trust-header">
-          <span class="trust-badge">Security & Integrity</span>
-          <h3 class="trust-title">Trusted Developer Ecosystem</h3>
-          <p class="trust-subtitle">Every plugin is backed by a public repository and verifiable installation command.</p>
+          <span class="trust-badge" id="trustBadge">安全与可信机制</span>
+          <h3 class="trust-title" id="trustTitle">可信赖的开发者插件生态</h3>
+          <p class="trust-subtitle" id="trustSubtitle">每一个插件均来自公开开源代码仓库，具备透明的安装指令与双向归属校验。</p>
         </div>
         <div class="trust-grid">
           <div class="trust-card">
             <div class="trust-card-icon">✓</div>
-            <div class="trust-card-title">Source Verified</div>
-            <div class="trust-card-desc">All plugins are indexed directly from public GitHub repositories with open source code.</div>
+            <div class="trust-card-title" id="trust1Title">源码完全开源</div>
+            <div class="trust-card-desc" id="trust1Desc">所有收录插件均来自公开 GitHub 仓库，代码完全开源，安全透明。</div>
           </div>
           <div class="trust-card">
             <div class="trust-card-icon">✓</div>
-            <div class="trust-card-title">Repository Indexed</div>
-            <div class="trust-card-desc">Automated GitHub Actions crawler synchronizes releases, tags, stars, and README files hourly.</div>
+            <div class="trust-card-title" id="trust2Title">定时自动化同步</div>
+            <div class="trust-card-desc" id="trust2Desc">GitHub Actions 定时爬虫每 1 小时自动同步最新版本、标签、Stars 与 README 文档。</div>
           </div>
           <div class="trust-card">
             <div class="trust-card-icon">✓</div>
-            <div class="trust-card-title">Package Validated</div>
-            <div class="trust-card-desc">Strict NPM validation ensures genuine author-repo matching and prevents typosquatting.</div>
+            <div class="trust-card-title" id="trust3Title">NPM 严格双向校验</div>
+            <div class="trust-card-desc" id="trust3Desc">严格验证 NPM 包与 GitHub 仓库真实归属，有效杜绝包名抢注与仿冒风险。</div>
           </div>
           <div class="trust-card">
             <div class="trust-card-icon">✓</div>
-            <div class="trust-card-title">One-Command Install</div>
-            <div class="trust-card-desc">Seamless integration with <code>dsh plugin add</code> for zero-friction AI agent workflow upgrades.</div>
+            <div class="trust-card-title" id="trust4Title">一行命令极简安装</div>
+            <div class="trust-card-desc" id="trust4Desc">每个插件均附带经过验证的一行 <code>npm i</code> 命令，开箱即用。</div>
           </div>
         </div>
       </section>
@@ -2061,14 +2058,14 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          <span>© 2026 dsh Ecosystem. Open source under Apache-2.0.</span>
-          <span style="margin-left: 12px; color: var(--text-muted);">Shortcuts: <code>/</code> Search · <code>Alt+T</code> Theme · <code>Alt+V</code> View · <code>Esc</code> Close</span>
+          <span id="footerCopyright">© 2026 dsh 插件生态 · 基于 Apache-2.0 协议开源</span>
+          <span id="footerShortcuts" style="margin-left: 12px; color: var(--text-muted);">快捷键：<code>/</code> 搜索 · <code>Alt+L</code> 切换语言 · <code>Alt+T</code> 切换主题 · <code>Alt+V</code> 切换视图 · <code>Esc</code> 关闭</span>
         </div>
         <div class="footer-links">
-          <a href="https://github.com/SCP-008-1/dsh-marketplace" target="_blank" rel="noopener" class="footer-link">GitHub Repository</a>
-          <a href="javascript:void(0)" onclick="openPublishModal()" class="footer-link">Submit Guide</a>
-          <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" rel="noopener" class="footer-link">Wiki Index</a>
-          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener" class="footer-link">MCP Standard</a>
+          <a href="https://github.com/SCP-008-1/dsh-marketplace" target="_blank" rel="noopener" class="footer-link" id="footerGithub">GitHub 开源仓库 ↗</a>
+          <a href="javascript:void(0)" onclick="openPublishModal()" class="footer-link" id="footerPublishGuide">提交与收录指南</a>
+          <a href="https://github.com/SCP-008-1/dsh-marketplace/wiki" target="_blank" rel="noopener" class="footer-link" id="footerWiki">Wiki 文档库 ↗</a>
+          <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener" class="footer-link" id="footerMcp">MCP 协议标准 ↗</a>
         </div>
       </div>
     </div>
@@ -2084,92 +2081,92 @@
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px; flex-wrap:wrap;">
               <h3 id="modalPkgName" style="font-size:1.35rem; font-weight:700; color:var(--text-primary); letter-spacing:-0.02em;"></h3>
               <span id="modalPkgBadge" class="badge"></span>
-              <span id="modalVerifiedBadge" class="badge badge-verified">✓ Verified</span>
+              <span id="modalVerifiedBadge" class="badge badge-verified">✓ NPM 认证</span>
             </div>
             <div id="modalAuthorLine" style="font-size:12.5px; color:var(--text-secondary); font-family:var(--font-mono);"></div>
           </div>
         </div>
         <div style="display:flex; align-items:center; gap:10px;">
-          <button id="modalHeaderInstallBtn" class="btn btn-accent" onclick="copyModalDshCommand(this)">
+          <button id="modalHeaderInstallBtn" class="btn btn-accent" onclick="copyModalInstall(this)">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
-            <span>Install Plugin</span>
+            <span id="modalHeaderInstallBtnText">安装插件</span>
           </button>
-          <button class="icon-btn" onclick="closeDetailModal()" title="Close (Esc)">✕</button>
+          <button id="detailCloseBtn" class="icon-btn" onclick="closeDetailModal()" title="关闭 (Esc)">✕</button>
         </div>
       </div>
 
       <!-- Modal Tabs -->
       <div class="modal-tabs">
-        <button class="modal-tab-btn active" onclick="switchModalTab('overview', this)">
-          📋 Overview & Setup
+        <button id="modalTabBtnOverview" class="modal-tab-btn active" onclick="switchModalTab('overview', this)">
+          📋 概览与安装
         </button>
-        <button class="modal-tab-btn" onclick="switchModalTab('readme', this)">
-          📖 README Docs
+        <button id="modalTabBtnReadme" class="modal-tab-btn" onclick="switchModalTab('readme', this)">
+          📖 详细文档 (README)
         </button>
-        <button class="modal-tab-btn" onclick="switchModalTab('compatibility', this)">
-          📦 Compatibility & Specs
+        <button id="modalTabBtnCompatibility" class="modal-tab-btn" onclick="switchModalTab('compatibility', this)">
+          📦 规格与兼容性
         </button>
-        <button class="modal-tab-btn" onclick="switchModalTab('reviews', this)">
-          ⭐ Reviews & Discussions
+        <button id="modalTabBtnReviews" class="modal-tab-btn" onclick="switchModalTab('reviews', this)">
+          ⭐ 评分与讨论
         </button>
       </div>
 
       <div class="modal-body">
         <!-- Tab 1: Overview -->
         <div id="modalTabOverview">
-          <h4 class="modal-section-title">Tagline & Description</h4>
+          <h4 class="modal-section-title" id="modalDescTitle">插件简介</h4>
           <p id="modalDescText" style="background:var(--bg-surface-raised); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle); line-height:1.7; margin-bottom:18px;"></p>
 
-          <h4 class="modal-section-title">⚡ Quick Installation</h4>
+          <h4 class="modal-section-title" id="modalQuickInstallTitle">⚡ 快速安装指令</h4>
           <div style="display:flex; flex-direction:column; gap:8px;" id="modalInstallOptions"></div>
 
-          <h4 class="modal-section-title">💻 Compatibility Matrix</h4>
+          <h4 class="modal-section-title" id="modalCompatTitle">💻 兼容性矩阵</h4>
           <div class="compat-grid">
             <div class="compat-item">
-              <span class="compat-label">DSH Version</span>
+              <span class="compat-label" id="modalCompatDshVer">DSH 最低版本</span>
               <span class="compat-value">>= 0.3.0 ✓</span>
             </div>
             <div class="compat-item">
-              <span class="compat-label">Platform Support</span>
-              <span class="compat-value">Linux · macOS · Win ✓</span>
+              <span class="compat-label" id="modalCompatPlatform">系统平台支持</span>
+              <span class="compat-value">Linux · macOS · Windows ✓</span>
             </div>
             <div class="compat-item">
-              <span class="compat-label">Runtime Engine</span>
-              <span class="compat-value">Node >= 18 / Native</span>
+              <span class="compat-label" id="modalCompatRuntime">运行环境</span>
+              <span class="compat-value" id="modalCompatRuntimeVal">Node >= 18 / 原生</span>
             </div>
           </div>
 
-          <h4 class="modal-section-title">📊 Repository Metadata</h4>
+          <h4 class="modal-section-title" id="modalMetaTitle">📊 仓库元数据</h4>
           <div class="meta-grid-table" id="modalMetaGrid"></div>
 
-          <h4 class="modal-section-title">🏷️ Topic Tags</h4>
+          <h4 class="modal-section-title" id="modalTagsTitle">🏷️ 分类标签</h4>
           <div id="modalTagsContainer" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:18px;"></div>
         </div>
 
         <!-- Tab 2: README -->
         <div id="modalTabReadme" style="display:none;">
           <div class="readme-markdown-box" id="readmeContent">
-            <div style="text-align:center; padding:32px; color:var(--text-tertiary);">Loading README.md...</div>
+            <div style="text-align:center; padding:32px; color:var(--text-tertiary);" id="readmeLoadingPlaceholder">正在加载 README.md 文档...</div>
           </div>
         </div>
 
         <!-- Tab 3: Compatibility & Specs -->
         <div id="modalTabCompatibility" style="display:none;">
-          <h4 class="modal-section-title">Package Specifications</h4>
+          <h4 class="modal-section-title" id="modalSpecsTitle">包规格参数</h4>
           <div class="meta-grid-table" id="modalSpecsGrid"></div>
 
-          <h4 class="modal-section-title">Installation Verification</h4>
+          <h4 class="modal-section-title" id="modalVerifyTitle">安全与真实性校验说明</h4>
           <div style="background:var(--bg-surface-raised); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle); line-height:1.6; font-size:13px;" id="modalVerificationNote"></div>
         </div>
 
         <!-- Tab 4: Reviews -->
         <div id="modalTabReviews" style="display:none;">
-          <h4 class="modal-section-title">⭐ Community Rating</h4>
+          <h4 class="modal-section-title" id="modalRatingTitle">⭐ 社区评分</h4>
           <div style="background:var(--bg-surface-raised); padding:18px; border-radius:var(--radius-md); border:1px solid var(--border-subtle); margin-bottom:20px;" id="modalRatingBox"></div>
 
-          <h4 class="modal-section-title">💬 GitHub Discussions</h4>
+          <h4 class="modal-section-title" id="modalDiscussionsTitle">💬 GitHub Discussions 社区讨论</h4>
           <div id="giscusContainer"></div>
         </div>
       </div>
@@ -2180,13 +2177,13 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
             </svg>
-            GitHub Repo ↗
+            <span id="modalGithubBtnText">GitHub 仓库 ↗</span>
           </a>
           <a id="modalNpmLink" href="#" target="_blank" rel="noopener" class="btn btn-ghost" style="display:none;">
-            📦 npm Registry ↗
+            <span id="modalNpmBtnText">📦 npm 注册表 ↗</span>
           </a>
         </div>
-        <button class="btn btn-ghost" onclick="closeDetailModal()">Done</button>
+        <button id="modalDoneBtn" class="btn btn-ghost" onclick="closeDetailModal()">关闭</button>
       </div>
     </div>
   </div>
@@ -2195,28 +2192,28 @@
   <div class="modal-backdrop" id="publishModal">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 style="font-size:1.25rem; font-weight:700; letter-spacing:-0.02em;">Submit & Publish a DSH Plugin</h3>
-        <button class="icon-btn" onclick="closePublishModal()" title="Close (Esc)">✕</button>
+        <h3 style="font-size:1.25rem; font-weight:700; letter-spacing:-0.02em;" id="publishModalTitle">提交与发布 dsh 插件</h3>
+        <button id="publishCloseBtn" class="icon-btn" onclick="closePublishModal()" title="关闭 (Esc)">✕</button>
       </div>
       <div class="modal-body">
-        <h4 class="modal-section-title">📦 Open Topic-Based Registry</h4>
-        <p style="margin-bottom:16px; color:var(--text-secondary);">DSH uses GitHub Topics for automated discovery. No account registration or form submission required. Follow 3 steps to publish:</p>
+        <h4 class="modal-section-title" id="publishSec1Title">📦 基于 GitHub Topic 的全自动收录机制</h4>
+        <p style="margin-bottom:16px; color:var(--text-secondary);" id="publishSec1Desc">dsh 插件生态基于 GitHub Topic 自动发现，无需注册独立账号或提交表单。仅需 3 步即可完成收录发布：</p>
         
         <div class="step-item">
           <div class="step-number">1</div>
           <div>
-            <b>Create a Public GitHub Repository</b>
-            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;">Include a clear <code>README.md</code>, license, and entry point.</div>
+            <b id="publishStep1Title">创建公开的 GitHub 代码仓库</b>
+            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;" id="publishStep1Desc">包含清晰的 <code>README.md</code> 使用说明、开源许可证（License）和插件入口代码。</div>
           </div>
         </div>
 
         <div class="step-item">
           <div class="step-number">2</div>
           <div>
-            <b>Add the Core Topic Tag</b>
-            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;">Under your repo's "About -> Topics", add:</div>
+            <b id="publishStep2Title">添加核心 Topic 标签</b>
+            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;" id="publishStep2Desc">在仓库首页右侧的「About → Topics」设置中添加必备标签：</div>
             <div style="margin-top:8px;">
-              <span class="badge badge-verified" style="cursor:pointer; font-size:12px;" onclick="copyTopicTag('dsh-plugin')">🏷️ dsh-plugin (Click to copy)</span>
+              <span id="publishStep2Tag" class="badge badge-verified" style="cursor:pointer; font-size:12px;" onclick="copyTopicTag('dsh-plugin')">🏷️ dsh-plugin（点击复制）</span>
             </div>
           </div>
         </div>
@@ -2224,8 +2221,8 @@
         <div class="step-item">
           <div class="step-number">3</div>
           <div>
-            <b>Add Scenario & Type Tags (Optional)</b>
-            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;">Categorize your plugin for better discovery:</div>
+            <b id="publishStep3Title">添加分类与场景标签（可选）</b>
+            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;" id="publishStep3Desc">为插件添加类型标签，方便开发者在商城中按分类筛选发现：</div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
               <span class="badge badge-mcp" style="cursor:pointer;" onclick="copyTopicTag('dsh-mcp')">dsh-mcp</span>
               <span class="badge badge-skill" style="cursor:pointer;" onclick="copyTopicTag('dsh-skill')">dsh-skill</span>
@@ -2235,11 +2232,47 @@
           </div>
         </div>
 
-        <h4 class="modal-section-title">⏱️ Automated Hourly Sync</h4>
-        <p style="color:var(--text-secondary); font-size:13px;">Our GitHub Actions crawler indexes the registry every hour, strictly validating NPM checksums and repository ownership before updating the marketplace and GitHub Wiki.</p>
+        <h4 class="modal-section-title" id="publishSec2Title">⏱️ 每小时全自动定时同步</h4>
+        <p style="color:var(--text-secondary); font-size:13px;" id="publishSec2Desc">GitHub Actions 爬虫每 1 小时自动运行一次，严格校验 NPM 包与 GitHub 仓库双向归属，并同步更新 Web 插件商城与 GitHub Wiki 文档。</p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" onclick="closePublishModal()">Got it</button>
+        <button id="publishGotItBtn" class="btn btn-primary" onclick="closePublishModal()">我知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTop" class="back-to-top" title="返回顶部" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div>
+            <b>添加分类与场景标签（可选）</b>
+            <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:2px;">为插件添加类型标签，方便开发者在商城中按分类筛选发现：</div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+              <span class="badge badge-mcp" style="cursor:pointer;" onclick="copyTopicTag('dsh-mcp')">dsh-mcp</span>
+              <span class="badge badge-skill" style="cursor:pointer;" onclick="copyTopicTag('dsh-skill')">dsh-skill</span>
+              <span class="badge badge-theme" style="cursor:pointer;" onclick="copyTopicTag('dsh-theme')">dsh-theme</span>
+              <span class="badge badge-prompt" style="cursor:pointer;" onclick="copyTopicTag('dsh-prompt')">dsh-prompt</span>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="modal-section-title">⏱️ 每小时全自动定时同步</h4>
+        <p style="color:var(--text-secondary); font-size:13px;">GitHub Actions 爬虫每 1 小时自动运行一次，严格校验 NPM 包与 GitHub 仓库双向归属，并同步更新 Web 插件商城与 GitHub Wiki 文档。</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closePublishModal()">我知道了</button>
       </div>
     </div>
   </div>
@@ -2500,15 +2533,18 @@ window.DSH_UPDATED_AT = "2026-08-22T05:34:00.785Z";
       });
     }
 
-    function copyDshInstall(pkgName, btnElement, e) {
+    function pkgInstallCmd(pkg) {
+      return pkg.installCmd || ('npm i github:' + (pkg.fullName || (pkg.author + '/' + pkg.name)));
+    }
+
+    function copyPkgInstall(cmd, btnElement, e) {
       if (e) e.stopPropagation();
-      const cmd = 'dsh plugin add ' + pkgName;
       copyCommand(cmd, btnElement, 'Copied install command: ' + cmd);
     }
 
-    function copyModalDshCommand(btn) {
+    function copyModalInstall(btn) {
       if (!currentOpenPlugin) return;
-      const cmd = 'dsh plugin add ' + currentOpenPlugin.name;
+      const cmd = pkgInstallCmd(currentOpenPlugin);
       copyCommand(cmd, btn, 'Copied: ' + cmd);
     }
 
@@ -2691,7 +2727,7 @@ window.DSH_UPDATED_AT = "2026-08-22T05:34:00.785Z";
               '<span class="badge ' + typeBadge.class + '">' + pkg.type + '</span>' +
             '</div>' +
             '<div class="trending-actions">' +
-              '<button class="btn btn-install" style="flex:1;" onclick="copyDshInstall(\'' + jsAttr(pkg.name) + '\', this, event)">⚡ Install</button>' +
+              '<button class="btn btn-install" style="flex:1;" onclick="copyPkgInstall(\'' + jsAttr(pkgInstallCmd(pkg)) + '\', this, event)">⚡ Install</button>' +
               '<button class="btn btn-ghost" style="padding:4px 8px; font-size:11.5px;" onclick="openDetailModal(\'' + pkg.id + '\')">View</button>' +
             '</div>' +
           '</div>' +
@@ -2931,7 +2967,7 @@ window.DSH_UPDATED_AT = "2026-08-22T05:34:00.785Z";
 
             '<div class="package-actions-footer">' +
               '<button class="btn btn-ghost" style="flex:1;" onclick="openDetailModal(\'' + pkg.id + '\')">📖 View Details</button>' +
-              '<button class="btn btn-install" style="flex:1;" onclick="copyDshInstall(\'' + jsAttr(pkg.name) + '\', this, event)">⚡ Install</button>' +
+              '<button class="btn btn-install" style="flex:1;" onclick="copyPkgInstall(\'' + jsAttr(pkgInstallCmd(pkg)) + '\', this, event)">⚡ Install</button>' +
             '</div>' +
           '</div>' +
         '</article>';
@@ -2968,7 +3004,7 @@ window.DSH_UPDATED_AT = "2026-08-22T05:34:00.785Z";
           '</div>' +
 
           '<div class="package-row-actions">' +
-            '<button class="btn btn-install" onclick="copyDshInstall(\'' + jsAttr(pkg.name) + '\', this, event)">⚡ Install</button>' +
+            '<button class="btn btn-install" onclick="copyPkgInstall(\'' + jsAttr(pkgInstallCmd(pkg)) + '\', this, event)">⚡ Install</button>' +
             '<button class="btn btn-ghost" style="padding:5px 10px; font-size:12px;" onclick="openDetailModal(\'' + pkg.id + '\')">Details</button>' +
           '</div>' +
         '</div>';
@@ -3072,17 +3108,9 @@ window.DSH_UPDATED_AT = "2026-08-22T05:34:00.785Z";
       modalGithubLink.href = pkg.repoUrl;
       modalDescText.textContent = pkg.description || "No description provided.";
 
-      // Quick Install commands
+      // Quick Install command
       const npmTarget = pkg.hasNpm ? (pkg.npmName || pkg.name) : ('github:' + (pkg.fullName || (pkg.author + '/' + pkg.name)));
       modalInstallOptions.innerHTML = '<div class="install-box">' +
-          '<code><span class="prefix">$</span> dsh plugin add ' + escapeHtml(pkg.name) + '</code>' +
-          '<button class="btn btn-install" onclick="copyCommand(\'dsh plugin add ' + jsAttr(pkg.name) + '\', this)">Copy</button>' +
-        '</div>' +
-        '<div class="install-box">' +
-          '<code><span class="prefix">$</span> dsh plugin --profile web add ' + escapeHtml(pkg.name) + '</code>' +
-          '<button class="btn btn-install" onclick="copyCommand(\'dsh plugin --profile web add ' + jsAttr(pkg.name) + '\', this)">Copy</button>' +
-        '</div>' +
-        '<div class="install-box">' +
           '<code><span class="prefix">$</span> npm i ' + escapeHtml(npmTarget) + '</code>' +
           '<button class="btn btn-install" onclick="copyCommand(\'npm i ' + jsAttr(npmTarget) + '\', this)">Copy</button>' +
         '</div>';
