@@ -87,7 +87,7 @@
       if (!avatarUrl) {
         return '<div class="avatar-wrapper" style="' + styleSize + '"><span>' + initial + '</span></div>';
       }
-      return '<div class="avatar-wrapper" style="' + styleSize + '"><img src="' + avatarUrl + '" class="avatar-img" alt="' + escapeHtml(author) + '" onerror="this.outerHTML=\'<span>' + initial + '</span>\'"></div>';
+      return '<div class="avatar-wrapper" style="' + styleSize + '"><img src="' + escapeHtml(avatarUrl) + '" class="avatar-img" alt="' + escapeHtml(author) + '" onerror="this.outerHTML=\'<span>' + jsAttr(initial) + '</span>\'"></div>';
     }
 
     function getTypeBadge(type) {

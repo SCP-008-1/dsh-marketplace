@@ -18,6 +18,7 @@ function fetchJson(url, headers = {}) {
         return resolve(null);
       }
       let body = '';
+      res.setEncoding('utf8'); // 多字节 UTF-8 字符跨 chunk 边界时由 Node 缓冲，避免中文描述被截断成乱码
       res.on('data', chunk => { body += chunk; });
       res.on('end', () => {
         try {

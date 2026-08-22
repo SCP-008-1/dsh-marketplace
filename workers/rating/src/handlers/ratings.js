@@ -19,25 +19,39 @@ async function handleBatchRatings(request, url, env, cors) {
   if (!ids.length) return json({ ratings: {} }, 200, cors);
 
   // 边缘缓存：同一 ids 组合 60 秒内命中缓存，不消耗 KV 读额度。
+  // 缓存体不携带按请求变化的 CORS 头（否则第一个请求者的 Origin 会被缓存，
+  // 其他白名单来源在过期前全部被浏览器拦截），命中时再套当前请求的 cors。
   // Cache API 在部分环境（如 workers.dev）不可用，失败时静默降级为直读 KV。
   const cacheUrl = new URL(url);
   cacheUrl.search = "ids=" + [...ids].sort().join(","); // 排序归一化，提高命中率
   const cacheKey = new Request(cacheUrl.toString(), { method: "GET" });
   try {
     const cached = await caches.default.match(cacheKey);
-    if (cached) return cached;
+    if (cached) {
+      const hitHeaders = new Headers(cached.headers);
+      Object.entries(cors).forEach(([k, v]) => hitHeaders.set(k, v));
+      return new Response(cached.body, { status: cached.status, headers: hitHeaders });
+    }
   } catch (err) {}
 
   const entries = await Promise.all(ids.map(id => readAgg(env, id)));
   const ratings = {};
   ids.forEach((id, i) => { ratings[id] = summarize(entries[i]); });
-  const res = json({ ratings }, 200, { ...cors, "Cache-Control": "public, max-age=60" });
-  try { await caches.default.put(cacheKey, res.clone()); } catch (err) {}
-  return res;
+  const cacheable = json({ ratings }, 200, { "Cache-Control": `public, max-age=${CACHE_TTL_SECONDS}` });
+  try { await caches.default.put(cacheKey, cacheable.clone()); } catch (err) {}
+  const resHeaders = new Headers(cacheable.headers);
+  Object.entries(cors).forEach(([k, v]) => resHeaders.set(k, v));
+  return new Response(cacheable.body, { status: 200, headers: resHeaders });
 }
 
 async function handleSingleRating(url, env, cors) {
-  const id = decodeURIComponent(url.pathname.slice("/api/ratings/".length));
+  const raw = url.pathname.slice("/api/ratings/".length);
+  let id;
+  try {
+    id = decodeURIComponent(raw);
+  } catch (err) {
+    return json({ error: "invalid id" }, 400, cors); // 畸形转义序列（如 %）属客户端错误而非 500
+  }
   if (!isValidId(id)) return json({ error: "invalid id" }, 400, cors);
   return json({ id, rating: summarize(await readAgg(env, id)) }, 200, cors);
 }

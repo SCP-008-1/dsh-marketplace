@@ -542,6 +542,10 @@ window.DSH_BOOTSTRAP_PLUGINS = [{"id":"open-design","name":"open-design","fullNa
 window.DSH_UPDATED_AT = "2026-08-22T12:05:58.628Z";
   </script>
 
+  <!-- 加载顺序有依赖（defer 保证 DOM 就绪后按序执行）：
+       config 必须先于 state（MARKETPLACE_CONFIG）；
+       utils 先于 ui/render/modal（escapeHtml/jsAttr）；
+       modal 必须先于 app（syncGiscusTheme 在 initTheme 中被调用）。请勿调整顺序 -->
   <script src="assets/js/config.js" defer></script>
   <script src="assets/js/i18n.js" defer></script>
   <script src="assets/js/state.js" defer></script>

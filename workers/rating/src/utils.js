@@ -26,9 +26,15 @@ function isValidId(id) {
 }
 
 function json(data, status, headers) {
+  // 默认头在前，调用方头在后：允许批量读接口用 public,max-age 覆盖 no-store，
+  // 否则边缘缓存永远无法生效
   return new Response(JSON.stringify(data), {
     status,
-    headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }
+    headers: {
+      "Cache-Control": "no-store",
+      ...headers,
+      "Content-Type": "application/json; charset=utf-8"
+    }
   });
 }
 

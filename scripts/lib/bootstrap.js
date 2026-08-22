@@ -32,8 +32,9 @@ function injectBootstrap(pluginsData) {
       console.warn('index.html 中未找到 bootstrap 数据锚点，跳过内嵌更新');
       return;
     }
-    indexHtml = indexHtml.replace(/^\s*window\.DSH_BOOTSTRAP_PLUGINS\s*=.*$/m, `window.DSH_BOOTSTRAP_PLUGINS = ${inlineJson};`);
-    indexHtml = indexHtml.replace(/^\s*window\.DSH_UPDATED_AT\s*=.*$/m, `window.DSH_UPDATED_AT = ${JSON.stringify(new Date().toISOString())};`);
+    // 用替换函数：避免插件描述里的 $&、$'、$` 等字符被当作特殊替换模式展开，损坏生成的 index.html
+    indexHtml = indexHtml.replace(/^\s*window\.DSH_BOOTSTRAP_PLUGINS\s*=.*$/m, () => `window.DSH_BOOTSTRAP_PLUGINS = ${inlineJson};`);
+    indexHtml = indexHtml.replace(/^\s*window\.DSH_UPDATED_AT\s*=.*$/m, () => `window.DSH_UPDATED_AT = ${JSON.stringify(new Date().toISOString())};`);
     fs.writeFileSync(indexPath, indexHtml, 'utf-8');
     console.log('index.html 内嵌 bootstrap 数据已同步更新');
   } catch (e) {

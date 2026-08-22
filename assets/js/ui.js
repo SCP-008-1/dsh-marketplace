@@ -3,7 +3,14 @@
       icon = icon || "✓";
       const toast = document.createElement("div");
       toast.className = "toast";
-      toast.innerHTML = '<span class="toast-icon">' + icon + '</span><span>' + message + '</span>';
+      // 用 textContent 构建节点：message 可能包含插件名/命令等不可信内容，innerHTML 会引入 XSS
+      const iconSpan = document.createElement("span");
+      iconSpan.className = "toast-icon";
+      iconSpan.textContent = icon;
+      const msgSpan = document.createElement("span");
+      msgSpan.textContent = message;
+      toast.appendChild(iconSpan);
+      toast.appendChild(msgSpan);
       toastContainer.appendChild(toast);
       
       requestAnimationFrame(() => {
@@ -17,6 +24,11 @@
     }
 
     function copyCommand(text, btnElement, toastCustomMsg) {
+      // Clipboard API 仅在安全上下文（https / localhost）可用；HTTP 或 file:// 下为 undefined
+      if (!navigator.clipboard || typeof navigator.clipboard.writeText !== "function") {
+        showToast(t('toastCopyFail'), "⚠️");
+        return;
+      }
       navigator.clipboard.writeText(text).then(() => {
         if (btnElement) {
           const origText = btnElement.innerHTML;

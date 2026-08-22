@@ -37,7 +37,7 @@
       } catch (err) {
         readmeContent.innerHTML = '<div style="text-align:center; padding:32px; color:var(--text-secondary);">' +
           '<p>' + t('readmeError') + '</p>' +
-          '<a href="' + pkg.repoUrl + '" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline; display:inline-block; margin-top:8px;">' +
+          '<a href="' + escapeHtml(pkg.repoUrl) + '" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline; display:inline-block; margin-top:8px;">' +
             t('readmeViewGithub') +
           '</a>' +
         '</div>';
@@ -85,7 +85,7 @@
       // Meta Table
       modalMetaGrid.innerHTML = '<div class="meta-grid-cell">' +
           '<span class="meta-grid-label">' + t('modalMetaRepo') + '</span>' +
-          '<span class="meta-grid-val"><a href="' + pkg.repoUrl + '" target="_blank" rel="noopener" style="color:var(--accent);">' + (pkg.fullName || pkg.name) + ' ↗</a></span>' +
+          '<span class="meta-grid-val"><a href="' + escapeHtml(pkg.repoUrl) + '" target="_blank" rel="noopener" style="color:var(--accent);">' + escapeHtml(pkg.fullName || pkg.name) + ' ↗</a></span>' +
         '</div>' +
         '<div class="meta-grid-cell">' +
           '<span class="meta-grid-label">' + t('modalMetaAuthor') + '</span>' +
@@ -102,7 +102,7 @@
 
       // Tags
       modalTagsContainer.innerHTML = '<span class="badge badge-verified" style="cursor:pointer;" onclick="applyQuickSearch(\'dsh-plugin\'); closeDetailModal();">#dsh-plugin</span>' +
-        (pkg.tags || []).map(t => '<span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); cursor:pointer;" onclick="applyQuickSearch(\'' + escapeHtml(t) + '\'); closeDetailModal();">#' + escapeHtml(t) + '</span>').join("");
+        (pkg.tags || []).map(tag => '<span class="badge" style="background:var(--bg-surface-raised); border:1px solid var(--border-subtle); cursor:pointer;" onclick="applyQuickSearch(\'' + jsAttr(tag) + '\'); closeDetailModal();">#' + escapeHtml(tag) + '</span>').join("");
 
       // Specs & Verification Notes
       modalSpecsGrid.innerHTML = '<div class="meta-grid-cell">' +
@@ -270,7 +270,7 @@
       const cfg = MARKETPLACE_CONFIG.giscus;
       if (!cfg.repoId || !cfg.categoryId) {
         const issuesUrl = pkg.repoUrl ? (pkg.repoUrl + '/issues') : "#";
-        box.innerHTML = '<div style="color:var(--text-tertiary); font-size:12.5px; padding:12px; background:var(--bg-surface-raised); border-radius:6px;">' + t('modalDiscussionsFallback', issuesUrl) + '</div>';
+        box.innerHTML = '<div style="color:var(--text-tertiary); font-size:12.5px; padding:12px; background:var(--bg-surface-raised); border-radius:6px;">' + t('modalDiscussionsFallback', escapeHtml(issuesUrl)) + '</div>';
         return;
       }
       box.innerHTML = "";

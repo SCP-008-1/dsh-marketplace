@@ -161,7 +161,7 @@
         modalRatingYour: (r) => `我的评分：${r ? r + ' ★' : '点击五角星打分'}`,
         modalRatingCountSuffix: "人打分",
         modalDiscussionsTitle: "💬 GitHub Discussions 社区讨论",
-        modalDiscussionsFallback: (url) => `前往 <a href="${url}" target="_blank" rel="noopener" style="color:var(--accent);">GitHub Issues ↗</a> 参与反馈讨论`,
+        modalDiscussionsFallback: (url) => `前往 <a href="${url}" target="_blank" rel="noopener" style="color:var(--accent);">GitHub Issues ↗</a> 参与反馈讨论`, // url 由调用方 escapeHtml 后传入
         modalGithubBtn: "GitHub 仓库 ↗",
         modalNpmBtn: "📦 npm 注册表 ↗",
         modalDoneBtn: "关闭",
@@ -195,6 +195,7 @@
         toastFavAdded: "已加入我的收藏",
         toastRatingThanks: (s) => `感谢您的评分: ${s} ★`,
         toastRatingFail: "评分提交失败，请稍后再试",
+        toastCopyFail: "复制失败：当前环境不支持剪贴板，请手动复制",
         toastSwitchedZh: "已切换为中文界面",
         toastSwitchedEn: "Switched to English interface",
         backToTopTitle: "返回顶部"
@@ -359,7 +360,7 @@
         modalRatingYour: (r) => `Your Rating: ${r ? r + ' ★' : 'Click to rate'}`,
         modalRatingCountSuffix: "ratings",
         modalDiscussionsTitle: "💬 GitHub Discussions",
-        modalDiscussionsFallback: (url) => `Discussions via <a href="${url}" target="_blank" rel="noopener" style="color:var(--accent);">GitHub Issues ↗</a>`,
+        modalDiscussionsFallback: (url) => `Discussions via <a href="${url}" target="_blank" rel="noopener" style="color:var(--accent);">GitHub Issues ↗</a>`, // url escaped by caller
         modalGithubBtn: "GitHub Repo ↗",
         modalNpmBtn: "📦 npm Registry ↗",
         modalDoneBtn: "Done",
@@ -393,6 +394,7 @@
         toastFavAdded: "Added to favorites",
         toastRatingThanks: (s) => `Thank you for rating: ${s} ★`,
         toastRatingFail: "Failed to submit rating, please try again later",
+        toastCopyFail: "Copy failed: clipboard not supported here, please copy manually",
         toastSwitchedZh: "已切换为中文界面",
         toastSwitchedEn: "Switched to English interface",
         backToTopTitle: "Back to top"
