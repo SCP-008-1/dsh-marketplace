@@ -5,10 +5,12 @@
 ## 🌟 核心特性
 - **自动发现与收录**：基于 GitHub `topic:dsh-plugin` 标签自动抓取收录生态插件。
 - **智能过滤**：自动排除 `deepseek-ai/deepseek-harness` 保证插件列表精准。
+- **双语共存与即时切换**：完整支持中英文双语界面无缝切换（顶部 `中 / EN` 按钮与 `Alt+L` 快捷键，支持 `localStorage` 记忆）。
 - **双端同步**：
-  - **Web 商城**（`index.html`）：高颜值开发者 UI，自动检测 NPM 注册表，支持模糊搜索、分类过滤（扩展/技能/MCP/主题/提示词）、一键复制 `npm i <pkg>` / `npm i github:<owner>/<repo>`。
+  - **Web 商城**（`index.html`）：高颜值开发者 UI，自动检测 NPM 注册表，支持中英文双语、模糊搜索、语法过滤、分类过滤（扩展/技能/MCP/主题/提示词）、一键复制 `npm i <pkg>` / `npm i github:<owner>/<repo>`。
   - **GitHub Wiki**（`wiki_dist/`）：同步生成 Markdown 索引与发布指南，作为免维护文档库。
 - **自动化流**：GitHub Actions 每 1 小时定时增量同步数据并推送到 Wiki 与主仓。
+- **快捷键系统**：`/` 搜索 · `Alt+L` 切换语言 · `Alt+T` 切换主题 · `Alt+V` 切换视图 · `Esc` 关闭弹窗。
 
 ---
 
