@@ -73,7 +73,9 @@
             return;
           }
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn('plugins.json load failed', err);
+      }
 
       // Fallback GitHub API if data/plugins.json fetch fails
       try {
@@ -111,7 +113,7 @@
                 tags: topics.filter(t => t.toLowerCase() !== 'dsh-plugin'),
                 type: type,
                 hasNpm: false,
-                installCmd: 'npm i github:' + repo.full_name,
+                installCmd: null, // 待后台校验 package.json 存在后再启用 github 直装
                 readmeUrl: 'https://raw.githubusercontent.com/' + repo.full_name + '/' + (repo.default_branch || 'main') + '/README.md'
               };
             });
@@ -120,9 +122,42 @@
             renderTrending();
             applyFilters();
             syncRatings(pluginsData.map(p => p.id));
+            verifyGithubInstallCmds();
           }
         }
-      } catch (err) {}
+      } catch (err) {
+        console.warn('GitHub fallback failed', err);
+      }
+
+      // 所有数据源都失败：渲染空状态而不是留下空白页面
+      if (!pluginsData || pluginsData.length === 0) {
+        updateStats();
+        renderTrending();
+        applyFilters();
+      }
+    }
+
+    // 后台校验各仓库根目录是否存在 package.json：
+    // 存在才启用 `npm i github:<owner>/<repo>`，否则保持 null（避免对非 npm 仓库生成必败的安装命令）
+    async function verifyGithubInstallCmds() {
+      const batchSize = 10;
+      for (let i = 0; i < pluginsData.length; i += batchSize) {
+        const results = await Promise.all(pluginsData.slice(i, i + batchSize).map(async p => {
+          if (p.installCmd || !p.fullName) return false;
+          const branches = ['main', 'master'];
+          for (const branch of branches) {
+            try {
+              const res = await fetch('https://raw.githubusercontent.com/' + p.fullName + '/' + branch + '/package.json', { method: 'HEAD' });
+              if (res.ok) { p.installCmd = 'npm i github:' + p.fullName; return true; }
+            } catch (err) {}
+          }
+          return false;
+        }));
+        if (results.some(Boolean)) {
+          renderTrending();
+          applyFilters();
+        }
+      }
     }
 
     // --- Event Listeners & Shortcuts ---
@@ -186,18 +221,18 @@
         omnibarDropdown.classList.add("open");
         document.getElementById("omnibarContainer").scrollIntoView({ behavior: "smooth", block: "center" });
       }
-      // Alt+L to toggle language (中 / EN)
-      if (e.altKey && (e.key === "l" || e.key === "L")) {
+      // Alt+L to toggle language (中 / EN) —— 用 e.code：macOS 的 Option 键会改写 e.key（Alt+L 产生 ¬）
+      if (e.altKey && e.code === "KeyL") {
         e.preventDefault();
         toggleLanguage();
       }
       // Alt+T to toggle theme
-      if (e.altKey && (e.key === "t" || e.key === "T")) {
+      if (e.altKey && e.code === "KeyT") {
         e.preventDefault();
         themeToggleBtn.click();
       }
       // Alt+V to toggle view mode
-      if (e.altKey && (e.key === "v" || e.key === "V")) {
+      if (e.altKey && e.code === "KeyV") {
         e.preventDefault();
         setViewMode(currentViewMode === "grid" ? "list" : "grid");
       }

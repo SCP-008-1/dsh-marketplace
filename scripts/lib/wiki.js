@@ -33,14 +33,18 @@ function writeHome(wikiDir, pluginsData, npmPlugins) {
 
 ## 🚀 快速安装插件
 
-使用 \`npm\` 直接安装生态中的任意插件：
+使用 \`npm\` 直接安装生态中的插件：
 
 \`\`\`bash
 # 1. 若项目已真实发布在 NPM 注册表：
 npm i <package-name>
 
-# 2. 若项目未发布在 NPM，直接通过 GitHub 仓库引用安装：
+# 2. 若项目未发布在 NPM，但仓库根目录存在 package.json，可通过 GitHub 仓库引用安装：
 npm i github:<owner>/<repo>
+
+# 3. 若仓库无 package.json（纯 Skill/Prompt 等资源型插件），无法通过 npm 安装，
+#    请点击表中「前往 GitHub」按仓库说明手动安装
+git clone <repo-url>
 \`\`\`
 
 ---
@@ -60,9 +64,14 @@ npm i github:<owner>/<repo>
       prompt: '💡 Prompt'
     }[p.type] || '🧩 扩展';
 
-    const cleanDesc = (p.description || '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+    // 转义 Markdown 元字符，防止任意仓库描述在 Wiki 表格里注入链接/代码块
+    const cleanDesc = (p.description || '')
+      .replace(/\r?\n/g, ' ')
+      .replace(/([\\`*_{}\[\]()#+!|])/g, '\\$1');
     const npmBadge = p.hasNpm ? `[npm 📦](${p.npmUrl})` : `GitHub 🐙`;
-    homeMarkdown += `| [**${p.name}**](${p.repoUrl})<br><sub>@${p.author}</sub> | \`${typeLabel}\` | ${cleanDesc} | ${npmBadge} | \`${p.installCmd}\` | ⭐ ${p.stars} |\n`;
+    // 无根 package.json 的仓库不可 npm 安装，展示仓库链接而非必败命令
+    const installCell = p.installCmd ? `\`${p.installCmd}\`` : `[前往 GitHub ↗](${p.repoUrl})`;
+    homeMarkdown += `| [**${p.name}**](${p.repoUrl})<br><sub>@${p.author}</sub> | \`${typeLabel}\` | ${cleanDesc} | ${npmBadge} | ${installCell} | ⭐ ${p.stars} |\n`;
   });
 
   homeMarkdown += `

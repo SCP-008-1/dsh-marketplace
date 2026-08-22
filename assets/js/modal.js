@@ -73,10 +73,14 @@
 
       // Quick Install command
       const installCmd = pkgInstallCmd(pkg);
-      modalInstallOptions.innerHTML = '<div class="install-box">' +
-          '<code><span class="prefix">$</span> ' + escapeHtml(installCmd) + '</code>' +
-          '<button class="btn btn-install" onclick="copyCommand(\'' + jsAttr(installCmd) + '\', this)">' + t('copyBtn') + '</button>' +
-        '</div>';
+      modalInstallOptions.innerHTML = installCmd
+        ? ('<div class="install-box">' +
+            '<code><span class="prefix">$</span> ' + escapeHtml(installCmd) + '</code>' +
+            '<button class="btn btn-install" onclick="copyCommand(\'' + jsAttr(installCmd) + '\', this)">' + t('copyBtn') + '</button>' +
+          '</div>')
+        : ('<div class="install-box" style="display:block; color:var(--text-muted); font-size:12.5px; line-height:1.6;">' +
+            escapeHtml(t('noNpmCmdNote')) +
+          '</div>');
 
       // Meta Table
       modalMetaGrid.innerHTML = '<div class="meta-grid-cell">' +

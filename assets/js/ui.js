@@ -54,6 +54,7 @@
     function copyModalInstall(btn) {
       if (!currentOpenPlugin) return;
       const cmd = pkgInstallCmd(currentOpenPlugin);
+      if (!cmd) return;
       copyCommand(cmd, btn, t('toastCopiedCmd', cmd));
     }
 

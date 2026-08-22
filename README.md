@@ -7,7 +7,7 @@
 - **智能过滤**：自动排除 `deepseek-ai/deepseek-harness` 保证插件列表精准。
 - **双语共存与即时切换**：完整支持中英文双语界面无缝切换（顶部 `中 / EN` 按钮与 `Alt+L` 快捷键，支持 `localStorage` 记忆）。
 - **双端同步**：
-  - **Web 商城**（`index.html`）：高颜值开发者 UI，自动检测 NPM 注册表，支持中英文双语、模糊搜索、语法过滤、分类过滤（扩展/技能/MCP/主题/提示词）、一键复制 `npm i <pkg>` / `npm i github:<owner>/<repo>`。
+  - **Web 商城**（`index.html`）：高颜值开发者 UI，自动检测 NPM 注册表，支持中英文双语、模糊搜索、语法过滤、分类过滤（扩展/技能/MCP/主题/提示词）、一键复制 `npm i <pkg>` / `npm i github:<owner>/<repo>`（仅对含根 package.json 的仓库展示；无 package.json 的插件降级为 GitHub 仓库跳转）。
   - **GitHub Wiki**（`wiki_dist/`）：同步生成 Markdown 索引与发布指南，作为免维护文档库。
 - **自动化流**：GitHub Actions 每 1 小时定时增量同步数据并推送到 Wiki 与主仓。
 - **快捷键系统**：`/` 搜索 · `Alt+L` 切换语言 · `Alt+T` 切换主题 · `Alt+V` 切换视图 · `Esc` 关闭弹窗。
@@ -18,7 +18,8 @@
 
 ### 1. 插件安装方式
 - **已发布在 npm**：`npm i <package-name>`
-- **未发布在 npm**：`npm i github:<owner>/<repo>`
+- **未发布在 npm，但仓库根目录有 package.json**：`npm i github:<owner>/<repo>`
+- **仓库无 package.json**（纯 Skill/Prompt 等资源型插件）：不可通过 npm 安装，商城会展示「前往 GitHub」按钮，请按仓库说明手动安装
 
 ### 2. 本地预览 Web 商城
 ```bash
