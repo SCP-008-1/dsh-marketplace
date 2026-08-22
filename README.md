@@ -82,4 +82,6 @@ npx wrangler deploy
 把返回的 Worker 地址填入 `MARKETPLACE_CONFIG.ratingApi` 即可生效。详见 [`workers/rating/README.md`](workers/rating/README.md)。
 
 未配置 `ratingApi` 时自动降级为 localStorage 本地评分，功能不中断。
-
+## 致谢
+感谢[LINUX DO](https://linux.do/) 社区对本项目的帮助和支持
+感谢佬友们对本项目的支持
