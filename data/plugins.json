@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-22T12:52:07.706Z",
-  "total": 499,
-  "npmCount": 179,
+  "updatedAt": "2026-08-22T13:18:44Z",
+  "total": 503,
+  "npmCount": 182,
   "plugins": [
     {
       "id": "open-design",
@@ -1970,7 +1970,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:Anil-matcha/awesome-dsh-plugin",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/Anil-matcha/awesome-dsh-plugin/main/README.md"
     },
     {
@@ -2856,7 +2856,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:sunchaokun/PPT-Design-Skill",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/sunchaokun/PPT-Design-Skill/main/README.md"
     },
     {
@@ -2955,13 +2955,6 @@
         "floating-widget",
         "plugin"
       ],
-      "type": "mcp",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/hashgraph-online/hol-guard/main/README.md"
       "type": "extension",
       "hasNpm": true,
       "npmName": "dsh-whale-widget",
@@ -3057,7 +3050,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:hashgraph-online/hol-guard",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/hashgraph-online/hol-guard/main/README.md"
     },
     {
@@ -3123,77 +3116,6 @@
       "version": "0.1.1-rc.2",
       "installCmd": "npm i github:fufankeji/deepseek-harness-studio",
       "readmeUrl": "https://raw.githubusercontent.com/fufankeji/deepseek-harness-studio/main/README.md"
-    },
-    {
-      "id": "superdesign-skill",
-      "name": "superdesign-skill",
-      "fullName": "superdesigndev/superdesign-skill",
-      "description": "The design skill for Claude Code, Cursor and any coding agent. Stop shipping AI-slop UI: turn it into shippable, tasteful frontend. Install: npx skills add superdesigndev/superdesign-skill. Powered by superdesign.dev",
-      "author": "superdesigndev",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/217153862?v=4",
-      "authorUrl": "https://github.com/superdesigndev",
-      "repoUrl": "https://github.com/superdesigndev/superdesign-skill",
-      "stars": 437,
-      "forks": 29,
-      "openIssues": 4,
-      "license": "MIT",
-      "updatedAt": "2026-08-22T11:25:36Z",
-      "createdAt": "2026-07-09T04:03:02Z",
-      "defaultBranch": "main",
-      "tags": [
-        "ai-coding-tools",
-        "claude-code-skills",
-        "codex",
-        "codex-skill",
-        "codex-skills",
-        "opencode-skills",
-        "ppt",
-        "pptx",
-        "pptx-generator",
-        "presentation-design",
-        "skill"
-      ],
-      "type": "skill",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/sunchaokun/PPT-Design-Skill/main/README.md"
-    },
-    {
-      "id": "DeepSeek-Balance-Whale-Widget",
-      "name": "DeepSeek-Balance-Whale-Widget",
-      "fullName": "MeteorNOX/DeepSeek-Balance-Whale-Widget",
-      "description": "DeepSeek Harness（DSH）一只住在 DSH 界面右下角的小鲸鱼娘，帮你盯着DeepSeek账户余额。QQ弹弹，支持拖拽吸附、左吸附翻转、数字滚动动画，随界面自动启用，建议直接喊来你的dsh安装",
-      "author": "MeteorNOX",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/247166461?v=4",
-      "authorUrl": "https://github.com/MeteorNOX",
-      "repoUrl": "https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget",
-      "stars": 444,
-      "forks": 20,
-      "openIssues": 5,
-      "license": "MIT",
-      "updatedAt": "2026-08-22T11:17:13Z",
-      "createdAt": "2026-08-18T03:13:51Z",
-      "defaultBranch": "main",
-      "tags": [
-        "cordis",
-        "deepseek",
-        "deepseek-harness",
-        "developer-tools",
-        "dsh",
-        "dsh-plugins",
-        "floating-widget",
-        "plugin"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-whale-widget",
-      "npmUrl": "https://www.npmjs.com/package/dsh-whale-widget",
-      "version": "0.2.7",
-      "installCmd": "npm i dsh-whale-widget",
-      "readmeUrl": "https://raw.githubusercontent.com/MeteorNOX/DeepSeek-Balance-Whale-Widget/main/README.md"
     },
     {
       "id": "superdesign-skill",
@@ -4070,7 +3992,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:bruc3van/awesome-dsh-plugin",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/bruc3van/awesome-dsh-plugin/main/README.md"
     },
     {
@@ -6144,7 +6066,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:kelai141/dsh-mobile-apk",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/kelai141/dsh-mobile-apk/main/README.md"
     },
     {
@@ -6247,36 +6169,6 @@
       "version": "0.3.5",
       "installCmd": "npm i dsh-undo-savepoint",
       "readmeUrl": "https://raw.githubusercontent.com/lire1131/dsh-undo-savepoint/master/README.md"
-    },
-    {
-      "id": "dsh-mobile-apk",
-      "name": "dsh-mobile-apk",
-      "fullName": "kelai141/dsh-mobile-apk",
-      "description": "dsh 安卓壳 APK——WebView UI + 内嵌 Termux 运行时快照（解压即跑）、SAF 目录桥、保活服务、看门狗、运行时在线更新。",
-      "author": "kelai141",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/252583569?v=4",
-      "authorUrl": "https://github.com/kelai141",
-      "repoUrl": "https://github.com/kelai141/dsh-mobile-apk",
-      "stars": 112,
-      "forks": 21,
-      "openIssues": 4,
-      "license": "MIT",
-      "updatedAt": "2026-08-22T10:26:15Z",
-      "createdAt": "2026-08-13T23:55:34Z",
-      "defaultBranch": "main",
-      "tags": [
-        "android",
-        "kotlin",
-        "termux",
-        "webview"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/kelai141/dsh-mobile-apk/main/README.md"
     },
     {
       "id": "humanizer-ru",
@@ -6780,7 +6672,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:EverMind-AI/SkillCorpus",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/EverMind-AI/SkillCorpus/main/README.md"
     },
     {
@@ -6819,51 +6711,6 @@
       "version": "0.2.2",
       "installCmd": "npm i dsh-tabbit",
       "readmeUrl": "https://raw.githubusercontent.com/Tabbit-Browser/dsh-tabbit/main/README.md"
-    },
-    {
-      "id": "SkillCorpus",
-      "name": "SkillCorpus",
-      "fullName": "EverMind-AI/SkillCorpus",
-      "description": "Open-source infrastructure that turns scattered SKILL.md files into curated, retrieval-ready agent-skill corpora—with retrieval and evaluation tooling included.",
-      "author": "EverMind-AI",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/229275294?v=4",
-      "authorUrl": "https://github.com/EverMind-AI",
-      "repoUrl": "https://github.com/EverMind-AI/SkillCorpus",
-      "stars": 93,
-      "forks": 15,
-      "openIssues": 0,
-      "license": "Apache-2.0",
-      "updatedAt": "2026-08-22T11:22:26Z",
-      "createdAt": "2026-08-11T02:48:55Z",
-      "defaultBranch": "main",
-      "tags": [
-        "agent-memory",
-        "agent-skills",
-        "ai-agents",
-        "benchmark",
-        "dataset",
-        "deepseek-harness",
-        "dsh",
-        "embeddings",
-        "hugginface",
-        "information-retrieval",
-        "llm-agents",
-        "llm-evaluation",
-        "long-term-memory",
-        "python",
-        "reranking",
-        "semantic-search",
-        "skill-md",
-        "skill-routing",
-        "vector-search"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/EverMind-AI/SkillCorpus/main/README.md"
     },
     {
       "id": "dsh-skill-mcp-panel",
@@ -7996,34 +7843,6 @@
       "readmeUrl": "https://raw.githubusercontent.com/bruc3van/dsh-desktop/main/README.md"
     },
     {
-      "id": "ProMentor",
-      "name": "ProMentor",
-      "fullName": "Lyn-77/ProMentor",
-      "description": "ProMentor 是一个 AI Coding Agent Skill。装上它，你的 AI 编程助手立刻化身为导师——扫描项目架构、生成阶梯式 Chapter、带你手写核心逻辑、自动判题、AI Code Review。",
-      "author": "Lyn-77",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/237524641?v=4",
-      "authorUrl": "https://github.com/Lyn-77",
-      "repoUrl": "https://github.com/Lyn-77/ProMentor",
-      "stars": 65,
-      "forks": 1,
-      "openIssues": 0,
-      "license": "Unknown",
-      "updatedAt": "2026-08-21T07:15:27Z",
-      "createdAt": "2026-07-31T12:32:05Z",
-      "defaultBranch": "main",
-      "tags": [
-        "deepseek-harness",
-        "dsh"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/Lyn-77/ProMentor/main/README.md"
-    },
-    {
       "id": "dsh-beauty-skins",
       "name": "dsh-beauty-skins",
       "fullName": "XieRW/dsh-beauty-skins",
@@ -8083,7 +7902,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:Lyn-77/ProMentor",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/Lyn-77/ProMentor/main/README.md"
     },
     {
@@ -9796,7 +9615,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:zenx0x/allinluna",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/zenx0x/allinluna/main/README.md"
     },
     {
@@ -9914,9 +9733,6 @@
       "hasNpm": false,
       "npmName": null,
       "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/zenx0x/allinluna/main/README.md"
       "version": "2.0.0",
       "installCmd": "npm i github:mexiaosqwq/dsh-web-mobile",
       "readmeUrl": "https://raw.githubusercontent.com/mexiaosqwq/dsh-web-mobile/main/README.md"
@@ -11536,7 +11352,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:sorsama/deepseek-harness-mobile",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/sorsama/deepseek-harness-mobile/main/README.md"
     },
     {
@@ -11704,12 +11520,6 @@
         "web-search"
       ],
       "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/sorsama/deepseek-harness-mobile/main/README.md"
       "hasNpm": true,
       "npmName": "dsh-web-search-pro",
       "npmUrl": "https://www.npmjs.com/package/dsh-web-search-pro",
@@ -13830,9 +13640,6 @@
       "hasNpm": false,
       "npmName": null,
       "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/HuanLinOTO/dsh-plugin-pet-rs/master/README.md"
       "version": "0.1.37",
       "installCmd": "npm i github:liguobao/dsh-desktop",
       "readmeUrl": "https://raw.githubusercontent.com/liguobao/dsh-desktop/master/README.md"
@@ -13931,7 +13738,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:HuanLinOTO/dsh-plugin-pet-rs",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/HuanLinOTO/dsh-plugin-pet-rs/master/README.md"
     },
     {
@@ -16885,7 +16692,7 @@
       "npmName": null,
       "npmUrl": null,
       "version": null,
-      "installCmd": "npm i github:seed-forge/harness-ai-kit",
+      "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/seed-forge/harness-ai-kit/main/README.md"
     },
     {
@@ -16942,6 +16749,134 @@
       "version": "0.1.2",
       "installCmd": "npm i @dingyi222666/dsh-session-notification",
       "readmeUrl": "https://raw.githubusercontent.com/dingyi222666/dsh-session-notification/main/README.md"
+    },
+    {
+      "id": "dsh-any-background",
+      "name": "dsh-any-background",
+      "fullName": "Tkingxiao/dsh-any-background",
+      "description": "Deepseek Harness 自定义主题插件，支持自定义图片/视频壁纸，对话框，侧边栏等透明度模糊度调整，全局主题色的色轮调整插件",
+      "author": "Tkingxiao",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/143373016?v=4",
+      "authorUrl": "https://github.com/Tkingxiao",
+      "repoUrl": "https://github.com/Tkingxiao/dsh-any-background",
+      "stars": 15,
+      "forks": 1,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-20T08:16:41Z",
+      "createdAt": "2026-08-14T19:57:15Z",
+      "defaultBranch": "main",
+      "tags": [
+        "deepseek",
+        "deepseek-harness",
+        "dsh",
+        "plugin"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-any-background",
+      "npmUrl": "https://www.npmjs.com/package/dsh-any-background",
+      "version": "0.1.9",
+      "installCmd": "npm i dsh-any-background",
+      "readmeUrl": "https://raw.githubusercontent.com/Tkingxiao/dsh-any-background/main/README.md"
+    },
+    {
+      "id": "dsh-bridge",
+      "name": "dsh-bridge",
+      "fullName": "wenbin-wb/dsh-bridge",
+      "description": "DeepSeek Harness 多通道远程访问插件 | 手机扫码秒连本地 AI、微信/QQ 直接对话、流式输出、按钮交互、多工作区切换、会话持久化 | 无需公网服务器，支持局域网直连、Cloudflare 隧道、自建隧道 | QQ Bot  + 微信 ClawBot",
+      "author": "wenbin-wb",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/57818063?v=4",
+      "authorUrl": "https://github.com/wenbin-wb",
+      "repoUrl": "https://github.com/wenbin-wb/dsh-bridge",
+      "stars": 15,
+      "forks": 1,
+      "openIssues": 1,
+      "license": "MIT",
+      "updatedAt": "2026-08-22T10:03:56Z",
+      "createdAt": "2026-08-18T03:29:50Z",
+      "defaultBranch": "main",
+      "tags": [
+        "bot",
+        "chatbot",
+        "cloudflare",
+        "deepseek",
+        "deepseek-harness",
+        "deepseek-harness-plugin",
+        "dsh",
+        "im-chat",
+        "mobile",
+        "qr-code",
+        "remote-access",
+        "smartphone",
+        "tablet",
+        "tunnel",
+        "websocket",
+        "wechat"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "@wenbin_wb/dsh-bridge",
+      "npmUrl": "https://www.npmjs.com/package/@wenbin_wb/dsh-bridge",
+      "version": "2.3.3",
+      "installCmd": "npm i @wenbin_wb/dsh-bridge",
+      "readmeUrl": "https://raw.githubusercontent.com/wenbin-wb/dsh-bridge/main/README.md"
+    },
+    {
+      "id": "dsh-gui-customization",
+      "name": "dsh-gui-customization",
+      "fullName": "LAN-TINA-WS/dsh-gui-customization",
+      "description": "DeepSeek Harness 时装工坊：给 DSH 界面换装——更改主题配色/自定义背景图/自定义视频背景/可调节氛围灯，中英双语 ·DSH Web UI 时装工坊。",
+      "author": "LAN-TINA-WS",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/295478386?v=4",
+      "authorUrl": "https://github.com/LAN-TINA-WS",
+      "repoUrl": "https://github.com/LAN-TINA-WS/dsh-gui-customization",
+      "stars": 15,
+      "forks": 2,
+      "openIssues": 1,
+      "license": "MIT",
+      "updatedAt": "2026-08-21T20:13:36Z",
+      "createdAt": "2026-08-14T08:29:53Z",
+      "defaultBranch": "master",
+      "tags": [
+        "deepseek",
+        "deepseek-harness",
+        "dsh",
+        "skin",
+        "theme"
+      ],
+      "type": "theme",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0",
+      "installCmd": "npm i github:LAN-TINA-WS/dsh-gui-customization",
+      "readmeUrl": "https://raw.githubusercontent.com/LAN-TINA-WS/dsh-gui-customization/master/README.md"
+    },
+    {
+      "id": "dsh-plugin-aigc-canvas",
+      "name": "dsh-plugin-aigc-canvas",
+      "fullName": "HuanLinOTO/dsh-plugin-aigc-canvas",
+      "description": "provider-agnostic AIGC HTTP 桥 + 无限画布 + ffmpeg 后处理，13 个工具含画布连边/reroll/媒体编辑 | Provider-agnostic AIGC HTTP bridge + infinite canvas + ffmpeg post-processing; 13 tools incl. canvas linking/reroll/media-edit",
+      "author": "HuanLinOTO",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/94176676?v=4",
+      "authorUrl": "https://github.com/HuanLinOTO",
+      "repoUrl": "https://github.com/HuanLinOTO/dsh-plugin-aigc-canvas",
+      "stars": 15,
+      "forks": 0,
+      "openIssues": 1,
+      "license": "MIT",
+      "updatedAt": "2026-08-22T09:27:41Z",
+      "createdAt": "2026-08-12T15:14:19Z",
+      "defaultBranch": "main",
+      "tags": [],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "@huanlin/dsh-plugin-aigc-canvas",
+      "npmUrl": "https://www.npmjs.com/package/@huanlin/dsh-plugin-aigc-canvas",
+      "version": "0.1.4",
+      "installCmd": "npm i @huanlin/dsh-plugin-aigc-canvas",
+      "readmeUrl": "https://raw.githubusercontent.com/HuanLinOTO/dsh-plugin-aigc-canvas/main/README.md"
     }
   ]
 }
