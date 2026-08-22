@@ -74,7 +74,9 @@ async function verifyNpmPackage(repo) {
 
   const isVersionMatched = pkgJson.version && npmData.versions && Boolean(npmData.versions[pkgJson.version]);
 
-  if (!isRepoMatched && !isVersionMatched) {
+  // 仓库归属必须匹配；版本匹配仅作辅助信号，不能单独证明归属
+  //（"1.0.0" 几乎存在于所有 npm 包，仅靠版本号会把冒名的同名仓库标记为已验证）
+  if (!isRepoMatched) {
     // 同名但属于完全不同第三方的废弃/无关 npm 包
     return {
       hasNpm: false,

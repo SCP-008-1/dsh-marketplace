@@ -14,7 +14,7 @@
         const typeBadge = getTypeBadge(pkg.type);
         const rating = displayRating(pkg);
         const installCmd = pkgInstallCmd(pkg);
-        return '<div class="trending-card" onclick="openDetailModal(\'' + pkg.id + '\')">' +
+        return '<div class="trending-card" onclick="openDetailModal(\'' + jsAttr(pkg.id) + '\')">' +
           '<div>' +
             '<div class="trending-top">' +
               '<div class="trending-avatar-wrap">' +
@@ -31,8 +31,8 @@
               '<span class="badge ' + typeBadge.class + '">' + typeBadge.label + '</span>' +
             '</div>' +
             '<div class="trending-actions">' +
-              '<button class="btn btn-install" style="flex:1;" onclick="copyPkgInstall(\'' + jsAttr(installCmd) + '\', this, event)">' + t('installBtn') + '</button>' +
-              '<button class="btn btn-ghost" style="padding:4px 8px; font-size:11.5px;" onclick="openDetailModal(\'' + pkg.id + '\')">' + t('viewBtn') + '</button>' +
+              installActionHtml(pkg, installCmd, 'flex:1;') +
+              '<button class="btn btn-ghost" style="padding:4px 8px; font-size:11.5px;" onclick="openDetailModal(\'' + jsAttr(pkg.id) + '\')">' + t('viewBtn') + '</button>' +
             '</div>' +
           '</div>' +
         '</div>';
@@ -141,16 +141,21 @@
         return true;
       });
 
-      if (currentTier1Tab === "popular" || sort === "stars") {
+      // 标签页排序优先于下拉排序选择器；默认（stars）仅在没有更具体规则时生效
+      if (currentTier1Tab === "popular") {
         filteredList.sort((a, b) => (b.stars || 0) - (a.stars || 0));
-      } else if (currentTier1Tab === "recent" || sort === "recent") {
+      } else if (currentTier1Tab === "recent") {
         filteredList.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
       } else if (currentTier1Tab === "new") {
         filteredList.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+      } else if (sort === "recent") {
+        filteredList.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
       } else if (sort === "forks") {
         filteredList.sort((a, b) => (b.forks || 0) - (a.forks || 0));
       } else if (sort === "name") {
-        filteredList.sort((a, b) => a.name.localeCompare(b.name));
+        filteredList.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+      } else {
+        filteredList.sort((a, b) => (b.stars || 0) - (a.stars || 0));
       }
 
       currentPage = 1;
@@ -211,7 +216,7 @@
     function bookmarkButtonHtml(pkg, isBookmarked, title) {
       return '<button class="bookmark-btn ' + (isBookmarked ? 'bookmarked' : '') + '"' +
         (title ? ' title="' + title + '"' : '') +
-        ' onclick="toggleFavorite(\'' + pkg.id + '\', event)">' +
+        ' onclick="toggleFavorite(\'' + jsAttr(pkg.id) + '\', event)">' +
           '<svg width="15" height="15" viewBox="0 0 24 24" fill="' + (isBookmarked ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
             '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>' +
           '</svg>' +
@@ -219,7 +224,7 @@
     }
 
     function packageNameHtml(pkg, query) {
-      return '<h3 class="package-name" onclick="openDetailModal(\'' + pkg.id + '\')" title="' + escapeHtml(pkg.name) + '">' +
+      return '<h3 class="package-name" onclick="openDetailModal(\'' + jsAttr(pkg.id) + '\')" title="' + escapeHtml(pkg.name) + '">' +
           highlightSearch(pkg.name, query) +
         '</h3>';
     }
@@ -258,7 +263,7 @@
 
             (visibleTags.length > 0 ? (
               '<div class="package-tags-row">' +
-                visibleTags.map(t => '<span class="tag-chip" onclick="applyQuickSearch(\'' + escapeHtml(t) + '\')">#' + escapeHtml(t) + '</span>').join("") +
+                visibleTags.map(tag => '<span class="tag-chip" onclick="applyQuickSearch(\'' + jsAttr(tag) + '\')">#' + escapeHtml(tag) + '</span>').join("") +
                 (extraTags > 0 ? '<span class="tag-chip" style="color:var(--text-muted);">+' + extraTags + '</span>' : '') +
               '</div>'
             ) : '') +
@@ -272,8 +277,8 @@
             '</div>' +
 
             '<div class="package-actions-footer">' +
-              '<button class="btn btn-ghost" style="flex:1;" onclick="openDetailModal(\'' + pkg.id + '\')">' + t('viewDetailsBtn') + '</button>' +
-              '<button class="btn btn-install" style="flex:1;" onclick="copyPkgInstall(\'' + jsAttr(installCmd) + '\', this, event)">' + t('installBtn') + '</button>' +
+              '<button class="btn btn-ghost" style="flex:1;" onclick="openDetailModal(\'' + jsAttr(pkg.id) + '\')">' + t('viewDetailsBtn') + '</button>' +
+              installActionHtml(pkg, installCmd, 'flex:1;') +
             '</div>' +
           '</div>' +
         '</article>';
@@ -311,8 +316,8 @@
           '</div>' +
 
           '<div class="package-row-actions">' +
-            '<button class="btn btn-install" onclick="copyPkgInstall(\'' + jsAttr(installCmd) + '\', this, event)">' + t('installBtn') + '</button>' +
-            '<button class="btn btn-ghost" style="padding:5px 10px; font-size:12px;" onclick="openDetailModal(\'' + pkg.id + '\')">' + t('viewBtn') + '</button>' +
+            installActionHtml(pkg, installCmd) +
+            '<button class="btn btn-ghost" style="padding:5px 10px; font-size:12px;" onclick="openDetailModal(\'' + jsAttr(pkg.id) + '\')">' + t('viewBtn') + '</button>' +
           '</div>' +
         '</div>';
       }).join("");
@@ -330,7 +335,7 @@
         html += '<button class="page-btn ' + (i === currentPage ? "active" : "") + '" onclick="changePage(' + i + ')">' + i + '</button>';
       }
 
-      html += '<button class="page-btn ' + (currentPage === totalPages ? "disabled" : "") + ' onclick="changePage(' + (currentPage + 1) + ')">›</button>';
+      html += '<button class="page-btn" ' + (currentPage === totalPages ? "disabled ": "") + 'onclick="changePage(' + (currentPage + 1) + ')">›</button>';
 
       paginationEl.innerHTML = html;
     }
