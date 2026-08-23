@@ -143,6 +143,7 @@
       const agg = remoteRatings[pkg.id];
       let communityHtml = "";
       if (agg && agg.count) {
+        const avg = Number(agg.average || 0);
         const dist = Array.isArray(agg.dist) ? agg.dist : [0, 0, 0, 0, 0];
         const rows = [5, 4, 3, 2, 1].map(n => {
           const pct = agg.count ? Math.round((dist[n - 1] / agg.count) * 100) : 0;
@@ -152,18 +153,26 @@
               '<span class="rd-pct">' + pct + '%</span>' +
             '</div>';
         }).join("");
-        communityHtml = '<div class="rating-summary">' +
-            '<span class="rs-avg">' + (Number(agg.average || 0).toFixed(1)) + '</span>' +
-            '<span class="rs-count">(' + agg.count + ' ' + t('modalRatingCountSuffix') + ')</span>' +
-          '</div>' +
-          '<div class="rating-dist">' + rows + '</div>';
+        // 平均分星级展示（四舍五入到整星）
+        const rounded = Math.round(avg);
+        const starDisplay = [1, 2, 3, 4, 5].map(s =>
+          '<span class="' + (s <= rounded ? 'rsd-star filled' : 'rsd-star') + '">★</span>'
+        ).join("");
+        communityHtml = '<div class="rating-hero">' +
+            '<div class="rh-score-block">' +
+              '<span class="rh-avg">' + avg.toFixed(1) + '</span>' +
+              '<div class="rh-stars-display">' + starDisplay + '</div>' +
+              '<span class="rh-count">' + agg.count + ' ' + t('modalRatingCountSuffix') + '</span>' +
+            '</div>' +
+            '<div class="rating-dist">' + rows + '</div>' +
+          '</div>';
       } else {
-        communityHtml = '<div style="color:var(--text-tertiary); font-size:12.5px; margin-bottom:12px;">' + t('modalRatingEmpty') + '</div>';
+        communityHtml = '<div class="rating-empty">⭐ <span>' + t('modalRatingEmpty') + '</span></div>';
       }
 
       modalRatingBox.innerHTML = communityHtml +
-        '<div style="border-top:1px solid var(--border-subtle); padding-top:12px; display:flex; align-items:center; justify-content:space-between;">' +
-          '<span style="font-size:13px; color:var(--text-secondary);">' + t('modalRatingYour', my) + '</span>' +
+        '<div class="rating-your-row">' +
+          '<span class="ry-label">' + t('modalRatingYour', my) + '</span>' +
           '<div class="rating-stars" id="modalStarsWrap" onmouseleave="resetStarHover(\'' + idAttr + '\')">' +
             [1, 2, 3, 4, 5].map(s => 
               '<span class="star ' + (my >= s ? 'filled' : '') + '" onmouseenter="hoverStar(' + s + ')" onclick="ratePlugin(\'' + idAttr + '\', ' + s + ')">★</span>'
