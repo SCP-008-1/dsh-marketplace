@@ -676,6 +676,83 @@
       color: var(--text-primary);
     }
 
+    /* --- GitHub 登录（Hero 区） --- */
+    .hero-auth {
+      display: flex;
+      justify-content: center;
+      margin-top: 14px;
+    }
+
+    .btn-github {
+      background: #24292f;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 18px;
+      font-size: 13.5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    }
+    [data-theme="light"] .btn-github {
+      background: #24292f;
+      box-shadow: 0 2px 8px rgba(36, 41, 47, 0.3);
+    }
+    .btn-github:hover {
+      background: #32383f;
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    /* 已登录：头像 + 用户名 + 登出胶囊 */
+    .auth-user-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 8px 5px 6px;
+      border-radius: 999px;
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-fast);
+    }
+    .auth-user-chip:hover {
+      border-color: var(--border-normal);
+    }
+    .auth-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: block;
+      border: 1px solid var(--border-subtle);
+    }
+    .auth-username {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      max-width: 160px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .auth-username:hover {
+      text-decoration: underline;
+    }
+    .auth-logout-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-tertiary);
+      transition: var(--transition-fast);
+    }
+    .auth-logout-btn:hover {
+      background: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
     .section-panel {
       margin-bottom: 32px;
     }

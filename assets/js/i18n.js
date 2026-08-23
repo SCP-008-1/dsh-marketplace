@@ -34,6 +34,11 @@
         heroTopRatedLink: "⭐ 高分好评",
         heroVerifiedSuffix: " 个收录插件",
         heroRecentlyUpdated: "⏱️ 最近更新",
+        ghLoginBtn: "使用 GitHub 登录",
+        ghLogoutBtn: "登出",
+        ghLoginToast: "GitHub 登录成功，欢迎",
+        ghLogoutToast: "已退出 GitHub 登录",
+        ghAuthErrorToast: "GitHub 登录失败，请重试",
 
         trendingSectionTitle: "热门推荐",
         trendingSubtitle: "社区 Star 最多与增长迅速的精选插件",
@@ -233,6 +238,11 @@
         heroTopRatedLink: "⭐ Top rated",
         heroVerifiedSuffix: " verified packages",
         heroRecentlyUpdated: "⏱️ Recently updated",
+        ghLoginBtn: "Sign in with GitHub",
+        ghLogoutBtn: "Sign out",
+        ghLoginToast: "Signed in as",
+        ghLogoutToast: "Signed out of GitHub",
+        ghAuthErrorToast: "GitHub sign-in failed, please retry",
 
         trendingSectionTitle: "Trending Plugins",
         trendingSubtitle: "Top community stars & fast-growing tools",

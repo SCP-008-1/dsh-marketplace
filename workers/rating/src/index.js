@@ -14,6 +14,9 @@
  *   GET  /api/ratings/:id         单个插件评分
  *   POST /api/rate                提交评分 { id, stars, voter }
  *   GET  /api/health              健康检查
+ *   GET  /auth/github             发起 GitHub OAuth 登录
+ *   GET  /auth/github/callback    OAuth 回调，签发会话令牌
+ *   GET  /api/auth/me             校验会话令牌，返回用户信息
  *
  * 已知限制（有意取舍，见 README）:
  *   - KV 最终一致 + 非原子读改写：极端并发下可能丢个别票
@@ -22,6 +25,7 @@
 import { corsHeaders } from "./cors.js";
 import { json } from "./utils.js";
 import { handleBatchRatings, handleSingleRating, handleRate } from "./handlers/ratings.js";
+import { handleAuthStart, handleAuthCallback, handleMe } from "./handlers/auth.js";
 
 export default {
   async fetch(request, env) {
@@ -60,6 +64,19 @@ async function route(request, url, env, cors) {
 
   if (request.method === "POST" && url.pathname === "/api/rate") {
     return handleRate(request, env, cors);
+  }
+
+  // GitHub OAuth 登录（302 跳转流程，无需 CORS，但保留签名一致性）
+  if (request.method === "GET" && url.pathname === "/auth/github") {
+    return handleAuthStart(request, url, env);
+  }
+
+  if (request.method === "GET" && url.pathname === "/auth/github/callback") {
+    return handleAuthCallback(request, url, env);
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/auth/me") {
+    return handleMe(request, env);
   }
 
   return json({ error: "not found" }, 404, cors);
