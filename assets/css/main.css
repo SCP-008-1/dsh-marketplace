@@ -789,6 +789,23 @@
       font-size: 12px;
     }
 
+    /* --- giscus 加载骨架屏 --- */
+    .giscus-skeleton {
+      padding: 6px 2px;
+    }
+    .gs-line {
+      height: 13px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--bg-surface-hover) 25%, var(--bg-surface-raised) 50%, var(--bg-surface-hover) 75%);
+      background-size: 200% 100%;
+      animation: gsShimmer 1.4s ease infinite;
+    }
+    @keyframes gsShimmer {
+      from { background-position: 200% 0; }
+      to { background-position: -200% 0; }
+    }
+
     /* --- 社区评分（详情弹窗 · 评分与讨论 Tab） --- */
     .rating-hero {
       display: flex;

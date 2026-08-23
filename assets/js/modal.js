@@ -386,6 +386,12 @@
         '</div>';
     }
 
+    /** 当前站点主题对应的 giscus 自定义主题绝对 URL（assets/css/giscus-*.css） */
+    function getGiscusThemeUrl() {
+      const name = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+      return new URL("assets/css/giscus-" + name + ".css", location.href).toString();
+    }
+
     function renderGiscus(pkg) {
       const box = document.getElementById("giscusContainer");
       const cfg = MARKETPLACE_CONFIG.giscus;
@@ -395,7 +401,21 @@
         box.innerHTML = identityHtml + '<div style="color:var(--text-tertiary); font-size:12.5px; padding:12px; background:var(--bg-surface-raised); border-radius:6px;">' + t('modalDiscussionsFallback', escapeHtml(issuesUrl)) + '</div>';
         return;
       }
-      box.innerHTML = identityHtml;
+      // 骨架屏：giscus iframe 加载完成（首次 postMessage）前占位，避免布局跳动
+      box.innerHTML = identityHtml +
+        '<div class="giscus-skeleton">' +
+          [92, 100, 76, 88].map(w => '<div class="gs-line" style="width:' + w + '%;"></div>').join("") +
+        '</div>';
+      const hideSkeleton = () => {
+        const sk = box.querySelector(".giscus-skeleton");
+        if (sk) sk.remove();
+        window.removeEventListener("message", onGiscusMsg);
+      };
+      const onGiscusMsg = (e) => { if (e.origin === "https://giscus.app") hideSkeleton(); };
+      window.addEventListener("message", onGiscusMsg);
+      // 兜底：6s 后无论是否加载完都移除骨架
+      setTimeout(hideSkeleton, 6000);
+
       const s = document.createElement("script");
       s.src = "https://giscus.app/client.js";
       s.async = true;
@@ -411,7 +431,7 @@
         ["data-reactions-enabled", "1"],
         ["data-emit-metadata", "0"],
         ["data-input-position", "top"],
-        ["data-theme", document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark_dimmed"],
+        ["data-theme", getGiscusThemeUrl()],
         ["data-lang", currentLang === 'zh' ? "zh-CN" : "en"]
       ].forEach(([k, v]) => s.setAttribute(k, v));
       box.appendChild(s);
@@ -421,7 +441,7 @@
       const frame = document.querySelector("iframe.giscus-frame");
       if (!frame || !frame.contentWindow) return;
       frame.contentWindow.postMessage(
-        { giscus: { setConfig: { theme: theme === "light" ? "light" : "dark_dimmed", lang: currentLang === 'zh' ? "zh-CN" : "en" } } },
+        { giscus: { setConfig: { theme: getGiscusThemeUrl(), lang: currentLang === 'zh' ? "zh-CN" : "en" } } },
         "https://giscus.app"
       );
     }
