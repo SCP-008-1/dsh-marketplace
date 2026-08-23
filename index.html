@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSP：README XSS 的纵深防御层。注意：若更换 MARKETPLACE_CONFIG.ratingApi 域名，需同步更新 connect-src -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src https: data:; connect-src 'self' https://api.github.com https://raw.githubusercontent.com https://dsh-rating.test1-c44.workers.dev; frame-src https://giscus.app; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com"">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://giscus.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com data:; img-src https: data:; connect-src 'self' https://api.github.com https://raw.githubusercontent.com https://dsh-rating.test1-c44.workers.dev; frame-src https://giscus.app; object-src 'none'; base-uri 'self'; form-action 'self' https://github.com">
   <title>DSH Plugin Marketplace · DeepSeek Harness 开发者插件生态</title>
   <meta name="description" content="dsh (DeepSeek Harness) 官方开发者插件市场，一站式检索、探索与安装扩展、技能、MCP 服务、终端主题与提示词预设。">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="assets/css/main.css?v=202608232145">
+  <link rel="stylesheet" href="assets/css/main.css?v=202608232230">
 </head>
 <body>
   <!-- Header Nav -->
@@ -45,7 +45,7 @@
 
         <div class="nav-actions">
           <!-- Language Toggle Button (中 / EN) -->
-          <button id="langToggleBtn" class="toggle-pill" onclick="toggleLanguage()" title="切换语言 / Switch Language (Alt+L)" style="font-weight:600; padding:5px 10px; font-size:12px; height:32px; gap:4px;">
+          <button id="langToggleBtn" class="toggle-pill" onclick="toggleLanguage()" title="切换语言 / Switch Language (Alt+L)">
             <span style="font-size:13px;">🌐</span>
             <span id="langToggleLabel">中 / EN</span>
           </button>
@@ -119,7 +119,7 @@
               autocomplete="off"
             >
             <button id="searchClearBtn" class="omnibar-clear-btn" title="清空">✕</button>
-            <span class="omnibar-shortcut">/</span>
+            <kbd class="omnibar-shortcut">⌘K</kbd>
           </div>
 
           <!-- Omnibar Dropdown Panel -->
