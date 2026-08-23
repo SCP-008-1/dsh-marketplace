@@ -15,3 +15,8 @@ ALLOWED_ORIGINS = "https://dsh-marketplace.laoba.me,https://scp-008-1.github.io,
 
 # SALT 不放在本文件（避免提交到公开仓库）！用下面命令设为加密的 Worker Secret：
 #   npx wrangler secret put SALT
+#
+# GitHub OAuth 登录还需要（https://github.com/settings/developers 创建 OAuth App）：
+#   Authorization callback URL 填: https://dsh-rating.<你的子域>.workers.dev/auth/github/callback
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET
