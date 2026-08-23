@@ -4,10 +4,10 @@
       giscus: {
         repo: "SCP-008-1/dsh-marketplace",
         repoId: "R_kgDOT-jddQ",
-        // 必须用所有人都能创建讨论的分类（如 General）。
-        // Announcements 类分类仅维护者可发讨论，普通用户无法发表第一条评论。
-        category: "General",
-        categoryId: "DIC_kwDOT-jddc4DD1iy"
+        // 站内所有插件评论统一归档到「Discussions In web」分类。
+        // 注意：该分类必须允许所有人创建讨论，否则普通用户无法发表第一条评论。
+        category: "Discussions In web",
+        categoryId: "DIC_kwDOT-jddc4DEAWy"
       },
       ratingApi: "https://dsh-rating.test1-c44.workers.dev"
     };
