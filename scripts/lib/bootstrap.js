@@ -35,6 +35,12 @@ function injectBootstrap(pluginsData) {
     // 用替换函数：避免插件描述里的 $&、$'、$` 等字符被当作特殊替换模式展开，损坏生成的 index.html
     indexHtml = indexHtml.replace(/^\s*window\.DSH_BOOTSTRAP_PLUGINS\s*=.*$/m, () => `window.DSH_BOOTSTRAP_PLUGINS = ${inlineJson};`);
     indexHtml = indexHtml.replace(/^\s*window\.DSH_UPDATED_AT\s*=.*$/m, () => `window.DSH_UPDATED_AT = ${JSON.stringify(new Date().toISOString())};`);
+    // 静态资源缓存击穿：每次同步刷新 ?v= 版本参数（分钟级时间戳），
+    // 强制浏览器拉取最新 JS/CSS——否则前端逻辑修复后，旧缓存脚本仍会展示旧行为。
+    // 注意：新增资源引用时必须自带 ?v= 初始值，否则不会被本正则覆盖。
+    const assetVersion = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
+    // 注意：必须用带捕获组的替换函数（箭头函数中 $1 不展开），否则会把路径替换成字面 "$1"
+    indexHtml = indexHtml.replace(/(assets\/(?:js|css)\/[\w.-]+\?v=)[\w.]*/g, (m, p1) => p1 + assetVersion);
     fs.writeFileSync(indexPath, indexHtml, 'utf-8');
     console.log('index.html 内嵌 bootstrap 数据已同步更新');
   } catch (e) {
