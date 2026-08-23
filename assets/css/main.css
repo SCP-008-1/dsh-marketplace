@@ -806,6 +806,14 @@
       to { background-position: -200% 0; }
     }
 
+    /* giscus iframe 与卡片内容同宽、无多余边距 */
+    #giscusContainer .giscus-frame {
+      width: 100% !important;
+      max-width: 100%;
+      border: none;
+      display: block;
+    }
+
     /* --- 社区评分（详情弹窗 · 评分与讨论 Tab） --- */
     .rating-hero {
       display: flex;

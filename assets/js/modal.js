@@ -12,6 +12,9 @@
       if (tab === "readme" && currentOpenPlugin) {
         loadReadme(currentOpenPlugin);
       }
+      if (tab === "reviews") {
+        ensureGiscusLoaded();
+      }
     }
 
     // 中文 README 常见命名约定（与同步爬虫一致；用于旧数据无 readmeZhUrl 字段时的运行时回退）
@@ -416,6 +419,29 @@
       // 兜底：6s 后无论是否加载完都移除骨架
       setTimeout(hideSkeleton, 6000);
 
+      // 关键：此处 Tab 尚处于 display:none，立即注入 iframe 会量错尺寸
+      // （宽度不对齐、切换后错乱）。改为首次切到 reviews Tab 时由
+      // ensureGiscusLoaded() 在可见状态下注入。
+      giscusInjectedFor = null;
+    }
+
+    /** 当前已注入 giscus 的插件 id；null 表示未注入 */
+    let giscusInjectedFor = null;
+
+    /** 首次进入「评分与讨论」Tab 时才真正加载 giscus（可见状态下尺寸才正确） */
+    function ensureGiscusLoaded() {
+      const cfg = MARKETPLACE_CONFIG.giscus;
+      if (!currentOpenPlugin || !cfg.repoId || !cfg.categoryId) return;
+      const box = document.getElementById("giscusContainer");
+      if (!box) return;
+
+      // 已注入过同一插件：触发重排，纠正潜在的错误尺寸
+      if (giscusInjectedFor === currentOpenPlugin.id) {
+        window.dispatchEvent(new Event("resize"));
+        return;
+      }
+      giscusInjectedFor = currentOpenPlugin.id;
+
       const s = document.createElement("script");
       s.src = "https://giscus.app/client.js";
       s.async = true;
@@ -426,7 +452,7 @@
         ["data-category", cfg.category],
         ["data-category-id", cfg.categoryId],
         ["data-mapping", "specific"],
-        ["data-term", "plugin: " + (pkg.fullName || pkg.name)],
+        ["data-term", "plugin: " + (currentOpenPlugin.fullName || currentOpenPlugin.name)],
         ["data-strict", "0"],
         ["data-reactions-enabled", "1"],
         ["data-emit-metadata", "0"],
