@@ -39,6 +39,9 @@
         ghLoginToast: "GitHub 登录成功，欢迎",
         ghLogoutToast: "已退出 GitHub 登录",
         ghAuthErrorToast: "GitHub 登录失败，请重试",
+        ghIdentityLoggedIn: "已以 GitHub 用户 {user} 身份登录。下方评论区由 GitHub Discussions 驱动：首次发言需在评论框内完成一次 giscus 授权（同一账号，一键确认即可）。",
+        ghIdentityLoggedOut: "评论区由 GitHub Discussions 驱动，登录后即可参与讨论：",
+        ghIdentityLoginCta: "使用 GitHub 登录",
 
         trendingSectionTitle: "热门推荐",
         trendingSubtitle: "社区 Star 最多与增长迅速的精选插件",
@@ -243,6 +246,9 @@
         ghLoginToast: "Signed in as",
         ghLogoutToast: "Signed out of GitHub",
         ghAuthErrorToast: "GitHub sign-in failed, please retry",
+        ghIdentityLoggedIn: "Signed in as GitHub user {user}. Comments below are powered by GitHub Discussions: first-time posting requires a one-click giscus authorization inside the comment box (same account).",
+        ghIdentityLoggedOut: "Comments are powered by GitHub Discussions. Sign in to join:",
+        ghIdentityLoginCta: "Sign in with GitHub",
 
         trendingSectionTitle: "Trending Plugins",
         trendingSubtitle: "Top community stars & fast-growing tools",
