@@ -173,7 +173,10 @@
       const q = searchInput.value.trim();
       const total = filteredList.length;
       const totalPages = Math.ceil(total / pageSize) || 1;
-      
+
+      // 防御性鍳制：筛选结果减少后，当前页可能超出范围
+      if (currentPage > totalPages) currentPage = totalPages;
+
       const startIdx = (currentPage - 1) * pageSize;
       const endIdx = Math.min(startIdx + pageSize, total);
       const currentItems = filteredList.slice(startIdx, endIdx);
@@ -323,19 +326,40 @@
       }).join("");
     }
 
+    // 生成带省略号的页码序列：1 … (c-1) c (c+1) … N
+    function getPageSequence(current, total) {
+      const delta = 1;
+      const wanted = new Set([1, total]);
+      for (let i = Math.max(1, current - delta); i <= Math.min(total, current + delta); i++) {
+        wanted.add(i);
+      }
+      const pages = [];
+      let prev = 0;
+      [...wanted].sort((a, b) => a - b).forEach(p => {
+        if (p - prev > 1) pages.push("...");
+        pages.push(p);
+        prev = p;
+      });
+      return pages;
+    }
+
     function renderPagination(totalPages) {
       if (totalPages <= 1) {
         paginationEl.innerHTML = "";
         return;
       }
 
-      let html = '<button class="page-btn" ' + (currentPage === 1 ? "disabled" : "") + ' onclick="changePage(' + (currentPage - 1) + ')">‹</button>';
+      let html = '<button class="page-btn page-nav" ' + (currentPage === 1 ? "disabled" : "") + ' aria-label="Previous page" onclick="changePage(' + (currentPage - 1) + ')">‹</button>';
 
-      for (let i = 1; i <= totalPages; i++) {
-        html += '<button class="page-btn ' + (i === currentPage ? "active" : "") + '" onclick="changePage(' + i + ')">' + i + '</button>';
-      }
+      getPageSequence(currentPage, totalPages).forEach(p => {
+        if (p === "...") {
+          html += '<span class="page-ellipsis">…</span>';
+        } else {
+          html += '<button class="page-btn ' + (p === currentPage ? "active" : "") + '" ' + (p === currentPage ? 'aria-current="page" ' : '') + 'onclick="changePage(' + p + ')">' + p + '</button>';
+        }
+      });
 
-      html += '<button class="page-btn" ' + (currentPage === totalPages ? "disabled ": "") + 'onclick="changePage(' + (currentPage + 1) + ')">›</button>';
+      html += '<button class="page-btn page-nav" ' + (currentPage === totalPages ? "disabled" : "") + ' aria-label="Next page" onclick="changePage(' + (currentPage + 1) + ')">›</button>';
 
       paginationEl.innerHTML = html;
     }
