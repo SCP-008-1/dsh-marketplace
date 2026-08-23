@@ -24,6 +24,7 @@ const path = require('path');
 const fs = require('fs');
 
 const { fetchAllRepos, filterExcluded, EXCLUDED_REPOS } = require('./lib/github');
+const { fetchJson, probeUrl } = require('./lib/http');
 const { verifyNpmPackage, sanitizeVersion } = require('./lib/npm-verify');
 const { detectPluginType } = require('./lib/plugin-type');
 const { loadPreviousData, injectBootstrap } = require('./lib/bootstrap');
@@ -44,6 +45,33 @@ async function main() {
   const token = process.env.GITHUB_TOKEN || '';
   const searchUrl = 'https://api.github.com/search/repositories?q=topic:dsh-plugin+is:public&sort=stars&order=desc&per_page=100';
   const headers = token ? { 'Authorization': `token ${token}` } : {};
+
+  // 中文 README 常见命名约定（按流行度排序），同步时并发探测
+  const ZH_README_CANDIDATES = [
+    'README.zh-CN.md',
+    'README.zh-cn.md',
+    'README_ZH.md',
+    'README_zh-CN.md',
+    'README.zh-Hans.md',
+    'README.zh.md',
+    'README-zh.md',
+    'README-zh_CN.md',
+    'README_CN.md',
+    '.github/README.zh-CN.md',
+    'docs/README.zh-CN.md'
+  ];
+
+  // 并发探测所有候选名，按优先级取第一个命中者；无中文文档则返回 null
+  async function detectChineseReadme(fullName, branch) {
+    const results = await Promise.all(
+      ZH_README_CANDIDATES.map(async p => {
+        const ok = await probeUrl(`https://raw.githubusercontent.com/${fullName}/${branch}/${p}`, headers);
+        return ok ? p : null;
+      })
+    );
+    const hit = ZH_README_CANDIDATES.find(p => results.includes(p));
+    return hit ? `https://raw.githubusercontent.com/${fullName}/${branch}/${hit}` : null;
+  }
 
   console.log(`[1/5] 正在拉取 GitHub topic:dsh-plugin 仓库...`);
   const items = await fetchAllRepos(searchUrl, headers);
@@ -68,6 +96,8 @@ async function main() {
       const type = detectPluginType(repo.topics);
       const npmVerification = await verifyNpmPackage(repo);
       const pkgJson = npmVerification.pkgJson;
+      const branch = repo.default_branch || 'main';
+      const readmeZhUrl = await detectChineseReadme(repo.full_name, branch);
 
       return {
         id: repo.name,
@@ -85,6 +115,7 @@ async function main() {
         updatedAt: repo.updated_at,
         createdAt: repo.created_at,
         defaultBranch: repo.default_branch || 'main',
+        readmeZhUrl,
         tags: (repo.topics || []).filter(t => t.toLowerCase() !== 'dsh-plugin'),
         type: type,
         hasNpm: npmVerification.hasNpm,

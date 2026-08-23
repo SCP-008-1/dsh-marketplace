@@ -32,4 +32,21 @@ function fetchJson(url, headers = {}) {
   });
 }
 
-module.exports = { fetchJson };
+// 探测 URL 是否存在（HEAD 请求，不下载 body）；成功 resolve(true)，其它一律 false
+function probeUrl(url, headers = {}) {
+  return new Promise(resolve => {
+    const reqHeaders = {
+      'User-Agent': 'dsh-plugin-sync-bot',
+      ...headers
+    };
+    const req = https.request(url, { method: 'HEAD', headers: reqHeaders, timeout: 5000 }, res => {
+      res.resume();
+      resolve(res.statusCode >= 200 && res.statusCode < 300);
+    });
+    req.on('error', () => resolve(false));
+    req.on('timeout', () => { req.destroy(); resolve(false); });
+    req.end();
+  });
+}
+
+module.exports = { fetchJson, probeUrl };

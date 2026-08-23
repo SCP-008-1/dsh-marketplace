@@ -14,27 +14,113 @@
       }
     }
 
-    async function loadReadme(pkg) {
-      if (readmeCache[pkg.id]) {
-        readmeContent.innerHTML = readmeCache[pkg.id];
+    // 中文 README 常见命名约定（与同步爬虫一致；用于旧数据无 readmeZhUrl 字段时的运行时回退）
+    const ZH_README_FALLBACKS = [
+      "README.zh-CN.md",
+      "README.zh-cn.md",
+      "README_ZH.md",
+      "README_zh-CN.md",
+      "README.zh-Hans.md",
+      "README.zh.md",
+      "README-zh.md",
+      "README-zh_CN.md",
+      "README_CN.md",
+      ".github/README.zh-CN.md",
+      "docs/README.zh-CN.md"
+    ];
+    // 每个插件的中文文档探测结果缓存（null = 确认无中文版）
+    const zhProbeCache = {};
+    // 记录当前实际加载的语种，供切换按钮使用
+    let readmeLoadedLang = null;
+
+    function buildRawUrl(pkg, filePath) {
+      const fullName = pkg.fullName || ((pkg.author || "") + "/" + (pkg.name || ""));
+      const branch = pkg.defaultBranch || "main";
+      return "https://raw.githubusercontent.com/" + fullName + "/" + branch + "/" + filePath;
+    }
+
+    // 运行时探测中文 README：优先用同步数据中的 readmeZhUrl，否则按候选列表逐个 HEAD 探测
+    async function resolveZhReadmeUrl(pkg) {
+      if (Object.prototype.hasOwnProperty.call(zhProbeCache, pkg.id)) {
+        return zhProbeCache[pkg.id];
+      }
+      let url = pkg.readmeZhUrl || null;
+      if (!url) {
+        for (const p of ZH_README_FALLBACKS) {
+          try {
+            const res = await fetch(buildRawUrl(pkg, p), { method: "HEAD" });
+            if (res.ok) { url = buildRawUrl(pkg, p); break; }
+          } catch (e) { /* 忽略单个候选失败 */ }
+        }
+      } else {
+        // 校验同步数据中的 URL 仍有效（分支可能已变更）
+        try {
+          const res = await fetch(url, { method: "HEAD" });
+          if (!res.ok) url = null;
+        } catch (e) { url = null; }
+      }
+      zhProbeCache[pkg.id] = url;
+      return url;
+    }
+
+    async function fetchReadmeHtml(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("README not found");
+      const mdText = await res.text();
+      let html = '<pre>' + escapeHtml(mdText) + '</pre>';
+      if (window.marked && window.DOMPurify) {
+        html = DOMPurify.sanitize(marked.parse(mdText), { ADD_ATTR: ["target"], FORBID_TAGS: ["style", "form"], FORBID_ATTR: ["onerror", "onload"] });
+      }
+      return html;
+    }
+
+    function updateReadmeToggle() {
+      const btn = document.getElementById("readmeLangToggle");
+      const hint = document.getElementById("readmeZhHint");
+      if (!btn) return;
+      const hasZh = !!zhProbeCache[currentOpenPlugin && currentOpenPlugin.id];
+      btn.style.display = hasZh ? "inline-flex" : "none";
+      if (hint) hint.style.display = "none";
+      if (hasZh) {
+        btn.textContent = readmeLoadedLang === "zh" ? t('readmeToggleEn') : t('readmeToggleZh');
+        btn.classList.toggle("active", readmeLoadedLang === "zh");
+      } else if (hint) {
+        hint.textContent = t('readmeZhUnavailable');
+        hint.style.display = "block";
+      }
+    }
+
+    async function loadReadme(pkg, forceLang) {
+      const desiredLang = forceLang || currentLang; // zh 用户优先展示中文文档
+      let lang = desiredLang === "zh" ? "zh" : "en";
+      let url = null;
+
+      if (lang === "zh") {
+        url = await resolveZhReadmeUrl(pkg);
+        if (!url) lang = "en"; // 无中文版则回退英文原文
+      }
+      if (!url) {
+        url = pkg.readmeUrl || buildRawUrl(pkg, "README.md");
+      }
+
+      const cacheKey = pkg.id + ":" + lang;
+      if (readmeCache[cacheKey]) {
+        readmeLoadedLang = lang;
+        readmeContent.innerHTML = '<div class="readme-toolbar"><button id="readmeLangToggle" class="toggle-pill" onclick="onReadmeLangToggle()"></button><span id="readmeZhHint" class="readme-zh-hint"></span></div>' + readmeCache[cacheKey];
+        updateReadmeToggle();
         return;
       }
 
       readmeContent.innerHTML = '<div style="text-align:center; padding:32px; color:var(--text-tertiary);">' + t('readmeFetching') + '</div>';
-      
-      const rawUrl = pkg.readmeUrl || ('https://raw.githubusercontent.com/' + (pkg.fullName || (pkg.author + '/' + pkg.name)) + '/' + (pkg.defaultBranch || 'main') + '/README.md');
-      
+
       try {
-        const res = await fetch(rawUrl);
-        if (!res.ok) throw new Error("README not found");
-        const mdText = await res.text();
-        let html = '<pre>' + escapeHtml(mdText) + '</pre>';
-        if (window.marked && window.DOMPurify) {
-          html = DOMPurify.sanitize(marked.parse(mdText), { ADD_ATTR: ["target"], FORBID_TAGS: ["style", "form"], FORBID_ATTR: ["onerror", "onload"] });
-        }
-        readmeCache[pkg.id] = html;
-        readmeContent.innerHTML = html;
+        const html = await fetchReadmeHtml(url);
+        readmeCache[cacheKey] = html;
+        readmeLoadedLang = lang;
+        readmeContent.innerHTML = '<div class="readme-toolbar"><button id="readmeLangToggle" class="toggle-pill" onclick="onReadmeLangToggle()"></button><span id="readmeZhHint" class="readme-zh-hint"></span></div>' + html;
+        updateReadmeToggle();
       } catch (err) {
+        // 英文主文档也失败时才显示错误态
         readmeContent.innerHTML = '<div style="text-align:center; padding:32px; color:var(--text-secondary);">' +
           '<p>' + t('readmeError') + '</p>' +
           '<a href="' + escapeHtml(pkg.repoUrl) + '" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:underline; display:inline-block; margin-top:8px;">' +
@@ -42,6 +128,11 @@
           '</a>' +
         '</div>';
       }
+    }
+
+    function onReadmeLangToggle() {
+      if (!currentOpenPlugin) return;
+      loadReadme(currentOpenPlugin, readmeLoadedLang === "zh" ? "en" : "zh");
     }
 
     function openDetailModal(pkgId) {

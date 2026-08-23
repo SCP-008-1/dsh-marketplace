@@ -175,6 +175,9 @@
         readmeFetching: "⏳ 正在从 GitHub 加载 README.md...",
         readmeError: "⚠️ 暂未能直接加载该插件的 README 预览。",
         readmeViewGithub: "前往 GitHub 直接查看文档 ↗",
+        readmeToggleZh: "🇨🇳 切换到中文文档",
+        readmeToggleEn: "🇬🇧 Switch to English",
+        readmeZhUnavailable: "该插件暂未提供中文文档，已展示英文原文。",
 
         copyBtn: "复制",
         copyDone: "✓ 已复制",
@@ -379,6 +382,9 @@
         readmeFetching: "⏳ Fetching README.md from GitHub Raw...",
         readmeError: "⚠️ Unable to load live preview for this README file.",
         readmeViewGithub: "View documentation directly on GitHub ↗",
+        readmeToggleZh: "🇨🇳 切换到中文文档",
+        readmeToggleEn: "🇬🇧 Switch to English",
+        readmeZhUnavailable: "No Chinese documentation available for this plugin; showing the original English README.",
 
         copyBtn: "Copy",
         copyDone: "✓ Copied",
