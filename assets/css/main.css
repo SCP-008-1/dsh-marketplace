@@ -758,6 +758,37 @@
       color: var(--text-primary);
     }
 
+    /* --- 讨论区身份提示条（站点登录 ↔ giscus 打通） --- */
+    .giscus-identity-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+    .gib-icon {
+      flex-shrink: 0;
+    }
+    .gib-user {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .gib-user:hover {
+      text-decoration: underline;
+    }
+    .gib-login-btn {
+      padding: 4px 12px;
+      font-size: 12px;
+    }
+
     .section-panel {
       margin-bottom: 32px;
     }

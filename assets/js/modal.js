@@ -356,15 +356,37 @@
       applyFilters();
     }
 
+    /** 站点 GitHub 登录态 ↔ giscus 评论区的身份提示条（轻量打通） */
+    function renderGiscusIdentityHtml() {
+      const session = (typeof getGithubSession === "function") ? getGithubSession() : null;
+      if (session) {
+        return '<div class="giscus-identity-banner logged-in">' +
+          '<span class="gib-icon">✅</span>' +
+          '<span>' + t('ghIdentityLoggedIn').replace('{user}', '<a class="gib-user" href="https://github.com/' + encodeURIComponent(session.user.login) + '" target="_blank" rel="noopener">@' + escapeHtml(session.user.login) + '</a>') + '</span>' +
+          '</div>';
+      }
+      return '<div class="giscus-identity-banner">' +
+        '<span class="gib-icon">💬</span>' +
+        '<span>' + t('ghIdentityLoggedOut') + '</span>' +
+        '<button class="btn btn-github gib-login-btn" onclick="startGithubLogin()">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
+            '<path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7 0-.7 0-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"></path>' +
+          '</svg>' +
+          '<span>' + t('ghIdentityLoginCta') + '</span>' +
+        '</button>' +
+        '</div>';
+    }
+
     function renderGiscus(pkg) {
       const box = document.getElementById("giscusContainer");
       const cfg = MARKETPLACE_CONFIG.giscus;
+      const identityHtml = renderGiscusIdentityHtml();
       if (!cfg.repoId || !cfg.categoryId) {
         const issuesUrl = pkg.repoUrl ? (pkg.repoUrl + '/issues') : "#";
-        box.innerHTML = '<div style="color:var(--text-tertiary); font-size:12.5px; padding:12px; background:var(--bg-surface-raised); border-radius:6px;">' + t('modalDiscussionsFallback', escapeHtml(issuesUrl)) + '</div>';
+        box.innerHTML = identityHtml + '<div style="color:var(--text-tertiary); font-size:12.5px; padding:12px; background:var(--bg-surface-raised); border-radius:6px;">' + t('modalDiscussionsFallback', escapeHtml(issuesUrl)) + '</div>';
         return;
       }
-      box.innerHTML = "";
+      box.innerHTML = identityHtml;
       const s = document.createElement("script");
       s.src = "https://giscus.app/client.js";
       s.async = true;
