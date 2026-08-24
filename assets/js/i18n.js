@@ -28,7 +28,7 @@
         chipSkill: "⚡ 编程与代码技能",
         chipAgent: "🤖 AI 智能体",
         chipTheme: "🎨 终端与 UI 主题",
-        chipVerified: "✓ 仅看 NPM 认证包",
+        chipVerified: "✓ 仅看已验证",
         syntaxFilterTitle: "高级搜索语法",
         heroTrendingLink: "🔥 热门趋势",
         heroTopRatedLink: "⭐ 高分好评",
@@ -165,7 +165,7 @@
         modalVerifyNpmNote: "✓ <b>NPM 官方注册表认证：</b> 该插件已通过 NPM Registry 双向归属验证，包名与代码仓库元数据完全匹配。",
         modalVerifyGitNote: "ℹ <b>GitHub 开源直装源：</b> 该插件直接通过 GitHub 仓库引用安装，已验证为公开可访问的开源项目。",
         // —— 可信度面板（AST 安全扫描 + 健康检查）——
-        trustTitle: "🛡️ 可信度评估",
+        trustPanelTitle: "🛡️ 可信度评估",
         trustConfidence: "可安装置信度",
         trustLastVerified: "最后验证",
         trustNever: "从未验证",
@@ -404,7 +404,7 @@
         modalVerifyNpmNote: "✓ <b>NPM Registry Verified:</b> This package has been audited and matched against the official NPM registry with matching repository metadata.",
         modalVerifyGitNote: "ℹ <b>GitHub Direct Source:</b> This plugin is installed directly via GitHub git reference, verified for public open-source availability.",
         // —— Trust panel (AST security scan + health check) ——
-        trustTitle: "🛡️ Trust Assessment",
+        trustPanelTitle: "🛡️ Trust Assessment",
         trustConfidence: "Install Confidence",
         trustLastVerified: "Last verified",
         trustNever: "Never verified",
@@ -650,7 +650,7 @@
       setText("modalTagsTitle", t('modalTagsTitle'));
       setText("modalSpecsTitle", t('modalSpecsTitle'));
       setText("modalVerifyTitle", t('modalVerifyTitle'));
-      setText("modalTrustTitle", t('trustTitle'));
+      setText("modalTrustTitle", t('trustPanelTitle'));
       setText("modalRatingTitle", t('modalRatingTitle'));
       setText("modalDiscussionsTitle", t('modalDiscussionsTitle'));
       setText("modalGithubBtnText", t('modalGithubBtn'));

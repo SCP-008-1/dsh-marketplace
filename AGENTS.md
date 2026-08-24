@@ -91,7 +91,7 @@ cd workers/rating && npx wrangler deploy
 bash scripts/install-hooks.sh
 ```
 
-**没有测试套件、没有 lint 配置**——验证方式为：本地预览手动走查关键路径（搜索/切换语言/主题/弹窗/打分），以及 CI 的 secret-scan。AI 完成改动后必须声明"已验证/未验证"，禁止编造测试结果。
+**没有测试套件、没有 lint 配置**——验证方式为：本地预览手动走查关键路径（搜索/切换语言/主题/弹窗/打分）、CI 的 secret-scan，以及 `sync-plugins.yml` 每小时通过 `node scripts/sync-plugins.js` 执行的验证流水线（`scripts/lib/verify/`：AST 安全扫描 → 健康检查 → 按 pushed_at 增量缓存复用；单仓失败标记 unverified 降级，不阻塞整体同步）。开发过程中用过的安全规则单测、真实仓库 E2E、前端 DOM-shim 测试与语法检查均为临时脚本，**未提交到仓库**。AI 完成改动后必须声明"已验证/未验证"，禁止编造测试结果。
 
 ---
 

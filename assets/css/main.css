@@ -78,6 +78,10 @@
   --emerald-light: rgba(16, 185, 129, 0.08);
   --emerald-border: rgba(16, 185, 129, 0.25);
   --emerald-text: #059669;
+  /* 可信度角标文字色：浅色主题下用深色阶保证 WCAG AA (≥4.5:1) */
+  --trust-pass-text: #047857;
+  --trust-warn-text: #b45309;
+  --trust-danger-text: #b91c1c;
   
   /* shadcn-style Semantic Badges (Light) */
   --badge-ext-bg: rgba(59, 130, 246, 0.08);
@@ -176,6 +180,10 @@
   --emerald-light: rgba(16, 185, 129, 0.12);
   --emerald-border: rgba(16, 185, 129, 0.28);
   --emerald-text: #34d399;
+  /* 可信度角标文字色（深色主题用亮色阶） */
+  --trust-pass-text: #34d399;
+  --trust-warn-text: #fbbf24;
+  --trust-danger-text: #f87171;
   
   /* shadcn-style Semantic Badges (Dark) */
   --badge-ext-bg: rgba(59, 130, 246, 0.12);
@@ -2225,9 +2233,9 @@ section[id], #packagesSection {
   letter-spacing: -0.01em;
   border: 1px solid transparent;
 }
-.trust-badge-pass { background: rgba(16,185,129,0.12); color:#10b981; border-color:rgba(16,185,129,0.25); }
-.trust-badge-warn { background: rgba(245,158,11,0.12); color:#f59e0b; border-color:rgba(245,158,11,0.25); }
-.trust-badge-danger { background: rgba(239,68,68,0.12); color:#ef4444; border-color:rgba(239,68,68,0.25); }
+.trust-badge-pass { background: rgba(16,185,129,0.12); color: var(--trust-pass-text); border-color:rgba(16,185,129,0.25); }
+.trust-badge-warn { background: rgba(245,158,11,0.12); color: var(--trust-warn-text); border-color:rgba(245,158,11,0.25); }
+.trust-badge-danger { background: rgba(239,68,68,0.12); color: var(--trust-danger-text); border-color:rgba(239,68,68,0.25); }
 .trust-badge-unverified { background: var(--bg-surface); color: var(--text-tertiary); border-color: var(--border-subtle); }
 .trust-last-verified {
   font-size: 11.5px;
@@ -2332,6 +2340,6 @@ section[id], #packagesSection {
 .trust-finding-more { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; }
 
 /* 卡片可信度角标（与弹窗可信度面板同源数据） */
-.badge-trust-pass { background: rgba(16,185,129,0.12); color:#10b981; border:1px solid rgba(16,185,129,0.25); }
-.badge-trust-warn { background: rgba(245,158,11,0.12); color:#f59e0b; border:1px solid rgba(245,158,11,0.25); }
-.badge-trust-danger { background: rgba(239,68,68,0.12); color:#ef4444; border:1px solid rgba(239,68,68,0.25); }
+.badge-trust-pass { background: rgba(16,185,129,0.12); color: var(--trust-pass-text); border:1px solid rgba(16,185,129,0.25); }
+.badge-trust-warn { background: rgba(245,158,11,0.12); color: var(--trust-warn-text); border:1px solid rgba(245,158,11,0.25); }
+.badge-trust-danger { background: rgba(239,68,68,0.12); color: var(--trust-danger-text); border:1px solid rgba(239,68,68,0.25); }
