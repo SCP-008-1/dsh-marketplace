@@ -73,10 +73,10 @@ function walk(node, enter, seen = new Set()) {
 
 function parseSource(src) {
   try {
-    return acorn.parse(src, { ecmaVersion: 'latest', sourceType: 'module', allowReturnOutsideFunction: true });
+    return acorn.parse(src, { ecmaVersion: 'latest', sourceType: 'module', allowReturnOutsideFunction: true, locations: true });
   } catch (e) {
     try {
-      return acorn.parse(src, { ecmaVersion: 'latest', sourceType: 'script', allowReturnOutsideFunction: true });
+      return acorn.parse(src, { ecmaVersion: 'latest', sourceType: 'script', allowReturnOutsideFunction: true, locations: true });
     } catch (e2) {
       return null; // 非 JS 或语法损坏：不计入 findings，由健康检查另行体现
     }

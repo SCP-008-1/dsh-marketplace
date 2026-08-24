@@ -29,6 +29,8 @@ python3 -m http.server 8080
 
 ### 3. 本地执行数据抓取与 Wiki 生成
 ```bash
+# 首次需先安装依赖（验证流水线的 AST 扫描依赖 acorn）
+npm ci
 node scripts/sync-plugins.js
 ```
 可选：`export GITHUB_TOKEN=ghp_xxx` 提供令牌（CI 中通过 GitHub Actions Secrets 注入，切勿提交真实值）。
@@ -38,7 +40,7 @@ node scripts/sync-plugins.js
 cd workers/rating && npx wrangler dev
 # → http://127.0.0.1:8787/api/health
 ```
-- 敏感配置放 `workers/rating/.dev.vars`（已在 `.gitignore`），参考 `.env.example`：`SALT=...`、`ALLOWED_ORIGINS=http://localhost:8787`
+- 敏感配置放 `workers/rating/.dev.vars`（已在 `.gitignore`），参考 `.env.example`：`SALT=...`、`ALLOWED_ORIGINS=http://localhost:8080`（前端来源，Worker 按此校验 CORS；本地前端预览默认端口即 8080）
 - 正式部署时用 `npx wrangler secret put SALT` 存加密 Secret，SALT 绝不写入 wrangler.toml
 - **优雅降级**：前端 `MARKETPLACE_CONFIG.ratingApi` 留空时评分自动降级为 localStorage 本地评分——本地调试前端无需启动后端也能完整体验页面
 
@@ -46,7 +48,7 @@ cd workers/rating && npx wrangler dev
 
 ## 🤝 多人协作机制
 
-- **Git 分支模型与规范**（见 [`agent.md`](./agent.md)）：`main` 为主干，功能走特性分支；Commit 遵循 Conventional Commits；开发遵循五阶段工作流。
+- **Git 分支模型与规范**（见 [`AGENTS.md`](./AGENTS.md)）：`main` 为主干，功能走特性分支；Commit 遵循 Conventional Commits；开发遵循五阶段工作流。
 - **密钥安全门禁**：本地 `bash scripts/install-hooks.sh` 安装 pre-commit 钩子（零依赖），拦截 staged 变更中的密钥明文；CI 对所有 push / PR 运行 gitleaks 全历史扫描。误报可加入 `.gitleaks.toml` allowlist。
 - **自动化分工（GitHub Actions）**：
   - `sync-plugins.yml` 每小时自动抓取插件数据并提交到主仓与 Wiki，数据维护零人工参与；

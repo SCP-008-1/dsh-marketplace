@@ -240,8 +240,9 @@
       const panel = document.getElementById("modalTrustPanel");
       const v = pkg.verification;
 
-      // 无数据（旧缓存数据未包含 verification 字段）：与 unverified 同等展示
-      if (!v || v.status !== "verified") {
+      // 无数据或数据不完整（旧缓存缺 verification / verified 但缺 security）：
+      // 与 unverified 同等展示——绝不把缺失的扫描结果默认为 pass（fail-open）
+      if (!v || v.status !== "verified" || !v.security) {
         panel.innerHTML = '<div class="trust-box trust-box-muted">' +
           '<div class="trust-score-row">' +
             '<span class="trust-confidence-label">' + t('trustConfidence') + '</span>' +

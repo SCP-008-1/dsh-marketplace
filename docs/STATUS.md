@@ -1,6 +1,6 @@
 # 项目现状文档（STATUS）
 
-> 生成时间：2026-08-23 · 基于 main 分支最新提交 `5b4de07`
+> 生成时间：2026-08-24 · 基于 feat/trust-verification 分支（PR #16）
 > 本文档描述 dsh 插件商城当前的完成度、架构现状与待办事项，供后续开发与协作参考。
 
 ---
@@ -50,7 +50,7 @@ wiki_dist/                   Home / _Sidebar / _Footer / Publish-Guide.md
 .github/workflows/           sync-plugins.yml · deploy-worker.yml · secret-scan.yml
 ```
 
-> 注：早期 `index.html` 为 500KB 超大单文件，现已拆分为「HTML 外壳 + assets/ 模块化 JS/CSS」结构；AGENTS.md 中"禁止全文重写"的警告仍适用于 HTML 本体改动。
+> 注：早期 `index.html` 为 500KB 超大单文件，现已拆分为「HTML 外壳 + assets/ 模块化 JS/CSS」结构；HTML 本体改动应保持谨慎，避免整文件重写导致历史变更难以追溯。
 
 ## 四、功能完成度
 
@@ -72,7 +72,7 @@ wiki_dist/                   Home / _Sidebar / _Footer / Publish-Guide.md
 6. **自动化流水线**
    - 每小时同步数据 + 更新 Wiki + 自动 commit（`[skip ci]` 标记）
    - gitleaks 密钥扫描（全分支 push/PR）
-7. **可信度验证（已上线，2026-08-24）**
+7. **可信度验证（代码已合入 PR #16，待合并后由 CI 首跑生效；首轮 499 仓全量扫描尚未执行，验证数据上线前卡片角标与「仅看已验证」过滤暂无数据可显示）**
    - 同步时对插件源码做 acorn AST 安全扫描：eval/new Function/vm/child_process、动态 import、混淆特征（超长 base64、hex 转义风暴、fromCharCode 链）、外联端点检测；工具链脚本中的高危模块降级为 medium 避免误报
    - 健康检查：manifest 合法性、dsh.bundle 声明、apply() 入口、CI 构建状态；汇总为 0-100 可安装置信度
    - 增量缓存（`data/verification-cache.json`）：pushed_at 未变的仓库复用上轮结果；扫描失败标 unverified 不阻塞同步

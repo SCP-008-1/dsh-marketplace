@@ -21,6 +21,8 @@ function loadCache() {
 
 function saveCache(cache) {
   cache.updatedAt = new Date().toISOString();
+  // data/ 由同步脚本在后续步骤才创建，验证阶段先行写盘时需自建，避免 ENOENT 中断整轮同步
+  fs.mkdirSync(path.dirname(CACHE_PATH), { recursive: true });
   fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2), 'utf-8');
 }
 

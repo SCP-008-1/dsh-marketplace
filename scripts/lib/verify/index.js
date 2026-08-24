@@ -17,6 +17,8 @@ const cache = require('./cache');
 
 // 单仓库扫描整体超时；到时放弃并标记 unverified，绝不阻塞整轮同步
 const SCAN_TIMEOUT_MS = 90_000;
+// 单个入口文件的拉取超时：防止对 raw.githubusercontent.com 的挂起连接永不 settle
+const FETCH_TIMEOUT_MS = 15_000;
 // 扫描并发批次大小（GitHub API 友好）
 const VERIFY_CONCURRENCY = 5;
 
@@ -49,15 +51,18 @@ async function verifyRepo(plugin, pkgJson, headers) {
   const branch = plugin.defaultBranch || 'main';
   const scan = await withTimeout(securityScan(plugin.fullName, branch, headers), SCAN_TIMEOUT_MS);
 
-  // 安全扫描已拉取的文件不落盘复用（体积原因），健康检查按需重查入口：
-  // 为控制成本，apply 入口检查基于扫描阶段同批文件的路径信息由 healthCheck 自行拉取入口文件
-  const health = await withTimeout(healthCheck({
-    pkgJson,
-    fullName: plugin.fullName,
-    branch,
-    // 复用扫描结果中的文件清单不可行（内容未保留），传空让健康检查降级为正则兜底
-    scannedFiles: await fetchEntryFiles(plugin.fullName, branch, pkgJson, headers)
-  }), SCAN_TIMEOUT_MS);
+  // 健康检查的入口文件拉取也纳入超时保护（此前 await 在 withTimeout 之外，
+  // 挂起的 raw.githubusercontent.com 连接会绕过 SCAN_TIMEOUT_MS 阻塞整批）
+  const health = await withTimeout((async () => {
+    const scannedFiles = await fetchEntryFiles(plugin.fullName, branch, pkgJson, headers);
+    return healthCheck({
+      pkgJson,
+      fullName: plugin.fullName,
+      branch,
+      scannedFiles,
+      headers  // 透传 GitHub Token，避免 combined-status 匿名限流(60次/h)导致构建状态全部降级 unknown
+    });
+  })(), SCAN_TIMEOUT_MS);
 
   const now = new Date().toISOString();
   return {
@@ -87,7 +92,10 @@ async function fetchEntryFiles(fullName, branch, pkgJson, headers) {
     const clean = p.replace(/^\.\//, '');
     const url = `https://raw.githubusercontent.com/${fullName}/${branch}/${clean}`;
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'dsh-plugin-sync-bot', ...headers } });
+      const res = await fetch(url, {
+        headers: { 'User-Agent': 'dsh-plugin-sync-bot', ...headers },
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
+      });
       if (!res.ok) return null;
       const text = await res.text();
       return text.length <= 200_000 ? { path: clean, content: text } : null;
