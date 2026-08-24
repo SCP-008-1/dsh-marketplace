@@ -1,6 +1,10 @@
 // === Detail modal / ratings UI / giscus / publish modal ===
     // --- Modal Navigation & Details ---
+    // 当前激活的弹窗标签页；语言切换重开弹窗时用于恢复原标签页
+    let currentModalTab = "overview";
+
     function switchModalTab(tab, btn) {
+      currentModalTab = tab;
       document.querySelectorAll(".modal-tab-btn").forEach(b => b.classList.remove("active"));
       if (btn) btn.classList.add("active");
 
@@ -226,12 +230,16 @@
       renderGiscus(pkg);
 
       // Reset to overview tab
-      switchModalTab('overview', document.getElementById('modalTabBtnOverview'));
+      // 弹窗已打开时（如语言切换触发的重开）恢复原标签页，否则默认 overview
+      const restoreTab = detailModal.classList.contains("open") ? currentModalTab : "overview";
+      const restoreBtnId = 'modalTabBtn' + restoreTab.charAt(0).toUpperCase() + restoreTab.slice(1);
+      switchModalTab(restoreTab, document.getElementById(restoreBtnId));
       detailModal.classList.add("open");
     }
 
     function closeDetailModal() {
       detailModal.classList.remove("open");
+      currentModalTab = "overview"; // 下次打开默认回到概览页
     }
 
     // —— 可信度面板 ——
