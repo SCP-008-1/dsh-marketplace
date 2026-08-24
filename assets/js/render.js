@@ -117,7 +117,8 @@
         }
 
         const checkVerified = isVerifiedOnly || parsedVerified;
-        if (checkVerified && !pkg.hasNpm) {
+        // 「已验证」语义：完成 AST 安全扫描且未检出高危特征（不再是仅 NPM 认证）
+        if (checkVerified && !isTrustedPlugin(pkg)) {
           return false;
         }
 
@@ -210,10 +211,31 @@
     }
 
     // --- Shared card fragments (grid & list views) ---
+    // 可信判定：verification.status === 'verified' 且 security.level !== 'danger'
+    function isTrustedPlugin(pkg) {
+      const v = pkg.verification;
+      return !!(v && v.status === "verified" && v.security && v.security.level !== "danger");
+    }
+
     // 无社区评分时返回 null（不展示），禁止用 GitHub stars 伪造评分数字误导用户
     function displayRating(pkg) {
       const agg = remoteRatings[pkg.id];
       return (agg && agg.count) ? Number(agg.average || 0).toFixed(1) : null;
+    }
+
+    // 卡片可信度角标：仅有验证数据时显示，避免上线初期满屏"未验证"噪音
+    function trustBadgeHtml(pkg) {
+      const v = pkg.verification;
+      // 数据不完整（缺 security）视为无有效验证结果，不展示角标
+      if (!v || v.status !== "verified" || !v.security) return "";
+      const level = v.security.level;
+      if (!level || level === "pass") {
+        return '<span class="badge badge-trust-pass" title="' + jsAttr(t('trustConfidence') + ': ' + (v.confidence ?? '-')) + '">' + t('trustCardPass') + '</span>';
+      }
+      if (level === "warn") {
+        return '<span class="badge badge-trust-warn" title="' + jsAttr(t('trustConfidence') + ': ' + (v.confidence ?? '-')) + '">' + t('trustCardWarn') + '</span>';
+      }
+      return '<span class="badge badge-trust-danger" title="' + jsAttr(t('trustSecDanger')) + '">' + t('trustCardDanger') + '</span>';
     }
 
     function bookmarkButtonHtml(pkg, isBookmarked, title) {
@@ -250,6 +272,7 @@
               '</div>' +
               '<div style="display:flex; align-items:center; gap:6px;">' +
                 (pkg.hasNpm ? '<span class="badge badge-verified" title="' + t('badgeVerifiedTitle') + '">' + t('badgeVerified') + '</span>' : '') +
+                trustBadgeHtml(pkg) +
                 bookmarkButtonHtml(pkg, isBookmarked, isBookmarked ? t('removeFavoriteTitle') : t('addFavoriteTitle')) +
               '</div>' +
             '</div>' +
@@ -304,6 +327,7 @@
               '<div style="display:flex; gap:4px; margin-top:2px;">' +
                 '<span class="badge ' + typeBadge.class + '">' + typeBadge.label + '</span>' +
                 (pkg.hasNpm ? '<span class="badge badge-verified">✓</span>' : '') +
+                trustBadgeHtml(pkg) +
               '</div>' +
             '</div>' +
           '</div>' +

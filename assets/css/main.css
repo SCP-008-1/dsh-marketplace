@@ -2168,3 +2168,170 @@ section[id], #packagesSection {
     display: none;
   }
 }
+
+/* ===== 可信度面板（Trust Panel）===== */
+.trust-box {
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 18px;
+}
+.trust-box-muted {
+  opacity: 0.85;
+}
+.trust-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.trust-box-muted .trust-score-row {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.trust-score-main {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.trust-score-num {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+.trust-confidence-label {
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+}
+.trust-meta-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid transparent;
+}
+.trust-badge-pass { background: rgba(16,185,129,0.12); color:#10b981; border-color:rgba(16,185,129,0.25); }
+.trust-badge-warn { background: rgba(245,158,11,0.12); color:#f59e0b; border-color:rgba(245,158,11,0.25); }
+.trust-badge-danger { background: rgba(239,68,68,0.12); color:#ef4444; border-color:rgba(239,68,68,0.25); }
+.trust-badge-unverified { background: var(--bg-surface); color: var(--text-tertiary); border-color: var(--border-subtle); }
+.trust-last-verified {
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.trust-desc {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.trust-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding-top: 14px;
+}
+@media (max-width: 640px) {
+  .trust-sections { grid-template-columns: 1fr; }
+}
+.trust-col-title {
+  margin: 0 0 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.trust-checks, .trust-findings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.trust-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+.trust-check.missing { color: var(--text-tertiary); }
+.trust-check.warn { color: #f59e0b; }
+.trust-check.bad { color: #ef4444; }
+.trust-check.ok { color: #10b981; }
+.trust-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.trust-check.ok .trust-check-icon { background: rgba(16,185,129,0.15); color: #10b981; }
+.trust-check.missing .trust-check-icon { background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-tertiary); }
+.trust-check.warn .trust-check-icon { background: rgba(245,158,11,0.15); color: #f59e0b; }
+.trust-check.bad .trust-check-icon { background: rgba(239,68,68,0.15); color: #ef4444; }
+.trust-finding { display: block; font-size: 12.5px; }
+.trust-finding + .trust-finding { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border-subtle); }
+.trust-sev {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+.sev-high { background: rgba(239,68,68,0.12); color: #ef4444; }
+.sev-medium { background: rgba(245,158,11,0.12); color: #f59e0b; }
+.sev-low { background: rgba(56,189,248,0.1); color: #38bdf8; }
+.trust-rule {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+.trust-loc {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+.trust-detail {
+  margin: 3px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.trust-finding-none { font-size: 12.5px; color: #10b981; }
+.trust-finding-more { font-size: 12px; color: var(--text-tertiary); margin-top: 6px; }
+
+/* 卡片可信度角标（与弹窗可信度面板同源数据） */
+.badge-trust-pass { background: rgba(16,185,129,0.12); color:#10b981; border:1px solid rgba(16,185,129,0.25); }
+.badge-trust-warn { background: rgba(245,158,11,0.12); color:#f59e0b; border:1px solid rgba(245,158,11,0.25); }
+.badge-trust-danger { background: rgba(239,68,68,0.12); color:#ef4444; border:1px solid rgba(239,68,68,0.25); }

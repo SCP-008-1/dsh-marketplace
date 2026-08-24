@@ -1,0 +1,9 @@
+{
+  "name": "dsh-marketplace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "dsh 插件商城 —— 数据同步脚本运行时依赖（站点本身仍为零依赖原生 JS）",
+  "dependencies": {
+    "acorn": "^8.18.0"
+  }
+}

@@ -218,6 +218,9 @@
 
       modalVerificationNote.innerHTML = pkg.hasNpm ? t('modalVerifyNpmNote') : t('modalVerifyGitNote');
 
+      // 可信度面板（AST 安全扫描 + 健康检查 + 最后验证时间）
+      renderTrustPanel(pkg);
+
       // Reviews & Discussions
       renderModalRating(pkg);
       renderGiscus(pkg);
@@ -229,6 +232,92 @@
 
     function closeDetailModal() {
       detailModal.classList.remove("open");
+    }
+
+    // —— 可信度面板 ——
+    // 数据来自同步时的 AST 安全扫描与健康检查；所有动态字段均 escapeHtml 后输出
+    function renderTrustPanel(pkg) {
+      const panel = document.getElementById("modalTrustPanel");
+      const v = pkg.verification;
+
+      // 无数据（旧缓存数据未包含 verification 字段）：与 unverified 同等展示
+      if (!v || v.status !== "verified") {
+        panel.innerHTML = '<div class="trust-box trust-box-muted">' +
+          '<div class="trust-score-row">' +
+            '<span class="trust-confidence-label">' + t('trustConfidence') + '</span>' +
+            '<span class="trust-badge trust-badge-unverified">' + t('trustNever') + '</span>' +
+          '</div>' +
+          '<p class="trust-desc">' + t('trustUnverifiedDesc') + '</p>' +
+        '</div>';
+        return;
+      }
+
+      const sec = v.security || { level: "pass", findings: [] };
+      const health = v.health || {};
+      const levelKey = { pass: "trustSecPass", warn: "trustSecWarn", danger: "trustSecDanger" }[sec.level] || "trustSecPass";
+      const findings = sec.findings || [];
+
+      // 最后验证时间：≤7 天 ✅，>7 天 ⚠️，>90 天/无记录降级为“从未验证”
+      let lastVerifiedHtml;
+      const days = formatRelativeDays(v.lastVerifiedAt);
+      if (days === null) {
+        lastVerifiedHtml = t('trustNever');
+      } else {
+        lastVerifiedHtml = days <= 7 ? t('trustFresh', days) : t('trustStale', days);
+      }
+
+      const buildStatusMap = {
+        passing: ['trustBuildPassing', 'ok'],
+        failing: ['trustBuildFailing', 'bad'],
+        unknown: ['trustBuildUnknown', 'warn']
+      };
+      const buildItem = (label, ok) =>
+        '<li class="trust-check ' + (ok ? 'ok' : 'missing') + '">' +
+          '<span class="trust-check-icon">' + (ok ? '✓' : '✗') + '</span>' + label + '</li>';
+      const [buildLabel, buildCls] = buildStatusMap[health.buildStatus] || buildStatusMap.unknown;
+
+      const sevKey = { high: "trustSevHigh", medium: "trustSevMedium", low: "trustSevLow" };
+      const findingsHtml = findings.length === 0
+        ? '<li class="trust-finding-none">' + t('trustNoFindings') + '</li>'
+        : findings.slice(0, 5).map(f =>
+            '<li class="trust-finding">' +
+              '<span class="trust-sev sev-' + f.severity + '">' + t(sevKey[f.severity] || 'trustSevLow') + '</span>' +
+              '<code class="trust-rule">' + escapeHtml(f.rule) + '</code>' +
+              '<span class="trust-loc">' + escapeHtml(f.file) + ':' + Number(f.line || 1) + '</span>' +
+              '<p class="trust-detail">' + escapeHtml(f.detail || '') + '</p>' +
+            '</li>').join("") +
+          (findings.length > 5 ? '<li class="trust-finding-more">' + t('trustMoreFindings', findings.length - 5) + '</li>' : '');
+
+      panel.innerHTML = '<div class="trust-box trust-level-' + sec.level + '">' +
+        '<div class="trust-score-row">' +
+          '<div class="trust-score-main">' +
+            '<span class="trust-score-num font-mono">' + Number(v.confidence || 0) + '</span>' +
+            '<span class="trust-confidence-label">' + t('trustConfidence') + '</span>' +
+          '</div>' +
+          '<div class="trust-meta-right">' +
+            '<span class="trust-badge trust-badge-' + sec.level + '">' + t(levelKey) + '</span>' +
+            '<span class="trust-last-verified" title="' + escapeHtml(v.lastVerifiedAt || '') + '">' +
+              t('trustLastVerified') + ' · ' + lastVerifiedHtml + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="trust-sections">' +
+          '<div class="trust-col">' +
+            '<h5 class="trust-col-title">' + t('trustHealthTitle') + '</h5>' +
+            '<ul class="trust-checks">' +
+              buildItem(t('trustHcManifest'), !!health.manifestValid) +
+              buildItem(t('trustHcBundle'), !!health.dshBundleDeclared) +
+              buildItem(t('trustHcApply'), !!health.applyEntry) +
+              '<li class="trust-check ' + buildCls + '">' +
+                '<span class="trust-check-icon">' + (health.buildStatus === 'passing' ? '✓' : health.buildStatus === 'failing' ? '✗' : '!') + '</span>' +
+                t('trustBuild') + ' · ' + t(buildLabel) + '</li>' +
+            '</ul>' +
+          '</div>' +
+          '<div class="trust-col">' +
+            '<h5 class="trust-col-title">' + t('trustFindingsTitle') + '</h5>' +
+            '<ul class="trust-findings">' + findingsHtml + '</ul>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
     }
 
     function renderModalRating(pkg) {
