@@ -193,6 +193,22 @@
         trustCardPass: "已验证",
         trustCardWarn: "可疑",
         trustCardDanger: "危险",
+        // 资源画像（token 消耗视角，静态推断）
+        resPanelTitle: "⚡ 资源画像",
+        resDisclaimer: "静态推断估算：基于入口代码扫描，非精确承诺；实际消耗取决于使用方式。",
+        resWeightLabel: "资源重量",
+        resWeightHeavy: "重 · 挂每请求热路径",
+        resWeightMedium: "中 · 生命周期/模型调用",
+        resWeightLight: "轻 · 一次性命令/仪表盘",
+        resHotHooks: "每请求事件钩子",
+        resLifeHooks: "生命周期事件钩子",
+        resModelCalls: "需额外模型调用",
+        resNoModelCalls: "无额外模型调用",
+        resDashboards: "仪表盘页面",
+        resBadgeHeavy: "⚡ 请求级钩子",
+        resBadgeModel: "🤖 模型调用",
+        chipLight: "✦ 仅看轻量插件",
+        tabObservability: "📊 可观测精选",
         modalRatingTitle: "⭐ 社区评分",
         modalRatingEmpty: "还没有人打分，快来成为第一个打分者吧！",
         modalRatingYour: (r) => `我的评分：${r ? r + ' ★' : '点击五角星打分'}`,
@@ -432,6 +448,22 @@
         trustCardPass: "Verified",
         trustCardWarn: "Suspicious",
         trustCardDanger: "Danger",
+        // Resource profile (token-consumption view, statically inferred)
+        resPanelTitle: "⚡ Resource Profile",
+        resDisclaimer: "Static heuristic estimate from entry-code scan, not a precise guarantee; actual consumption depends on usage.",
+        resWeightLabel: "Resource weight",
+        resWeightHeavy: "Heavy · per-request hooks",
+        resWeightMedium: "Medium · lifecycle/model calls",
+        resWeightLight: "Light · commands/dashboard only",
+        resHotHooks: "Per-request event hooks",
+        resLifeHooks: "Lifecycle event hooks",
+        resModelCalls: "Extra model calls required",
+        resNoModelCalls: "No extra model calls",
+        resDashboards: "Dashboard pages",
+        resBadgeHeavy: "⚡ Per-request hooks",
+        resBadgeModel: "🤖 Model calls",
+        chipLight: "✦ Lightweight only",
+        tabObservability: "📊 Observability Picks",
         modalRatingTitle: "⭐ Community Rating",
         modalRatingEmpty: "Be the first to rate this plugin!",
         modalRatingYour: (r) => `Your Rating: ${r ? r + ' ★' : 'Click to rate'}`,
@@ -556,6 +588,9 @@
       setText("tabPopularText", t('tabPopular'));
       setText("tabNewText", t('tabNew'));
       setText("tabRecentText", t('tabRecent'));
+      setText("tabObsText", t('tabObservability'));
+      const chipLightEl = document.getElementById("chipLight");
+      if (chipLightEl) chipLightEl.textContent = t('chipLight');
       setText("tabFavoritesText", t('tabFavorites'));
 
       // Scenario Chips
@@ -651,6 +686,7 @@
       setText("modalSpecsTitle", t('modalSpecsTitle'));
       setText("modalVerifyTitle", t('modalVerifyTitle'));
       setText("modalTrustTitle", t('trustPanelTitle'));
+      setText("modalResTitle", t('resPanelTitle'));
       setText("modalRatingTitle", t('modalRatingTitle'));
       setText("modalDiscussionsTitle", t('modalDiscussionsTitle'));
       setText("modalGithubBtnText", t('modalGithubBtn'));

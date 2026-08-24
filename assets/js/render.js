@@ -71,6 +71,13 @@
         textQ = textQ.replace(verifiedMatch[0], "").trim();
       }
 
+      let parsedLightOnly = false;
+      const lightMatch = textQ.match(/weight:(light|轻量)/i);
+      if (lightMatch) {
+        parsedLightOnly = true;
+        textQ = textQ.replace(lightMatch[0], "").trim();
+      }
+
       const tagMatch = textQ.match(/tag:([\w-]+)/i);
       if (tagMatch) {
         parsedTag = tagMatch[1].toLowerCase();
@@ -92,6 +99,9 @@
       if (isVerifiedOnly || parsedVerified) {
         activeTagsHtml.push('<span class="active-tag-badge">' + t('filterTagVerified') + ' <span class="active-tag-remove" onclick="toggleVerifiedOnly()">✕</span></span>');
       }
+      if (parsedLightOnly) {
+        activeTagsHtml.push('<span class="active-tag-badge">' + t('chipLight') + ' <span class="active-tag-remove" onclick="clearSearch()">✕</span></span>');
+      }
 
       if (activeTagsHtml.length > 0) {
         activeFiltersRow.classList.add("show");
@@ -106,6 +116,10 @@
           if (!favorites.has(pkg.id)) return false;
         }
 
+        // 可观测精选 Tab：能力检测 + 种子名单圈定，排序置顶见下方 sort 逻辑
+        if (currentTier1Tab === "observability" && !isObservabilityPlugin(pkg)) {
+          return false;
+        }
         if (currentScenario !== "all") {
           const scenarios = getPluginScenarios(pkg);
           if (!scenarios.includes(currentScenario)) return false;
@@ -119,6 +133,11 @@
         const checkVerified = isVerifiedOnly || parsedVerified;
         // 「已验证」语义：完成 AST 安全扫描且未检出高危特征（不再是仅 NPM 认证）
         if (checkVerified && !isTrustedPlugin(pkg)) {
+          return false;
+        }
+
+        // 轻量过滤：仅保留静态推断为 light 的插件（无画像数据时不匹配，宁缺勿滥）
+        if (parsedLightOnly && !(pkg.resource && pkg.resource.weight === "light")) {
           return false;
         }
 
@@ -156,7 +175,12 @@
       } else if (sort === "name") {
         filteredList.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
       } else {
-        filteredList.sort((a, b) => (b.stars || 0) - (a.stars || 0));
+        // 默认 stars 排序：可观测精选插件置顶（token 消耗痛点的运营位），其余按 stars
+        filteredList.sort((a, b) => {
+          const oa = isObservabilityPlugin(a) ? 1 : 0, ob = isObservabilityPlugin(b) ? 1 : 0;
+          if (oa !== ob) return ob - oa;
+          return (b.stars || 0) - (a.stars || 0);
+        });
       }
 
       currentPage = 1;
@@ -223,6 +247,31 @@
       return (agg && agg.count) ? Number(agg.average || 0).toFixed(1) : null;
     }
 
+    // --- 资源画像（token 消耗视角，静态推断） ---
+    // 可观测性精选：能力检测为主（token/用量/成本语义），种子名单兑底
+    const OBSERVABILITY_SEEDS = ["dsh-cost-meter", "dsh-context", "dsh-usage-stats"];
+    const OBSERVABILITY_RE = /(cost|meter|token|usage|billing|budget|observab)/i;
+    function isObservabilityPlugin(pkg) {
+      if (OBSERVABILITY_SEEDS.some(s => (pkg.fullName || "").toLowerCase().includes(s))) return true;
+      return OBSERVABILITY_RE.test(pkg.name || "") || OBSERVABILITY_RE.test(pkg.fullName || "") ||
+             OBSERVABILITY_RE.test(pkg.description || "");
+    }
+
+    // 卡片资源角标：只标「重」与「额外模型调用」两个成本信号；轻/中不打标保持列表干净
+    function resourceBadgeHtml(pkg) {
+      const r = pkg.resource;
+      if (!r) return "";
+      let html = "";
+      if (r.weight === "heavy") {
+        const ev = r.hotPathHooks && r.hotPathHooks.length ? r.hotPathHooks.join(", ") : "";
+        html += '<span class="badge badge-res-heavy" title="' + jsAttr(t('resBadgeHeavy') + (ev ? ': ' + ev : '')) + '">' + t('resBadgeHeavy') + '</span>';
+      }
+      if (r.modelCalls) {
+        html += '<span class="badge badge-res-model" title="' + jsAttr(t('resModelCalls')) + '">' + t('resBadgeModel') + '</span>';
+      }
+      return html;
+    }
+
     // 卡片可信度角标：仅有验证数据时显示，避免上线初期满屏"未验证"噪音
     function trustBadgeHtml(pkg) {
       const v = pkg.verification;
@@ -273,6 +322,7 @@
               '<div style="display:flex; align-items:center; gap:6px;">' +
                 (pkg.hasNpm ? '<span class="badge badge-verified" title="' + t('badgeVerifiedTitle') + '">' + t('badgeVerified') + '</span>' : '') +
                 trustBadgeHtml(pkg) +
+                resourceBadgeHtml(pkg) +
                 bookmarkButtonHtml(pkg, isBookmarked, isBookmarked ? t('removeFavoriteTitle') : t('addFavoriteTitle')) +
               '</div>' +
             '</div>' +
@@ -328,6 +378,7 @@
                 '<span class="badge ' + typeBadge.class + '">' + typeBadge.label + '</span>' +
                 (pkg.hasNpm ? '<span class="badge badge-verified">✓</span>' : '') +
                 trustBadgeHtml(pkg) +
+                resourceBadgeHtml(pkg) +
               '</div>' +
             '</div>' +
           '</div>' +

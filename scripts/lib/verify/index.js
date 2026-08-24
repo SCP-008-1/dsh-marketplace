@@ -14,6 +14,7 @@
 const { securityScan } = require('./security-scan');
 const { healthCheck } = require('./health-check');
 const cache = require('./cache');
+const { buildResourceProfile } = require('./resource-profile');
 
 // 单仓库扫描整体超时；到时放弃并标记 unverified，绝不阻塞整轮同步
 const SCAN_TIMEOUT_MS = 90_000;
@@ -64,6 +65,12 @@ async function verifyRepo(plugin, pkgJson, headers) {
     });
   })(), SCAN_TIMEOUT_MS);
 
+  // 资源画像与安全扫描相互独立：失败仅放弃画像，不影响 verification 结果
+  let resource = null;
+  try {
+    resource = await buildResourceProfile(plugin, pkgJson, headers);
+  } catch (e) { /* 静态推断失败降级为无画像 */ }
+
   const now = new Date().toISOString();
   return {
     status: 'verified',
@@ -71,7 +78,8 @@ async function verifyRepo(plugin, pkgJson, headers) {
     confidence: computeConfidence(scan, health),
     security: { level: scan.level, findings: scan.findings.slice(0, 20), scannedFiles: scan.scannedFiles },
     health,
-    lastVerifiedAt: now
+    lastVerifiedAt: now,
+    resource
   };
 }
 
@@ -124,6 +132,8 @@ async function runVerificationStage(pluginsData, prevPkgJsonMap, headers) {
     const fresh = cache.getFreshEntry(verCache, plugin.fullName, pushedAt);
     if (fresh) {
       plugin.verification = fresh.verification;
+      // 画像随缓存复用；旧条目无 resource 字段则保持 undefined（向后兼容）
+      if (fresh.resource) plugin.resource = fresh.resource;
       reused++;
       return;
     }
@@ -131,7 +141,8 @@ async function runVerificationStage(pluginsData, prevPkgJsonMap, headers) {
     try {
       const verification = await verifyRepo(plugin, prevPkgJsonMap[plugin.fullName] || null, headers);
       plugin.verification = verification;
-      cache.putEntry(verCache, plugin.fullName, pushedAt, verification);
+      if (verification.resource) plugin.resource = verification.resource;
+      cache.putEntry(verCache, plugin.fullName, pushedAt, verification, verification.resource);
       rescanned++;
     } catch (err) {
       // 扫描失败 ≠ 插件危险：显式标记未验证，保留上轮旧结果供前端展示历史置信度
@@ -145,6 +156,7 @@ async function runVerificationStage(pluginsData, prevPkgJsonMap, headers) {
         lastVerifiedAt: previous ? previous.lastVerifiedAt : null,
         reason: err.message || 'scan failed'
       };
+      if (previous && previous.resource) plugin.resource = previous.resource;
       failed++;
     }
   }

@@ -2343,3 +2343,16 @@ section[id], #packagesSection {
 .badge-trust-pass { background: rgba(16,185,129,0.12); color: var(--trust-pass-text); border:1px solid rgba(16,185,129,0.25); }
 .badge-trust-warn { background: rgba(245,158,11,0.12); color: var(--trust-warn-text); border:1px solid rgba(245,158,11,0.25); }
 .badge-trust-danger { background: rgba(239,68,68,0.12); color: var(--trust-danger-text); border:1px solid rgba(239,68,68,0.25); }
+
+/* 资源画像：卡片角标（仅成本信号上卡）与弹窗事件 chip */
+.badge-res-heavy { background: rgba(245,158,11,0.12); color: var(--trust-warn-text); border:1px solid rgba(245,158,11,0.25); }
+.badge-res-model { background: rgba(139,92,246,0.12); color:#8b5cf6; border:1px solid rgba(139,92,246,0.25); }
+[data-theme="dark"] .badge-res-model { color:#a78bfa; }
+.res-hooks { display:flex; flex-wrap:wrap; gap:4px; margin-top:4px; }
+.res-hook-chip {
+  font-family:'Geist Mono','Fira Code',ui-monospace,monospace;
+  font-size:11px; padding:2px 7px; border-radius:999px;
+  background:var(--bg-surface-raised, rgba(127,127,127,0.08));
+  border:1px solid var(--border-subtle);
+  font-variant-numeric:tabular-nums;
+}

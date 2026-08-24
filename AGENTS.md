@@ -35,9 +35,10 @@ assets/
     giscus-{dark,light}.css giscus 评论主题适配
 scripts/
   sync-plugins.js           抓取 topic:dsh-plugin → 生成 data/plugins.json + wiki_dist/
-  lib/verify/               可信度验证模块（安全扫描/健康检查/缓存）
+  lib/verify/               可信度验证模块（安全扫描/健康检查/资源画像/缓存）
     security-scan.js        acorn AST 安全扫描（eval/vm、动态导入、混淆、外泄检测）
     health-check.js         健康检查（manifest/dsh.bundle/apply() 入口/CI 状态）
+    resource-profile.js     资源画像静态推断（apply(ctx) 事件分桶→token 消耗三档：heavy/medium/light；模型调用/仪表盘检测）
     cache.js                增量缓存 data/verification-cache.json（pushed_at 未变则复用）
     index.js                验证编排：置信度汇总 + 并发调度 + 失败降级
   fix-install-cmds.js       修正安装命令数据
@@ -52,11 +53,16 @@ workers/rating/src/
 data/plugins.json           ⚠️ 生成物，勿手工编辑；结构 { updatedAt, total, npmCount, plugins[] }，每条插件含 verification 可信度对象
 data/verification-cache.json 验证增量缓存（CI 提交入库，pushed_at 未变的仓库复用上轮扫描结果）
 wiki_dist/                  GitHub Wiki 同步源（Home/_Sidebar/_Footer/Publish-Guide.md）
+CONTRIBUTING.md             贡献指南：三条贡献路径、分支/commit 规范、PR 红线清单
 .github/workflows/
   sync-plugins.yml          cron 每小时：同步数据→commit→推送 Wiki
   deploy-worker.yml         push main 且 paths 命中 workers/rating/** 时部署 Worker
   secret-scan.yml           全分支 gitleaks 密钥扫描
+  ci.yml                    PR/push 门禁：JS 语法检查 + plugins.json schema 校验 + Worker dry-run 构建
 docs/STATUS.md              项目现状快照
+.github/
+  PULL_REQUEST_TEMPLATE.md  PR 模板（改动说明/影响范围/验证声明/自检清单）
+  ISSUE_TEMPLATE/           Issue 模板（bug 反馈/功能建议/插件数据纠错）
 ```
 
 ## 三、技术栈
@@ -91,7 +97,7 @@ cd workers/rating && npx wrangler deploy
 bash scripts/install-hooks.sh
 ```
 
-**没有测试套件、没有 lint 配置**——验证方式为：本地预览手动走查关键路径（搜索/切换语言/主题/弹窗/打分）、CI 的 secret-scan，以及 `sync-plugins.yml` 每小时通过 `node scripts/sync-plugins.js` 执行的验证流水线（`scripts/lib/verify/`：AST 安全扫描 → 健康检查 → 按 pushed_at 增量缓存复用；单仓失败标记 unverified 降级，不阻塞整体同步）。开发过程中用过的安全规则单测、真实仓库 E2E、前端 DOM-shim 测试与语法检查均为临时脚本，**未提交到仓库**。AI 完成改动后必须声明"已验证/未验证"，禁止编造测试结果。
+**没有测试套件、没有 lint 配置**——验证方式为：CI 的 `ci.yml` 门禁（JS 语法检查 + `plugins.json` schema 校验 + Worker dry-run 构建）、CI 的 secret-scan、本地预览手动走查关键路径（搜索/切换语言/主题/弹窗/打分），以及 `sync-plugins.yml` 每小时通过 `node scripts/sync-plugins.js` 执行的验证流水线(`scripts/lib/verify/`:AST 安全扫描 → 健康检查 → 按 pushed_at 增量缓存复用;单仓失败标记 unverified 降级,不阻塞整体同步)。开发过程中用过的安全规则单测、真实仓库 E2E、前端 DOM-shim 测试与语法检查均为临时脚本,**未提交到仓库**。AI 完成改动后必须声明"已验证/未验证",禁止编造测试结果。
 
 ---
 

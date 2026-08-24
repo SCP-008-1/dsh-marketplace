@@ -25,7 +25,7 @@
 | Agent 技能（skill） | 9 |
 | 数据最后更新 | 2026-08-23T14:30 UTC（每小时自动同步中） |
 
-数据结构：`data/plugins.json` 为 `{ updatedAt, total, npmCount, plugins[] }`；每条插件含 `verification` 可信度对象。
+数据结构：`data/plugins.json` 为 `{ updatedAt, total, npmCount, plugins[] }`；每条插件含 `verification` 可信度对象（内嵌 `resource` 资源画像：weight/hotHooks/lifecycleHooks/modelCalls）。
 
 ## 三、代码结构与体量
 
@@ -77,7 +77,11 @@ wiki_dist/                   Home / _Sidebar / _Footer / Publish-Guide.md
    - 健康检查：manifest 合法性、dsh.bundle 声明、apply() 入口、CI 构建状态；汇总为 0-100 可安装置信度
    - 增量缓存（`data/verification-cache.json`）：pushed_at 未变的仓库复用上轮结果；扫描失败标 unverified 不阻塞同步
    - 前端：弹窗「🛡️ 可信度评估」面板（置信度/健康清单/扫描明细/最后验证时间如“3 天前 ✅”）；卡片角标（已验证/可疑/危险三色，悬停显示置信度，无验证数据不显示）；列表过滤器升级为「仅看已验证」（完成扫描且无高危）
-8. **视觉升级**：按 Geist/shadcn 规范完成整体 UI 重做（最新提交），含语义化 Badge 六色体系、Omnibar 焦点环、弹窗微动效等
+8. **插件资源画像（随 PR #16 同分支开发，待合并）**
+   - 静态推断 token 消耗特征：扫描 apply(ctx) 挂载事件分桶（每请求热路径→heavy / 生命周期→medium / 仅一次性命令→light）、额外模型调用（ctx.llm/complete）、webServer 仪表盘；入口发现 ≤2 文件×200KB
+   - 前端全链路透出：卡片「⚡ 请求级钩子」/「🤖 额外模型调用」角标（依据悬停可见）；弹窗「📊 资源画像」面板含重量分级与 hook 清单+免责声明；`weight:light` 过滤 chip 与「可观测性」一级 Tab
+   - 可观测性精选：种子名单（dsh-cost-meter/dsh-context/dsh-usage-stats）+ 名称能力检测双通道圈定，默认排序置顶
+9. **视觉升级**：按 Geist/shadcn 规范完成整体 UI 重做（最新提交），含语义化 Badge 六色体系、Omnibar 焦点环、弹窗微动效等
 
 ### ⚠️ 待确认 / 潜在事项
 

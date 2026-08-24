@@ -34,8 +34,9 @@ function getFreshEntry(cache, fullName, pushedAt) {
   return entry.pushedAt === pushedAt ? entry : null;
 }
 
-function putEntry(cache, fullName, pushedAt, verification) {
-  cache.entries[fullName] = { pushedAt: pushedAt || null, scannedAt: new Date().toISOString(), verification };
+function putEntry(cache, fullName, pushedAt, verification, resource) {
+  // resource 为可选的资源画像（向后兼容：旧缓存条目无此字段）
+  cache.entries[fullName] = { pushedAt: pushedAt || null, scannedAt: new Date().toISOString(), verification, resource: resource || null };
 }
 
 // 清理已从 topic 下架的仓库条目，防止缓存无限膨胀
