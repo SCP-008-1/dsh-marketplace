@@ -197,7 +197,7 @@
         resPanelTitle: "⚡ 资源画像",
         resDisclaimer: "静态推断估算：基于入口代码扫描，非精确承诺；实际消耗取决于使用方式。",
         resWeightLabel: "资源重量",
-        resWeightHeavy: "重 · 挂每请求热路径",
+        resWeightHeavy: "重 · 挂载于每请求热路径",
         resWeightMedium: "中 · 生命周期/模型调用",
         resWeightLight: "轻 · 一次性命令/仪表盘",
         resHotHooks: "每请求事件钩子",

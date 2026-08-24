@@ -65,11 +65,12 @@ async function verifyRepo(plugin, pkgJson, headers) {
     });
   })(), SCAN_TIMEOUT_MS);
 
-  // 资源画像与安全扫描相互独立：失败仅放弃画像，不影响 verification 结果
+  // 资源画像与安全扫描相互独立：失败仅放弃画像，不影响 verification 结果；
+  // 内部最多 6 次串行 fetch，必须纳入扫描总超时（与 fetchEntryFiles 同类防护）
   let resource = null;
   try {
-    resource = await buildResourceProfile(plugin, pkgJson, headers);
-  } catch (e) { /* 静态推断失败降级为无画像 */ }
+    resource = await withTimeout(buildResourceProfile(plugin, pkgJson, headers), SCAN_TIMEOUT_MS);
+  } catch (e) { /* 静态推断失败/超时降级为无画像 */ }
 
   const now = new Date().toISOString();
   return {
