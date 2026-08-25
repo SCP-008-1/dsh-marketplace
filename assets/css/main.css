@@ -2356,3 +2356,7 @@ section[id], #packagesSection {
   border:1px solid var(--border-subtle);
   font-variant-numeric:tabular-nums;
 }
+
+/* 失效状态角标（归档/死链/源码不可达） */
+.badge-life-archived { background: var(--bg-surface, rgba(127,127,127,0.12)); color: var(--text-tertiary); border:1px solid var(--border-subtle); }
+.badge-life-dead { background: rgba(239,68,68,0.10); color: var(--trust-danger-text); border:1px solid rgba(239,68,68,0.22); opacity:0.85; }

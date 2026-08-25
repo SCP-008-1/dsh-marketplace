@@ -81,7 +81,11 @@ wiki_dist/                   Home / _Sidebar / _Footer / Publish-Guide.md
    - 静态推断 token 消耗特征：扫描 apply(ctx) 挂载事件分桶（每请求热路径→heavy / 生命周期→medium / 仅一次性命令→light）、额外模型调用（ctx.llm/complete）、webServer 仪表盘；入口发现 ≤2 文件×200KB
    - 前端全链路透出：卡片「⚡ 请求级钩子」/「🤖 额外模型调用」角标（依据悬停可见）；弹窗「📊 资源画像」面板含重量分级与 hook 清单+免责声明；`weight:light` 过滤 chip 与「可观测性」一级 Tab
    - 可观测性精选：种子名单（dsh-cost-meter/dsh-context/dsh-usage-stats）+ 名称能力检测双通道圈定，默认排序置顶
-9. **视觉升级**：按 Geist/shadcn 规范完成整体 UI 重做（最新提交），含语义化 Badge 六色体系、Omnibar 焦点环、弹窗微动效等
+9. **失效检测（随 PR #16 同分支开发，待合并）**
+   - 同步时顺带校验（复用元数据请求，边际成本≈0）：归档仓库灰标降权；从 topic 消失的条目主动探测——404 且 npm 也失效才判 dead（默认隐藏，「☠️ 显示已失效」开关可见）；仅 npm 存活则保留并警示「源码不可达」
+   - 改名自动跟随（301 重定向识别），新条目附 formerIds，前端一次性迁移本地收藏
+   - 限流/网络异常不判定，绝不凭单次失败判死
+10. **视觉升级**：按 Geist/shadcn 规范完成整体 UI 重做（最新提交），含语义化 Badge 六色体系、Omnibar 焦点环、弹窗微动效等
 
 ### ⚠️ 待确认 / 潜在事项
 

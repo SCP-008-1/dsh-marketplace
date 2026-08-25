@@ -30,6 +30,7 @@ const { detectPluginType } = require('./lib/plugin-type');
 const { loadPreviousData, injectBootstrap } = require('./lib/bootstrap');
 const { generateWiki } = require('./lib/wiki');
 const { runVerificationStage } = require('./lib/verify');
+const { runLivenessStage } = require('./lib/verify/liveness');
 
 async function main() {
   // --bootstrap-only：读取现有 data/plugins.json，仅更新 index.html 内嵌数据（不访问网络）
@@ -104,7 +105,7 @@ async function main() {
       const readmeZhUrl = await detectChineseReadme(repo.full_name, branch);
 
       return {
-        id: repo.name,
+        id: repo.full_name,
         name: repo.name,
         fullName: repo.full_name,
         description: repo.description || (pkgJson?.description) || '暂无描述',
@@ -114,6 +115,7 @@ async function main() {
         repoUrl: repo.html_url,
         stars: repo.stargazers_count || 0,
         forks: repo.forks_count || 0,
+        archived: repo.archived === true,
         openIssues: repo.open_issues_count || 0,
         license: repo.license ? (repo.license.spdx_id || repo.license.name) : (pkgJson?.license || 'Unknown'),
         updatedAt: repo.updated_at,
@@ -144,6 +146,10 @@ async function main() {
   // 3.5 可信度验证：AST 安全扫描 + 健康检查 + 置信度（增量，结果就地写入 pluginsData）
   await runVerificationStage(pluginsData, pkgJsonMap, headers);
 
+  // 3.6 失效检测：归档标记 + 消失条目探测（保留条目参与下方数量守卫，避免批量死亡误触发骤降熔断）
+  const prevForLiveness = loadPreviousData(path.join(__dirname, '..', 'data', 'plugins.json'));
+  await runLivenessStage(pluginsData, prevForLiveness ? prevForLiveness.plugins : [], headers);
+
   // 4. 写入 data/plugins.json
   console.log(`[4/5] 写入 data/plugins.json ...`);
   const dataDir = path.join(__dirname, '..', 'data');
@@ -152,7 +158,7 @@ async function main() {
   }
   const outputPath = path.join(dataDir, 'plugins.json');
   // 数量骤降守卫：较上次减少超过 50% 视为抓取异常，中止写入
-  const prev = loadPreviousData(outputPath);
+  const prev = prevForLiveness;
   if (prev && Array.isArray(prev.plugins) && prev.plugins.length >= 20 &&
       pluginsData.length < Math.floor(prev.plugins.length * 0.5)) {
     console.error(`⛔ 插件数量骤降 (${prev.plugins.length} -> ${pluginsData.length})，疑似抓取/过滤异常 — 中止写入`);

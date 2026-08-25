@@ -7,6 +7,7 @@
     let currentScenario = "all";
     let currentViewMode = localStorage.getItem("dsh_view_mode") || "grid";
     let isVerifiedOnly = false;
+    let showDead = false; // 「显示已失效」开关：dead 条目默认隐藏
     let currentPage = 1;
     const pageSize = 12;
 
@@ -18,6 +19,24 @@
     } catch(e) {
       favorites = new Set();
     }
+
+    // 收藏迁移：仓库改名后旧 id 记录在新条目的 formerIds 上，一次性重映射并回写
+    try {
+      const formerMap = new Map();
+      (pluginsData || []).forEach(p => (p.formerIds || []).forEach(fid => formerMap.set(fid, p.id)));
+      if (formerMap.size) {
+        let migrated = false;
+        const remapped = new Set([...favorites].map(fid => {
+          const nid = formerMap.get(fid);
+          if (nid && nid !== fid) { migrated = true; return nid; }
+          return fid;
+        }));
+        if (migrated) {
+          favorites = remapped;
+          localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+        }
+      }
+    } catch(e) { /* 迁移失败不影响正常使用 */ }
 
     // Recent Searches
     const RECENT_SEARCHES_KEY = "dsh_recent_searches";
