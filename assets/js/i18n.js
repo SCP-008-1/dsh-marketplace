@@ -28,7 +28,7 @@
         chipSkill: "⚡ 编程与代码技能",
         chipAgent: "🤖 AI 智能体",
         chipTheme: "🎨 终端与 UI 主题",
-        chipVerified: "✓ 仅看 NPM 认证包",
+        chipVerified: "✓ 仅看已验证",
         syntaxFilterTitle: "高级搜索语法",
         heroTrendingLink: "🔥 热门趋势",
         heroTopRatedLink: "⭐ 高分好评",
@@ -75,7 +75,7 @@
         typeTheme: "🎨 终端主题 (Theme)",
         typePrompt: "📝 提示词 (Prompt)",
 
-        verifiedOnly: "✓ 仅看 NPM 认证",
+        verifiedOnly: "✓ 仅看已验证",
         sortStars: "⭐ 最多 Star",
         sortRecent: "⏱️ 最近更新",
         sortForks: "🍴 最多 Fork",
@@ -90,7 +90,7 @@
         filterTagQuery: "搜索: ",
         filterTagScenario: "场景: ",
         filterTagType: "类型: ",
-        filterTagVerified: "仅 NPM 认证",
+        filterTagVerified: "仅已验证",
 
         emptyTitle: "未找到匹配的插件",
         emptyDesc: "请尝试更换搜索关键词、清除分类筛选或重置过滤器。",
@@ -164,6 +164,51 @@
         modalVerifyTitle: "安全与真实性校验说明",
         modalVerifyNpmNote: "✓ <b>NPM 官方注册表认证：</b> 该插件已通过 NPM Registry 双向归属验证，包名与代码仓库元数据完全匹配。",
         modalVerifyGitNote: "ℹ <b>GitHub 开源直装源：</b> 该插件直接通过 GitHub 仓库引用安装，已验证为公开可访问的开源项目。",
+        // —— 可信度面板（AST 安全扫描 + 健康检查）——
+        trustPanelTitle: "🛡️ 可信度评估",
+        trustConfidence: "可安装置信度",
+        trustLastVerified: "最后验证",
+        trustNever: "从未验证",
+        trustFresh: (days) => `${days} 天前 ✅`,
+        trustStale: (days) => `${days} 天前 ⚠️`,
+        trustUnverifiedDesc: "该插件尚未完成安全扫描或扫描失败，不代表存在风险；建议安装前自行审查源码。",
+        trustSecPass: "安全扫描通过",
+        trustSecWarn: "发现可疑特征",
+        trustSecDanger: "检出高危特征",
+        trustHealthTitle: "健康检查",
+        trustHcManifest: "manifest 合法",
+        trustHcBundle: "dsh.bundle 已声明",
+        trustHcApply: "apply() 入口可用",
+        trustBuild: "CI 构建状态",
+        trustBuildPassing: "✅ 通过",
+        trustBuildFailing: "❌ 失败",
+        trustBuildUnknown: "⚠️ 无记录",
+        trustFindingsTitle: "扫描明细",
+        trustNoFindings: "未检出可疑模式",
+        trustMoreFindings: (n) => `另有 ${n} 项未展示`,
+        trustSevHigh: "高危",
+        trustSevMedium: "中危",
+        trustSevLow: "提示",
+        // 卡片角标
+        trustCardPass: "已验证",
+        trustCardWarn: "可疑",
+        trustCardDanger: "危险",
+        // 资源画像（token 消耗视角，静态推断）
+        resPanelTitle: "⚡ 资源画像",
+        resDisclaimer: "静态推断估算：基于入口代码扫描，非精确承诺；实际消耗取决于使用方式。",
+        resWeightLabel: "资源重量",
+        resWeightHeavy: "重 · 挂载于每请求热路径",
+        resWeightMedium: "中 · 生命周期/模型调用",
+        resWeightLight: "轻 · 一次性命令/仪表盘",
+        resHotHooks: "每请求事件钩子",
+        resLifeHooks: "生命周期事件钩子",
+        resModelCalls: "需额外模型调用",
+        resNoModelCalls: "无额外模型调用",
+        resDashboards: "仪表盘页面",
+        resBadgeHeavy: "⚡ 请求级钩子",
+        resBadgeModel: "🤖 模型调用",
+        chipLight: "✦ 仅看轻量插件",
+        tabObservability: "📊 可观测精选",
         modalRatingTitle: "⭐ 社区评分",
         modalRatingEmpty: "还没有人打分，快来成为第一个打分者吧！",
         modalRatingYour: (r) => `我的评分：${r ? r + ' ★' : '点击五角星打分'}`,
@@ -374,6 +419,51 @@
         modalVerifyTitle: "Installation Verification",
         modalVerifyNpmNote: "✓ <b>NPM Registry Verified:</b> This package has been audited and matched against the official NPM registry with matching repository metadata.",
         modalVerifyGitNote: "ℹ <b>GitHub Direct Source:</b> This plugin is installed directly via GitHub git reference, verified for public open-source availability.",
+        // —— Trust panel (AST security scan + health check) ——
+        trustPanelTitle: "🛡️ Trust Assessment",
+        trustConfidence: "Install Confidence",
+        trustLastVerified: "Last verified",
+        trustNever: "Never verified",
+        trustFresh: (days) => `${days} day${days === 1 ? '' : 's'} ago ✅`,
+        trustStale: (days) => `${days} day${days === 1 ? '' : 's'} ago ⚠️`,
+        trustUnverifiedDesc: "Security scan has not completed or failed for this plugin — this does not imply risk; review the source code before installing.",
+        trustSecPass: "Security scan passed",
+        trustSecWarn: "Suspicious patterns found",
+        trustSecDanger: "High-risk patterns detected",
+        trustHealthTitle: "Health check",
+        trustHcManifest: "Valid manifest",
+        trustHcBundle: "dsh.bundle declared",
+        trustHcApply: "apply() entry point",
+        trustBuild: "CI build status",
+        trustBuildPassing: "✅ Passing",
+        trustBuildFailing: "❌ Failing",
+        trustBuildUnknown: "⚠️ No record",
+        trustFindingsTitle: "Scan findings",
+        trustNoFindings: "No suspicious patterns detected",
+        trustMoreFindings: (n) => `${n} more not shown`,
+        trustSevHigh: "High",
+        trustSevMedium: "Medium",
+        trustSevLow: "Info",
+        // Card badges
+        trustCardPass: "Verified",
+        trustCardWarn: "Suspicious",
+        trustCardDanger: "Danger",
+        // Resource profile (token-consumption view, statically inferred)
+        resPanelTitle: "⚡ Resource Profile",
+        resDisclaimer: "Static heuristic estimate from entry-code scan, not a precise guarantee; actual consumption depends on usage.",
+        resWeightLabel: "Resource weight",
+        resWeightHeavy: "Heavy · per-request hooks",
+        resWeightMedium: "Medium · lifecycle/model calls",
+        resWeightLight: "Light · commands/dashboard only",
+        resHotHooks: "Per-request event hooks",
+        resLifeHooks: "Lifecycle event hooks",
+        resModelCalls: "Extra model calls required",
+        resNoModelCalls: "No extra model calls",
+        resDashboards: "Dashboard pages",
+        resBadgeHeavy: "⚡ Per-request hooks",
+        resBadgeModel: "🤖 Model calls",
+        chipLight: "✦ Lightweight only",
+        tabObservability: "📊 Observability Picks",
         modalRatingTitle: "⭐ Community Rating",
         modalRatingEmpty: "Be the first to rate this plugin!",
         modalRatingYour: (r) => `Your Rating: ${r ? r + ' ★' : 'Click to rate'}`,
@@ -498,6 +588,9 @@
       setText("tabPopularText", t('tabPopular'));
       setText("tabNewText", t('tabNew'));
       setText("tabRecentText", t('tabRecent'));
+      setText("tabObsText", t('tabObservability'));
+      const chipLightEl = document.getElementById("chipLight");
+      if (chipLightEl) chipLightEl.textContent = t('chipLight');
       setText("tabFavoritesText", t('tabFavorites'));
 
       // Scenario Chips
@@ -592,6 +685,8 @@
       setText("modalTagsTitle", t('modalTagsTitle'));
       setText("modalSpecsTitle", t('modalSpecsTitle'));
       setText("modalVerifyTitle", t('modalVerifyTitle'));
+      setText("modalTrustTitle", t('trustPanelTitle'));
+      setText("modalResTitle", t('resPanelTitle'));
       setText("modalRatingTitle", t('modalRatingTitle'));
       setText("modalDiscussionsTitle", t('modalDiscussionsTitle'));
       setText("modalGithubBtnText", t('modalGithubBtn'));

@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Dependencies
+        run: npm ci --omit=dev
+
       - name: Fetch Plugins & Generate Data and Wiki
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -33,7 +36,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/plugins.json
+          git add data/plugins.json data/verification-cache.json
           if git diff --staged --quiet; then
             echo "No changes in plugins.json"
           else

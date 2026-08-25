@@ -56,6 +56,21 @@
       }
     }
 
+    // 可信度面板用：相对时间（"3 天前"）；超过 90 天返回 null，由调用方决定降级展示
+    function formatRelativeDays(dateStr) {
+      if (!dateStr) return null;
+      try {
+        const ms = Date.now() - new Date(dateStr);
+        // 无效日期字符串不抛异常而是产生 Invalid Date，差值为 NaN，需显式拦截
+        if (!isFinite(ms)) return null;
+        const diffDays = Math.floor(ms / (1000 * 60 * 60 * 24));
+        if (diffDays < 0 || diffDays > 90) return null;
+        return diffDays;
+      } catch (e) {
+        return null;
+      }
+    }
+
     function escapeHtml(str) {
       if (str === undefined || str === null || str === "") return "";
       return String(str).replace(/[&<>"']/g, function(m) {

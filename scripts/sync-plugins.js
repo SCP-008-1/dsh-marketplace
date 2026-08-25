@@ -29,6 +29,7 @@ const { verifyNpmPackage, sanitizeVersion } = require('./lib/npm-verify');
 const { detectPluginType } = require('./lib/plugin-type');
 const { loadPreviousData, injectBootstrap } = require('./lib/bootstrap');
 const { generateWiki } = require('./lib/wiki');
+const { runVerificationStage } = require('./lib/verify');
 
 async function main() {
   // --bootstrap-only：读取现有 data/plugins.json，仅更新 index.html 内嵌数据（不访问网络）
@@ -89,6 +90,8 @@ async function main() {
   console.log(`[3/5] 执行严格 NPM 真实性双向校验...`);
   const batchSize = 10;
   const pluginsData = [];
+  // 验证阶段需要各仓库根 package.json（manifest 健康检查用），按 fullName 暂存
+  const pkgJsonMap = {};
 
   for (let i = 0; i < filtered.length; i += batchSize) {
     const batch = filtered.slice(i, i + batchSize);
@@ -96,6 +99,7 @@ async function main() {
       const type = detectPluginType(repo.topics);
       const npmVerification = await verifyNpmPackage(repo);
       const pkgJson = npmVerification.pkgJson;
+      if (pkgJson) pkgJsonMap[repo.full_name] = pkgJson;
       const branch = repo.default_branch || 'main';
       const readmeZhUrl = await detectChineseReadme(repo.full_name, branch);
 
@@ -123,7 +127,9 @@ async function main() {
         npmUrl: npmVerification.npmUrl || null,
         version: sanitizeVersion(npmVerification.version || pkgJson?.version || null),
         installCmd: npmVerification.installCmd,
-        readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`
+        readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`,
+        pushedAt: repo.pushed_at || null,
+        verification: null // 由下方验证阶段填充；先置空保证字段顺序稳定
       };
     }));
 
@@ -134,6 +140,9 @@ async function main() {
   const npmPlugins = pluginsData.filter(p => p.hasNpm);
   const githubPlugins = pluginsData.filter(p => !p.hasNpm);
   console.log(`\nNPM 严格校验完成：真实发布在 NPM: ${npmPlugins.length} 个，GitHub 直装: ${githubPlugins.length} 个`);
+
+  // 3.5 可信度验证：AST 安全扫描 + 健康检查 + 置信度（增量，结果就地写入 pluginsData）
+  await runVerificationStage(pluginsData, pkgJsonMap, headers);
 
   // 4. 写入 data/plugins.json
   console.log(`[4/5] 写入 data/plugins.json ...`);
