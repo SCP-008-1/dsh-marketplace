@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-25T20:37:39.633Z",
+  "updatedAt": "2026-08-25T21:36:11.896Z",
   "total": 499,
-  "npmCount": 152,
+  "npmCount": 151,
   "plugins": [
     {
       "id": "open-design",
@@ -12,11 +12,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/263625318?v=4",
       "authorUrl": "https://github.com/nexu-io",
       "repoUrl": "https://github.com/nexu-io/open-design",
-      "stars": 91448,
+      "stars": 91457,
       "forks": 10533,
       "openIssues": 857,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T20:33:10Z",
+      "updatedAt": "2026-08-25T21:29:04Z",
       "createdAt": "2026-04-28T04:25:20Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -48,10 +48,10 @@
       "version": "0.20.3",
       "installCmd": "npm i github:nexu-io/open-design",
       "readmeUrl": "https://raw.githubusercontent.com/nexu-io/open-design/main/README.md",
-      "pushedAt": "2026-08-25T20:12:29Z",
+      "pushedAt": "2026-08-25T21:13:59Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:36:53.983Z",
+        "scannedAt": "2026-08-25T21:35:49.310Z",
         "confidence": 45,
         "security": {
           "level": "warn",
@@ -100,7 +100,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:36:53.983Z",
+        "lastVerifiedAt": "2026-08-25T21:35:49.310Z",
         "resource": null
       }
     },
@@ -113,11 +113,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/2934394?v=4",
       "authorUrl": "https://github.com/ruvnet",
       "repoUrl": "https://github.com/ruvnet/ruflo",
-      "stars": 69392,
+      "stars": 69395,
       "forks": 8300,
       "openIssues": 845,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:25:52Z",
+      "updatedAt": "2026-08-25T21:35:09Z",
       "createdAt": "2025-06-02T21:24:20Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -319,11 +319,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/1134738?v=4",
       "authorUrl": "https://github.com/amruthpillai",
       "repoUrl": "https://github.com/amruthpillai/reactive-resume",
-      "stars": 41725,
+      "stars": 41727,
       "forks": 4665,
       "openIssues": 118,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:24:43Z",
+      "updatedAt": "2026-08-25T21:06:11Z",
       "createdAt": "2020-03-25T14:08:22Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -374,11 +374,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/18465053?v=4",
       "authorUrl": "https://github.com/esengine",
       "repoUrl": "https://github.com/esengine/DeepSeek-Reasonix",
-      "stars": 35158,
+      "stars": 35160,
       "forks": 2340,
-      "openIssues": 1599,
+      "openIssues": 1598,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:29:28Z",
+      "updatedAt": "2026-08-25T21:07:21Z",
       "createdAt": "2026-04-21T08:27:02Z",
       "defaultBranch": "main-v2",
       "readmeZhUrl": "https://raw.githubusercontent.com/esengine/DeepSeek-Reasonix/main-v2/README.zh-CN.md",
@@ -408,10 +408,10 @@
       "version": "1.31.4",
       "installCmd": "npm i reasonix",
       "readmeUrl": "https://raw.githubusercontent.com/esengine/DeepSeek-Reasonix/main-v2/README.md",
-      "pushedAt": "2026-08-25T19:01:22Z",
+      "pushedAt": "2026-08-25T21:01:32Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T19:38:11.455Z",
+        "scannedAt": "2026-08-25T21:35:49.745Z",
         "confidence": 20,
         "security": {
           "level": "danger",
@@ -565,7 +565,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T19:38:11.455Z",
+        "lastVerifiedAt": "2026-08-25T21:35:49.745Z",
         "resource": null
       }
     },
@@ -578,11 +578,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/67365215?v=4",
       "authorUrl": "https://github.com/volcengine",
       "repoUrl": "https://github.com/volcengine/OpenViking",
-      "stars": 33254,
-      "forks": 2533,
-      "openIssues": 524,
+      "stars": 33261,
+      "forks": 2534,
+      "openIssues": 525,
       "license": "AGPL-3.0",
-      "updatedAt": "2026-08-25T20:26:46Z",
+      "updatedAt": "2026-08-25T21:34:12Z",
       "createdAt": "2026-01-05T07:11:17Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/volcengine/OpenViking/main/README_CN.md",
@@ -798,11 +798,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/85022018?v=4",
       "authorUrl": "https://github.com/titanwings",
       "repoUrl": "https://github.com/titanwings/distilly",
-      "stars": 23969,
+      "stars": 23970,
       "forks": 2108,
       "openIssues": 37,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:43:53Z",
+      "updatedAt": "2026-08-25T20:38:21Z",
       "createdAt": "2026-03-30T05:22:23Z",
       "defaultBranch": "dot-skill",
       "readmeZhUrl": null,
@@ -862,11 +862,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/66196787?v=4",
       "authorUrl": "https://github.com/nocobase",
       "repoUrl": "https://github.com/nocobase/nocobase",
-      "stars": 23840,
+      "stars": 23841,
       "forks": 2838,
       "openIssues": 294,
       "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T20:24:41Z",
+      "updatedAt": "2026-08-25T20:38:27Z",
       "createdAt": "2020-10-24T07:27:48Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/nocobase/nocobase/main/README.zh-CN.md",
@@ -955,11 +955,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/18461506?v=4",
       "authorUrl": "https://github.com/Tencent",
       "repoUrl": "https://github.com/Tencent/WeKnora",
-      "stars": 20607,
+      "stars": 20608,
       "forks": 2959,
       "openIssues": 550,
       "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T19:24:50Z",
+      "updatedAt": "2026-08-25T20:39:11Z",
       "createdAt": "2025-07-22T08:01:23Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/Tencent/WeKnora/main/README_CN.md",
@@ -1133,11 +1133,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/286827603?v=4",
       "authorUrl": "https://github.com/anywhere-labs",
       "repoUrl": "https://github.com/anywhere-labs/dsh-desktop",
-      "stars": 20175,
+      "stars": 20177,
       "forks": 978,
       "openIssues": 242,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:29:53Z",
+      "updatedAt": "2026-08-25T20:47:47Z",
       "createdAt": "2026-08-13T16:30:50Z",
       "defaultBranch": "master",
       "readmeZhUrl": "https://raw.githubusercontent.com/anywhere-labs/dsh-desktop/master/README.zh.md",
@@ -1313,11 +1313,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/101612750?v=4",
       "authorUrl": "https://github.com/Nagi-ovo",
       "repoUrl": "https://github.com/Nagi-ovo/voyager",
-      "stars": 19837,
+      "stars": 19838,
       "forks": 654,
       "openIssues": 12,
       "license": "GPL-3.0",
-      "updatedAt": "2026-08-25T20:28:51Z",
+      "updatedAt": "2026-08-25T20:56:38Z",
       "createdAt": "2025-10-04T23:42:35Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -1498,11 +1498,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/43960064?v=4",
       "authorUrl": "https://github.com/freestylefly",
       "repoUrl": "https://github.com/freestylefly/awesome-gpt-image-2",
-      "stars": 17475,
-      "forks": 1808,
+      "stars": 17501,
+      "forks": 1811,
       "openIssues": 12,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:36:02Z",
+      "updatedAt": "2026-08-25T21:34:54Z",
       "createdAt": "2026-04-25T09:19:13Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/freestylefly/awesome-gpt-image-2/main/README.zh-CN.md",
@@ -1694,11 +1694,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/53142663?v=4",
       "authorUrl": "https://github.com/tt-a1i",
       "repoUrl": "https://github.com/tt-a1i/archify",
-      "stars": 16190,
+      "stars": 16222,
       "forks": 1132,
-      "openIssues": 21,
+      "openIssues": 22,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:34:48Z",
+      "updatedAt": "2026-08-25T21:35:10Z",
       "createdAt": "2026-04-15T05:27:37Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/tt-a1i/archify/main/README_ZH.md",
@@ -2070,11 +2070,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/316603077?v=4",
       "authorUrl": "https://github.com/awesome-dsh-plugin",
       "repoUrl": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin",
-      "stars": 12639,
+      "stars": 12640,
       "forks": 2059,
-      "openIssues": 472,
+      "openIssues": 473,
       "license": "CC0-1.0",
-      "updatedAt": "2026-08-25T20:11:33Z",
+      "updatedAt": "2026-08-25T21:31:48Z",
       "createdAt": "2026-08-13T13:55:31Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/awesome-dsh-plugin/awesome-dsh-plugin/main/README.zh.md",
@@ -2284,7 +2284,7 @@
       "repoUrl": "https://github.com/MemTensor/MemOS",
       "stars": 10979,
       "forks": 1005,
-      "openIssues": 68,
+      "openIssues": 69,
       "license": "Apache-2.0",
       "updatedAt": "2026-08-25T20:29:10Z",
       "createdAt": "2025-07-06T09:51:27Z",
@@ -2885,11 +2885,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/218180147?v=4",
       "authorUrl": "https://github.com/ZSeven-W",
       "repoUrl": "https://github.com/ZSeven-W/openpencil",
-      "stars": 5647,
+      "stars": 5648,
       "forks": 491,
       "openIssues": 14,
       "license": "MIT",
-      "updatedAt": "2026-08-25T18:19:57Z",
+      "updatedAt": "2026-08-25T21:21:13Z",
       "createdAt": "2026-02-17T10:51:46Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/ZSeven-W/openpencil/main/README.zh.md",
@@ -2972,11 +2972,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/228423313?v=4",
       "authorUrl": "https://github.com/Devin-AXIS",
       "repoUrl": "https://github.com/Devin-AXIS/iPolloWork",
-      "stars": 4828,
-      "forks": 955,
+      "stars": 4831,
+      "forks": 956,
       "openIssues": 79,
       "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T19:47:00Z",
+      "updatedAt": "2026-08-25T21:33:42Z",
       "createdAt": "2025-08-25T03:57:40Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -3596,7 +3596,7 @@
       "forks": 348,
       "openIssues": 353,
       "license": "MIT",
-      "updatedAt": "2026-08-25T18:59:44Z",
+      "updatedAt": "2026-08-25T20:50:30Z",
       "createdAt": "2026-02-15T12:36:33Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/edison7009/EchoBird/main/README.zh-CN.md",
@@ -3617,10 +3617,10 @@
       "version": "5.6.7",
       "installCmd": "npm i github:edison7009/EchoBird",
       "readmeUrl": "https://raw.githubusercontent.com/edison7009/EchoBird/main/README.md",
-      "pushedAt": "2026-08-25T18:56:17Z",
+      "pushedAt": "2026-08-25T20:45:16Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T19:38:12.355Z",
+        "scannedAt": "2026-08-25T21:35:50.692Z",
         "confidence": 70,
         "security": {
           "level": "pass",
@@ -3633,7 +3633,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T19:38:12.355Z",
+        "lastVerifiedAt": "2026-08-25T21:35:50.692Z",
         "resource": null
       }
     },
@@ -4226,11 +4226,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/268149062?v=4",
       "authorUrl": "https://github.com/ccch1mneyyy",
       "repoUrl": "https://github.com/ccch1mneyyy/dsh-TUI",
-      "stars": 2544,
+      "stars": 2543,
       "forks": 123,
-      "openIssues": 62,
+      "openIssues": 63,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:46:25Z",
+      "updatedAt": "2026-08-25T20:59:02Z",
       "createdAt": "2026-08-13T12:49:31Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -4777,11 +4777,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/56996438?v=4",
       "authorUrl": "https://github.com/Small-tailqwq",
       "repoUrl": "https://github.com/Small-tailqwq/dsh-deep-whale",
-      "stars": 1713,
+      "stars": 1714,
       "forks": 53,
       "openIssues": 13,
       "license": "Unknown",
-      "updatedAt": "2026-08-25T17:38:37Z",
+      "updatedAt": "2026-08-25T20:47:15Z",
       "createdAt": "2026-08-13T13:02:14Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -4899,11 +4899,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/68321694?v=4",
       "authorUrl": "https://github.com/Alisa0808",
       "repoUrl": "https://github.com/Alisa0808/vox-director",
-      "stars": 1558,
+      "stars": 1559,
       "forks": 225,
       "openIssues": 2,
       "license": "MIT",
-      "updatedAt": "2026-08-25T18:08:16Z",
+      "updatedAt": "2026-08-25T21:04:58Z",
       "createdAt": "2026-07-10T15:32:05Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/Alisa0808/vox-director/main/README.zh.md",
@@ -7034,7 +7034,7 @@
       "forks": 328,
       "openIssues": 4,
       "license": "CC0-1.0",
-      "updatedAt": "2026-08-25T19:45:04Z",
+      "updatedAt": "2026-08-25T21:25:25Z",
       "createdAt": "2026-08-11T13:14:49Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/0xsline/awesome-deepseek-harness/main/README.zh-CN.md",
@@ -7064,10 +7064,10 @@
       "version": null,
       "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/0xsline/awesome-deepseek-harness/main/README.md",
-      "pushedAt": "2026-08-25T19:25:19Z",
+      "pushedAt": "2026-08-25T21:25:16Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T19:38:13.612Z",
+        "scannedAt": "2026-08-25T21:35:51.656Z",
         "confidence": 55,
         "security": {
           "level": "pass",
@@ -7080,7 +7080,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T19:38:13.612Z",
+        "lastVerifiedAt": "2026-08-25T21:35:51.656Z",
         "resource": null
       }
     },
@@ -7400,11 +7400,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/4094054?v=4",
       "authorUrl": "https://github.com/xmanrui",
       "repoUrl": "https://github.com/xmanrui/dsh-im",
-      "stars": 848,
+      "stars": 849,
       "forks": 90,
       "openIssues": 9,
       "license": "MIT",
-      "updatedAt": "2026-08-25T18:04:46Z",
+      "updatedAt": "2026-08-25T21:05:11Z",
       "createdAt": "2026-08-14T20:40:06Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -7797,7 +7797,7 @@
       "repoUrl": "https://github.com/vshulcz/deja-vu",
       "stars": 722,
       "forks": 58,
-      "openIssues": 79,
+      "openIssues": 81,
       "license": "MIT",
       "updatedAt": "2026-08-25T19:54:48Z",
       "createdAt": "2026-07-14T07:45:44Z",
@@ -7831,10 +7831,10 @@
       "version": null,
       "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/vshulcz/deja-vu/main/README.md",
-      "pushedAt": "2026-08-25T20:33:14Z",
+      "pushedAt": "2026-08-25T21:32:39Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:14.924Z",
+        "scannedAt": "2026-08-25T21:35:52.871Z",
         "confidence": 5,
         "security": {
           "level": "danger",
@@ -7918,7 +7918,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:14.924Z",
+        "lastVerifiedAt": "2026-08-25T21:35:52.871Z",
         "resource": null
       }
     },
@@ -8116,11 +8116,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/18715564?v=4",
       "authorUrl": "https://github.com/shaobeichen",
       "repoUrl": "https://github.com/shaobeichen/dsh-pocket",
-      "stars": 649,
+      "stars": 652,
       "forks": 36,
       "openIssues": 9,
       "license": "GPL-2.0",
-      "updatedAt": "2026-08-25T19:40:52Z",
+      "updatedAt": "2026-08-25T21:32:01Z",
       "createdAt": "2026-08-15T09:36:29Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -8535,11 +8535,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/217153862?v=4",
       "authorUrl": "https://github.com/superdesigndev",
       "repoUrl": "https://github.com/superdesigndev/treg",
-      "stars": 611,
+      "stars": 612,
       "forks": 56,
       "openIssues": 14,
       "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T19:40:32Z",
+      "updatedAt": "2026-08-25T20:45:54Z",
       "createdAt": "2026-07-15T13:38:07Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -8832,76 +8832,6 @@
       }
     },
     {
-      "id": "mnemon",
-      "name": "mnemon",
-      "fullName": "mnemon-dev/mnemon",
-      "description": "LLM-supervised persistent memory for AI agents — graph-based recall, cross-session knowledge, single binary. Works with DeepSeek Harness, Claude Code, OpenClaw, and any agent runtime.",
-      "author": "mnemon-dev",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/262709594?v=4",
-      "authorUrl": "https://github.com/mnemon-dev",
-      "repoUrl": "https://github.com/mnemon-dev/mnemon",
-      "stars": 521,
-      "forks": 65,
-      "openIssues": 14,
-      "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T09:47:03Z",
-      "createdAt": "2026-02-20T02:26:17Z",
-      "defaultBranch": "master",
-      "readmeZhUrl": null,
-      "tags": [
-        "agent-framework",
-        "agent-memory",
-        "ai-agent",
-        "ai-tools",
-        "claude",
-        "claude-code",
-        "cli",
-        "context-window",
-        "dsh",
-        "knowledge-graph",
-        "llm-agent",
-        "llm-memory",
-        "llm-supervised",
-        "memory",
-        "openclaw",
-        "persistent-memory"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.1.0",
-      "installCmd": "npm i github:mnemon-dev/mnemon",
-      "readmeUrl": "https://raw.githubusercontent.com/mnemon-dev/mnemon/master/README.md",
-      "pushedAt": "2026-08-23T10:42:07Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T06:59:14.062Z",
-        "confidence": 20,
-        "security": {
-          "level": "danger",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "internal/memory/setup/assets/openclaw/hooks/mnemon-prime/handler.js",
-              "line": 4,
-              "detail": "静态引入 child_process（运行时代码）"
-            }
-          ],
-          "scannedFiles": 3
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T06:59:14.062Z",
-        "resource": null
-      }
-    },
-    {
       "id": "Minke",
       "name": "Minke",
       "fullName": "lencx/Minke",
@@ -8910,11 +8840,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/16164244?v=4",
       "authorUrl": "https://github.com/lencx",
       "repoUrl": "https://github.com/lencx/Minke",
-      "stars": 521,
-      "forks": 53,
+      "stars": 522,
+      "forks": 54,
       "openIssues": 4,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T20:00:15Z",
+      "updatedAt": "2026-08-25T20:48:21Z",
       "createdAt": "2026-08-15T01:49:38Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/lencx/Minke/main/README.zh-CN.md",
@@ -9027,6 +8957,76 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T14:58:38.726Z",
+        "resource": null
+      }
+    },
+    {
+      "id": "mnemon",
+      "name": "mnemon",
+      "fullName": "mnemon-dev/mnemon",
+      "description": "LLM-supervised persistent memory for AI agents — graph-based recall, cross-session knowledge, single binary. Works with DeepSeek Harness, Claude Code, OpenClaw, and any agent runtime.",
+      "author": "mnemon-dev",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/262709594?v=4",
+      "authorUrl": "https://github.com/mnemon-dev",
+      "repoUrl": "https://github.com/mnemon-dev/mnemon",
+      "stars": 521,
+      "forks": 65,
+      "openIssues": 14,
+      "license": "Apache-2.0",
+      "updatedAt": "2026-08-25T09:47:03Z",
+      "createdAt": "2026-02-20T02:26:17Z",
+      "defaultBranch": "master",
+      "readmeZhUrl": null,
+      "tags": [
+        "agent-framework",
+        "agent-memory",
+        "ai-agent",
+        "ai-tools",
+        "claude",
+        "claude-code",
+        "cli",
+        "context-window",
+        "dsh",
+        "knowledge-graph",
+        "llm-agent",
+        "llm-memory",
+        "llm-supervised",
+        "memory",
+        "openclaw",
+        "persistent-memory"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0",
+      "installCmd": "npm i github:mnemon-dev/mnemon",
+      "readmeUrl": "https://raw.githubusercontent.com/mnemon-dev/mnemon/master/README.md",
+      "pushedAt": "2026-08-23T10:42:07Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T06:59:14.062Z",
+        "confidence": 20,
+        "security": {
+          "level": "danger",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "internal/memory/setup/assets/openclaw/hooks/mnemon-prime/handler.js",
+              "line": 4,
+              "detail": "静态引入 child_process（运行时代码）"
+            }
+          ],
+          "scannedFiles": 3
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T06:59:14.062Z",
         "resource": null
       }
     },
@@ -9302,11 +9302,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/160371962?v=4",
       "authorUrl": "https://github.com/hashgraph-online",
       "repoUrl": "https://github.com/hashgraph-online/hol-guard",
-      "stars": 476,
+      "stars": 479,
       "forks": 15,
-      "openIssues": 33,
+      "openIssues": 32,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T18:21:17Z",
+      "updatedAt": "2026-08-25T20:59:45Z",
       "createdAt": "2026-03-28T19:02:15Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -9338,10 +9338,10 @@
       "version": null,
       "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/hashgraph-online/hol-guard/main/README.md",
-      "pushedAt": "2026-08-25T20:25:12Z",
+      "pushedAt": "2026-08-25T21:35:02Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:18.899Z",
+        "scannedAt": "2026-08-25T21:35:54.481Z",
         "confidence": 55,
         "security": {
           "level": "pass",
@@ -9460,7 +9460,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:18.899Z",
+        "lastVerifiedAt": "2026-08-25T21:35:54.481Z",
         "resource": null
       }
     },
@@ -9854,11 +9854,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/228423313?v=4",
       "authorUrl": "https://github.com/Devin-AXIS",
       "repoUrl": "https://github.com/Devin-AXIS/deepseek-design",
-      "stars": 452,
+      "stars": 454,
       "forks": 130,
       "openIssues": 4,
       "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T20:03:13Z",
+      "updatedAt": "2026-08-25T21:04:39Z",
       "createdAt": "2026-08-15T13:08:53Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -11330,6 +11330,148 @@
       }
     },
     {
+      "id": "dshcode",
+      "name": "dshcode",
+      "fullName": "whitelonng/dshcode",
+      "description": "Community desktop companion for DeepSeek Harness — one-click Electron app for macOS and Windows",
+      "author": "whitelonng",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/88144095?v=4",
+      "authorUrl": "https://github.com/whitelonng",
+      "repoUrl": "https://github.com/whitelonng/dshcode",
+      "stars": 350,
+      "forks": 13,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T20:44:59Z",
+      "createdAt": "2026-08-13T13:23:11Z",
+      "defaultBranch": "master",
+      "readmeZhUrl": "https://raw.githubusercontent.com/whitelonng/dshcode/master/README.zh.md",
+      "tags": [
+        "agent",
+        "deepseek",
+        "deepseekharness-plugin",
+        "harness"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "1.0.5",
+      "installCmd": "npm i github:whitelonng/dshcode",
+      "readmeUrl": "https://raw.githubusercontent.com/whitelonng/dshcode/master/README.md",
+      "pushedAt": "2026-08-21T21:49:18Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T06:59:24.849Z",
+        "confidence": 20,
+        "security": {
+          "level": "danger",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "apps/desktop/scripts/build-package.mjs",
+              "line": 4,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "apps/desktop/scripts/prepare-package.mjs",
+              "line": 7,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "apps/desktop/scripts/smoke-packaged-win32-picker.mjs",
+              "line": 6,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "native/landlock-run/scripts/bump-release.mjs",
+              "line": 9,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "native/landlock-run/scripts/commit-release.mjs",
+              "line": 9,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "native/landlock-run/scripts/pack-release.mjs",
+              "line": 17,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "native/landlock-run/scripts/publish-release.mjs",
+              "line": 21,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "native/landlock-run/scripts/verify-packed-install.mjs",
+              "line": 28,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/demo-code-mode.mjs",
+              "line": 2,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/demo-cordis.mjs",
+              "line": 4,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/install-lefthook.mjs",
+              "line": 15,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "scripts/verify-built-package-invariants.mjs",
+              "line": 28,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            },
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "scripts/verify-built-package-invariants.mjs",
+              "line": 60,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            }
+          ],
+          "scannedFiles": 24
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T06:59:24.849Z",
+        "resource": null
+      }
+    },
+    {
       "id": "Abu-Cowork",
       "name": "Abu-Cowork",
       "fullName": "PM-Shawn/Abu-Cowork",
@@ -11460,148 +11602,6 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T17:38:12.798Z"
-      }
-    },
-    {
-      "id": "dshcode",
-      "name": "dshcode",
-      "fullName": "whitelonng/dshcode",
-      "description": "Community desktop companion for DeepSeek Harness — one-click Electron app for macOS and Windows",
-      "author": "whitelonng",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/88144095?v=4",
-      "authorUrl": "https://github.com/whitelonng",
-      "repoUrl": "https://github.com/whitelonng/dshcode",
-      "stars": 349,
-      "forks": 13,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T20:13:17Z",
-      "createdAt": "2026-08-13T13:23:11Z",
-      "defaultBranch": "master",
-      "readmeZhUrl": "https://raw.githubusercontent.com/whitelonng/dshcode/master/README.zh.md",
-      "tags": [
-        "agent",
-        "deepseek",
-        "deepseekharness-plugin",
-        "harness"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "1.0.5",
-      "installCmd": "npm i github:whitelonng/dshcode",
-      "readmeUrl": "https://raw.githubusercontent.com/whitelonng/dshcode/master/README.md",
-      "pushedAt": "2026-08-21T21:49:18Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T06:59:24.849Z",
-        "confidence": 20,
-        "security": {
-          "level": "danger",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "apps/desktop/scripts/build-package.mjs",
-              "line": 4,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "apps/desktop/scripts/prepare-package.mjs",
-              "line": 7,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "apps/desktop/scripts/smoke-packaged-win32-picker.mjs",
-              "line": 6,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "native/landlock-run/scripts/bump-release.mjs",
-              "line": 9,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "native/landlock-run/scripts/commit-release.mjs",
-              "line": 9,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "native/landlock-run/scripts/pack-release.mjs",
-              "line": 17,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "native/landlock-run/scripts/publish-release.mjs",
-              "line": 21,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "native/landlock-run/scripts/verify-packed-install.mjs",
-              "line": 28,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/demo-code-mode.mjs",
-              "line": 2,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/demo-cordis.mjs",
-              "line": 4,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/install-lefthook.mjs",
-              "line": 15,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "scripts/verify-built-package-invariants.mjs",
-              "line": 28,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            },
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "scripts/verify-built-package-invariants.mjs",
-              "line": 60,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            }
-          ],
-          "scannedFiles": 24
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T06:59:24.849Z",
-        "resource": null
       }
     },
     {
@@ -11774,6 +11774,128 @@
       }
     },
     {
+      "id": "DeepSec",
+      "name": "DeepSec",
+      "fullName": "Unclecheng-li/DeepSec",
+      "description": "DeepSec — AI Security Offense & Defense Platform. Shield audits AI-generated code for hallucinated packages, missing safeguards & AI pattern errors in real time. Spear automates authorized penetration testing with 40+ skill packs, from recon to PoC. ",
+      "author": "Unclecheng-li",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/55303635?v=4",
+      "authorUrl": "https://github.com/Unclecheng-li",
+      "repoUrl": "https://github.com/Unclecheng-li/DeepSec",
+      "stars": 335,
+      "forks": 24,
+      "openIssues": 5,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T21:04:29Z",
+      "createdAt": "2026-07-09T13:53:54Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "agent",
+        "ai",
+        "ai-agents",
+        "aisecurity",
+        "cybersecurity",
+        "dsh",
+        "dsh-bundle",
+        "dsh-plugin-desktop",
+        "dsh-plugin-market",
+        "dsh-plugin-verify",
+        "dsh-plugins",
+        "dsh-skill",
+        "hacker",
+        "plugin",
+        "redteam",
+        "security",
+        "vscode",
+        "vulnerabilities",
+        "vulnerability"
+      ],
+      "type": "skill",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.2.0",
+      "installCmd": "npm i github:Unclecheng-li/DeepSec",
+      "readmeUrl": "https://raw.githubusercontent.com/Unclecheng-li/DeepSec/main/README.md",
+      "pushedAt": "2026-08-24T15:04:51Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T06:59:23.373Z",
+        "confidence": 20,
+        "security": {
+          "level": "danger",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "dsh-plugins/deepsec-shield/lib/cli.js",
+              "line": 1,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "dsh-plugins/deepsec-spear/lib/cli.js",
+              "line": 1,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/benchmark-cold-start.js",
+              "line": 1,
+              "detail": "工具链脚本引入 node:child_process"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/package-vsix.js",
+              "line": 1,
+              "detail": "工具链脚本引入 child_process"
+            },
+            {
+              "rule": "dynamic-import-literal",
+              "severity": "low",
+              "file": "dsh-plugins/deepsec-shield/index.js",
+              "line": 7,
+              "detail": "动态 import() 固定路径 @deepseek-ai/dsh-tools"
+            },
+            {
+              "rule": "dynamic-import-literal",
+              "severity": "low",
+              "file": "dsh-plugins/deepsec-shield/index.js",
+              "line": 15,
+              "detail": "动态 import() 固定路径 @deepseek-ai/schemastery"
+            },
+            {
+              "rule": "dynamic-import-literal",
+              "severity": "low",
+              "file": "dsh-plugins/deepsec-spear/index.js",
+              "line": 7,
+              "detail": "动态 import() 固定路径 @deepseek-ai/dsh-tools"
+            },
+            {
+              "rule": "dynamic-import-literal",
+              "severity": "low",
+              "file": "dsh-plugins/deepsec-spear/index.js",
+              "line": 15,
+              "detail": "动态 import() 固定路径 @deepseek-ai/schemastery"
+            }
+          ],
+          "scannedFiles": 9
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T06:59:23.373Z",
+        "resource": null
+      }
+    },
+    {
       "id": "dsh-genui",
       "name": "dsh-genui",
       "fullName": "omdsh-dev/dsh-genui",
@@ -11887,128 +12009,6 @@
         "dashboards": 1,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T15:54:00.849Z"
-      }
-    },
-    {
-      "id": "DeepSec",
-      "name": "DeepSec",
-      "fullName": "Unclecheng-li/DeepSec",
-      "description": "DeepSec — AI Security Offense & Defense Platform. Shield audits AI-generated code for hallucinated packages, missing safeguards & AI pattern errors in real time. Spear automates authorized penetration testing with 40+ skill packs, from recon to PoC. ",
-      "author": "Unclecheng-li",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/55303635?v=4",
-      "authorUrl": "https://github.com/Unclecheng-li",
-      "repoUrl": "https://github.com/Unclecheng-li/DeepSec",
-      "stars": 334,
-      "forks": 24,
-      "openIssues": 5,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T20:23:12Z",
-      "createdAt": "2026-07-09T13:53:54Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "agent",
-        "ai",
-        "ai-agents",
-        "aisecurity",
-        "cybersecurity",
-        "dsh",
-        "dsh-bundle",
-        "dsh-plugin-desktop",
-        "dsh-plugin-market",
-        "dsh-plugin-verify",
-        "dsh-plugins",
-        "dsh-skill",
-        "hacker",
-        "plugin",
-        "redteam",
-        "security",
-        "vscode",
-        "vulnerabilities",
-        "vulnerability"
-      ],
-      "type": "skill",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.2.0",
-      "installCmd": "npm i github:Unclecheng-li/DeepSec",
-      "readmeUrl": "https://raw.githubusercontent.com/Unclecheng-li/DeepSec/main/README.md",
-      "pushedAt": "2026-08-24T15:04:51Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T06:59:23.373Z",
-        "confidence": 20,
-        "security": {
-          "level": "danger",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "dsh-plugins/deepsec-shield/lib/cli.js",
-              "line": 1,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "dsh-plugins/deepsec-spear/lib/cli.js",
-              "line": 1,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/benchmark-cold-start.js",
-              "line": 1,
-              "detail": "工具链脚本引入 node:child_process"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/package-vsix.js",
-              "line": 1,
-              "detail": "工具链脚本引入 child_process"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "dsh-plugins/deepsec-shield/index.js",
-              "line": 7,
-              "detail": "动态 import() 固定路径 @deepseek-ai/dsh-tools"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "dsh-plugins/deepsec-shield/index.js",
-              "line": 15,
-              "detail": "动态 import() 固定路径 @deepseek-ai/schemastery"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "dsh-plugins/deepsec-spear/index.js",
-              "line": 7,
-              "detail": "动态 import() 固定路径 @deepseek-ai/dsh-tools"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "dsh-plugins/deepsec-spear/index.js",
-              "line": 15,
-              "detail": "动态 import() 固定路径 @deepseek-ai/schemastery"
-            }
-          ],
-          "scannedFiles": 9
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T06:59:23.373Z",
-        "resource": null
       }
     },
     {
@@ -12142,11 +12142,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/75023175?v=4",
       "authorUrl": "https://github.com/Zhiyuan-Fan",
       "repoUrl": "https://github.com/Zhiyuan-Fan/Awesome-DeepSeek-Harness-Plugins",
-      "stars": 307,
+      "stars": 308,
       "forks": 38,
       "openIssues": 3,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:12:13Z",
+      "updatedAt": "2026-08-25T20:45:18Z",
       "createdAt": "2026-08-13T13:52:04Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/Zhiyuan-Fan/Awesome-DeepSeek-Harness-Plugins/main/README.zh-CN.md",
@@ -14149,11 +14149,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/252583569?v=4",
       "authorUrl": "https://github.com/kelai141",
       "repoUrl": "https://github.com/kelai141/dsh-mobile-apk",
-      "stars": 233,
+      "stars": 234,
       "forks": 23,
       "openIssues": 5,
       "license": "MIT",
-      "updatedAt": "2026-08-25T16:36:32Z",
+      "updatedAt": "2026-08-25T21:12:29Z",
       "createdAt": "2026-08-13T23:55:34Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/kelai141/dsh-mobile-apk/main/README.zh.md",
@@ -14962,11 +14962,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/83563400?v=4",
       "authorUrl": "https://github.com/shanliuling",
       "repoUrl": "https://github.com/shanliuling/dsh-image-gen",
-      "stars": 193,
+      "stars": 194,
       "forks": 12,
       "openIssues": 1,
       "license": "MIT",
-      "updatedAt": "2026-08-25T15:27:37Z",
+      "updatedAt": "2026-08-25T21:06:44Z",
       "createdAt": "2026-08-17T10:16:37Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/shanliuling/dsh-image-gen/main/README.zh-CN.md",
@@ -15017,11 +15017,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/68734681?v=4",
       "authorUrl": "https://github.com/Inference1",
       "repoUrl": "https://github.com/Inference1/clarify-intent-and-establish-shared-understanding",
-      "stars": 193,
+      "stars": 194,
       "forks": 3,
       "openIssues": 0,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T18:30:16Z",
+      "updatedAt": "2026-08-25T21:00:21Z",
       "createdAt": "2026-08-08T14:46:54Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -15606,7 +15606,7 @@
       "forks": 18,
       "openIssues": 7,
       "license": "MIT",
-      "updatedAt": "2026-08-25T20:26:48Z",
+      "updatedAt": "2026-08-25T20:39:39Z",
       "createdAt": "2026-08-16T16:04:08Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -15625,10 +15625,10 @@
       "version": "0.6.6",
       "installCmd": "npm i dsh-plugin-wallpaper-engine",
       "readmeUrl": "https://raw.githubusercontent.com/elysia395/dsh-wallpaper-engine/main/README.md",
-      "pushedAt": "2026-08-25T20:22:12Z",
+      "pushedAt": "2026-08-25T20:38:24Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:25.464Z",
+        "scannedAt": "2026-08-25T21:35:56.310Z",
         "confidence": 30,
         "security": {
           "level": "danger",
@@ -15782,7 +15782,7 @@
           "applyEntry": true,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:25.464Z",
+        "lastVerifiedAt": "2026-08-25T21:35:56.310Z",
         "resource": {
           "weight": "light",
           "hotPathHooks": [],
@@ -15791,7 +15791,7 @@
           "hasCommands": false,
           "dashboards": 16,
           "scannedFiles": 1,
-          "scannedAt": "2026-08-25T20:37:25.464Z"
+          "scannedAt": "2026-08-25T21:35:56.310Z"
         }
       },
       "resource": {
@@ -15802,7 +15802,72 @@
         "hasCommands": false,
         "dashboards": 16,
         "scannedFiles": 1,
-        "scannedAt": "2026-08-25T20:37:25.464Z"
+        "scannedAt": "2026-08-25T21:35:56.310Z"
+      }
+    },
+    {
+      "id": "SkillCorpus",
+      "name": "SkillCorpus",
+      "fullName": "EverMind-AI/SkillCorpus",
+      "description": "Open-source infrastructure that turns scattered SKILL.md files into curated, retrieval-ready agent-skill corpora—with retrieval and evaluation tooling included.",
+      "author": "EverMind-AI",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/229275294?v=4",
+      "authorUrl": "https://github.com/EverMind-AI",
+      "repoUrl": "https://github.com/EverMind-AI/SkillCorpus",
+      "stars": 186,
+      "forks": 34,
+      "openIssues": 1,
+      "license": "Apache-2.0",
+      "updatedAt": "2026-08-25T21:26:27Z",
+      "createdAt": "2026-08-11T02:48:55Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/EverMind-AI/SkillCorpus/main/README.zh-CN.md",
+      "tags": [
+        "agent-memory",
+        "agent-skills",
+        "ai-agents",
+        "benchmark",
+        "dataset",
+        "deepseek-harness",
+        "dsh",
+        "embeddings",
+        "hugginface",
+        "information-retrieval",
+        "llm-agents",
+        "llm-evaluation",
+        "long-term-memory",
+        "python",
+        "reranking",
+        "semantic-search",
+        "skill-md",
+        "skill-routing",
+        "vector-search"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": null,
+      "readmeUrl": "https://raw.githubusercontent.com/EverMind-AI/SkillCorpus/main/README.md",
+      "pushedAt": "2026-08-21T09:40:01Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T06:59:40.588Z",
+        "confidence": 55,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T06:59:40.588Z",
+        "resource": null
       }
     },
     {
@@ -16008,71 +16073,6 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T14:59:03.867Z",
-        "resource": null
-      }
-    },
-    {
-      "id": "SkillCorpus",
-      "name": "SkillCorpus",
-      "fullName": "EverMind-AI/SkillCorpus",
-      "description": "Open-source infrastructure that turns scattered SKILL.md files into curated, retrieval-ready agent-skill corpora—with retrieval and evaluation tooling included.",
-      "author": "EverMind-AI",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/229275294?v=4",
-      "authorUrl": "https://github.com/EverMind-AI",
-      "repoUrl": "https://github.com/EverMind-AI/SkillCorpus",
-      "stars": 184,
-      "forks": 34,
-      "openIssues": 1,
-      "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T20:35:53Z",
-      "createdAt": "2026-08-11T02:48:55Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/EverMind-AI/SkillCorpus/main/README.zh-CN.md",
-      "tags": [
-        "agent-memory",
-        "agent-skills",
-        "ai-agents",
-        "benchmark",
-        "dataset",
-        "deepseek-harness",
-        "dsh",
-        "embeddings",
-        "hugginface",
-        "information-retrieval",
-        "llm-agents",
-        "llm-evaluation",
-        "long-term-memory",
-        "python",
-        "reranking",
-        "semantic-search",
-        "skill-md",
-        "skill-routing",
-        "vector-search"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/EverMind-AI/SkillCorpus/main/README.md",
-      "pushedAt": "2026-08-21T09:40:01Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T06:59:40.588Z",
-        "confidence": 55,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": false,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T06:59:40.588Z",
         "resource": null
       }
     },
@@ -16874,10 +16874,10 @@
       "version": null,
       "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/cocode-agency/cocode/main/README.md",
-      "pushedAt": "2026-08-25T20:14:27Z",
+      "pushedAt": "2026-08-25T21:04:51Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:28.421Z",
+        "scannedAt": "2026-08-25T21:35:58.315Z",
         "confidence": 5,
         "security": {
           "level": "danger",
@@ -17031,7 +17031,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:28.421Z",
+        "lastVerifiedAt": "2026-08-25T21:35:58.315Z",
         "resource": null
       }
     },
@@ -17991,7 +17991,7 @@
       "forks": 6,
       "openIssues": 16,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:11:39Z",
+      "updatedAt": "2026-08-25T20:55:40Z",
       "createdAt": "2026-08-13T16:01:59Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -18015,10 +18015,10 @@
       "version": "1.5.5",
       "installCmd": "npm i github:bradeGithub/DSH-Plugins-Marketplace",
       "readmeUrl": "https://raw.githubusercontent.com/bradeGithub/DSH-Plugins-Marketplace/main/README.md",
-      "pushedAt": "2026-08-25T19:08:17Z",
+      "pushedAt": "2026-08-25T20:52:33Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T19:38:23.210Z",
+        "scannedAt": "2026-08-25T21:36:00.158Z",
         "confidence": 45,
         "security": {
           "level": "warn",
@@ -18074,7 +18074,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T19:38:23.210Z",
+        "lastVerifiedAt": "2026-08-25T21:36:00.158Z",
         "resource": null
       }
     },
@@ -18778,11 +18778,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/279883115?v=4",
       "authorUrl": "https://github.com/Totoro-qaq",
       "repoUrl": "https://github.com/Totoro-qaq/dsh-plugin-bridge",
-      "stars": 133,
+      "stars": 134,
       "forks": 6,
       "openIssues": 1,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:52:02Z",
+      "updatedAt": "2026-08-25T20:41:27Z",
       "createdAt": "2026-08-17T07:52:45Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/Totoro-qaq/dsh-plugin-bridge/main/README.zh.md",
@@ -19063,11 +19063,11 @@
       "authorAvatar": "https://avatars.githubusercontent.com/u/93632259?v=4",
       "authorUrl": "https://github.com/shengsheng90",
       "repoUrl": "https://github.com/shengsheng90/DSH-taskboard",
-      "stars": 128,
+      "stars": 129,
       "forks": 6,
       "openIssues": 1,
       "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T20:28:12Z",
+      "updatedAt": "2026-08-25T21:30:19Z",
       "createdAt": "2026-08-14T02:58:37Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/shengsheng90/DSH-taskboard/main/README.zh.md",
@@ -20210,6 +20210,74 @@
       }
     },
     {
+      "id": "dsh-reasoning-effort",
+      "name": "dsh-reasoning-effort",
+      "fullName": "HanaAyane/dsh-reasoning-effort",
+      "description": "DSH适用的Codex风格的思考强度滑块，以及大肥鱼跑步滑块。Codex-style model and reasoning-effort slider for DeepSeek Harness",
+      "author": "HanaAyane",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/115002127?v=4",
+      "authorUrl": "https://github.com/HanaAyane",
+      "repoUrl": "https://github.com/HanaAyane/dsh-reasoning-effort",
+      "stars": 112,
+      "forks": 9,
+      "openIssues": 4,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T19:34:28Z",
+      "createdAt": "2026-08-14T17:52:18Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/HanaAyane/dsh-reasoning-effort/main/README.zh.md",
+      "tags": [
+        "deepseek",
+        "deepseek-harness",
+        "reasoning-effort"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.6.2",
+      "installCmd": "npm i github:HanaAyane/dsh-reasoning-effort",
+      "readmeUrl": "https://raw.githubusercontent.com/HanaAyane/dsh-reasoning-effort/main/README.md",
+      "pushedAt": "2026-08-17T13:21:36Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T06:59:51.191Z",
+        "confidence": 80,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 3
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": true,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T06:59:51.191Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T06:59:51.191Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T06:59:51.191Z"
+      }
+    },
+    {
       "id": "dsh-crew",
       "name": "dsh-crew",
       "fullName": "ZSeven-W/dsh-crew",
@@ -20425,74 +20493,6 @@
         "dashboards": 10,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T06:59:50.700Z"
-      }
-    },
-    {
-      "id": "dsh-reasoning-effort",
-      "name": "dsh-reasoning-effort",
-      "fullName": "HanaAyane/dsh-reasoning-effort",
-      "description": "DSH适用的Codex风格的思考强度滑块，以及大肥鱼跑步滑块。Codex-style model and reasoning-effort slider for DeepSeek Harness",
-      "author": "HanaAyane",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/115002127?v=4",
-      "authorUrl": "https://github.com/HanaAyane",
-      "repoUrl": "https://github.com/HanaAyane/dsh-reasoning-effort",
-      "stars": 112,
-      "forks": 9,
-      "openIssues": 4,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T19:34:28Z",
-      "createdAt": "2026-08-14T17:52:18Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/HanaAyane/dsh-reasoning-effort/main/README.zh.md",
-      "tags": [
-        "deepseek",
-        "deepseek-harness",
-        "reasoning-effort"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.6.2",
-      "installCmd": "npm i github:HanaAyane/dsh-reasoning-effort",
-      "readmeUrl": "https://raw.githubusercontent.com/HanaAyane/dsh-reasoning-effort/main/README.md",
-      "pushedAt": "2026-08-17T13:21:36Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T06:59:51.191Z",
-        "confidence": 80,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 3
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": true,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T06:59:51.191Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T06:59:51.191Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T06:59:51.191Z"
       }
     },
     {
@@ -21900,61 +21900,6 @@
       }
     },
     {
-      "id": "dsh-beauty-skins",
-      "name": "dsh-beauty-skins",
-      "fullName": "XieRW/dsh-beauty-skins",
-      "description": "给 DeepSeek Harness 用的美女系列皮肤：设置里从 哲风壁纸 拉预览网格，点一张即应用，配色从壁纸提取。支持动态壁纸，也保留自定义选图。",
-      "author": "XieRW",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/37648592?v=4",
-      "authorUrl": "https://github.com/XieRW",
-      "repoUrl": "https://github.com/XieRW/dsh-beauty-skins",
-      "stars": 98,
-      "forks": 0,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T20:28:18Z",
-      "createdAt": "2026-08-18T08:44:24Z",
-      "defaultBranch": "master",
-      "readmeZhUrl": null,
-      "tags": [
-        "beauty",
-        "cordis",
-        "cordis-plugin",
-        "deepseek",
-        "deepseek-harness",
-        "deepseek-harness-plugin",
-        "dsh",
-        "dsh-plugin-theme",
-        "skin"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/XieRW/dsh-beauty-skins/master/README.md",
-      "pushedAt": "2026-08-18T08:52:11Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:00.603Z",
-        "confidence": 55,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 2
-        },
-        "health": {
-          "manifestValid": false,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:00.603Z",
-        "resource": null
-      }
-    },
-    {
       "id": "dsh-popout-sidebar",
       "name": "dsh-popout-sidebar",
       "fullName": "e2mcc/dsh-popout-sidebar",
@@ -22024,6 +21969,61 @@
         "dashboards": 0,
         "scannedFiles": 2,
         "scannedAt": "2026-08-25T06:59:58.280Z"
+      }
+    },
+    {
+      "id": "dsh-beauty-skins",
+      "name": "dsh-beauty-skins",
+      "fullName": "XieRW/dsh-beauty-skins",
+      "description": "给 DeepSeek Harness 用的美女系列皮肤：设置里从 哲风壁纸 拉预览网格，点一张即应用，配色从壁纸提取。支持动态壁纸，也保留自定义选图。",
+      "author": "XieRW",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/37648592?v=4",
+      "authorUrl": "https://github.com/XieRW",
+      "repoUrl": "https://github.com/XieRW/dsh-beauty-skins",
+      "stars": 98,
+      "forks": 0,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T20:28:18Z",
+      "createdAt": "2026-08-18T08:44:24Z",
+      "defaultBranch": "master",
+      "readmeZhUrl": null,
+      "tags": [
+        "beauty",
+        "cordis",
+        "cordis-plugin",
+        "deepseek",
+        "deepseek-harness",
+        "deepseek-harness-plugin",
+        "dsh",
+        "dsh-plugin-theme",
+        "skin"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": null,
+      "readmeUrl": "https://raw.githubusercontent.com/XieRW/dsh-beauty-skins/master/README.md",
+      "pushedAt": "2026-08-18T08:52:11Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:00.603Z",
+        "confidence": 55,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 2
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:00.603Z",
+        "resource": null
       }
     },
     {
@@ -22099,6 +22099,89 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T06:59:57.968Z"
+      }
+    },
+    {
+      "id": "dsh-turn-delete",
+      "name": "dsh-turn-delete",
+      "fullName": "hanshenmesen/dsh-turn-delete",
+      "description": "Delete one complete turn from a DeepSeek Harness session without deleting the session",
+      "author": "hanshenmesen",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/109567843?v=4",
+      "authorUrl": "https://github.com/hanshenmesen",
+      "repoUrl": "https://github.com/hanshenmesen/dsh-turn-delete",
+      "stars": 97,
+      "forks": 0,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T20:46:58Z",
+      "createdAt": "2026-08-17T15:40:59Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/hanshenmesen/dsh-turn-delete/main/README.zh.md",
+      "tags": [
+        "deepseek",
+        "deepseek-harness",
+        "dsh"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-turn-delete",
+      "npmUrl": "https://www.npmjs.com/package/dsh-turn-delete",
+      "version": "0.1.0",
+      "installCmd": "npm i dsh-turn-delete",
+      "readmeUrl": "https://raw.githubusercontent.com/hanshenmesen/dsh-turn-delete/main/README.md",
+      "pushedAt": "2026-08-18T04:37:17Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:00.387Z",
+        "confidence": 45,
+        "security": {
+          "level": "warn",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/build.mjs",
+              "line": 2,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/check.mjs",
+              "line": 1,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            }
+          ],
+          "scannedFiles": 4
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:00.387Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 1,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:00:00.387Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 1,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:00:00.387Z"
       }
     },
     {
@@ -22188,89 +22271,6 @@
         },
         "lastVerifiedAt": "2026-08-25T14:59:18.614Z",
         "resource": null
-      }
-    },
-    {
-      "id": "dsh-turn-delete",
-      "name": "dsh-turn-delete",
-      "fullName": "hanshenmesen/dsh-turn-delete",
-      "description": "Delete one complete turn from a DeepSeek Harness session without deleting the session",
-      "author": "hanshenmesen",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/109567843?v=4",
-      "authorUrl": "https://github.com/hanshenmesen",
-      "repoUrl": "https://github.com/hanshenmesen/dsh-turn-delete",
-      "stars": 96,
-      "forks": 0,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T20:21:52Z",
-      "createdAt": "2026-08-17T15:40:59Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/hanshenmesen/dsh-turn-delete/main/README.zh.md",
-      "tags": [
-        "deepseek",
-        "deepseek-harness",
-        "dsh"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-turn-delete",
-      "npmUrl": "https://www.npmjs.com/package/dsh-turn-delete",
-      "version": "0.1.0",
-      "installCmd": "npm i dsh-turn-delete",
-      "readmeUrl": "https://raw.githubusercontent.com/hanshenmesen/dsh-turn-delete/main/README.md",
-      "pushedAt": "2026-08-18T04:37:17Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:00.387Z",
-        "confidence": 45,
-        "security": {
-          "level": "warn",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/build.mjs",
-              "line": 2,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/check.mjs",
-              "line": 1,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            }
-          ],
-          "scannedFiles": 4
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:00.387Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 1,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:00:00.387Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 1,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:00:00.387Z"
       }
     },
     {
@@ -23002,6 +23002,57 @@
       }
     },
     {
+      "id": "awesome-DSH-plugin",
+      "name": "awesome-DSH-plugin",
+      "fullName": "Alex-Yanggg/awesome-DSH-plugin",
+      "description": "A meticulously curated list of useful plugins, extensions, tools and development resources built for DSH, covering productivity enhancement, functional expansion, debugging utilities and custom development modules.",
+      "author": "Alex-Yanggg",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/177086690?v=4",
+      "authorUrl": "https://github.com/Alex-Yanggg",
+      "repoUrl": "https://github.com/Alex-Yanggg/awesome-DSH-plugin",
+      "stars": 84,
+      "forks": 85,
+      "openIssues": 50,
+      "license": "CC0-1.0",
+      "updatedAt": "2026-08-25T20:50:03Z",
+      "createdAt": "2026-08-13T01:23:29Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/Alex-Yanggg/awesome-DSH-plugin/main/docs/README.zh-CN.md",
+      "tags": [
+        "agents",
+        "awesome",
+        "awesome-list",
+        "deepseek",
+        "plugins"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": null,
+      "readmeUrl": "https://raw.githubusercontent.com/Alex-Yanggg/awesome-DSH-plugin/main/README.md",
+      "pushedAt": "2026-08-15T03:22:05Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:01.834Z",
+        "confidence": 55,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:01.834Z",
+        "resource": null
+      }
+    },
+    {
       "id": "dsh-kun-like-pet",
       "name": "dsh-kun-like-pet",
       "fullName": "liyupi/dsh-kun-like-pet",
@@ -23244,57 +23295,6 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T07:00:01.875Z",
-        "resource": null
-      }
-    },
-    {
-      "id": "awesome-DSH-plugin",
-      "name": "awesome-DSH-plugin",
-      "fullName": "Alex-Yanggg/awesome-DSH-plugin",
-      "description": "A meticulously curated list of useful plugins, extensions, tools and development resources built for DSH, covering productivity enhancement, functional expansion, debugging utilities and custom development modules.",
-      "author": "Alex-Yanggg",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/177086690?v=4",
-      "authorUrl": "https://github.com/Alex-Yanggg",
-      "repoUrl": "https://github.com/Alex-Yanggg/awesome-DSH-plugin",
-      "stars": 83,
-      "forks": 85,
-      "openIssues": 50,
-      "license": "CC0-1.0",
-      "updatedAt": "2026-08-25T08:36:43Z",
-      "createdAt": "2026-08-13T01:23:29Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/Alex-Yanggg/awesome-DSH-plugin/main/docs/README.zh-CN.md",
-      "tags": [
-        "agents",
-        "awesome",
-        "awesome-list",
-        "deepseek",
-        "plugins"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/Alex-Yanggg/awesome-DSH-plugin/main/README.md",
-      "pushedAt": "2026-08-15T03:22:05Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:01.834Z",
-        "confidence": 55,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": false,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:01.834Z",
         "resource": null
       }
     },
@@ -24027,6 +24027,63 @@
       }
     },
     {
+      "id": "dsh-Mimir-Academic-research",
+      "name": "dsh-Mimir-Academic-research",
+      "fullName": "1692775560/dsh-Mimir-Academic-research",
+      "description": "Mimir — 一站式科研工作台插件：LaTeX 论文边写边编译、arXiv 文献管理、实验追踪、指标图表、GPU 服务器 SSH 任务编排，管理科研全周期。An open-source research workbench plugin for the whole research cycle.",
+      "author": "1692775560",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/110378238?v=4",
+      "authorUrl": "https://github.com/1692775560",
+      "repoUrl": "https://github.com/1692775560/dsh-Mimir-Academic-research",
+      "stars": 77,
+      "forks": 6,
+      "openIssues": 1,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T21:24:30Z",
+      "createdAt": "2026-08-20T13:46:05Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/1692775560/dsh-Mimir-Academic-research/main/README.zh.md",
+      "tags": [
+        "arxiv",
+        "bibtex",
+        "deepseek",
+        "deepseek-harness",
+        "experiment-tracking",
+        "gpu-cluster",
+        "latex",
+        "paper-writing",
+        "research",
+        "research-tools",
+        "ssh"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:1692775560/dsh-Mimir-Academic-research",
+      "readmeUrl": "https://raw.githubusercontent.com/1692775560/dsh-Mimir-Academic-research/main/README.md",
+      "pushedAt": "2026-08-25T15:38:49Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T15:54:14.637Z",
+        "confidence": 55,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T15:54:14.637Z",
+        "resource": null
+      }
+    },
+    {
       "id": "sealos-skills",
       "name": "sealos-skills",
       "fullName": "labring/sealos-skills",
@@ -24212,63 +24269,6 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T07:00:05.893Z"
-      }
-    },
-    {
-      "id": "dsh-Mimir-Academic-research",
-      "name": "dsh-Mimir-Academic-research",
-      "fullName": "1692775560/dsh-Mimir-Academic-research",
-      "description": "Mimir — 一站式科研工作台插件：LaTeX 论文边写边编译、arXiv 文献管理、实验追踪、指标图表、GPU 服务器 SSH 任务编排，管理科研全周期。An open-source research workbench plugin for the whole research cycle.",
-      "author": "1692775560",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/110378238?v=4",
-      "authorUrl": "https://github.com/1692775560",
-      "repoUrl": "https://github.com/1692775560/dsh-Mimir-Academic-research",
-      "stars": 76,
-      "forks": 6,
-      "openIssues": 1,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T18:45:16Z",
-      "createdAt": "2026-08-20T13:46:05Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/1692775560/dsh-Mimir-Academic-research/main/README.zh.md",
-      "tags": [
-        "arxiv",
-        "bibtex",
-        "deepseek",
-        "deepseek-harness",
-        "experiment-tracking",
-        "gpu-cluster",
-        "latex",
-        "paper-writing",
-        "research",
-        "research-tools",
-        "ssh"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": "npm i github:1692775560/dsh-Mimir-Academic-research",
-      "readmeUrl": "https://raw.githubusercontent.com/1692775560/dsh-Mimir-Academic-research/main/README.md",
-      "pushedAt": "2026-08-25T15:38:49Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T15:54:14.637Z",
-        "confidence": 55,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": false,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T15:54:14.637Z",
-        "resource": null
       }
     },
     {
@@ -24835,7 +24835,7 @@
       "forks": 21,
       "openIssues": 1,
       "license": "MIT",
-      "updatedAt": "2026-08-25T17:03:34Z",
+      "updatedAt": "2026-08-25T20:53:25Z",
       "createdAt": "2026-08-14T01:14:24Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -24856,10 +24856,10 @@
       "version": null,
       "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/like-study1/Oh-My-DSH/main/README.md",
-      "pushedAt": "2026-08-25T16:58:07Z",
+      "pushedAt": "2026-08-25T20:48:23Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T17:38:27.996Z",
+        "scannedAt": "2026-08-25T21:36:00.921Z",
         "confidence": 55,
         "security": {
           "level": "pass",
@@ -24872,7 +24872,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T17:38:27.996Z",
+        "lastVerifiedAt": "2026-08-25T21:36:00.921Z",
         "resource": null
       }
     },
@@ -26032,7 +26032,7 @@
       "forks": 5,
       "openIssues": 2,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:59:49Z",
+      "updatedAt": "2026-08-25T20:55:15Z",
       "createdAt": "2026-08-13T22:16:37Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -26050,10 +26050,10 @@
       "version": "0.1.3",
       "installCmd": "npm i github:ZASENJC/dsh-plugins-store",
       "readmeUrl": "https://raw.githubusercontent.com/ZASENJC/dsh-plugins-store/main/README.md",
-      "pushedAt": "2026-08-25T19:54:53Z",
+      "pushedAt": "2026-08-25T20:54:21Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:30.747Z",
+        "scannedAt": "2026-08-25T21:36:02.492Z",
         "confidence": 20,
         "security": {
           "level": "danger",
@@ -26130,7 +26130,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:30.747Z",
+        "lastVerifiedAt": "2026-08-25T21:36:02.492Z",
         "resource": null
       }
     },
@@ -27777,6 +27777,73 @@
       }
     },
     {
+      "id": "dsh-recall-unread",
+      "name": "dsh-recall-unread",
+      "fullName": "hg1048596-pixel/dsh-recall-unread",
+      "description": "DeepSeek Harness (DSH) 插件：在模型读取前撤回已发送的文字消息，支持单条与全部撤回。A DeepSeek Harness plugin that recalls sent-but-unread text messages before the model reads them — one-by-one or all at once.",
+      "author": "hg1048596-pixel",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/275325321?v=4",
+      "authorUrl": "https://github.com/hg1048596-pixel",
+      "repoUrl": "https://github.com/hg1048596-pixel/dsh-recall-unread",
+      "stars": 58,
+      "forks": 0,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T21:34:31Z",
+      "createdAt": "2026-08-17T07:41:14Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "dsh-plugin-market",
+        "dsh-plugins"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-recall-unread",
+      "npmUrl": "https://www.npmjs.com/package/dsh-recall-unread",
+      "version": "1.1.0",
+      "installCmd": "npm i dsh-recall-unread",
+      "readmeUrl": "https://raw.githubusercontent.com/hg1048596-pixel/dsh-recall-unread/main/README.md",
+      "pushedAt": "2026-08-19T17:10:35Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:24.554Z",
+        "confidence": 80,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 4
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": true,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:24.554Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:00:24.554Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:00:24.554Z"
+      }
+    },
+    {
       "id": "plugin-registry",
       "name": "plugin-registry",
       "fullName": "vlln/plugin-registry",
@@ -28058,66 +28125,48 @@
       }
     },
     {
-      "id": "dsh-smooth-stream",
-      "name": "dsh-smooth-stream",
-      "fullName": "Laplace-bit/dsh-smooth-stream",
-      "description": "DeepSeek Harness Web UI plugin for fluid streaming rendering and silky scrolling. 流畅流式渲染与丝滑滚动。",
-      "author": "Laplace-bit",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/82888920?v=4",
-      "authorUrl": "https://github.com/Laplace-bit",
-      "repoUrl": "https://github.com/Laplace-bit/dsh-smooth-stream",
-      "stars": 57,
-      "forks": 7,
-      "openIssues": 3,
+      "id": "mstar-harness",
+      "name": "mstar-harness",
+      "fullName": "btspoony/mstar-harness",
+      "description": "An omni-plugin for harness engineering workflows with multi-agents, programmatic gates and skills.",
+      "author": "btspoony",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/707025?v=4",
+      "authorUrl": "https://github.com/btspoony",
+      "repoUrl": "https://github.com/btspoony/mstar-harness",
+      "stars": 56,
+      "forks": 3,
+      "openIssues": 0,
       "license": "MIT",
-      "updatedAt": "2026-08-25T03:30:33Z",
-      "createdAt": "2026-08-15T05:19:33Z",
+      "updatedAt": "2026-08-25T20:39:17Z",
+      "createdAt": "2026-03-06T16:47:43Z",
       "defaultBranch": "main",
-      "readmeZhUrl": null,
+      "readmeZhUrl": "https://raw.githubusercontent.com/btspoony/mstar-harness/main/README_CN.md",
       "tags": [
-        "ai-chat",
-        "chat-ui",
-        "cordis",
-        "deepseek",
-        "deepseek-harness",
-        "developer-tools",
-        "dsh",
-        "fluid-streaming",
-        "llm",
-        "markdown",
-        "plugin",
-        "react",
-        "smooth-scrolling",
-        "smooth-streaming",
-        "streaming",
-        "streaming-markdown",
-        "typescript",
-        "web-ui"
+        "cursor-plugin",
+        "harness-engineering",
+        "knowledge-management",
+        "omp-plugin",
+        "opencode-plugin",
+        "sdd",
+        "spec-driven",
+        "subagents"
       ],
       "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-smooth-stream",
-      "npmUrl": "https://www.npmjs.com/package/dsh-smooth-stream",
-      "version": "0.3.4",
-      "installCmd": "npm i dsh-smooth-stream",
-      "readmeUrl": "https://raw.githubusercontent.com/Laplace-bit/dsh-smooth-stream/main/README.md",
-      "pushedAt": "2026-08-24T07:15:37Z",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "3.3.0",
+      "installCmd": "npm i github:btspoony/mstar-harness",
+      "readmeUrl": "https://raw.githubusercontent.com/btspoony/mstar-harness/main/README.md",
+      "pushedAt": "2026-08-25T14:46:31Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T07:00:18.273Z",
-        "confidence": 45,
+        "scannedAt": "2026-08-25T14:59:29.792Z",
+        "confidence": 70,
         "security": {
-          "level": "warn",
-          "findings": [
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "scripts/run-stream-benchmark.mjs",
-              "line": 15,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            }
-          ],
-          "scannedFiles": 1
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
         },
         "health": {
           "manifestValid": true,
@@ -28125,55 +28174,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T07:00:18.273Z",
-        "resource": null
-      }
-    },
-    {
-      "id": "dsh-recall-unread",
-      "name": "dsh-recall-unread",
-      "fullName": "hg1048596-pixel/dsh-recall-unread",
-      "description": "DeepSeek Harness (DSH) 插件：在模型读取前撤回已发送的文字消息，支持单条与全部撤回。A DeepSeek Harness plugin that recalls sent-but-unread text messages before the model reads them — one-by-one or all at once.",
-      "author": "hg1048596-pixel",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/275325321?v=4",
-      "authorUrl": "https://github.com/hg1048596-pixel",
-      "repoUrl": "https://github.com/hg1048596-pixel/dsh-recall-unread",
-      "stars": 56,
-      "forks": 0,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T18:41:11Z",
-      "createdAt": "2026-08-17T07:41:14Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "dsh-plugin-market",
-        "dsh-plugins"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-recall-unread",
-      "npmUrl": "https://www.npmjs.com/package/dsh-recall-unread",
-      "version": "1.1.0",
-      "installCmd": "npm i dsh-recall-unread",
-      "readmeUrl": "https://raw.githubusercontent.com/hg1048596-pixel/dsh-recall-unread/main/README.md",
-      "pushedAt": "2026-08-19T17:10:35Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:24.554Z",
-        "confidence": 80,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 4
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": true,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:24.554Z",
+        "lastVerifiedAt": "2026-08-25T14:59:29.792Z",
         "resource": {
           "weight": "light",
           "hotPathHooks": [],
@@ -28182,7 +28183,7 @@
           "hasCommands": false,
           "dashboards": 0,
           "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:00:24.554Z"
+          "scannedAt": "2026-08-25T14:59:29.792Z"
         }
       },
       "resource": {
@@ -28193,7 +28194,7 @@
         "hasCommands": false,
         "dashboards": 0,
         "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:00:24.554Z"
+        "scannedAt": "2026-08-25T14:59:29.792Z"
       }
     },
     {
@@ -28494,6 +28495,78 @@
       }
     },
     {
+      "id": "dsh-smooth-stream",
+      "name": "dsh-smooth-stream",
+      "fullName": "Laplace-bit/dsh-smooth-stream",
+      "description": "DeepSeek Harness Web UI plugin for fluid streaming rendering and silky scrolling. 流畅流式渲染与丝滑滚动。",
+      "author": "Laplace-bit",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/82888920?v=4",
+      "authorUrl": "https://github.com/Laplace-bit",
+      "repoUrl": "https://github.com/Laplace-bit/dsh-smooth-stream",
+      "stars": 56,
+      "forks": 7,
+      "openIssues": 3,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T21:15:20Z",
+      "createdAt": "2026-08-15T05:19:33Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "ai-chat",
+        "chat-ui",
+        "cordis",
+        "deepseek",
+        "deepseek-harness",
+        "developer-tools",
+        "dsh",
+        "fluid-streaming",
+        "llm",
+        "markdown",
+        "plugin",
+        "react",
+        "smooth-scrolling",
+        "smooth-streaming",
+        "streaming",
+        "streaming-markdown",
+        "typescript",
+        "web-ui"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-smooth-stream",
+      "npmUrl": "https://www.npmjs.com/package/dsh-smooth-stream",
+      "version": "0.3.4",
+      "installCmd": "npm i dsh-smooth-stream",
+      "readmeUrl": "https://raw.githubusercontent.com/Laplace-bit/dsh-smooth-stream/main/README.md",
+      "pushedAt": "2026-08-24T07:15:37Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:18.273Z",
+        "confidence": 45,
+        "security": {
+          "level": "warn",
+          "findings": [
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "scripts/run-stream-benchmark.mjs",
+              "line": 15,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            }
+          ],
+          "scannedFiles": 1
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:18.273Z",
+        "resource": null
+      }
+    },
+    {
       "id": "PatentRadar",
       "name": "PatentRadar",
       "fullName": "yuc16/PatentRadar",
@@ -28651,79 +28724,6 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T07:00:22.661Z"
-      }
-    },
-    {
-      "id": "mstar-harness",
-      "name": "mstar-harness",
-      "fullName": "btspoony/mstar-harness",
-      "description": "An omni-plugin for harness engineering workflows with multi-agents, programmatic gates and skills.",
-      "author": "btspoony",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/707025?v=4",
-      "authorUrl": "https://github.com/btspoony",
-      "repoUrl": "https://github.com/btspoony/mstar-harness",
-      "stars": 55,
-      "forks": 3,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T15:11:49Z",
-      "createdAt": "2026-03-06T16:47:43Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/btspoony/mstar-harness/main/README_CN.md",
-      "tags": [
-        "cursor-plugin",
-        "harness-engineering",
-        "knowledge-management",
-        "omp-plugin",
-        "opencode-plugin",
-        "sdd",
-        "spec-driven",
-        "subagents"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "3.3.0",
-      "installCmd": "npm i github:btspoony/mstar-harness",
-      "readmeUrl": "https://raw.githubusercontent.com/btspoony/mstar-harness/main/README.md",
-      "pushedAt": "2026-08-25T14:46:31Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T14:59:29.792Z",
-        "confidence": 70,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T14:59:29.792Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T14:59:29.792Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T14:59:29.792Z"
       }
     },
     {
@@ -30469,7 +30469,7 @@
       "forks": 9,
       "openIssues": 18,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:57:31Z",
+      "updatedAt": "2026-08-25T20:54:36Z",
       "createdAt": "2026-08-13T13:32:50Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -30491,10 +30491,10 @@
       "version": "0.1.0",
       "installCmd": "npm i github:whyihaveyou/dsh-suite",
       "readmeUrl": "https://raw.githubusercontent.com/whyihaveyou/dsh-suite/main/README.md",
-      "pushedAt": "2026-08-25T19:51:14Z",
+      "pushedAt": "2026-08-25T20:49:26Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:34.280Z",
+        "scannedAt": "2026-08-25T21:36:05.471Z",
         "confidence": 20,
         "security": {
           "level": "danger",
@@ -30648,7 +30648,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:34.280Z",
+        "lastVerifiedAt": "2026-08-25T21:36:05.471Z",
         "resource": null
       }
     },
@@ -35270,89 +35270,6 @@
       }
     },
     {
-      "id": "dsh-auto-memory",
-      "name": "dsh-auto-memory",
-      "fullName": "Aik358/dsh-auto-memory",
-      "description": "A caring memory companion for DSH — three-layer auto memory, proactive calendar reminders, warm AI greetings, per-turn auto-consolidation, and inheritance of memories from other AI tools.",
-      "author": "Aik358",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/195134871?v=4",
-      "authorUrl": "https://github.com/Aik358",
-      "repoUrl": "https://github.com/Aik358/dsh-auto-memory",
-      "stars": 37,
-      "forks": 1,
-      "openIssues": 2,
-      "license": "BSD-3-Clause",
-      "updatedAt": "2026-08-25T05:49:17Z",
-      "createdAt": "2026-08-14T07:42:16Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/Aik358/dsh-auto-memory/main/README.zh-CN.md",
-      "tags": [
-        "deepseek-harness",
-        "dsh",
-        "dsh-plugins",
-        "memory",
-        "npm",
-        "plugin"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "@a9i5k4/dsh-auto-memory",
-      "npmUrl": "https://www.npmjs.com/package/@a9i5k4/dsh-auto-memory",
-      "version": "0.1.29",
-      "installCmd": "npm i @a9i5k4/dsh-auto-memory",
-      "readmeUrl": "https://raw.githubusercontent.com/Aik358/dsh-auto-memory/main/README.md",
-      "pushedAt": "2026-08-21T07:04:12Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:40.438Z",
-        "confidence": 30,
-        "security": {
-          "level": "danger",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "lib/index.js",
-              "line": 22,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            }
-          ],
-          "scannedFiles": 5
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": true,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:40.438Z",
-        "resource": {
-          "weight": "heavy",
-          "hotPathHooks": [
-            "agent/pre-step"
-          ],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 1,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:00:40.438Z"
-        }
-      },
-      "resource": {
-        "weight": "heavy",
-        "hotPathHooks": [
-          "agent/pre-step"
-        ],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 1,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:00:40.438Z"
-      }
-    },
-    {
       "id": "dsh-claude-provider",
       "name": "dsh-claude-provider",
       "fullName": "MoFeng2223/dsh-claude-provider",
@@ -35762,6 +35679,89 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T07:00:51.024Z"
+      }
+    },
+    {
+      "id": "dsh-auto-memory",
+      "name": "dsh-auto-memory",
+      "fullName": "Aik358/dsh-auto-memory",
+      "description": "A caring memory companion for DSH — three-layer auto memory, proactive calendar reminders, warm AI greetings, per-turn auto-consolidation, and inheritance of memories from other AI tools.",
+      "author": "Aik358",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/195134871?v=4",
+      "authorUrl": "https://github.com/Aik358",
+      "repoUrl": "https://github.com/Aik358/dsh-auto-memory",
+      "stars": 36,
+      "forks": 1,
+      "openIssues": 2,
+      "license": "BSD-3-Clause",
+      "updatedAt": "2026-08-25T21:15:44Z",
+      "createdAt": "2026-08-14T07:42:16Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/Aik358/dsh-auto-memory/main/README.zh-CN.md",
+      "tags": [
+        "deepseek-harness",
+        "dsh",
+        "dsh-plugins",
+        "memory",
+        "npm",
+        "plugin"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "@a9i5k4/dsh-auto-memory",
+      "npmUrl": "https://www.npmjs.com/package/@a9i5k4/dsh-auto-memory",
+      "version": "0.1.29",
+      "installCmd": "npm i @a9i5k4/dsh-auto-memory",
+      "readmeUrl": "https://raw.githubusercontent.com/Aik358/dsh-auto-memory/main/README.md",
+      "pushedAt": "2026-08-21T07:04:12Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:40.438Z",
+        "confidence": 30,
+        "security": {
+          "level": "danger",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "lib/index.js",
+              "line": 22,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            }
+          ],
+          "scannedFiles": 5
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": true,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:40.438Z",
+        "resource": {
+          "weight": "heavy",
+          "hotPathHooks": [
+            "agent/pre-step"
+          ],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 1,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:00:40.438Z"
+        }
+      },
+      "resource": {
+        "weight": "heavy",
+        "hotPathHooks": [
+          "agent/pre-step"
+        ],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 1,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:00:40.438Z"
       }
     },
     {
@@ -36508,6 +36508,106 @@
       }
     },
     {
+      "id": "dsh-tavern",
+      "name": "dsh-tavern",
+      "fullName": "chen731215-dev/dsh-tavern",
+      "description": "DSH 原生酒馆管理面板，入口：设置 → 通用设置 → 酒馆管理（原生）。多角色卡/多世界书/多预设，会话级预设隔离；世界书智能关键词注入省 60-70% 上下文；记忆总结 + 角色关系网；剧情选项一键发送；创作/扮演双模式；NSFW 成人模式。免费非商用（CC BY-NC-SA 4.0）。安装：dsh plugin --profile web add dsh-tavern",
+      "author": "chen731215-dev",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/295388113?v=4",
+      "authorUrl": "https://github.com/chen731215-dev",
+      "repoUrl": "https://github.com/chen731215-dev/dsh-tavern",
+      "stars": 34,
+      "forks": 5,
+      "openIssues": 0,
+      "license": "NOASSERTION",
+      "updatedAt": "2026-08-25T21:25:35Z",
+      "createdAt": "2026-08-16T03:43:39Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-tavern",
+      "npmUrl": "https://www.npmjs.com/package/dsh-tavern",
+      "version": "1.9.2",
+      "installCmd": "npm i dsh-tavern",
+      "readmeUrl": "https://raw.githubusercontent.com/chen731215-dev/dsh-tavern/main/README.md",
+      "pushedAt": "2026-08-23T13:54:56Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:47.682Z",
+        "confidence": 80,
+        "security": {
+          "level": "pass",
+          "findings": [
+            {
+              "rule": "external-endpoint",
+              "severity": "low",
+              "file": "lib/index.js",
+              "line": 1191,
+              "detail": "硬编码外联地址 opencode.ai（非生态白名单域）"
+            },
+            {
+              "rule": "external-endpoint",
+              "severity": "low",
+              "file": "lib/index.js",
+              "line": 1192,
+              "detail": "硬编码外联地址 api.deepseek.com（非生态白名单域）"
+            },
+            {
+              "rule": "external-endpoint",
+              "severity": "low",
+              "file": "lib/index.js",
+              "line": 1193,
+              "detail": "硬编码外联地址 gcli.ggchan.dev（非生态白名单域）"
+            },
+            {
+              "rule": "external-endpoint",
+              "severity": "low",
+              "file": "lib/index.js",
+              "line": 1206,
+              "detail": "硬编码外联地址 api.deepseek.com（非生态白名单域）"
+            },
+            {
+              "rule": "dynamic-import-literal",
+              "severity": "low",
+              "file": "lib/index.js",
+              "line": 2835,
+              "detail": "动态 import() 固定路径 node:child_process"
+            }
+          ],
+          "scannedFiles": 2
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": true,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:47.682Z",
+        "resource": {
+          "weight": "medium",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": true,
+          "hasCommands": false,
+          "dashboards": 1,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:00:47.682Z"
+        }
+      },
+      "resource": {
+        "weight": "medium",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": true,
+        "hasCommands": false,
+        "dashboards": 1,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:00:47.682Z"
+      }
+    },
+    {
       "id": "dsh-interconnect",
       "name": "dsh-interconnect",
       "fullName": "Chinesezjc/dsh-interconnect",
@@ -37152,106 +37252,6 @@
       }
     },
     {
-      "id": "dsh-tavern",
-      "name": "dsh-tavern",
-      "fullName": "chen731215-dev/dsh-tavern",
-      "description": "DSH 原生酒馆管理面板，入口：设置 → 通用设置 → 酒馆管理（原生）。多角色卡/多世界书/多预设，会话级预设隔离；世界书智能关键词注入省 60-70% 上下文；记忆总结 + 角色关系网；剧情选项一键发送；创作/扮演双模式；NSFW 成人模式。免费非商用（CC BY-NC-SA 4.0）。安装：dsh plugin --profile web add dsh-tavern",
-      "author": "chen731215-dev",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/295388113?v=4",
-      "authorUrl": "https://github.com/chen731215-dev",
-      "repoUrl": "https://github.com/chen731215-dev/dsh-tavern",
-      "stars": 33,
-      "forks": 5,
-      "openIssues": 0,
-      "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T18:21:55Z",
-      "createdAt": "2026-08-16T03:43:39Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-tavern",
-      "npmUrl": "https://www.npmjs.com/package/dsh-tavern",
-      "version": "1.9.2",
-      "installCmd": "npm i dsh-tavern",
-      "readmeUrl": "https://raw.githubusercontent.com/chen731215-dev/dsh-tavern/main/README.md",
-      "pushedAt": "2026-08-23T13:54:56Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:47.682Z",
-        "confidence": 80,
-        "security": {
-          "level": "pass",
-          "findings": [
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "lib/index.js",
-              "line": 1191,
-              "detail": "硬编码外联地址 opencode.ai（非生态白名单域）"
-            },
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "lib/index.js",
-              "line": 1192,
-              "detail": "硬编码外联地址 api.deepseek.com（非生态白名单域）"
-            },
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "lib/index.js",
-              "line": 1193,
-              "detail": "硬编码外联地址 gcli.ggchan.dev（非生态白名单域）"
-            },
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "lib/index.js",
-              "line": 1206,
-              "detail": "硬编码外联地址 api.deepseek.com（非生态白名单域）"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "lib/index.js",
-              "line": 2835,
-              "detail": "动态 import() 固定路径 node:child_process"
-            }
-          ],
-          "scannedFiles": 2
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": true,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:47.682Z",
-        "resource": {
-          "weight": "medium",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": true,
-          "hasCommands": false,
-          "dashboards": 1,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:00:47.682Z"
-        }
-      },
-      "resource": {
-        "weight": "medium",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": true,
-        "hasCommands": false,
-        "dashboards": 1,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:00:47.682Z"
-      }
-    },
-    {
       "id": "dsh-save-money",
       "name": "dsh-save-money",
       "fullName": "zhu168/dsh-save-money",
@@ -37789,7 +37789,7 @@
       "repoUrl": "https://github.com/skyf0xx/hedgehog",
       "stars": 32,
       "forks": 4,
-      "openIssues": 6,
+      "openIssues": 7,
       "license": "MIT",
       "updatedAt": "2026-08-25T13:37:12Z",
       "createdAt": "2026-07-21T01:37:31Z",
@@ -37823,10 +37823,10 @@
       "version": "5.4.2",
       "installCmd": "npm i @skyf0xx/hedgehog",
       "readmeUrl": "https://raw.githubusercontent.com/skyf0xx/hedgehog/master/README.md",
-      "pushedAt": "2026-08-25T08:39:29Z",
+      "pushedAt": "2026-08-25T20:48:59Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T08:53:34.209Z",
+        "scannedAt": "2026-08-25T21:36:08.089Z",
         "confidence": 20,
         "security": {
           "level": "danger",
@@ -37875,7 +37875,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T08:53:34.209Z",
+        "lastVerifiedAt": "2026-08-25T21:36:08.089Z",
         "resource": null
       }
     },
@@ -38852,68 +38852,6 @@
       }
     },
     {
-      "id": "dsh-code",
-      "name": "dsh-code",
-      "fullName": "UNLINEARITY/dsh-code",
-      "description": " Claude-Code-style TUI bundle for DeepSeek Harness. 充分结合 DSH 的核心机制和高级特性与Codex CLI 、Claude Code 等主流交互机制，打造的 DSH-Code. （对齐DSH官方上游最新版本！持续更新中！支持DSH 特殊模式，插件系统，模型管理，子代理管理，切换模型特殊动画）",
-      "author": "UNLINEARITY",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/134848055?v=4",
-      "authorUrl": "https://github.com/UNLINEARITY",
-      "repoUrl": "https://github.com/UNLINEARITY/dsh-code",
-      "stars": 29,
-      "forks": 1,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-24T12:26:00Z",
-      "createdAt": "2026-08-14T07:51:38Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "claude-code",
-        "cli",
-        "codex",
-        "deepseek",
-        "deepseek-harness",
-        "dsh",
-        "harness",
-        "plugin"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-code",
-      "npmUrl": "https://www.npmjs.com/package/dsh-code",
-      "version": "1.0.1",
-      "installCmd": "npm i dsh-code",
-      "readmeUrl": "https://raw.githubusercontent.com/UNLINEARITY/dsh-code/main/README.md",
-      "pushedAt": "2026-08-22T04:28:26Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:00:53.324Z",
-        "confidence": 45,
-        "security": {
-          "level": "warn",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "bin/deepseek.mjs",
-              "line": 3,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            }
-          ],
-          "scannedFiles": 1
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:00:53.324Z",
-        "resource": null
-      }
-    },
-    {
       "id": "instant-games-open-mcp",
       "name": "instant-games-open-mcp",
       "fullName": "taptap/instant-games-open-mcp",
@@ -39054,6 +38992,68 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T17:38:43.023Z",
+        "resource": null
+      }
+    },
+    {
+      "id": "dsh-code",
+      "name": "dsh-code",
+      "fullName": "UNLINEARITY/dsh-code",
+      "description": " Claude-Code-style TUI bundle for DeepSeek Harness. 充分结合 DSH 的核心机制和高级特性与Codex CLI 、Claude Code 等主流交互机制，打造的 DSH-Code. （对齐DSH官方上游最新版本！持续更新中！支持DSH 特殊模式，插件系统，模型管理，子代理管理，切换模型特殊动画）",
+      "author": "UNLINEARITY",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/134848055?v=4",
+      "authorUrl": "https://github.com/UNLINEARITY",
+      "repoUrl": "https://github.com/UNLINEARITY/dsh-code",
+      "stars": 29,
+      "forks": 1,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-24T12:26:00Z",
+      "createdAt": "2026-08-14T07:51:38Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "claude-code",
+        "cli",
+        "codex",
+        "deepseek",
+        "deepseek-harness",
+        "dsh",
+        "harness",
+        "plugin"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-code",
+      "npmUrl": "https://www.npmjs.com/package/dsh-code",
+      "version": "1.0.1",
+      "installCmd": "npm i dsh-code",
+      "readmeUrl": "https://raw.githubusercontent.com/UNLINEARITY/dsh-code/main/README.md",
+      "pushedAt": "2026-08-22T04:28:26Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:00:53.324Z",
+        "confidence": 45,
+        "security": {
+          "level": "warn",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "bin/deepseek.mjs",
+              "line": 3,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            }
+          ],
+          "scannedFiles": 1
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:00:53.324Z",
         "resource": null
       }
     },
@@ -39348,7 +39348,7 @@
       "forks": 23,
       "openIssues": 1,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:19:02Z",
+      "updatedAt": "2026-08-25T21:16:21Z",
       "createdAt": "2026-08-13T19:54:28Z",
       "defaultBranch": "main",
       "readmeZhUrl": "https://raw.githubusercontent.com/kejixiaoliang/awesome-dsh-plugins/main/README.zh.md",
@@ -39378,10 +39378,10 @@
       "version": null,
       "installCmd": null,
       "readmeUrl": "https://raw.githubusercontent.com/kejixiaoliang/awesome-dsh-plugins/main/README.md",
-      "pushedAt": "2026-08-25T18:21:08Z",
+      "pushedAt": "2026-08-25T21:15:38Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T18:49:37.543Z",
+        "scannedAt": "2026-08-25T21:36:09.074Z",
         "confidence": 55,
         "security": {
           "level": "pass",
@@ -39394,7 +39394,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T18:49:37.543Z",
+        "lastVerifiedAt": "2026-08-25T21:36:09.074Z",
         "resource": null
       }
     },
@@ -39805,6 +39805,120 @@
       }
     },
     {
+      "id": "dsh-wenshan",
+      "name": "dsh-wenshan",
+      "fullName": "xuedai-mayi/dsh-wenshan",
+      "description": "问山：DeepSeek Harness 地理野外实习知识图谱插件与非官方二次开发项目",
+      "author": "xuedai-mayi",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/210227958?v=4",
+      "authorUrl": "https://github.com/xuedai-mayi",
+      "repoUrl": "https://github.com/xuedai-mayi/dsh-wenshan",
+      "stars": 27,
+      "forks": 0,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T20:37:11Z",
+      "createdAt": "2026-08-18T19:04:53Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "deepseek-harness",
+        "fieldwork",
+        "gis",
+        "knowledge-graph"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": null,
+      "readmeUrl": "https://raw.githubusercontent.com/xuedai-mayi/dsh-wenshan/main/README.md",
+      "pushedAt": "2026-08-19T09:03:25Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:16.204Z",
+        "confidence": 5,
+        "security": {
+          "level": "danger",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "dsh-wenshan-intake/src/index.js",
+              "line": 4,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "deepseek-harness-master/deepseek-harness-master/scripts/demo-code-mode.mjs",
+              "line": 2,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "deepseek-harness-master/deepseek-harness-master/scripts/demo-cordis.mjs",
+              "line": 4,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "deepseek-harness-master/deepseek-harness-master/scripts/install-lefthook.mjs",
+              "line": 15,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            },
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "tools/eval_qa.mjs",
+              "line": 8,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "tools/run_wenshan.mjs",
+              "line": 5,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "deepseek-harness-master/deepseek-harness-master/scripts/verify-built-package-invariants.mjs",
+              "line": 28,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            },
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "deepseek-harness-master/deepseek-harness-master/scripts/verify-built-package-invariants.mjs",
+              "line": 60,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            },
+            {
+              "rule": "external-endpoint",
+              "severity": "low",
+              "file": "tools/eval_agent.mjs",
+              "line": 130,
+              "detail": "硬编码外联地址 api.deepseek.com（非生态白名单域）"
+            }
+          ],
+          "scannedFiles": 30
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:16.204Z",
+        "resource": null
+      }
+    },
+    {
       "id": "dsh-plugin-check",
       "name": "dsh-plugin-check",
       "fullName": "omdsh-dev/dsh-plugin-check",
@@ -40047,6 +40161,108 @@
       }
     },
     {
+      "id": "cosyncing",
+      "name": "cosyncing",
+      "fullName": "cosyncing/cosyncing",
+      "description": "Synchronize and Orchestrate agents from CLI to GUI, across desktop to phone.",
+      "author": "cosyncing",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/306227529?v=4",
+      "authorUrl": "https://github.com/cosyncing",
+      "repoUrl": "https://github.com/cosyncing/cosyncing",
+      "stars": 27,
+      "forks": 5,
+      "openIssues": 0,
+      "license": "Apache-2.0",
+      "updatedAt": "2026-08-25T12:04:15Z",
+      "createdAt": "2026-08-07T20:17:12Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": "https://raw.githubusercontent.com/cosyncing/cosyncing/main/README.zh-CN.md",
+      "tags": [
+        "ade",
+        "agent-orchestration",
+        "agents",
+        "ai-agents",
+        "ai-agents-framework",
+        "ai-agents-platform",
+        "claude-code",
+        "codex",
+        "codex-cli",
+        "ide",
+        "opencode",
+        "orchestration",
+        "pi"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.4.1",
+      "installCmd": "npm i github:cosyncing/cosyncing",
+      "readmeUrl": "https://raw.githubusercontent.com/cosyncing/cosyncing/main/README.md",
+      "pushedAt": "2026-08-25T12:01:23Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T13:01:02.379Z",
+        "confidence": 45,
+        "security": {
+          "level": "warn",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/dev/credential-gate-socket-verifier.mjs",
+              "line": 36,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/dev/headless-shell.mjs",
+              "line": 14,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/dev/screenshot-client.mjs",
+              "line": 12,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/dev/ui-drive.mjs",
+              "line": 31,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            },
+            {
+              "rule": "dynamic-import-dynamic",
+              "severity": "medium",
+              "file": "scripts/dev/ui-drive.mjs",
+              "line": 299,
+              "detail": "import() 参数为运行时表达式，路径不可静态审计"
+            },
+            {
+              "rule": "external-endpoint",
+              "severity": "low",
+              "file": "scripts/dev/screenshot-client.mjs",
+              "line": 62,
+              "detail": "硬编码外联地址 x（非生态白名单域）"
+            }
+          ],
+          "scannedFiles": 10
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T13:01:02.379Z",
+        "resource": null
+      }
+    },
+    {
       "id": "dsh-plugin-marketplace",
       "name": "dsh-plugin-marketplace",
       "fullName": "AwesomeHou/dsh-plugin-marketplace",
@@ -40190,108 +40406,6 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T07:01:00.037Z"
-      }
-    },
-    {
-      "id": "cosyncing",
-      "name": "cosyncing",
-      "fullName": "cosyncing/cosyncing",
-      "description": "Synchronize and Orchestrate agents from CLI to GUI, across desktop to phone.",
-      "author": "cosyncing",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/306227529?v=4",
-      "authorUrl": "https://github.com/cosyncing",
-      "repoUrl": "https://github.com/cosyncing/cosyncing",
-      "stars": 27,
-      "forks": 5,
-      "openIssues": 0,
-      "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T12:04:15Z",
-      "createdAt": "2026-08-07T20:17:12Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/cosyncing/cosyncing/main/README.zh-CN.md",
-      "tags": [
-        "ade",
-        "agent-orchestration",
-        "agents",
-        "ai-agents",
-        "ai-agents-framework",
-        "ai-agents-platform",
-        "claude-code",
-        "codex",
-        "codex-cli",
-        "ide",
-        "opencode",
-        "orchestration",
-        "pi"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.4.1",
-      "installCmd": "npm i github:cosyncing/cosyncing",
-      "readmeUrl": "https://raw.githubusercontent.com/cosyncing/cosyncing/main/README.md",
-      "pushedAt": "2026-08-25T12:01:23Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T13:01:02.379Z",
-        "confidence": 45,
-        "security": {
-          "level": "warn",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/dev/credential-gate-socket-verifier.mjs",
-              "line": 36,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/dev/headless-shell.mjs",
-              "line": 14,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/dev/screenshot-client.mjs",
-              "line": 12,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/dev/ui-drive.mjs",
-              "line": 31,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "scripts/dev/ui-drive.mjs",
-              "line": 299,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            },
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "scripts/dev/screenshot-client.mjs",
-              "line": 62,
-              "detail": "硬编码外联地址 x（非生态白名单域）"
-            }
-          ],
-          "scannedFiles": 10
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T13:01:02.379Z",
-        "resource": null
       }
     },
     {
@@ -40822,27 +40936,30 @@
       }
     },
     {
-      "id": "dsh-wenshan",
-      "name": "dsh-wenshan",
-      "fullName": "xuedai-mayi/dsh-wenshan",
-      "description": "问山：DeepSeek Harness 地理野外实习知识图谱插件与非官方二次开发项目",
-      "author": "xuedai-mayi",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/210227958?v=4",
-      "authorUrl": "https://github.com/xuedai-mayi",
-      "repoUrl": "https://github.com/xuedai-mayi/dsh-wenshan",
+      "id": "cordis-rs",
+      "name": "cordis-rs",
+      "fullName": "dshbox/cordis-rs",
+      "description": "Runtime-agnostic Rust port of Cordis, the plugin framework at the core of DeepSeek Harness — scoped dependency injection, lifecycle-owned effects, events, structured logging. Zero dependencies.",
+      "author": "dshbox",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/316813059?v=4",
+      "authorUrl": "https://github.com/dshbox",
+      "repoUrl": "https://github.com/dshbox/cordis-rs",
       "stars": 26,
-      "forks": 0,
-      "openIssues": 0,
+      "forks": 5,
+      "openIssues": 1,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:04:25Z",
-      "createdAt": "2026-08-18T19:04:53Z",
+      "updatedAt": "2026-08-25T17:17:02Z",
+      "createdAt": "2026-08-15T10:41:09Z",
       "defaultBranch": "main",
-      "readmeZhUrl": null,
+      "readmeZhUrl": "https://raw.githubusercontent.com/dshbox/cordis-rs/main/README.zh-CN.md",
       "tags": [
+        "cordis",
         "deepseek-harness",
-        "fieldwork",
-        "gis",
-        "knowledge-graph"
+        "dependency-injection",
+        "events",
+        "plugin-framework",
+        "port",
+        "rust"
       ],
       "type": "extension",
       "hasNpm": false,
@@ -40850,80 +40967,16 @@
       "npmUrl": null,
       "version": null,
       "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/xuedai-mayi/dsh-wenshan/main/README.md",
-      "pushedAt": "2026-08-19T09:03:25Z",
+      "readmeUrl": "https://raw.githubusercontent.com/dshbox/cordis-rs/main/README.md",
+      "pushedAt": "2026-08-25T08:13:41Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T07:01:16.204Z",
-        "confidence": 5,
+        "scannedAt": "2026-08-25T08:53:37.983Z",
+        "confidence": 55,
         "security": {
-          "level": "danger",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "dsh-wenshan-intake/src/index.js",
-              "line": 4,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "deepseek-harness-master/deepseek-harness-master/scripts/demo-code-mode.mjs",
-              "line": 2,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "deepseek-harness-master/deepseek-harness-master/scripts/demo-cordis.mjs",
-              "line": 4,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "deepseek-harness-master/deepseek-harness-master/scripts/install-lefthook.mjs",
-              "line": 15,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            },
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "tools/eval_qa.mjs",
-              "line": 8,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            },
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "tools/run_wenshan.mjs",
-              "line": 5,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            },
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "deepseek-harness-master/deepseek-harness-master/scripts/verify-built-package-invariants.mjs",
-              "line": 28,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            },
-            {
-              "rule": "dynamic-import-dynamic",
-              "severity": "medium",
-              "file": "deepseek-harness-master/deepseek-harness-master/scripts/verify-built-package-invariants.mjs",
-              "line": 60,
-              "detail": "import() 参数为运行时表达式，路径不可静态审计"
-            },
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "tools/eval_agent.mjs",
-              "line": 130,
-              "detail": "硬编码外联地址 api.deepseek.com（非生态白名单域）"
-            }
-          ],
-          "scannedFiles": 30
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
         },
         "health": {
           "manifestValid": false,
@@ -40931,7 +40984,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T07:01:16.204Z",
+        "lastVerifiedAt": "2026-08-25T08:53:37.983Z",
         "resource": null
       }
     },
@@ -40987,59 +41040,6 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T07:00:58.662Z",
-        "resource": null
-      }
-    },
-    {
-      "id": "cordis-rs",
-      "name": "cordis-rs",
-      "fullName": "dshbox/cordis-rs",
-      "description": "Runtime-agnostic Rust port of Cordis, the plugin framework at the core of DeepSeek Harness — scoped dependency injection, lifecycle-owned effects, events, structured logging. Zero dependencies.",
-      "author": "dshbox",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/316813059?v=4",
-      "authorUrl": "https://github.com/dshbox",
-      "repoUrl": "https://github.com/dshbox/cordis-rs",
-      "stars": 26,
-      "forks": 5,
-      "openIssues": 1,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T17:17:02Z",
-      "createdAt": "2026-08-15T10:41:09Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": "https://raw.githubusercontent.com/dshbox/cordis-rs/main/README.zh-CN.md",
-      "tags": [
-        "cordis",
-        "deepseek-harness",
-        "dependency-injection",
-        "events",
-        "plugin-framework",
-        "port",
-        "rust"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/dshbox/cordis-rs/main/README.md",
-      "pushedAt": "2026-08-25T08:13:41Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T08:53:37.983Z",
-        "confidence": 55,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": false,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T08:53:37.983Z",
         "resource": null
       }
     },
@@ -41239,72 +41239,6 @@
       }
     },
     {
-      "id": "dsh-plugin-better-sidebar-plugin-office",
-      "name": "dsh-plugin-better-sidebar-plugin-office",
-      "fullName": "HuanLinOTO/dsh-plugin-better-sidebar-plugin-office",
-      "description": "为 better-sidebar 提供 Office 三件套预览（.docx/.xlsx/.pptx），独立 bundle 瘦身主体 | Provides Office-suite preview (.docx/.xlsx/.pptx) for better-sidebar as a separate bundle to slim the core",
-      "author": "HuanLinOTO",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/94176676?v=4",
-      "authorUrl": "https://github.com/HuanLinOTO",
-      "repoUrl": "https://github.com/HuanLinOTO/dsh-plugin-better-sidebar-plugin-office",
-      "stars": 26,
-      "forks": 2,
-      "openIssues": 2,
-      "license": "NOASSERTION",
-      "updatedAt": "2026-08-25T02:34:23Z",
-      "createdAt": "2026-08-12T08:59:49Z",
-      "defaultBranch": "master",
-      "readmeZhUrl": null,
-      "tags": [
-        "dsh-better-sidebar"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.1.2",
-      "installCmd": "npm i github:HuanLinOTO/dsh-plugin-better-sidebar-plugin-office",
-      "readmeUrl": "https://raw.githubusercontent.com/HuanLinOTO/dsh-plugin-better-sidebar-plugin-office/master/README.md",
-      "pushedAt": "2026-08-23T09:34:52Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:01:00.946Z",
-        "confidence": 70,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 1
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:01:00.946Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:01:00.946Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:01:00.946Z"
-      }
-    },
-    {
       "id": "dsh-feishu",
       "name": "dsh-feishu",
       "fullName": "PGZXB/dsh-feishu",
@@ -41493,6 +41427,72 @@
         },
         "lastVerifiedAt": "2026-08-25T07:01:00.276Z",
         "resource": null
+      }
+    },
+    {
+      "id": "dsh-plugin-better-sidebar-plugin-office",
+      "name": "dsh-plugin-better-sidebar-plugin-office",
+      "fullName": "HuanLinOTO/dsh-plugin-better-sidebar-plugin-office",
+      "description": "为 better-sidebar 提供 Office 三件套预览（.docx/.xlsx/.pptx），独立 bundle 瘦身主体 | Provides Office-suite preview (.docx/.xlsx/.pptx) for better-sidebar as a separate bundle to slim the core",
+      "author": "HuanLinOTO",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/94176676?v=4",
+      "authorUrl": "https://github.com/HuanLinOTO",
+      "repoUrl": "https://github.com/HuanLinOTO/dsh-plugin-better-sidebar-plugin-office",
+      "stars": 26,
+      "forks": 2,
+      "openIssues": 2,
+      "license": "NOASSERTION",
+      "updatedAt": "2026-08-25T02:34:23Z",
+      "createdAt": "2026-08-12T08:59:49Z",
+      "defaultBranch": "master",
+      "readmeZhUrl": null,
+      "tags": [
+        "dsh-better-sidebar"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.2",
+      "installCmd": "npm i github:HuanLinOTO/dsh-plugin-better-sidebar-plugin-office",
+      "readmeUrl": "https://raw.githubusercontent.com/HuanLinOTO/dsh-plugin-better-sidebar-plugin-office/master/README.md",
+      "pushedAt": "2026-08-23T09:34:52Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:00.946Z",
+        "confidence": 70,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 1
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:00.946Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:01:00.946Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:01:00.946Z"
       }
     },
     {
@@ -41898,6 +41898,75 @@
       }
     },
     {
+      "id": "dsh-theme-cyberpunk2077",
+      "name": "dsh-theme-cyberpunk2077",
+      "fullName": "Tommy00748/dsh-theme-cyberpunk2077",
+      "description": "Cyberpunk 2077 / Night City theme for the DeepSeek Harness Web UI — CRT scanlines, Kiroshi lock-on, typewriter SFX, Relic glitch & easter eggs",
+      "author": "Tommy00748",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/252983243?v=4",
+      "authorUrl": "https://github.com/Tommy00748",
+      "repoUrl": "https://github.com/Tommy00748/dsh-theme-cyberpunk2077",
+      "stars": 25,
+      "forks": 1,
+      "openIssues": 1,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T03:44:07Z",
+      "createdAt": "2026-08-14T23:59:13Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "cyberpunk-2077",
+        "deepseek-harness",
+        "dsh",
+        "theme"
+      ],
+      "type": "theme",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.4",
+      "installCmd": "npm i github:Tommy00748/dsh-theme-cyberpunk2077",
+      "readmeUrl": "https://raw.githubusercontent.com/Tommy00748/dsh-theme-cyberpunk2077/main/README.md",
+      "pushedAt": "2026-08-16T09:41:08Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:00.925Z",
+        "confidence": 80,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 2
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": true,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:00.925Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:01:00.925Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:01:00.925Z"
+      }
+    },
+    {
       "id": "HoloGram",
       "name": "HoloGram",
       "fullName": "834063245-creator/HoloGram",
@@ -42106,75 +42175,6 @@
       }
     },
     {
-      "id": "dsh-theme-cyberpunk2077",
-      "name": "dsh-theme-cyberpunk2077",
-      "fullName": "Tommy00748/dsh-theme-cyberpunk2077",
-      "description": "Cyberpunk 2077 / Night City theme for the DeepSeek Harness Web UI — CRT scanlines, Kiroshi lock-on, typewriter SFX, Relic glitch & easter eggs",
-      "author": "Tommy00748",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/252983243?v=4",
-      "authorUrl": "https://github.com/Tommy00748",
-      "repoUrl": "https://github.com/Tommy00748/dsh-theme-cyberpunk2077",
-      "stars": 25,
-      "forks": 1,
-      "openIssues": 1,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T03:44:07Z",
-      "createdAt": "2026-08-14T23:59:13Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "cyberpunk-2077",
-        "deepseek-harness",
-        "dsh",
-        "theme"
-      ],
-      "type": "theme",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.1.4",
-      "installCmd": "npm i github:Tommy00748/dsh-theme-cyberpunk2077",
-      "readmeUrl": "https://raw.githubusercontent.com/Tommy00748/dsh-theme-cyberpunk2077/main/README.md",
-      "pushedAt": "2026-08-16T09:41:08Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:01:00.925Z",
-        "confidence": 80,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 2
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": true,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:01:00.925Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:01:00.925Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:01:00.925Z"
-      }
-    },
-    {
       "id": "dsh-lark",
       "name": "dsh-lark",
       "fullName": "sugarforever/dsh-lark",
@@ -42331,6 +42331,61 @@
       }
     },
     {
+      "id": "iosdev",
+      "name": "iosdev",
+      "fullName": "kuangre123/iosdev",
+      "description": "ios app 开发 skill",
+      "author": "kuangre123",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/87214967?v=4",
+      "authorUrl": "https://github.com/kuangre123",
+      "repoUrl": "https://github.com/kuangre123/iosdev",
+      "stars": 25,
+      "forks": 1,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-19T11:04:12Z",
+      "createdAt": "2025-06-20T05:25:56Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "app",
+        "apple",
+        "apple-intelligence",
+        "apple-watch",
+        "dsh-plugins",
+        "ios",
+        "mac",
+        "macos",
+        "swift"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": null,
+      "readmeUrl": "https://raw.githubusercontent.com/kuangre123/iosdev/main/README.md",
+      "pushedAt": "2026-01-09T06:03:17Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:03.590Z",
+        "confidence": 55,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:03.590Z",
+        "resource": null
+      }
+    },
+    {
       "id": "dsh-maid-whale-webUI",
       "name": "dsh-maid-whale-webUI",
       "fullName": "yunxiiQwQ/dsh-maid-whale-webUI",
@@ -42407,61 +42462,6 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T07:01:04.151Z",
-        "resource": null
-      }
-    },
-    {
-      "id": "iosdev",
-      "name": "iosdev",
-      "fullName": "kuangre123/iosdev",
-      "description": "ios app 开发 skill",
-      "author": "kuangre123",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/87214967?v=4",
-      "authorUrl": "https://github.com/kuangre123",
-      "repoUrl": "https://github.com/kuangre123/iosdev",
-      "stars": 25,
-      "forks": 1,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-19T11:04:12Z",
-      "createdAt": "2025-06-20T05:25:56Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "app",
-        "apple",
-        "apple-intelligence",
-        "apple-watch",
-        "dsh-plugins",
-        "ios",
-        "mac",
-        "macos",
-        "swift"
-      ],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/kuangre123/iosdev/main/README.md",
-      "pushedAt": "2026-01-09T06:03:17Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:01:03.590Z",
-        "confidence": 55,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": false,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:01:03.590Z",
         "resource": null
       }
     },
@@ -44477,74 +44477,6 @@
       }
     },
     {
-      "id": "distill",
-      "name": "distill",
-      "fullName": "LoserFox/distill",
-      "description": "自动对话蒸馏：后台 subagent 反省 + 技能 create/update",
-      "author": "LoserFox",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/57448027?v=4",
-      "authorUrl": "https://github.com/LoserFox",
-      "repoUrl": "https://github.com/LoserFox/distill",
-      "stars": 23,
-      "forks": 3,
-      "openIssues": 3,
-      "license": "BSD-3-Clause",
-      "updatedAt": "2026-08-25T12:45:56Z",
-      "createdAt": "2026-08-04T21:12:42Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [],
-      "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.1.0",
-      "installCmd": "npm i github:LoserFox/distill",
-      "readmeUrl": "https://raw.githubusercontent.com/LoserFox/distill/main/README.md",
-      "pushedAt": "2026-08-17T10:32:04Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:01:21.800Z",
-        "confidence": 80,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 2
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": true,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:01:21.800Z",
-        "resource": {
-          "weight": "medium",
-          "hotPathHooks": [],
-          "lifecycleHooks": [
-            "session/disposed"
-          ],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:01:21.800Z"
-        }
-      },
-      "resource": {
-        "weight": "medium",
-        "hotPathHooks": [],
-        "lifecycleHooks": [
-          "session/disposed"
-        ],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:01:21.800Z"
-      }
-    },
-    {
       "id": "dsh-quant",
       "name": "dsh-quant",
       "fullName": "pengpengyi92/dsh-quant",
@@ -44620,51 +44552,34 @@
       }
     },
     {
-      "id": "dsh-plugin-writing-guard",
-      "name": "dsh-plugin-writing-guard",
-      "fullName": "xmutfyh/dsh-plugin-writing-guard",
-      "description": "DeepSeek Harness (DSH) academic writing guard for papers — 论文去AI味 / AI-writing style detection, evidence preservation, journal-fit calibration, manuscript proofreading, writing_audit & automatic checks. Local, zero network, zero LLM.",
-      "author": "xmutfyh",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/265453915?v=4",
-      "authorUrl": "https://github.com/xmutfyh",
-      "repoUrl": "https://github.com/xmutfyh/dsh-plugin-writing-guard",
+      "id": "distill",
+      "name": "distill",
+      "fullName": "LoserFox/distill",
+      "description": "自动对话蒸馏：后台 subagent 反省 + 技能 create/update",
+      "author": "LoserFox",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/57448027?v=4",
+      "authorUrl": "https://github.com/LoserFox",
+      "repoUrl": "https://github.com/LoserFox/distill",
       "stars": 23,
-      "forks": 0,
-      "openIssues": 2,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T04:59:56Z",
-      "createdAt": "2026-08-15T03:41:44Z",
-      "defaultBranch": "master",
+      "forks": 3,
+      "openIssues": 3,
+      "license": "BSD-3-Clause",
+      "updatedAt": "2026-08-25T21:28:39Z",
+      "createdAt": "2026-08-04T21:12:42Z",
+      "defaultBranch": "main",
       "readmeZhUrl": null,
-      "tags": [
-        "academic-paper",
-        "academic-writing",
-        "ai-detection",
-        "ai-writing",
-        "deepseek-harness",
-        "defensive-writing",
-        "evidence-based-writing",
-        "journal-fit",
-        "llm-writing",
-        "manuscript",
-        "paper-writing",
-        "proofreading",
-        "research-paper",
-        "scientific-integrity",
-        "scientific-writing",
-        "writing-style"
-      ],
+      "tags": [],
       "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-plugin-writing-guard",
-      "npmUrl": "https://www.npmjs.com/package/dsh-plugin-writing-guard",
-      "version": "1.6.1",
-      "installCmd": "npm i dsh-plugin-writing-guard",
-      "readmeUrl": "https://raw.githubusercontent.com/xmutfyh/dsh-plugin-writing-guard/master/README.md",
-      "pushedAt": "2026-08-24T11:55:15Z",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0",
+      "installCmd": "npm i github:LoserFox/distill",
+      "readmeUrl": "https://raw.githubusercontent.com/LoserFox/distill/main/README.md",
+      "pushedAt": "2026-08-17T10:32:04Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T07:01:12.347Z",
+        "scannedAt": "2026-08-25T07:01:21.800Z",
         "confidence": 80,
         "security": {
           "level": "pass",
@@ -44677,37 +44592,31 @@
           "applyEntry": true,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T07:01:12.347Z",
+        "lastVerifiedAt": "2026-08-25T07:01:21.800Z",
         "resource": {
-          "weight": "heavy",
-          "hotPathHooks": [
-            "tools/pre-execute",
-            "tools/post-execute"
-          ],
+          "weight": "medium",
+          "hotPathHooks": [],
           "lifecycleHooks": [
-            "agent/disposed"
+            "session/disposed"
           ],
           "modelCalls": false,
           "hasCommands": false,
           "dashboards": 0,
           "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:01:12.347Z"
+          "scannedAt": "2026-08-25T07:01:21.800Z"
         }
       },
       "resource": {
-        "weight": "heavy",
-        "hotPathHooks": [
-          "tools/pre-execute",
-          "tools/post-execute"
-        ],
+        "weight": "medium",
+        "hotPathHooks": [],
         "lifecycleHooks": [
-          "agent/disposed"
+          "session/disposed"
         ],
         "modelCalls": false,
         "hasCommands": false,
         "dashboards": 0,
         "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:01:12.347Z"
+        "scannedAt": "2026-08-25T07:01:21.800Z"
       }
     },
     {
@@ -44907,50 +44816,94 @@
       }
     },
     {
-      "id": "dsh-balance",
-      "name": "dsh-balance",
-      "fullName": "crazywoola/dsh-balance",
-      "description": "DeepSeek Harness balance plugin for the Settings page",
-      "author": "crazywoola",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/100913391?v=4",
-      "authorUrl": "https://github.com/crazywoola",
-      "repoUrl": "https://github.com/crazywoola/dsh-balance",
+      "id": "dsh-plugin-writing-guard",
+      "name": "dsh-plugin-writing-guard",
+      "fullName": "xmutfyh/dsh-plugin-writing-guard",
+      "description": "DeepSeek Harness (DSH) academic writing guard for papers — 论文去AI味 / AI-writing style detection, evidence preservation, journal-fit calibration, manuscript proofreading, writing_audit & automatic checks. Local, zero network, zero LLM.",
+      "author": "xmutfyh",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/265453915?v=4",
+      "authorUrl": "https://github.com/xmutfyh",
+      "repoUrl": "https://github.com/xmutfyh/dsh-plugin-writing-guard",
       "stars": 23,
-      "forks": 2,
-      "openIssues": 0,
+      "forks": 0,
+      "openIssues": 2,
       "license": "MIT",
-      "updatedAt": "2026-08-21T09:03:34Z",
-      "createdAt": "2026-08-14T13:08:28Z",
-      "defaultBranch": "main",
+      "updatedAt": "2026-08-25T04:59:56Z",
+      "createdAt": "2026-08-15T03:41:44Z",
+      "defaultBranch": "master",
       "readmeZhUrl": null,
       "tags": [
-        "dsh-plugins"
+        "academic-paper",
+        "academic-writing",
+        "ai-detection",
+        "ai-writing",
+        "deepseek-harness",
+        "defensive-writing",
+        "evidence-based-writing",
+        "journal-fit",
+        "llm-writing",
+        "manuscript",
+        "paper-writing",
+        "proofreading",
+        "research-paper",
+        "scientific-integrity",
+        "scientific-writing",
+        "writing-style"
       ],
       "type": "extension",
       "hasNpm": true,
-      "npmName": "@pinkbanana/dsh-balance",
-      "npmUrl": "https://www.npmjs.com/package/@pinkbanana/dsh-balance",
-      "version": "0.4.1",
-      "installCmd": "npm i @pinkbanana/dsh-balance",
-      "readmeUrl": "https://raw.githubusercontent.com/crazywoola/dsh-balance/main/README.md",
-      "pushedAt": "2026-08-17T02:18:47Z",
+      "npmName": "dsh-plugin-writing-guard",
+      "npmUrl": "https://www.npmjs.com/package/dsh-plugin-writing-guard",
+      "version": "1.6.1",
+      "installCmd": "npm i dsh-plugin-writing-guard",
+      "readmeUrl": "https://raw.githubusercontent.com/xmutfyh/dsh-plugin-writing-guard/master/README.md",
+      "pushedAt": "2026-08-24T11:55:15Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T07:01:12.520Z",
-        "confidence": 70,
+        "scannedAt": "2026-08-25T07:01:12.347Z",
+        "confidence": 80,
         "security": {
           "level": "pass",
           "findings": [],
-          "scannedFiles": 3
+          "scannedFiles": 2
         },
         "health": {
           "manifestValid": true,
           "dshBundleDeclared": false,
-          "applyEntry": false,
+          "applyEntry": true,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T07:01:12.520Z",
-        "resource": null
+        "lastVerifiedAt": "2026-08-25T07:01:12.347Z",
+        "resource": {
+          "weight": "heavy",
+          "hotPathHooks": [
+            "tools/pre-execute",
+            "tools/post-execute"
+          ],
+          "lifecycleHooks": [
+            "agent/disposed"
+          ],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:01:12.347Z"
+        }
+      },
+      "resource": {
+        "weight": "heavy",
+        "hotPathHooks": [
+          "tools/pre-execute",
+          "tools/post-execute"
+        ],
+        "lifecycleHooks": [
+          "agent/disposed"
+        ],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:01:12.347Z"
       }
     },
     {
@@ -45027,6 +44980,53 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T07:01:12.697Z",
+        "resource": null
+      }
+    },
+    {
+      "id": "dsh-balance",
+      "name": "dsh-balance",
+      "fullName": "crazywoola/dsh-balance",
+      "description": "DeepSeek Harness balance plugin for the Settings page",
+      "author": "crazywoola",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/100913391?v=4",
+      "authorUrl": "https://github.com/crazywoola",
+      "repoUrl": "https://github.com/crazywoola/dsh-balance",
+      "stars": 23,
+      "forks": 2,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-21T09:03:34Z",
+      "createdAt": "2026-08-14T13:08:28Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "dsh-plugins"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "@pinkbanana/dsh-balance",
+      "npmUrl": "https://www.npmjs.com/package/@pinkbanana/dsh-balance",
+      "version": "0.4.1",
+      "installCmd": "npm i @pinkbanana/dsh-balance",
+      "readmeUrl": "https://raw.githubusercontent.com/crazywoola/dsh-balance/main/README.md",
+      "pushedAt": "2026-08-17T02:18:47Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:12.520Z",
+        "confidence": 70,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 3
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:12.520Z",
         "resource": null
       }
     },
@@ -45582,81 +45582,6 @@
       }
     },
     {
-      "id": "dsh-browser",
-      "name": "dsh-browser",
-      "fullName": "wqty123/dsh-browser",
-      "description": "Shared real browser plugin for DeepSeek Harness",
-      "author": "wqty123",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/153445160?v=4",
-      "authorUrl": "https://github.com/wqty123",
-      "repoUrl": "https://github.com/wqty123/dsh-browser",
-      "stars": 23,
-      "forks": 1,
-      "openIssues": 2,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T10:28:03Z",
-      "createdAt": "2026-08-14T17:01:52Z",
-      "defaultBranch": "master",
-      "readmeZhUrl": null,
-      "tags": [
-        "browser",
-        "deepseek-harness"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-builtin-browser",
-      "npmUrl": "https://www.npmjs.com/package/dsh-builtin-browser",
-      "version": "0.1.15",
-      "installCmd": "npm i dsh-builtin-browser",
-      "readmeUrl": "https://raw.githubusercontent.com/wqty123/dsh-browser/master/README.md",
-      "pushedAt": "2026-08-16T08:28:25Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:01:18.849Z",
-        "confidence": 20,
-        "security": {
-          "level": "danger",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "high",
-              "file": "lib/browser-electron/remote-host.js",
-              "line": 18,
-              "detail": "静态引入 node:child_process（运行时代码）"
-            }
-          ],
-          "scannedFiles": 8
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:01:18.849Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 2,
-          "scannedAt": "2026-08-25T07:01:18.849Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 2,
-        "scannedAt": "2026-08-25T07:01:18.849Z"
-      }
-    },
-    {
       "id": "dsh-web-ui-notify",
       "name": "dsh-web-ui-notify",
       "fullName": "bill9109/dsh-web-ui-notify",
@@ -45742,6 +45667,81 @@
         "dashboards": 0,
         "scannedFiles": 1,
         "scannedAt": "2026-08-25T07:01:19.917Z"
+      }
+    },
+    {
+      "id": "dsh-browser",
+      "name": "dsh-browser",
+      "fullName": "wqty123/dsh-browser",
+      "description": "Shared real browser plugin for DeepSeek Harness",
+      "author": "wqty123",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/153445160?v=4",
+      "authorUrl": "https://github.com/wqty123",
+      "repoUrl": "https://github.com/wqty123/dsh-browser",
+      "stars": 23,
+      "forks": 1,
+      "openIssues": 2,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T10:28:03Z",
+      "createdAt": "2026-08-14T17:01:52Z",
+      "defaultBranch": "master",
+      "readmeZhUrl": null,
+      "tags": [
+        "browser",
+        "deepseek-harness"
+      ],
+      "type": "extension",
+      "hasNpm": true,
+      "npmName": "dsh-builtin-browser",
+      "npmUrl": "https://www.npmjs.com/package/dsh-builtin-browser",
+      "version": "0.1.15",
+      "installCmd": "npm i dsh-builtin-browser",
+      "readmeUrl": "https://raw.githubusercontent.com/wqty123/dsh-browser/master/README.md",
+      "pushedAt": "2026-08-16T08:28:25Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:18.849Z",
+        "confidence": 20,
+        "security": {
+          "level": "danger",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "high",
+              "file": "lib/browser-electron/remote-host.js",
+              "line": 18,
+              "detail": "静态引入 node:child_process（运行时代码）"
+            }
+          ],
+          "scannedFiles": 8
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:18.849Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 2,
+          "scannedAt": "2026-08-25T07:01:18.849Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 2,
+        "scannedAt": "2026-08-25T07:01:18.849Z"
       }
     },
     {
@@ -46246,6 +46246,65 @@
       }
     },
     {
+      "id": "dsh-plugin-directory",
+      "name": "dsh-plugin-directory",
+      "fullName": "alexchenzl/dsh-plugin-directory",
+      "description": "Community-driven DeekSeek Harness Plugin Directory ",
+      "author": "alexchenzl",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/2885415?v=4",
+      "authorUrl": "https://github.com/alexchenzl",
+      "repoUrl": "https://github.com/alexchenzl/dsh-plugin-directory",
+      "stars": 22,
+      "forks": 1,
+      "openIssues": 193,
+      "license": "Apache-2.0",
+      "updatedAt": "2026-08-25T03:42:07Z",
+      "createdAt": "2026-08-16T12:07:53Z",
+      "defaultBranch": "master",
+      "readmeZhUrl": null,
+      "tags": [
+        "deepseek-harness",
+        "dsh",
+        "dsh-finder",
+        "dsh-marketplace",
+        "dsh-store"
+      ],
+      "type": "extension",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": null,
+      "readmeUrl": "https://raw.githubusercontent.com/alexchenzl/dsh-plugin-directory/master/README.md",
+      "pushedAt": "2026-08-19T04:32:10Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:19.034Z",
+        "confidence": 30,
+        "security": {
+          "level": "warn",
+          "findings": [
+            {
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/backfill-labels.mjs",
+              "line": 18,
+              "detail": "静态引入 node:child_process（工具链脚本）"
+            }
+          ],
+          "scannedFiles": 1
+        },
+        "health": {
+          "manifestValid": false,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:19.034Z",
+        "resource": null
+      }
+    },
+    {
       "id": "dsh-memoir",
       "name": "dsh-memoir",
       "fullName": "Qinling-Melon-Farmers/dsh-memoir",
@@ -46322,61 +46381,49 @@
       }
     },
     {
-      "id": "dsh-plugin-directory",
-      "name": "dsh-plugin-directory",
-      "fullName": "alexchenzl/dsh-plugin-directory",
-      "description": "Community-driven DeekSeek Harness Plugin Directory ",
-      "author": "alexchenzl",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/2885415?v=4",
-      "authorUrl": "https://github.com/alexchenzl",
-      "repoUrl": "https://github.com/alexchenzl/dsh-plugin-directory",
+      "id": "deepseek-harness-zh_pro",
+      "name": "deepseek-harness-zh_pro",
+      "fullName": "magian1127/deepseek-harness-zh_pro",
+      "description": "DeepSeek Harness (DSH) plugin:  A comprehensive enhancement plugin with UI polish, layout tweaks, prompt injection, and more.  综合性增强插件，界面优化、布局调整与提示词注入等更多功能。",
+      "author": "magian1127",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/14800320?v=4",
+      "authorUrl": "https://github.com/magian1127",
+      "repoUrl": "https://github.com/magian1127/deepseek-harness-zh_pro",
       "stars": 22,
-      "forks": 1,
-      "openIssues": 193,
-      "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T03:42:07Z",
-      "createdAt": "2026-08-16T12:07:53Z",
-      "defaultBranch": "master",
+      "forks": 0,
+      "openIssues": 0,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T14:24:59Z",
+      "createdAt": "2026-08-15T07:00:02Z",
+      "defaultBranch": "main",
       "readmeZhUrl": null,
       "tags": [
-        "deepseek-harness",
-        "dsh",
-        "dsh-finder",
-        "dsh-marketplace",
-        "dsh-store"
+        "deepseek-harness"
       ],
       "type": "extension",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": null,
-      "installCmd": null,
-      "readmeUrl": "https://raw.githubusercontent.com/alexchenzl/dsh-plugin-directory/master/README.md",
-      "pushedAt": "2026-08-19T04:32:10Z",
+      "hasNpm": true,
+      "npmName": "deepseek-harness-zh_pro",
+      "npmUrl": "https://www.npmjs.com/package/deepseek-harness-zh_pro",
+      "version": "0.7.0",
+      "installCmd": "npm i deepseek-harness-zh_pro",
+      "readmeUrl": "https://raw.githubusercontent.com/magian1127/deepseek-harness-zh_pro/main/README.md",
+      "pushedAt": "2026-08-25T12:12:26Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T07:01:19.034Z",
-        "confidence": 30,
+        "scannedAt": "2026-08-25T13:01:09.783Z",
+        "confidence": 70,
         "security": {
-          "level": "warn",
-          "findings": [
-            {
-              "rule": "dangerous-module",
-              "severity": "medium",
-              "file": "scripts/backfill-labels.mjs",
-              "line": 18,
-              "detail": "静态引入 node:child_process（工具链脚本）"
-            }
-          ],
-          "scannedFiles": 1
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 0
         },
         "health": {
-          "manifestValid": false,
+          "manifestValid": true,
           "dshBundleDeclared": false,
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T07:01:19.034Z",
+        "lastVerifiedAt": "2026-08-25T13:01:09.783Z",
         "resource": null
       }
     },
@@ -46516,53 +46563,6 @@
           "buildStatus": "unknown"
         },
         "lastVerifiedAt": "2026-08-25T07:01:20.015Z",
-        "resource": null
-      }
-    },
-    {
-      "id": "deepseek-harness-zh_pro",
-      "name": "deepseek-harness-zh_pro",
-      "fullName": "magian1127/deepseek-harness-zh_pro",
-      "description": "DeepSeek Harness (DSH) plugin:  A comprehensive enhancement plugin with UI polish, layout tweaks, prompt injection, and more.  综合性增强插件，界面优化、布局调整与提示词注入等更多功能。",
-      "author": "magian1127",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/14800320?v=4",
-      "authorUrl": "https://github.com/magian1127",
-      "repoUrl": "https://github.com/magian1127/deepseek-harness-zh_pro",
-      "stars": 22,
-      "forks": 0,
-      "openIssues": 0,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T14:24:59Z",
-      "createdAt": "2026-08-15T07:00:02Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "deepseek-harness"
-      ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "deepseek-harness-zh_pro",
-      "npmUrl": "https://www.npmjs.com/package/deepseek-harness-zh_pro",
-      "version": "0.7.0",
-      "installCmd": "npm i deepseek-harness-zh_pro",
-      "readmeUrl": "https://raw.githubusercontent.com/magian1127/deepseek-harness-zh_pro/main/README.md",
-      "pushedAt": "2026-08-25T12:12:26Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T13:01:09.783Z",
-        "confidence": 70,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 0
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T13:01:09.783Z",
         "resource": null
       }
     },
@@ -46813,6 +46813,75 @@
       }
     },
     {
+      "id": "dsh-qq2006",
+      "name": "dsh-qq2006",
+      "fullName": "LaplaceYoung/dsh-qq2006",
+      "description": "DSH (DeepSeek Harness) 的 QQ2006 皮肤插件：注册 qq2006 主题、镜像 body[data-ds-skin]、全局皮肤表与完整素材",
+      "author": "LaplaceYoung",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/219803883?v=4",
+      "authorUrl": "https://github.com/LaplaceYoung",
+      "repoUrl": "https://github.com/LaplaceYoung/dsh-qq2006",
+      "stars": 22,
+      "forks": 1,
+      "openIssues": 2,
+      "license": "MIT",
+      "updatedAt": "2026-08-25T06:48:22Z",
+      "createdAt": "2026-08-13T13:04:18Z",
+      "defaultBranch": "main",
+      "readmeZhUrl": null,
+      "tags": [
+        "deepseek-harness",
+        "dsh-skin",
+        "qq2006",
+        "theme"
+      ],
+      "type": "theme",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": "0.1.0",
+      "installCmd": "npm i github:LaplaceYoung/dsh-qq2006",
+      "readmeUrl": "https://raw.githubusercontent.com/LaplaceYoung/dsh-qq2006/main/README.md",
+      "pushedAt": "2026-08-15T07:28:27Z",
+      "verification": {
+        "status": "verified",
+        "scannedAt": "2026-08-25T07:01:20.772Z",
+        "confidence": 70,
+        "security": {
+          "level": "pass",
+          "findings": [],
+          "scannedFiles": 6
+        },
+        "health": {
+          "manifestValid": true,
+          "dshBundleDeclared": false,
+          "applyEntry": false,
+          "buildStatus": "unknown"
+        },
+        "lastVerifiedAt": "2026-08-25T07:01:20.772Z",
+        "resource": {
+          "weight": "light",
+          "hotPathHooks": [],
+          "lifecycleHooks": [],
+          "modelCalls": false,
+          "hasCommands": false,
+          "dashboards": 0,
+          "scannedFiles": 1,
+          "scannedAt": "2026-08-25T07:01:20.772Z"
+        }
+      },
+      "resource": {
+        "weight": "light",
+        "hotPathHooks": [],
+        "lifecycleHooks": [],
+        "modelCalls": false,
+        "hasCommands": false,
+        "dashboards": 0,
+        "scannedFiles": 1,
+        "scannedAt": "2026-08-25T07:01:20.772Z"
+      }
+    },
+    {
       "id": "dsh-openmaic",
       "name": "dsh-openmaic",
       "fullName": "THU-MAIC/dsh-openmaic",
@@ -47012,75 +47081,6 @@
       }
     },
     {
-      "id": "dsh-qq2006",
-      "name": "dsh-qq2006",
-      "fullName": "LaplaceYoung/dsh-qq2006",
-      "description": "DSH (DeepSeek Harness) 的 QQ2006 皮肤插件：注册 qq2006 主题、镜像 body[data-ds-skin]、全局皮肤表与完整素材",
-      "author": "LaplaceYoung",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/219803883?v=4",
-      "authorUrl": "https://github.com/LaplaceYoung",
-      "repoUrl": "https://github.com/LaplaceYoung/dsh-qq2006",
-      "stars": 22,
-      "forks": 1,
-      "openIssues": 2,
-      "license": "MIT",
-      "updatedAt": "2026-08-25T06:48:22Z",
-      "createdAt": "2026-08-13T13:04:18Z",
-      "defaultBranch": "main",
-      "readmeZhUrl": null,
-      "tags": [
-        "deepseek-harness",
-        "dsh-skin",
-        "qq2006",
-        "theme"
-      ],
-      "type": "theme",
-      "hasNpm": false,
-      "npmName": null,
-      "npmUrl": null,
-      "version": "0.1.0",
-      "installCmd": "npm i github:LaplaceYoung/dsh-qq2006",
-      "readmeUrl": "https://raw.githubusercontent.com/LaplaceYoung/dsh-qq2006/main/README.md",
-      "pushedAt": "2026-08-15T07:28:27Z",
-      "verification": {
-        "status": "verified",
-        "scannedAt": "2026-08-25T07:01:20.772Z",
-        "confidence": 70,
-        "security": {
-          "level": "pass",
-          "findings": [],
-          "scannedFiles": 6
-        },
-        "health": {
-          "manifestValid": true,
-          "dshBundleDeclared": false,
-          "applyEntry": false,
-          "buildStatus": "unknown"
-        },
-        "lastVerifiedAt": "2026-08-25T07:01:20.772Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T07:01:20.772Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T07:01:20.772Z"
-      }
-    },
-    {
       "id": "dsh-focus-chat",
       "name": "dsh-focus-chat",
       "fullName": "dingyi222666/dsh-focus-chat",
@@ -47189,7 +47189,7 @@
       "authorUrl": "https://github.com/ZSeven-W",
       "repoUrl": "https://github.com/ZSeven-W/dsh-harbor",
       "stars": 22,
-      "forks": 0,
+      "forks": 1,
       "openIssues": 0,
       "license": "MIT",
       "updatedAt": "2026-08-25T18:20:15Z",
@@ -47674,7 +47674,7 @@
       "forks": 2,
       "openIssues": 0,
       "license": "MIT",
-      "updatedAt": "2026-08-25T19:09:32Z",
+      "updatedAt": "2026-08-25T21:02:44Z",
       "createdAt": "2026-08-13T22:30:42Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
@@ -47686,10 +47686,10 @@
       "version": "0.9.2",
       "installCmd": "npm i github:YELEBAI/dsh-plugin-marketplace",
       "readmeUrl": "https://raw.githubusercontent.com/YELEBAI/dsh-plugin-marketplace/main/README.md",
-      "pushedAt": "2026-08-25T19:09:19Z",
+      "pushedAt": "2026-08-25T20:59:39Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T19:38:29.889Z",
+        "scannedAt": "2026-08-25T21:36:10.894Z",
         "confidence": 20,
         "security": {
           "level": "danger",
@@ -47738,7 +47738,7 @@
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T19:38:29.889Z",
+        "lastVerifiedAt": "2026-08-25T21:36:10.894Z",
         "resource": {
           "weight": "light",
           "hotPathHooks": [],
@@ -47747,7 +47747,7 @@
           "hasCommands": false,
           "dashboards": 0,
           "scannedFiles": 2,
-          "scannedAt": "2026-08-25T19:38:29.889Z"
+          "scannedAt": "2026-08-25T21:36:10.894Z"
         }
       },
       "resource": {
@@ -47758,7 +47758,7 @@
         "hasCommands": false,
         "dashboards": 0,
         "scannedFiles": 2,
-        "scannedAt": "2026-08-25T19:38:29.889Z"
+        "scannedAt": "2026-08-25T21:36:10.894Z"
       }
     },
     {
@@ -47974,110 +47974,66 @@
       }
     },
     {
-      "id": "dsh-taskboard",
-      "name": "dsh-taskboard",
-      "fullName": "cloader/dsh-taskboard",
-      "description": "deepseekharness 任务看板插件 ",
-      "author": "cloader",
-      "authorAvatar": "https://avatars.githubusercontent.com/u/3699964?v=4",
-      "authorUrl": "https://github.com/cloader",
-      "repoUrl": "https://github.com/cloader/dsh-taskboard",
+      "id": "skills",
+      "name": "skills",
+      "fullName": "upstash/skills",
+      "description": "Collection of skills for Upstash",
+      "author": "upstash",
+      "authorAvatar": "https://avatars.githubusercontent.com/u/74989412?v=4",
+      "authorUrl": "https://github.com/upstash",
+      "repoUrl": "https://github.com/upstash/skills",
       "stars": 21,
       "forks": 7,
       "openIssues": 0,
-      "license": "Apache-2.0",
-      "updatedAt": "2026-08-25T16:35:47Z",
-      "createdAt": "2026-08-15T06:57:10Z",
+      "license": "MIT",
+      "updatedAt": "2026-08-25T07:34:00Z",
+      "createdAt": "2026-03-24T12:11:48Z",
       "defaultBranch": "main",
       "readmeZhUrl": null,
       "tags": [
-        "agent",
-        "cordis",
-        "deepseek-harness",
-        "dsh",
-        "kanban",
-        "task-board"
+        "mcp",
+        "skills"
       ],
-      "type": "extension",
-      "hasNpm": true,
-      "npmName": "dsh-taskboard",
-      "npmUrl": "https://www.npmjs.com/package/dsh-taskboard",
-      "version": "0.5.1",
-      "installCmd": "npm i dsh-taskboard",
-      "readmeUrl": "https://raw.githubusercontent.com/cloader/dsh-taskboard/main/README.md",
-      "pushedAt": "2026-08-25T07:05:15Z",
+      "type": "mcp",
+      "hasNpm": false,
+      "npmName": null,
+      "npmUrl": null,
+      "version": null,
+      "installCmd": "npm i github:upstash/skills",
+      "readmeUrl": "https://raw.githubusercontent.com/upstash/skills/main/README.md",
+      "pushedAt": "2026-08-25T07:30:36Z",
       "verification": {
         "status": "verified",
-        "scannedAt": "2026-08-25T20:37:39.616Z",
-        "confidence": 70,
+        "scannedAt": "2026-08-25T21:36:11.880Z",
+        "confidence": 30,
         "security": {
-          "level": "pass",
+          "level": "warn",
           "findings": [
             {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "lib/host/git.js",
-              "line": 89,
-              "detail": "动态 import() 固定路径 node:child_process"
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/build.mjs",
+              "line": 2,
+              "detail": "静态引入 child_process（工具链脚本）"
             },
             {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "lib/host/routes.js",
-              "line": 181,
-              "detail": "动态 import() 固定路径 node:fs/promises"
-            },
-            {
-              "rule": "external-endpoint",
-              "severity": "low",
-              "file": "lib/host/routes.js",
-              "line": 240,
-              "detail": "硬编码外联地址 x（非生态白名单域）"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "lib/host/templates.js",
-              "line": 111,
-              "detail": "动态 import() 固定路径 node:fs/promises"
-            },
-            {
-              "rule": "dynamic-import-literal",
-              "severity": "low",
-              "file": "lib/host/templates.js",
-              "line": 112,
-              "detail": "动态 import() 固定路径 node:path"
+              "rule": "dangerous-module",
+              "severity": "medium",
+              "file": "scripts/check.mjs",
+              "line": 1,
+              "detail": "静态引入 child_process（工具链脚本）"
             }
           ],
-          "scannedFiles": 16
+          "scannedFiles": 3
         },
         "health": {
-          "manifestValid": true,
+          "manifestValid": false,
           "dshBundleDeclared": false,
           "applyEntry": false,
           "buildStatus": "unknown"
         },
-        "lastVerifiedAt": "2026-08-25T20:37:39.616Z",
-        "resource": {
-          "weight": "light",
-          "hotPathHooks": [],
-          "lifecycleHooks": [],
-          "modelCalls": false,
-          "hasCommands": false,
-          "dashboards": 0,
-          "scannedFiles": 1,
-          "scannedAt": "2026-08-25T20:37:39.616Z"
-        }
-      },
-      "resource": {
-        "weight": "light",
-        "hotPathHooks": [],
-        "lifecycleHooks": [],
-        "modelCalls": false,
-        "hasCommands": false,
-        "dashboards": 0,
-        "scannedFiles": 1,
-        "scannedAt": "2026-08-25T20:37:39.616Z"
+        "lastVerifiedAt": "2026-08-25T21:36:11.880Z",
+        "resource": null
       }
     }
   ]
