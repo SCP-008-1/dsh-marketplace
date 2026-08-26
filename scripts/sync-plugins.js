@@ -24,6 +24,7 @@ const path = require('path');
 const fs = require('fs');
 
 const { fetchAllRepos, filterExcluded, EXCLUDED_REPOS } = require('./lib/github');
+const { dedupRepos } = require('./lib/dedup');
 const { fetchJson, probeUrl } = require('./lib/http');
 const { verifyNpmPackage, sanitizeVersion } = require('./lib/npm-verify');
 const { detectPluginType } = require('./lib/plugin-type');
@@ -88,14 +89,18 @@ async function main() {
   const filtered = filterExcluded(items);
   console.log(`过滤后有效 dsh 插件数量: ${filtered.length}`);
 
+  console.log(`[2.5/5] 执行去重与镜像检测（fork 不重复收录，issue #18）...`);
+  const dedupResult = await dedupRepos(filtered, headers);
+  const deduped = dedupResult.kept;
+
   console.log(`[3/5] 执行严格 NPM 真实性双向校验...`);
   const batchSize = 10;
   const pluginsData = [];
   // 验证阶段需要各仓库根 package.json（manifest 健康检查用），按 fullName 暂存
   const pkgJsonMap = {};
 
-  for (let i = 0; i < filtered.length; i += batchSize) {
-    const batch = filtered.slice(i, i + batchSize);
+  for (let i = 0; i < deduped.length; i += batchSize) {
+    const batch = deduped.slice(i, i + batchSize);
     const batchResults = await Promise.all(batch.map(async repo => {
       const type = detectPluginType(repo.topics);
       const npmVerification = await verifyNpmPackage(repo);
@@ -131,12 +136,15 @@ async function main() {
         installCmd: npmVerification.installCmd,
         readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`,
         pushedAt: repo.pushed_at || null,
-        verification: null // 由下方验证阶段填充；先置空保证字段顺序稳定
+        verification: null, // 由下方验证阶段填充；先置空保证字段顺序稳定
+        // 镜像标注（issue #18）：仅 fork 且上游未收录/已删除时存在；
+        // 条件展开保证普通条目不带这两个字段，与历史数据结构完全兼容
+        ...(repo.__mirror ? { isMirror: true, upstream: repo.__mirror } : {})
       };
     }));
 
     pluginsData.push(...batchResults);
-    process.stdout.write(`已严格校验 NPM: ${pluginsData.length}/${filtered.length}\r`);
+    process.stdout.write(`已严格校验 NPM: ${pluginsData.length}/${deduped.length}\r`);
   }
 
   const npmPlugins = pluginsData.filter(p => p.hasNpm);
@@ -148,7 +156,18 @@ async function main() {
 
   // 3.6 失效检测：归档标记 + 消失条目探测（保留条目参与下方数量守卫，避免批量死亡误触发骤降熔断）
   const prevForLiveness = loadPreviousData(path.join(__dirname, '..', 'data', 'plugins.json'));
-  await runLivenessStage(pluginsData, prevForLiveness ? prevForLiveness.plugins : [], headers);
+  // 本轮被跳过的镜像不再参与"消失条目"探测：否则 liveness 会把上一轮已收录的
+  // fork 残留条目当作 not-in-topic 复活，绕过去重收敛（验收标准第 1 条）
+  const skippedMirrorSet = new Set(
+    (dedupResult ? dedupResult.skippedList : []).map(s => s.fullName.toLowerCase())
+  );
+  await runLivenessStage(
+    pluginsData,
+    prevForLiveness && Array.isArray(prevForLiveness.plugins)
+      ? prevForLiveness.plugins.filter(p => !p || !skippedMirrorSet.has(String(p.fullName).toLowerCase()))
+      : [],
+    headers
+  );
 
   // 4. 写入 data/plugins.json
   console.log(`[4/5] 写入 data/plugins.json ...`);

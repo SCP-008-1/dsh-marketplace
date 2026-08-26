@@ -2360,3 +2360,7 @@ section[id], #packagesSection {
 /* 失效状态角标（归档/死链/源码不可达） */
 .badge-life-archived { background: var(--bg-surface, rgba(127,127,127,0.12)); color: var(--text-tertiary); border:1px solid var(--border-subtle); }
 .badge-life-dead { background: rgba(239,68,68,0.10); color: var(--trust-danger-text); border:1px solid rgba(239,68,68,0.22); opacity:0.85; }
+/* 镜像角标（issue #18）：天蓝系区分于语义色；上游失效用琥珀色提示接管 */
+.badge-mirror { background: var(--badge-ext-bg, rgba(59,130,246,0.08)); color: var(--badge-ext-text, #2563eb); border:1px solid var(--badge-ext-border, rgba(59,130,246,0.22)); text-decoration:none; }
+.badge-mirror:hover { background: rgba(14,165,233,0.18); }
+.badge-mirror-dead { background: rgba(245,158,11,0.12); color: var(--trust-warn-text); border:1px solid rgba(245,158,11,0.25); }

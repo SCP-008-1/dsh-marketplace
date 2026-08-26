@@ -35,6 +35,7 @@ assets/
     giscus-{dark,light}.css giscus 评论主题适配
 scripts/
   sync-plugins.js           抓取 topic:dsh-plugin → 生成 data/plugins.json + wiki_dist/
+  lib/dedup.js              去重与镜像检测（fork 链收敛：上游已收录则跳过；保留条目标注 isMirror/upstream；非 fork 疑似镜像启发式仅提示人工确认）
   lib/verify/               可信度验证模块（安全扫描/健康检查/资源画像/缓存）
     security-scan.js        acorn AST 安全扫描（eval/vm、动态导入、混淆、外泄检测）
     health-check.js         健康检查（manifest/dsh.bundle/apply() 入口/CI 状态）

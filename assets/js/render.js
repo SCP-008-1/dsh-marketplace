@@ -310,6 +310,20 @@
       return "";
     }
 
+    // 镜像角标（issue #18）：确认为镜像的条目标注「镜像 → 指向上游」而非隐藏（保留发现价值）；
+    // 上游已删除时给出接管提示路径：镜像成为唯一来源，可联系管理员提升为正式条目
+    function mirrorBadgeHtml(pkg) {
+      if (!pkg.isMirror) return "";
+      const up = pkg.upstream;
+      if (!up || up.alive === false || !up.fullName) {
+        return '<span class="badge badge-mirror-dead" title="' + jsAttr(t('mirrorDeadTitle')) + '">' + t('mirrorDead') + '</span>';
+      }
+      const url = up.url || ('https://github.com/' + up.fullName);
+      return '<a class="badge badge-mirror" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer"' +
+        ' title="' + jsAttr(t('mirrorTitle', up.fullName)) + '" onclick="event.stopPropagation()">' +
+        t('mirrorBadge') + ' →</a>';
+    }
+
     // 卡片可信度角标：仅有验证数据时显示，避免上线初期满屏"未验证"噪音
     function trustBadgeHtml(pkg) {
       const v = pkg.verification;
@@ -362,6 +376,7 @@
                 trustBadgeHtml(pkg) +
                 resourceBadgeHtml(pkg) +
                 lifecycleBadgeHtml(pkg) +
+                mirrorBadgeHtml(pkg) +
                 bookmarkButtonHtml(pkg, isBookmarked, isBookmarked ? t('removeFavoriteTitle') : t('addFavoriteTitle')) +
               '</div>' +
             '</div>' +
@@ -419,6 +434,7 @@
                 trustBadgeHtml(pkg) +
                 resourceBadgeHtml(pkg) +
                 lifecycleBadgeHtml(pkg) +
+                mirrorBadgeHtml(pkg) +
               '</div>' +
             '</div>' +
           '</div>' +
