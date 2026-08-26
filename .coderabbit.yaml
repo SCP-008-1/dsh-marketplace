@@ -1,0 +1,51 @@
+language: "zh-CN"
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  # 定义风险等级，用于 PR 评论中的 P0‑P4 标记
+  risk_levels: ["P0","P1","P2","P3","P4"]
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches: ["main"]
+
+  # 排除生成物与自动提交噪音文件
+  path_filters:
+    - "!data/plugins.json"
+    - "!data/verification-cache.json"
+    - "!package-lock.json"
+    - "!wiki_dist/**"
+
+  # 将项目红线转为路径级审查指令
+  path_instructions:
+    - path: "index.html"
+      instructions: |
+        - 检查脚本加载顺序：config.js 必须最先加载。
+        - 修改资源引用时，确保对应的 ?v= 版本号已同步刷新。
+        - 如更改 ratingApi、giscus 域名，请同步更新 CSP `connect-src`。
+        - 发现安全风险时请在代码注释中使用 `// P0`、`// P1`… 标记等级，CodeRabbit 将在评论中突出显示。
+    - path: "assets/js/**"
+      instructions: |
+        - 所有用户可控渲染必须使用 `textContent` 或手动转义，禁止直接 `innerHTML`（防 XSS）。
+        - 异步请求需提供 loading / error / empty 三种 UI 状态。
+        - 评分/评论降级链路：无 ratingApi 时降级至 localStorage，
+          无 giscus 配置时展示配置指引。
+        - 用 `// P1`、`// P2` 等注释标记潜在风险，CodeRabbit 将在评论中显示对应标签。
+    - path: "workers/rating/**"
+      instructions: |
+        - 输入必须严格校验类型与范围，写操作需限流防刷。
+        - CORS 必须只允许白名单 Origin，密钥只能通过环境变量/Secret 注入。
+        - 禁止全局可变状态，返回 `Response` 时必须捕获异常并记录。
+        - 高危漏洞请使用 `// P0` 标记。
+    - path: "scripts/**"
+      instructions: |
+        - 捕获异常并以非阻塞方式报告，单条抓取失败不应中止整体流程。
+        - 数据结构变更必须保持向后兼容，破坏性修改用 `// P2` 标记。
+        - `data/plugins.json` 与 `verification-cache.json` 为 CI 自动生成，禁止手工编辑。
+
+chat:
+  auto_reply: true
