@@ -13,7 +13,7 @@
 - **纯静态站点**（GitHub Pages）+ **Cloudflare Workers 评分 API** + **GitHub Actions 自动化**
 - 数据来自 GitHub Topic `topic:dsh-plugin` 自动抓取，每小时增量同步
 - 无 npm 依赖、无构建工具、无框架——原生 HTML/CSS/JavaScript
-- 功能：搜索/过滤、中英双语、暗浅色主题、⭐评分（Workers+KV）、Giscus 评论、GitHub OAuth 登录
+- 功能：搜索/过滤、中英双语、暗浅色主题、⭐评分（Workers+KV）、Giscus 评论、GitHub OAuth 登录；过滤含「仅看已验证」（AST 安全扫描通过且无高危）、「可观测精选」一级 Tab、失效/镜像/资源画像角标
 
 ## 二、目录结构与职责
 

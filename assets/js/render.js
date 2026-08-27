@@ -365,13 +365,13 @@
         const installCmd = pkgInstallCmd(pkg);
 
         return '<article class="package-card" data-id="' + pkg.id + '">' +
-          '<div>' +
+          '<div class="package-card-body">' +
             '<div class="package-card-header">' +
               '<div class="package-header-left">' +
                 renderAvatar(pkg.author, pkg.authorAvatar, 30) +
                 packageNameHtml(pkg, query) +
               '</div>' +
-              '<div style="display:flex; align-items:center; gap:6px;">' +
+              '<div class="package-header-badges">' +
                 (pkg.hasNpm ? '<span class="badge badge-verified" title="' + t('badgeVerifiedTitle') + '">' + t('badgeVerified') + '</span>' : '') +
                 trustBadgeHtml(pkg) +
                 resourceBadgeHtml(pkg) +
@@ -393,13 +393,13 @@
 
             (visibleTags.length > 0 ? (
               '<div class="package-tags-row">' +
-                visibleTags.map(tag => '<span class="tag-chip" onclick="applyQuickSearch(\'' + jsAttr(tag) + '\')">#' + escapeHtml(tag) + '</span>').join("") +
-                (extraTags > 0 ? '<span class="tag-chip" style="color:var(--text-muted);">+' + extraTags + '</span>' : '') +
+                visibleTags.map(tag => '<span class="tag-chip" onclick="applyQuickSearch(\'' + jsAttr(tag) + '\')" title="#' + escapeHtml(tag) + '">#' + escapeHtml(tag) + '</span>').join("") +
+                (extraTags > 0 ? '<span class="tag-chip tag-chip-count" style="color:var(--text-muted);">+' + extraTags + '</span>' : '') +
               '</div>'
-            ) : '') +
+            ) : '<div class="package-tags-row"></div>') +
           '</div>' +
 
-          '<div>' +
+          '<div class="package-card-footer">' +
             '<div class="package-metrics-row">' +
               (rating === null ? '' : '<span class="metric-item" title="' + t('cardRatingTitle') + '">★ ' + rating + '</span>') +
               '<span class="metric-item" title="' + t('cardStarsTitle') + '">⭐ ' + formatNumber(pkg.stars) + '</span>' +
