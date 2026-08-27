@@ -1284,7 +1284,7 @@ section[id], #packagesSection {
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
-  height: 30px;
+  min-height: 30px;
 }
 
 .package-header-left {
@@ -1298,8 +1298,11 @@ section[id], #packagesSection {
 .package-header-badges {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 4px;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .package-name {
