@@ -14,7 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <link rel="stylesheet" href="assets/css/main.css?v=202608250100">
+  <link rel="stylesheet" href="assets/css/main.css?v=202608271957">
 </head>
 <body>
   <!-- Header Nav -->
@@ -138,7 +138,7 @@
               <span class="dropdown-chip" id="chipSkill" onclick="applyQuickSearch('skill')">⚡ 编程与代码技能</span>
               <span class="dropdown-chip" id="chipAgent" onclick="applyQuickSearch('agent')">🤖 AI 智能体</span>
               <span class="dropdown-chip" id="chipTheme" onclick="applyQuickSearch('theme')">🎨 终端与 UI 主题</span>
-              <span class="dropdown-chip" id="chipVerified" onclick="applyQuickSearch('verified:true')">✓ 仅看 NPM 认证包</span>
+              <span class="dropdown-chip" id="chipVerified" onclick="applyQuickSearch('verified:true')">✓ 仅看已验证</span>
             </div>
 
             <div class="dropdown-section-title" id="syntaxFilterTitle">高级搜索语法</div>
@@ -165,7 +165,7 @@
         <div class="hero-quick-links">
           <span class="hero-quick-link" id="heroTrendingLink" onclick="scrollToTrending()">🔥 热门趋势</span>
           <span>·</span>
-          <span class="hero-quick-link" id="heroTopRatedLink" onclick="focusTier1('popular')">⭐ 高分好评</span>
+          <span class="hero-quick-link" id="heroTopRatedLink" onclick="focusTier1('popular')">⭐ 最多 Star</span>
           <span>·</span>
           <span class="hero-quick-link" onclick="focusScenario('all')"><span id="heroTotalCount">99</span><span id="heroVerifiedSuffix"> 个收录插件</span></span>
           <span>·</span>
@@ -225,6 +225,9 @@
             <button class="tier1-tab" data-tab="recent" onclick="selectTier1Tab('recent')">
               <span id="tabRecentText">⏱️ 最近更新</span>
             </button>
+            <button class="tier1-tab" data-tab="observability" onclick="selectTier1Tab('observability')">
+              <span id="tabObsText">📊 可观测精选</span>
+            </button>
             <button class="tier1-tab" data-tab="favorites" onclick="selectTier1Tab('favorites')">
               <span id="tabFavoritesText">⭐ 我的收藏</span>
               <span class="tier1-tab-count" id="tier1CountFav">(0)</span>
@@ -257,7 +260,7 @@
               </select>
 
               <button id="verifiedOnlyBtn" class="toggle-pill" onclick="toggleVerifiedOnly()">
-                <span id="verifiedOnlyBtnSpan">✓ 仅看 NPM 认证</span>
+                <span id="verifiedOnlyBtnSpan">✓ 仅看已验证</span>
               </button>
 
               <button id="showDeadBtn" class="toggle-pill" onclick="toggleShowDead()">
@@ -563,14 +566,14 @@ window.DSH_UPDATED_AT = "2026-08-24T15:28:51.238Z";
        config 必须先于 state（MARKETPLACE_CONFIG）；
        utils 先于 ui/render/modal（escapeHtml/jsAttr）；
        modal 必须先于 app（syncGiscusTheme 在 initTheme 中被调用）。请勿调整顺序 -->
-  <script src="assets/js/config.js?v=202608250100" defer></script>
-  <script src="assets/js/i18n.js?v=202608250100" defer></script>
-  <script src="assets/js/state.js?v=202608250100" defer></script>
-  <script src="assets/js/utils.js?v=202608250100" defer></script>
-  <script src="assets/js/auth.js?v=202608250100" defer></script>
-  <script src="assets/js/ui.js?v=202608250100" defer></script>
-  <script src="assets/js/render.js?v=202608250100" defer></script>
-  <script src="assets/js/modal.js?v=202608250100" defer></script>
-  <script src="assets/js/app.js?v=202608250100" defer></script>
+  <script src="assets/js/config.js?v=202608271957" defer></script>
+  <script src="assets/js/i18n.js?v=202608271957" defer></script>
+  <script src="assets/js/state.js?v=202608271957" defer></script>
+  <script src="assets/js/utils.js?v=202608271957" defer></script>
+  <script src="assets/js/auth.js?v=202608271957" defer></script>
+  <script src="assets/js/ui.js?v=202608271957" defer></script>
+  <script src="assets/js/render.js?v=202608271957" defer></script>
+  <script src="assets/js/modal.js?v=202608271957" defer></script>
+  <script src="assets/js/app.js?v=202608271957" defer></script>
 </body>
 </html>
