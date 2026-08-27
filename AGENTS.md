@@ -35,10 +35,12 @@ assets/
     giscus-{dark,light}.css giscus 评论主题适配
 scripts/
   sync-plugins.js           抓取 topic:dsh-plugin → 生成 data/plugins.json + wiki_dist/
+  lib/dedup.js              去重与镜像检测（fork 链收敛：上游已收录则跳过；保留条目标注 isMirror/upstream；非 fork 疑似镜像启发式仅提示人工确认）
   lib/verify/               可信度验证模块（安全扫描/健康检查/资源画像/缓存）
     security-scan.js        acorn AST 安全扫描（eval/vm、动态导入、混淆、外泄检测）
     health-check.js         健康检查（manifest/dsh.bundle/apply() 入口/CI 状态）
     resource-profile.js     资源画像静态推断（apply(ctx) 事件分桶→token 消耗三档：heavy/medium/light；模型调用/仪表盘检测）
+    liveness.js             失效检测（归档标记/消失条目探测/死链双源判定防误杀/改名 formerIds 迁移）
     cache.js                增量缓存 data/verification-cache.json（pushed_at 未变则复用）
     index.js                验证编排：置信度汇总 + 并发调度 + 失败降级
   fix-install-cmds.js       修正安装命令数据
@@ -97,7 +99,7 @@ cd workers/rating && npx wrangler deploy
 bash scripts/install-hooks.sh
 ```
 
-**没有测试套件、没有 lint 配置**——验证方式为：CI 的 `ci.yml` 门禁（JS 语法检查 + `plugins.json` schema 校验 + Worker dry-run 构建）、CI 的 secret-scan、本地预览手动走查关键路径（搜索/切换语言/主题/弹窗/打分），以及 `sync-plugins.yml` 每小时通过 `node scripts/sync-plugins.js` 执行的验证流水线(`scripts/lib/verify/`:AST 安全扫描 → 健康检查 → 按 pushed_at 增量缓存复用;单仓失败标记 unverified 降级,不阻塞整体同步)。开发过程中用过的安全规则单测、真实仓库 E2E、前端 DOM-shim 测试与语法检查均为临时脚本,**未提交到仓库**。AI 完成改动后必须声明"已验证/未验证",禁止编造测试结果。
+**没有测试套件、没有 lint 配置**——验证方式为：CI 的 `ci.yml` 门禁（JS 语法检查 + `plugins.json` schema 校验 + Worker dry-run 构建）、CI 的 secret-scan、本地预览手动走查关键路径（搜索/切换语言/主题/弹窗/打分），以及 `sync-plugins.yml` 每小时通过 `node scripts/sync-plugins.js` 执行的验证流水线(`scripts/lib/verify/`:AST 安全扫描 → 健康检查 → 资源画像 → 失效检测 → 按 pushed_at 增量缓存复用;单仓失败标记 unverified 降级,不阻塞整体同步)。开发过程中用过的安全规则单测、真实仓库 E2E、前端 DOM-shim 测试与语法检查均为临时脚本,**未提交到仓库**。AI 完成改动后必须声明"已验证/未验证",禁止编造测试结果。
 
 ---
 

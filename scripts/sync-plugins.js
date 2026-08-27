@@ -24,12 +24,14 @@ const path = require('path');
 const fs = require('fs');
 
 const { fetchAllRepos, filterExcluded, EXCLUDED_REPOS } = require('./lib/github');
+const { dedupRepos } = require('./lib/dedup');
 const { fetchJson, probeUrl } = require('./lib/http');
 const { verifyNpmPackage, sanitizeVersion } = require('./lib/npm-verify');
 const { detectPluginType } = require('./lib/plugin-type');
 const { loadPreviousData, injectBootstrap } = require('./lib/bootstrap');
 const { generateWiki } = require('./lib/wiki');
 const { runVerificationStage } = require('./lib/verify');
+const { runLivenessStage } = require('./lib/verify/liveness');
 
 async function main() {
   // --bootstrap-only：读取现有 data/plugins.json，仅更新 index.html 内嵌数据（不访问网络）
@@ -87,14 +89,18 @@ async function main() {
   const filtered = filterExcluded(items);
   console.log(`过滤后有效 dsh 插件数量: ${filtered.length}`);
 
+  console.log(`[2.5/5] 执行去重与镜像检测（fork 不重复收录，issue #18）...`);
+  const dedupResult = await dedupRepos(filtered, headers);
+  const deduped = dedupResult.kept;
+
   console.log(`[3/5] 执行严格 NPM 真实性双向校验...`);
   const batchSize = 10;
   const pluginsData = [];
   // 验证阶段需要各仓库根 package.json（manifest 健康检查用），按 fullName 暂存
   const pkgJsonMap = {};
 
-  for (let i = 0; i < filtered.length; i += batchSize) {
-    const batch = filtered.slice(i, i + batchSize);
+  for (let i = 0; i < deduped.length; i += batchSize) {
+    const batch = deduped.slice(i, i + batchSize);
     const batchResults = await Promise.all(batch.map(async repo => {
       const type = detectPluginType(repo.topics);
       const npmVerification = await verifyNpmPackage(repo);
@@ -104,7 +110,7 @@ async function main() {
       const readmeZhUrl = await detectChineseReadme(repo.full_name, branch);
 
       return {
-        id: repo.name,
+        id: repo.full_name,
         name: repo.name,
         fullName: repo.full_name,
         description: repo.description || (pkgJson?.description) || '暂无描述',
@@ -114,6 +120,7 @@ async function main() {
         repoUrl: repo.html_url,
         stars: repo.stargazers_count || 0,
         forks: repo.forks_count || 0,
+        archived: repo.archived === true,
         openIssues: repo.open_issues_count || 0,
         license: repo.license ? (repo.license.spdx_id || repo.license.name) : (pkgJson?.license || 'Unknown'),
         updatedAt: repo.updated_at,
@@ -129,12 +136,15 @@ async function main() {
         installCmd: npmVerification.installCmd,
         readmeUrl: `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch || 'main'}/README.md`,
         pushedAt: repo.pushed_at || null,
-        verification: null // 由下方验证阶段填充；先置空保证字段顺序稳定
+        verification: null, // 由下方验证阶段填充；先置空保证字段顺序稳定
+        // 镜像标注（issue #18）：仅 fork 且上游未收录/已删除时存在；
+        // 条件展开保证普通条目不带这两个字段，与历史数据结构完全兼容
+        ...(repo.__mirror ? { isMirror: true, upstream: repo.__mirror } : {})
       };
     }));
 
     pluginsData.push(...batchResults);
-    process.stdout.write(`已严格校验 NPM: ${pluginsData.length}/${filtered.length}\r`);
+    process.stdout.write(`已严格校验 NPM: ${pluginsData.length}/${deduped.length}\r`);
   }
 
   const npmPlugins = pluginsData.filter(p => p.hasNpm);
@@ -144,6 +154,21 @@ async function main() {
   // 3.5 可信度验证：AST 安全扫描 + 健康检查 + 置信度（增量，结果就地写入 pluginsData）
   await runVerificationStage(pluginsData, pkgJsonMap, headers);
 
+  // 3.6 失效检测：归档标记 + 消失条目探测（保留条目参与下方数量守卫，避免批量死亡误触发骤降熔断）
+  const prevForLiveness = loadPreviousData(path.join(__dirname, '..', 'data', 'plugins.json'));
+  // 本轮被跳过的镜像不再参与"消失条目"探测：否则 liveness 会把上一轮已收录的
+  // fork 残留条目当作 not-in-topic 复活，绕过去重收敛（验收标准第 1 条）
+  const skippedMirrorSet = new Set(
+    (dedupResult ? dedupResult.skippedList : []).map(s => s.fullName.toLowerCase())
+  );
+  await runLivenessStage(
+    pluginsData,
+    prevForLiveness && Array.isArray(prevForLiveness.plugins)
+      ? prevForLiveness.plugins.filter(p => !p || !skippedMirrorSet.has(String(p.fullName).toLowerCase()))
+      : [],
+    headers
+  );
+
   // 4. 写入 data/plugins.json
   console.log(`[4/5] 写入 data/plugins.json ...`);
   const dataDir = path.join(__dirname, '..', 'data');
@@ -152,7 +177,7 @@ async function main() {
   }
   const outputPath = path.join(dataDir, 'plugins.json');
   // 数量骤降守卫：较上次减少超过 50% 视为抓取异常，中止写入
-  const prev = loadPreviousData(outputPath);
+  const prev = prevForLiveness;
   if (prev && Array.isArray(prev.plugins) && prev.plugins.length >= 20 &&
       pluginsData.length < Math.floor(prev.plugins.length * 0.5)) {
     console.error(`⛔ 插件数量骤降 (${prev.plugins.length} -> ${pluginsData.length})，疑似抓取/过滤异常 — 中止写入`);

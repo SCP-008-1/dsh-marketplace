@@ -29,6 +29,19 @@
         chipAgent: "🤖 AI 智能体",
         chipTheme: "🎨 终端与 UI 主题",
         chipVerified: "✓ 仅看已验证",
+        // 失效检测
+        showDeadLabel: "☠️ 显示已失效",
+        lifeArchived: "已归档",
+        lifeDead: "已失效",
+        lifeRepoMissing: "源码不可达",
+        lifeArchivedTitle: "仓库已归档，不再维护，但仍可安装",
+        lifeDeadTitle: "仓库与 npm 包均已失效，无法安装",
+        lifeRepoMissingTitle: "GitHub 仓库不可访问，但 npm 包仍可正常安装",
+        // 镜像检测（issue #18）
+        mirrorBadge: "镜像",
+        mirrorTitle: (up) => `此仓库为 ${up} 的镜像副本，点击访问上游原始仓库`,
+        mirrorDead: "镜像·上游失效",
+        mirrorDeadTitle: "此镜像的上游原始仓库已删除，当前为唯一可用来源；可联系商城管理员将本仓库提升为正式条目（接管）",
         syntaxFilterTitle: "高级搜索语法",
         heroTrendingLink: "🔥 热门趋势",
         heroTopRatedLink: "⭐ 高分好评",
@@ -284,6 +297,19 @@
         chipAgent: "🤖 AI Agents",
         chipTheme: "🎨 Themes",
         chipVerified: "✓ Verified Only",
+        // Liveness
+        showDeadLabel: "☠️ Show offline",
+        lifeArchived: "Archived",
+        lifeDead: "Offline",
+        lifeRepoMissing: "Source gone",
+        lifeArchivedTitle: "Repository archived, no longer maintained, but still installable",
+        lifeDeadTitle: "Both repository and npm package are gone, cannot install",
+        lifeRepoMissingTitle: "GitHub repository unavailable, but the npm package still installs fine",
+        // Mirror detection (issue #18)
+        mirrorBadge: "Mirror",
+        mirrorTitle: (up) => `This repo is a mirror of ${up}; click to visit the upstream original`,
+        mirrorDead: "Mirror·Upstream gone",
+        mirrorDeadTitle: "The upstream original of this mirror has been deleted; this is now the only available source. Contact the marketplace maintainers to promote it to a full listing",
         syntaxFilterTitle: "Syntax Filter",
         heroTrendingLink: "🔥 Trending plugins",
         heroTopRatedLink: "⭐ Top rated",
@@ -624,6 +650,7 @@
       }
 
       setText("verifiedOnlyBtnSpan", t('verifiedOnly'));
+      setText("showDeadBtnSpan", t('showDeadLabel'));
 
       // Sort Filter options
       if (sortFilter) {

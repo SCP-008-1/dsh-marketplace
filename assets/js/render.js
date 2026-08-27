@@ -102,6 +102,9 @@
       if (parsedLightOnly) {
         activeTagsHtml.push('<span class="active-tag-badge">' + t('chipLight') + ' <span class="active-tag-remove" onclick="clearSearch()">✕</span></span>');
       }
+      if (showDead) {
+        activeTagsHtml.push('<span class="active-tag-badge">' + t('showDeadLabel') + ' <span class="active-tag-remove" onclick="toggleShowDead()">✕</span></span>');
+      }
 
       if (activeTagsHtml.length > 0) {
         activeFiltersRow.classList.add("show");
@@ -138,6 +141,12 @@
 
         // 轻量过滤：仅保留静态推断为 light 的插件（无画像数据时不匹配，宁缺勿滥）
         if (parsedLightOnly && !(pkg.resource && pkg.resource.weight === "light")) {
+          return false;
+        }
+
+        // 失效过滤：dead 默认隐藏，「显示已失效」开启后才可见（且排序沉底）
+        const lc = pkg.lifecycle;
+        if (lc && lc.status === "dead" && !showDead) {
           return false;
         }
 
@@ -181,6 +190,19 @@
           if (oa !== ob) return ob - oa;
           return (b.stars || 0) - (a.stars || 0);
         });
+      }
+
+      // 失效条目沉底（稳定分区）：active(0) < archived(1) < dead(2)，不改变同档内相对顺序
+      const lifeRank = p => {
+        const s = p.lifecycle && p.lifecycle.status;
+        return s === "dead" ? 2 : s === "archived" ? 1 : 0;
+      };
+      let rankChanged = false;
+      for (let i = 1; i < filteredList.length; i++) {
+        if (lifeRank(filteredList[i]) < lifeRank(filteredList[i - 1])) { rankChanged = true; break; }
+      }
+      if (rankChanged) {
+        filteredList.sort((a, b) => lifeRank(a) - lifeRank(b));
       }
 
       currentPage = 1;
@@ -272,6 +294,36 @@
       return html;
     }
 
+    // 失效状态角标：归档/死链/源码不可达（active 无字段不展示）
+    function lifecycleBadgeHtml(pkg) {
+      const lc = pkg.lifecycle;
+      if (!lc) return "";
+      if (lc.status === "dead") {
+        return '<span class="badge badge-life-dead" title="' + jsAttr(t('lifeDeadTitle')) + '">' + t('lifeDead') + '</span>';
+      }
+      if (lc.status === "archived") {
+        return '<span class="badge badge-life-archived" title="' + jsAttr(t('lifeArchivedTitle')) + '">' + t('lifeArchived') + '</span>';
+      }
+      if (lc.repoMissing) {
+        return '<span class="badge badge-trust-warn" title="' + jsAttr(t('lifeRepoMissingTitle')) + '">' + t('lifeRepoMissing') + '</span>';
+      }
+      return "";
+    }
+
+    // 镜像角标（issue #18）：确认为镜像的条目标注「镜像 → 指向上游」而非隐藏（保留发现价值）；
+    // 上游已删除时给出接管提示路径：镜像成为唯一来源，可联系管理员提升为正式条目
+    function mirrorBadgeHtml(pkg) {
+      if (!pkg.isMirror) return "";
+      const up = pkg.upstream;
+      if (!up || up.alive === false || !up.fullName) {
+        return '<span class="badge badge-mirror-dead" title="' + jsAttr(t('mirrorDeadTitle')) + '">' + t('mirrorDead') + '</span>';
+      }
+      const url = up.url || ('https://github.com/' + up.fullName);
+      return '<a class="badge badge-mirror" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer"' +
+        ' title="' + jsAttr(t('mirrorTitle', up.fullName)) + '" onclick="event.stopPropagation()">' +
+        t('mirrorBadge') + ' →</a>';
+    }
+
     // 卡片可信度角标：仅有验证数据时显示，避免上线初期满屏"未验证"噪音
     function trustBadgeHtml(pkg) {
       const v = pkg.verification;
@@ -323,6 +375,8 @@
                 (pkg.hasNpm ? '<span class="badge badge-verified" title="' + t('badgeVerifiedTitle') + '">' + t('badgeVerified') + '</span>' : '') +
                 trustBadgeHtml(pkg) +
                 resourceBadgeHtml(pkg) +
+                lifecycleBadgeHtml(pkg) +
+                mirrorBadgeHtml(pkg) +
                 bookmarkButtonHtml(pkg, isBookmarked, isBookmarked ? t('removeFavoriteTitle') : t('addFavoriteTitle')) +
               '</div>' +
             '</div>' +
@@ -379,6 +433,8 @@
                 (pkg.hasNpm ? '<span class="badge badge-verified">✓</span>' : '') +
                 trustBadgeHtml(pkg) +
                 resourceBadgeHtml(pkg) +
+                lifecycleBadgeHtml(pkg) +
+                mirrorBadgeHtml(pkg) +
               '</div>' +
             '</div>' +
           '</div>' +

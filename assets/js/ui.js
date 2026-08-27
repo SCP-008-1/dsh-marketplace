@@ -203,6 +203,13 @@
       applyFilters();
     }
 
+    function toggleShowDead() {
+      showDead = !showDead;
+      const btn = document.getElementById("showDeadBtn");
+      if (btn) btn.classList[showDead ? "add" : "remove"]("active");
+      applyFilters();
+    }
+
     function setViewMode(mode) {
       currentViewMode = mode;
       localStorage.setItem("dsh_view_mode", mode);
