@@ -403,9 +403,11 @@
           // .package-card-footer 的 margin-top:auto(main.css:1397) 保证多卡片等高时按钮靠底对齐
           '<div class="package-card-footer">' +
             '<div class="package-metrics-row">' +
-              (rating === null ? '' : '<span class="metric-item" title="' + t('cardRatingTitle') + '">★ ' + rating + '</span>') +
-              '<span class="metric-item" title="' + t('cardStarsTitle') + '">⭐ ' + formatNumber(pkg.stars) + '</span>' +
-              '<span class="metric-item package-metric-date" title="' + t('cardUpdatedTitle') + (pkg.updatedAt || '') + '">⏱ ' + formatDate(pkg.updatedAt) + '</span>' +
+              '<div class="package-metrics-left">' +
+                (rating === null ? '' : '<span class="metric-item" title="' + t('cardRatingTitle') + '">★ ' + rating + '</span>') +
+                '<span class="metric-item" title="' + t('cardStarsTitle') + '">⭐ ' + formatNumber(pkg.stars) + '</span>' +
+              '</div>' +
+              '<span class="metric-item package-metric-date" title="' + t('cardUpdatedTitle') + escapeHtml(pkg.updatedAt || '') + '">⏱ ' + formatDate(pkg.updatedAt) + '</span>' +
             '</div>' +
             '<div class="package-actions-footer">' +
               '<button class="btn btn-ghost" style="flex:1;" onclick="openDetailModal(\'' + jsAttr(pkg.id) + '\')">' + t('viewDetailsBtn') + '</button>' +
