@@ -1395,11 +1395,14 @@ section[id], #packagesSection {
 
 .package-card-footer {
   margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .package-metrics-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   font-size: 11.5px;
   color: var(--text-tertiary);
@@ -1407,7 +1410,22 @@ section[id], #packagesSection {
   padding-top: 10px;
   border-top: 1px solid var(--border-subtle);
   height: 32px;
+  width: 100%;
   box-sizing: border-box;
+}
+
+.package-metrics-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.package-metric-date {
+  margin-left: auto;
+  text-align: right;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .metric-item {
@@ -1423,6 +1441,8 @@ section[id], #packagesSection {
   justify-content: space-between;
   gap: 8px;
   height: 32px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .bookmark-btn {
